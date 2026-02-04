@@ -890,14 +890,14 @@ button.btn-primary:hover {
   color: #f7941d; /* orange */
 }
 
-
-/* PROJECTS NAV BAR: Flat bar + underline tabs */
+/* ---------------------------- */
+/* Project topbar: true center  */
+/* ---------------------------- */
 
 .project-topbar{
-  display:grid;
-  grid-template-columns: auto 1fr auto;
-  align-items:center;
-  gap: 1rem;
+  position: relative;
+  display: flex;
+  align-items: center;
   padding: .65rem 1.1rem;
   margin: 0 0 1.25rem 0;
 
@@ -905,44 +905,58 @@ button.btn-primary:hover {
   border-bottom: 2px solid rgba(0,0,0,.08);
 }
 
-.project-brand{
-  display:flex;
-  align-items:center;
+/* Brand stays left and is vertically centered */
+.project-topbar .project-brand{
+  display: flex;
+  align-items: center;
   gap: .6rem;
   white-space: nowrap;
 }
 
-.project-brand-link{ display:inline-flex; align-items:center; text-decoration:none; }
-.project-brand-logo{ height: 70px; width:auto; }
-.project-brand-title{ font-size: 1.6rem; font-weight: 700; color:#2b6da8; }
+.project-topbar .project-brand-title{
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
 
-.project-tabs{
-  display:flex;
-  justify-content: center;
-  gap: 1.25rem;
-  flex-wrap: wrap;
+/* Nudge only if your PNG has transparent padding */
+.project-topbar .project-brand-logo{
+  height: 80px;
+  width: auto;
+  display: block;
+  transform: translateY(1px); /* try 0px, 1px, or 2px */
+}
+
+/* Tabs are centered across the bar */
+.project-topbar .project-tabs{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  gap: 0;
+  width: 60%;
+  max-width: 900px;
 }
 
 .project-tab{
-  color:#1f5f99;
-  text-decoration:none;
+  font-size: 1.15rem;
   font-weight: 600;
-  padding: .25rem 0;
-  border-bottom: 3px solid transparent;
 }
 
-.project-tab:hover{
-  border-bottom-color: rgba(31,95,153,.35);
-  text-decoration:none;
-}
-
-.project-tab.is-active{
-  border-bottom-color: #1f5f99;
-}
-
+/* Mobile: stack instead of absolute centering */
 @media (max-width: 900px){
-  .project-topbar{ flex-direction: column; align-items:flex-start; }
-  .project-tabs{ margin-left:0; }
+  .project-topbar{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .6rem;
+  }
+  .project-topbar .project-tabs{
+    position: static;
+    transform: none;
+    left: auto;
+    justify-content: flex-start;
+  }
 }
 
 

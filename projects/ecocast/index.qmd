@@ -31,7 +31,7 @@ format:
 <span class="image-caption">Mark Conlin – NOAA Fisheries / Mark Conlin</span>
 :::
 
-### **An Eco-Informatic Tool for Sustainable Fisheries**
+### <span style="color:#2b6da8;">**An Eco-Informatic Tool for Sustainable Fisheries**</span>
 
 
 ::: {.ecocast-card-grid}
