@@ -8,6 +8,8 @@ project:
 
 website:
   title: "CoastWatch West Code Node"
+  favicon: images/coastwatch.png
+
   navbar:
     logo: images/coastwatch_logo.png
     right:

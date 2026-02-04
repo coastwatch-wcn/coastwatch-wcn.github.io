@@ -11,6 +11,20 @@ format:
 
 :::{.ecocast-page}
 
+::: {.project-topbar}
+
+<div class="project-brand">
+  <img src="images/ecocast_logo_003366.png" alt="EcoCast logo" class="project-brand-logo">
+</div>
+
+<nav class="project-tabs" aria-label="EcoCast navigation">
+  <a class="project-tab is-active" href="about_ecocast.qmd">About EcoCast</a>
+  <a class="project-tab" href="ecocast_map.qmd">EcoCast Map</a>
+  <a class="project-tab" href="ecocast_explorer.qmd">EcoCast Explorer</a>
+</nav>
+
+:::
+
 ::: {.ecocast-hero}
 ![](images/blue_shark.png){.hero-img}
 
