@@ -1415,3 +1415,230 @@ button.btn-primary:hover {
   color: #fff !important;      /* keep white text */
   text-decoration: none !important; /* prevent underline on hover */
 }
+
+/* ------------------- */
+/* ECOCAST PROJECT     */
+/* ------------------- */
+
+.ecocast-page .ecocast-hero {
+  text-align: right;
+  margin-bottom: 2rem;
+  position: relative;
+  margin-top: 1rem;
+}
+
+.ecocast-page .hero-img {
+  width: 100%;
+  max-height: 400px;
+  display: block;
+  object-fit: cover;
+  border-radius: 0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.ecocast-page .image-caption {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #555;
+  margin-top: 0.25rem;
+  padding-right: 0.5rem;
+  display: block;
+}
+
+.ecocast-page .ecocast-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.ecocast-page .ecocast-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ecocast-page .ecocast-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.ecocast-page .ecocast-card h3 {
+  margin-top: 0;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.ecocast-page .btn-outline-primary {
+  margin-top: 1rem;
+  padding: 0.5rem 1.2rem;
+  border: 2px solid black;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.ecocast-page .btn-outline-primary:hover {
+  background-color: black;
+  color: white;
+}
+
+.ecocast-page .callout-note.ecocast-dropdown {
+  border-left: 6px solid #0077c8;
+  background-color: #f9f9f9;
+}
+
+.ecocast-page .callout-note.ecocast-dropdown .callout-header {
+  font-weight: 600;
+  color: black;
+}
+
+/* EcoCast layout styles */
+.ecocast-page .ecocast-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  align-items: flex-start;
+  margin-bottom: 2em;
+}
+
+.ecocast-page .ecocast-column {
+  flex: 1;
+  min-width: 300px; /* ensures stacking on narrow screens */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ecocast-page .ecocast-card {
+  background: #f8f9fa;
+  padding: 1em 1.25em;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.ecocast-page .ecocast-card a {
+  color: #2b6da8; /* NOAA blue for links */
+  text-decoration: underline;
+}
+
+/* Ensure figures in EcoCast cards look clean */
+.ecocast-page .ecocast-card img {
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  margin-bottom: 1em;
+}
+
+/* Replace boring bullets with custom ones */
+.ecocast-page .ecocast-card ul {
+  list-style: none;        /* remove default bullets */
+  padding-left: 1.2em;     /* indent */
+}
+
+.ecocast-page .ecocast-card ul li {
+  position: relative;
+  margin-bottom: 0.5em;
+}
+
+.ecocast-page .ecocast-card ul li::before {
+  content: "◆";            
+  color: #2b6da8;          /* NOAA blue */
+  font-size: 0.8em;
+  position: absolute;
+  left: -1.2em;
+  top: 0.2em;
+}
+
+.ecocast-page .ecocast-disclaimer {
+  background: #f1f3f5;     /* lighter gray */
+  padding: 1em 1.25em;
+  border-radius: 6px;
+  font-size: 0.85em;       /* slightly smaller text */
+  line-height: 1.5;
+  border-left: 4px solid #6c757d; /* accent bar */
+  margin-top: 2em;
+}
+.ecocast-page .ecocast-disclaimer a {
+  color: #2b6da8; /* NOAA blue for links */
+  text-decoration: underline;
+}
+
+/* Make summary look like a blue Bootstrap-style button */
+.ecocast-page .ecocast-buttons summary {
+  display: inline-block;
+  background-color: #2b6da8; /* NOAA blue */
+  color: #fff;
+  padding: 0.5em 1em;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  border: none;
+}
+
+.ecocast-page .ecocast-buttons summary:hover {
+  background-color: #244f7a; /* darker blue on hover */
+}
+
+/* Remove the ugly default <details> border and triangle */
+.ecocast-page .ecocast-buttons {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.ecocast-page .ecocast-buttons summary::-webkit-details-marker {
+  display: none;
+}
+.ecocast-page .ecocast-buttons summary::marker {
+  display: none;
+}
+
+.ecocast-page .noaa-blue {
+  color: #2b6da8;
+}
+
+/* Base collapsible card */
+.ecocast-page .ecocast-faq {
+  margin-bottom: 1em;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+  background: #f8f9fa;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+/* Summary = card header */
+.ecocast-page .ecocast-faq summary {
+  cursor: pointer;
+  padding: 0.25em 0.5em;
+  font-weight: 600;
+  color: #2b6da8; /* NOAA blue */
+  background: #f0f6fa;
+  list-style: none; /* remove triangle marker */
+}
+
+.ecocast-page .ecocast-faq summary::-webkit-details-marker,
+.ecocast-page .ecocast-faq summary::marker {
+  display: none; /* hide disclosure triangle */
+}
+
+/* Content area = card body */
+.ecocast-page .ecocast-faq[open] {
+  background: #fff;
+}
+
+.ecocast-page .ecocast-faq[open] summary {
+  border-bottom: 1px solid #dee2e6;
+  background: #e9f3fb;
+}
+
+.ecocast-page .ecocast-faq p,
+.ecocast-page .ecocast-faq ul {
+  padding: 0.5em 0.75em;
+  margin: 0.25em 0;
+}

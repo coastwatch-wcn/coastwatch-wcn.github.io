@@ -5,9 +5,11 @@ format:
     theme: lux
     toc: false
     page-layout: full
-    css: styles.css
+    styles: ../../styles.css
 ---
 ### *An Eco-Informatic Tool for Sustainable Fisheries*
+
+:::{.ecocast-page}
 
 ::: {.ecocast-hero}
 ![](images/blue_shark.png){.hero-img}
@@ -38,6 +40,8 @@ EcoCast maps combine predicted distributions of target and bycatch species to su
 EcoCast Explorer tool gives users an opportunity to explore how species are responding to changing ocean conditions, and how that can influence the EcoCast Map product.
 
 [Run Analysis](ecocast_explorer.qmd){.btn-noaa}
+:::
+
 :::
 
 :::
