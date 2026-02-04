@@ -1,0 +1,99 @@
+---
+title: "Satellite Courses"
+anchor-sections: false
+format:
+  html:
+    toc: false
+page-layout: full
+---
+
+::: {.sat-columns}
+::: {.sat-column .sat-card}
+
+## Overview
+
+[Information and Course Dates](https://coastwatch.noaa.gov/cwn/training-courses.html){.btn-noaa}
+
+Are you interested in using oceanographic satellite data in your work but don't know where to start? The NOAA CoastWatch program offers in-person and online courses where participants learn about environmental satellite data and how to easily obtain it. Participants also gain hands on experience working with the data of interest to them. A major goal of the course is to provide scientists who are not regular users of satellite data with the knowledge and tools they need to incorporate satellite data into their research and management projects.
+
+## Resources
+
+<details class="sat-faq">
+    <summary><strong>Documents</strong></summary>
+
+- [Course Information and Registration](https://coastwatch.noaa.gov/cwn/training-courses.html)
+- [Satellite Training Materials](https://umd.instructure.com/courses/1336575)
+- [ERDDAP, R and Python Tutorials](https://github.com/coastwatch-training/)
+
+</details>
+
+:::
+
+::: {.sat-column .sat-card}
+
+## Satellite Course FAQs
+
+<details class="sat-faq">
+<summary><strong>How is the course structured?</strong></summary>
+
+The course consists of both instructional materials and virtual workshops. The instructional materials introduce participants to the different types of environmental satellite data, including ocean color, sea surface temperature, sea surface height, salinity, and ocean surface winds.
+
+In the workshops, participants are provided with individual and group assistance to use tools to locate online satellite data at the spatial and temporal coverage appropriate to their needs and download the data into the software of their choice. We generally focus on R, ArcGIS, and Python, because of the popularity of these software packages, however participants using other software packages are also welcome.
+
+
+Participants are expected to come to the course with a specific project to work on during the workshops. For example, if their project is to merge tagged animal tracks with satellite data, they should bring track data with them. Participants get more out of the workshop if they have specific questions or projects to work on.
+
+</details>
+
+<details class="sat-faq">
+<summary><strong>Who should take the course?</strong></summary>
+
+The courses are geared towards National Marine Fisheries Service and National Ocean Service scientists, but non-NOAA participants are welcome if space permits. Hundreds of people have taken this course, with participants from each of the six fisheries science centers, many of the marine sanctuaries, as well as other government agencies such as the US Coast Guard, US Geological Survey and the US Fish and Wildlife Service.
+
+</details>
+
+<details class="sat-faq">
+<summary><strong>How much does it cost?</strong></summary>
+
+There is no fee associated with the course, but participants will be requested to submit a single PowerPoint slide that discribes the projects they worked on during the course.
+
+</details>
+
+<details class="sat-faq">
+<summary><strong>Where were past courses held?</strong></summary>
+
+Dates and locations of past courses
+
+| Date   | Location                                |
+|--------|-----------------------------------------|
+| 4/2020 | USGS Anchorage, Online                  |
+| 2/2020 | University of Puerto Rico, San Juan     |
+| 9/2019 | Texas A & M, Galveston                  |
+| 8/2018 | University of Washington, Seattle       |
+| 8/2017 | University of Washington, Seattle       |
+| 8/2016 | University of Washington, Seattle       |
+| 8/2015 | University of Washington, Seattle       |
+| 8/2014 | University of Washington, Seattle       |
+| 8/2013 | Oregon State University, Corvallis      |
+| 3/2012 | NOS Coastal Services, Charleston, SC    |
+| 3/2011 | Oregon State University, Corvallis      |
+| 8/2010 | Peninsula College, Monterey, CA         |
+| 8/2009 | Peninsula College, Monterey, CA         |
+| 3/2008 | Oregon State University, Corvallis      |
+| 3/2007 | Oregon State University, Corvallis      |
+| 8/2006 | Oregon State University, Corvallis      |
+
+</details>
+
+<details class="sat-faq">
+<summary><strong>When and where is the next course?</strong></summary>
+
+For the dates and locations of upcoming courses, please review the course offerings at the following link: 
+https://coastwatch.noaa.gov/cwn/training-courses.html
+
+To be notified about future courses, contact [Cara Wilson](contact_us.qmd) or sign-up for course updates using the form on this page.
+
+</details>
+
+:::
+:::

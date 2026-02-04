@@ -1,0 +1,86 @@
+---
+title: "Contact and Feedback"
+anchor-sections: false
+format:
+  html:
+    toc: false
+page-layout: full
+---
+
+::: {style="display: flex; flex-direction: column; gap: 2rem; margin-top: 2rem;"}
+
+<!-- Contact Card -->
+::: {.contact-card style="background-color: #f8f9fa; padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);"}
+
+### Contact Us
+
+::: {style="display: flex; flex-wrap: wrap; gap: 2rem;"}
+
+::: {style="flex: 1 1 250px;"}
+<span style="font-weight: 700; font-size: 1.2rem;">Cara Wilson</span>  
+<span style="color: #0077be;">Manager, CoastWatch West Coast</span><br>
+99 Pacific Street, Suite 255A
+Monterey, CA 93940
+[cara.wilson@noaa.gov](mailto:cara.wilson@noaa.gov)  
+831-648-5337
+:::
+
+::: {style="flex: 1 1 250px;"}
+<span style="font-weight: 700; font-size: 1.2rem;">Dale Robinson</span>  
+<span style="color: #0077be;">Development Lead, CoastWatch West Coast</span><br>
+110 Shaffer Road
+Santa Cruz, CA 95060
+[dale.robinson@noaa.gov](mailto:dale.robinson@noaa.gov)  
+831-420-3667
+:::
+
+:::
+:::
+
+<!-- Feedback Card -->
+::: {.form-card style="background-color: #f8f9fa; padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);"}
+
+### Guest Book and Feedback Form
+Please comment on the website and data products.
+
+::: {style="display: flex; flex-wrap: wrap; gap: 2rem;"}
+
+::: {style="flex: 1 1 250px;"}
+<input type="text" placeholder="Name (required)" required>
+<input type="email" placeholder="Email (required)" required>
+:::
+
+::: {style="flex: 1 1 250px;"}
+<input type="text" placeholder="Organization (required)" required>
+<input type="tel" placeholder="Phone">
+:::
+
+::: {style="flex: 1 1 250px;"}
+<input type="text" placeholder="Address">
+<input type="text" placeholder="City-State-Zip-Country">
+:::
+
+<!-- Dropdown -->
+<select required style="padding: 0.75rem; border-radius: 6px; border: 1px solid #ccc; font-size: 0.95rem; width: 100%;">
+  <option value="" disabled selected>***CATEGORY***</option>
+  <option>NOAA (intra-agency)</option>
+  <option>US Government (non-NOAA)</option>
+  <option>State Government</option>
+  <option>Local Government</option>
+  <option>Foreign Government</option>
+  <option>Academic (US)</option>
+  <option>Academic (Foreign)</option>
+  <option>Private</option>
+  <option>Military</option>
+  <option>Other</option>
+</select>
+
+<textarea rows="6" placeholder="Please enter comments here..." style="padding: 0.75rem; border-radius: 6px; border: 1px solid #ccc;"></textarea>
+
+<!-- Submit and Clear Buttons -->
+<button type="submit" class="btn btn-primary">Submit Comments</button>
+<button type="reset" class="btn btn-primary">Clear Form</button>
+:::
+
+:::
+:::

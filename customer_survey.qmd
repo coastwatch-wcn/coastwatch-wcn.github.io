@@ -1,0 +1,61 @@
+---
+title: "Customer Survey"
+anchor-sections: false
+format:
+  html:
+    toc: false
+page-layout: full
+---
+
+::: {style="display: flex; flex-direction: column; gap: 2rem; margin-top: 2rem;"}
+
+<!-- Customer Survey Card -->
+::: {.customer-card style="background-color: #f8f9fa; padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);"}
+
+### Customer Survey For This Website
+
+::: {style="display: flex; flex-wrap: wrap; gap: 2rem;"}
+
+::: {style="flex: 1 1 250px;"}
+<span style="font-weight: 700; font-size: 1.2rem; color: #0077be;">Welcome!</span><br>
+
+<p>This survey is designed to measure your level of satisfaction with NOAA's websites. It consists of 12 questions and should take approximately five minutes to complete. Please do not use this survey to provide comments on or responses to rules, notices, solicitations or other official agency actions. Any information you provide will be used to for the sole purpose of improving NOAA's products and services, in particular the website you are using now.</p>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSeEIDpmem6L22F4qgYL1ACOyBA5csanD0UHVavXZSdRElMFnQ/viewform" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">Take the Survey</a>
+
+If you want a response to a specific question, please use the [contact and feedback section](#contact_us.qmd) of this website.
+
+:::
+:::
+
+:::
+<!-- Fine Print Card -->
+::: {.fine-card style="background-color: #f8f9fa; padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);"}
+
+### The Fine Print
+
+::: {style="display: flex; flex-wrap: wrap; gap: 2rem;"}
+
+::: {style="flex: 1 1 250px;"}
+
+<p>In accordance with Executive Order 12862, the National Performance Review, and good management practices, NOAA offices want to determine whether their customers are satisfied with the services and products they are receiving, and whether they have suggestions as to how the services and products may be improved or made more useful. The information will be used to improve NOAA's products and services.</p>
+
+<p>Responses to this survey will not be treated as official correspondence to the agency, so you may not receive a reply from NOAA. Do not use this survey to provide public comments on rulemakings, respond to solicitations, or communicate about any official agency action. Instead, provide your comments or feedback as described in the action you want to respond to, or use a designated channel for official comments (for example, www.regulations.gov to comment on notices of rulemaking).</p>
+
+<p>Responding to this survey is completely voluntary. No confidentiality can be provided for responses, and you need not supply your name or address. Any information you provide will be used to for the sole purpose of improving NOAA's products and services.</p>
+
+<p>Public reporting burden for this collection of information is estimated to average 5 minutes. Send comments regarding this burden estimate or any other aspect of this collection of information, including suggestions for reducing this burden, to:</p>
+
+<span style="color: #0077be;">Adrienne Thomas, OCIO/CDO 151<br>
+Patton Avenue<br>
+Asheville, NC 28801 828-257-3148</span>
+
+<p>Notwithstanding any other provision of the law, no person is required to respond to, nor shall any person be subject to a penalty to comply with, a collection of information subject to the requirements of the Paperwork Reduction Act, unless that collection of information displays a currently valid OMB Control Number:</p>
+
+<span style="color: #0077be;">Paperwork Reduction Act Information<br>
+(OMB Control Number 0690-0030)<br>
+Expires 07/31/2026</span>
+
+:::
+
+
+:::

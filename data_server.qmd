@@ -1,0 +1,146 @@
+---
+title: "ERDDAP Data Server"
+anchor-sections: false
+page-layout: full
+format:
+  html:
+    toc: false
+---
+
+<!-- ---TOP GRID ROW -------------------------------------------------------------------------------------------------------------------- -->
+
+::: {style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 1rem; align-items: start; margin-top: 1rem;"}
+
+## Getting Data is Easy
+
+<!-- Left Card -->
+::: {.card .erddap-card style="padding: 2rem; background-color: #f8f9fa; border-radius: 1rem;"}
+
+### ERDDAP makes it easy to access data
+
+ERDDAP is a data server that gives you a simple, consistent way to download data in the format and the spatial and temporal coverage that you want.
+
+### Humans and machines can use ERDDAP
+
+ERDDAP is a web application with an interface for people to use. It is also a RESTful web service that allows data access directly from any computer program (e.g. Matlab, R, or webpages).
+
+### Make customized maps and graphs
+
+Use ERDDAP to generate `.png` and `.pdf` files on-the-fly from gridded and tabular scientific datasets and insert them directly into webpages.
+
+### Search for datasets
+
+ERDDAP’s search capabilities allow full text searches of the metadata or searches by metadata categories, such as keywords, standard name, and data type.
+
+:::
+
+::: {.right-dropdowns}
+
+## ERDDAP Basics
+
+<!-- Right Column with Expandable Sections -->
+<div style="padding-top: 0.5rem;">
+
+<details class="erddap-dropdown">
+  <summary><strong>Access ERD's ERDDAP Server</strong></summary>
+
+  <br>
+
+  <p>The Environmental Research Division maintains an ERDDAP server with an extensive collection of environmental datasets. CoastWatch data are drawn from the ERD ERDDAP.</p>
+  <p>The links below lead to the gridded and tabular data collections, and to a dataset search page:</p>
+  <ul>
+    <li><a href="https://coastwatch.pfeg.noaa.gov/erddap/griddap/index.html">Gridded Datasets</a></li>
+    <li><a href="https://coastwatch.pfeg.noaa.gov/erddap/tabledap/index.html">Tabular Datasets</a></li>
+    <li><a href="https://coastwatch.pfeg.noaa.gov/erddap/index.html">ERDDAP Home</a></li>
+    <li><a href="https://coastwatch.pfeg.noaa.gov/erddap/search/index.html">Search</a></li>
+  </ul>
+</details>
+
+<details class="erddap-dropdown">
+  <summary><strong>Sending a Data Request to ERDDAP</strong></summary>
+  <div style="font-size: 1rem;">
+
+  <br>
+
+  <p><strong class="dropdown-heading">The URL specifies your data request</strong><br>
+  Your query is sent to ERDDAP in a specially formed URL containing the dataset of interest, a description of how you want the data subsetted or graphed, and the file type you want returned to you.</p>
+
+  <p><strong class="dropdown-heading">ERDDAP or you make the URL</strong><br>
+  You may use ERDDAP’s “Data Access” and “Make A Graph” tools to quickly make the URL or bypass the forms by generating the URL by hand or with a computer program or script.</p>
+
+  <p><strong class="dropdown-heading">The URLs take the following form</strong><br>
+  <code>
+    <span style="color:black;">https://</span><span style="color:#e74c3c;">baseURL</span><span style="color:black;">/</span>
+    <span style="color:#27ae60;">datasetID</span><span style="color:black;">.</span>
+    <span style="color:#3498db;">fileType</span><span style="color:black;">{</span>
+    <span style="color:#f39c12;">?query</span><span style="color:black;">}</span>
+  </code>
+  </p>
+
+  <ul>
+    <li><span style="color:#e74c3c;"><strong>baseURL:</strong></span> to the gridded or tabular dataset</li>
+    <li><span style="color:#27ae60;"><strong>datasetID:</strong></span> unique identifier of the dataset of interest</li>
+    <li><span style="color:#3498db;"><strong>fileType:</strong></span> specifies the type of data file that you want</li>
+    <li><span style="color:#f39c12;"><strong>query:</strong></span> specify how you want the dataset subsetted</li>
+  </ul>
+</div>
+</details>
+
+<details class="erddap-dropdown">
+<summary><strong>Standard File Formats</strong></summary>
+
+<br>
+<div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+
+<div style="flex: 1 1 200px;">
+<strong class="dropdown-heading">Data file types</strong><br>
+<code>.asc</code>, <code>.csv</code>, <code>.csvp</code>, <code>.csv0</code><br>
+<code>.das</code>, <code>.dds</code>, <code>.dods</code>, <code>.esriAscii</code><br>
+<code>.fgdc</code>, <code>.graph</code>, <code>.help</code>, <code>.html</code><br>
+<code>.htmlTable</code>, <code>.iso19115</code>, <code>.json</code>, <code>.mat</code><br>
+<code>.nc</code>, <code>.ncHeader</code>, <code>.ncml</code>, <code>.odvTxt</code><br>
+<code>.tsv</code>, <code>.tsvp</code>, <code>.tsv0</code>, <code>.xhtml</code>
+</div>
+
+<div style="flex: 1 1 200px;">
+<strong class="dropdown-heading">Image file types</strong><br>
+<code>.geotif</code>, <code>.kml</code>, <code>.pdf</code>, <code>.smallPdf</code><br>
+<code>.largePdf</code>, <code>.png</code>, <code>.smallPng</code>, <code>.largePng</code><br>
+<code>.transPng</code>
+</div>
+
+</div>
+
+</details>
+
+<details class="erddap-dropdown">
+<summary><strong>ERDDAP Tutorial on YouTube</strong></summary>
+
+<br>
+
+<strong class="dropdown-heading">Extract ocean surface current data from ERDDAP</strong>
+
+The video demonstrates how to extract ocean surface current data from ERDDAP and use them for simulated particle tracking in the NOAA GNOME model.
+
+<div style="margin-top: 1rem;">
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/18xZoXu1USM" title="ERDDAP to GNOME" frameborder="0" allowfullscreen></iframe>
+</div>
+
+</details>
+
+<details class="erddap-dropdown">
+<summary>Documentation & Help</summary>
+
+<ul style="margin-top: 1rem; line-height: 1.8;">
+  <li><a href="https://coastwatch.pfeg.noaa.gov/erddap/griddap/documentation.html" target="_blank">Documentation for gridded datasets</a></li>
+  <li><a href="https://coastwatch.pfeg.noaa.gov/erddap/tabledap/documentation.html" target="_blank">Documentation for tabular datasets</a></li>
+  <li><a href="https://erddap.github.io/docs/server-admin/deploy-install" target="_blank">Set up your own ERDDAP</a></li>
+  <li><a href="https://coastwatch.pfeg.noaa.gov/erddap/index.html" target="_blank">ERDDAP Overview</a></li>
+  <li><a href="https://coastwatch.pfeg.noaa.gov/projects/erddap/" target="_blank">ERDDAP Tutorial</a></li>
+</ul>
+
+</details>
+
+</div>
+
+:::

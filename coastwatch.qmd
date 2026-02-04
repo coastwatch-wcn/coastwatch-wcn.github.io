@@ -1,0 +1,56 @@
+---
+title: "About CoastWatch"
+anchor-sections: false
+format:
+  html:
+    toc: false
+page-layout: full
+---
+
+::: {style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;"}
+  
+::: {.about-card}
+<h3><span style="color: #003366;">Mission</span></h3>
+<p>The mission of NOAA’s CoastWatch is to provide timely access to near real-time satellite data to monitor, restore, and manage U.S. coastal ocean resources.</p>
+:::
+
+::: {.about-card}
+<h3><span style="color: #003366;">User Community</span></h3>
+<p>Our users include Federal, State, and local coastal resource managers, marine scientists, educators and the general public.</p>
+:::
+:::
+
+---
+
+### National CoastWatch Program
+<p>CoastWatch provides a wide range of satellite environmental data to support the work of coastal scientists and resource managers in all U.S. coastal waters. NOAA CoastWatch is organized into a Central Operations office and six Regional Nodes:</p>
+
+#### Central Operations
+<p>[Central Operations](https://coastwatch.noaa.gov/cwn/index.html), which is managed by NOAA's National Environmental Satellite, Data, and Information Service [NESDIS](https://www.nesdis.noaa.gov/), coordinates the processing, delivery, quality control, and storage of data products.</p>
+
+#### Regional Nodes
+<p>Hosted at NOAA line offices located around the country, the distribution of the Regional Nodes allows for the development of satellite products and scientific expertise that are of regional importance.</p>
+
+![](images/regional_nodes.png)
+
+<ul>
+  <li><a href="https://coastwatch.noaa.gov/cwn/index.html)" class="central-op">Central Operations Research & Applications</a></li>
+  <li><a href="https://coastwatch.glerl.noaa.gov/" class="great-lakes">Great Lakes Node</a></li>
+  <li><a href="https://oceanwatch.pifsc.noaa.gov/" class="central-pacific">OceanWatch Central Pacific Node</a></li>
+  <li><a href="https://eastcoast.coastwatch.noaa.gov/" class="east-coast">East Coast Node</a></li>
+  <li><a href="https://cwcaribbean.aoml.noaa.gov/" class="gulf-caribbean">Gulf/Caribbean Node</a></li>
+  <li><a href="https://waternode.ciroh.org/" class="water-prediction">Water Prediction Node</a></li>
+  <li><a href="https://polarwatch.noaa.gov/" class="polarwatch">PolarWatch</a></li>
+  <li><span class="west-coast">West Coast Node</span></li>
+</ul>
+
+
+---
+
+### CoastWatch West Coast Regional Node
+<p>The CoastWatch West Coast Regional Node (WCRN) provides rapid dissemination of satellite observation data to governmental, academic, commercial, and public users. The WCRN was established in September 1995. It is hosted by [NOAA Fisheries](https://coastwatch.pfeg.noaa.gov/www.nmfs.noaa.gov/), [Southwest Fisheries Science Center's](https://swfsc.noaa.gov/) [Environmental Research Division](https://swfsc.noaa.gov/ERD/). Presently, CoastWatch WCRN is housed at the [Fisheries Ecology Division](https://swfsc.noaa.gov/FED/) in Santa Cruz, CA.</p>
+
+---
+
+### Environmental Research Division
+<p>The [Environmental Research Division](https://swfsc.noaa.gov/ERD/) (ERD) of the [Southwest Fisheries Science Center](https://swfsc.noaa.gov/) provides innovative science-based analyses, products, and information on environmental variability to meet the research and management needs of the [Southwest Fisheries Science Center](https://swfsc.noaa.gov/), the [National Marine Fisheries Service](https://www.fisheries.noaa.gov/), and [NOAA](https://www.noaa.gov/). The ERD conducts research on fishery-related effects of natural environmental variability over a broad range of scientific, management, and operational concerns of the government and the fishing industry. As a part of this work, the ERD develops and maintains an extensive database of environmental observations. The data activities of the CoastWatch WCRN are fully integrated with the data services provided by the ERD.<p>

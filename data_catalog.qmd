@@ -1,0 +1,274 @@
+---
+anchor-sections: false
+format:
+  html:
+    toc: false
+page-layout: full
+jupyter: python3
+---
+## Data Catalog
+
+The West Coast Node ERDDAP data server hosts over 1,700 datasets.
+
+On this catalog page, we’ve highlighted the most commonly used datasets by our users. To help you quickly find the dataset you need, use the interactive filter tool below — just answer a few short questions about the product type, sensor, region, and more.
+
+To explore the full list of all available datasets, visit the [**ERDDAP Server**](https://coastwatch.pfeg.noaa.gov/erddap/info/index.html?page=1&itemsPerPage=1000).
+
+::: {.filter-panel appearance="card" style="padding: 2rem; border-radius: 1rem; background-color: #f8f9fa;"}
+
+### Find the dataset you're looking for  
+Use the step-by-step filters below to narrow down to your ideal dataset.
+
+<hr style="margin-top: 0.5rem; margin-bottom: 1.5rem;">
+
+<!-- Step 1 -->
+<div id="step-product" class="mb-3">
+  <label><strong>**Step 1:** Choose a Data Product</strong></label>
+  <select id="productFilter" class="form-select">
+    <option value="">-- Select --</option>
+    <option value="All">All</option>
+    <option value="SST">SST</option>
+    <option value="Ocean Color">Ocean Color</option>
+    <option value="Wind">Wind</option>
+    <option value="Salinity">Salinity</option>
+    <option value="Sea Level & Geostrophic Currents">Sea Level & Geostrophic Currents</option>
+  </select>
+</div>
+
+<!-- Step 2 -->
+<div id="step-sensor" class="mb-3" style="display: none;">
+  <label><strong>**Step 2:** What Type of Sensor?</strong></label>
+  <select id="sensorTypeFilter" class="form-select">
+    <option value="">-- Select --</option>
+    <option value="All">All</option>
+    <option value="Single">Single</option>
+    <option value="Multi-Sensor">Multi-Sensor</option>
+  </select>
+</div>
+
+<!-- Step 3 -->
+<div id="step-region" class="mb-3" style="display: none;">
+  <label><strong>**Step 3:** Select Region</strong></label>
+  <select id="regionFilter" class="form-select">
+    <option value="">-- Select --</option>
+    <option value="All">All</option>
+    <option value="Global">Global</option>
+    <option value="California Coast">California Coast</option>
+    <option value="US West Coast">US West Coast</option>
+    <option value="Western Hemisphere">Western Hemisphere</option>
+    <option value="North Pacific">North Pacific</option>
+    <option value="Pacific Ocean">Pacific Ocean</option>
+  </select>
+</div>
+
+<!-- Step 4 -->
+<div id="step-timeseries" class="mb-3" style="display: none;">
+  <label><strong>**Step 4:** Time Series Type</strong></label>
+  <select id="timeSeriesFilter" class="form-select">
+    <option value="">-- Select --</option>
+    <option value="All">All</option>
+    <option value="Long Time Series">Long Time Series</option>
+    <option value="Short Time Series">Short Time Series</option>
+  </select>
+</div>
+
+<!-- Step 5 -->
+<div id="step-geo" class="mb-3" style="display: none;">
+  <label><strong>**Step 5:** Is it Geostationary?</strong></label>
+  <select id="geoFilter" class="form-select">
+    <option value="">-- Select --</option>
+    <option value="All">All</option>
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
+  </select>
+</div>
+
+<!-- Step 6 -->
+<div id="step-blend" class="mb-3" style="display: none;">
+  <label><strong>**Step 6:** Is it a Blended Product?</strong></label>
+  <select id="blendFilter" class="form-select">
+    <option value="">-- Select --</option>
+    <option value="All">All</option>
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
+  </select>
+</div>
+
+<!-- Step 7 -->
+<div id="step-gap" class="mb-3" style="display: none;">
+  <label><strong>**Step 7:** Gap Filled?</strong></label>
+  <select id="gapFilter" class="form-select">
+    <option value="">-- Select --</option>
+    <option value="All">All</option>
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
+  </select>
+</div>
+
+<!-- Step 8 -->
+<div id="step-derived" class="mb-3" style="display: none;">
+  <label><strong>**Step 8:** Is it a derived product (optical property)?</strong></label>
+  <select id="derivedFilter" class="form-select">
+    <option value="">-- Select --</option>
+    <option value="All">All</option>
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
+  </select>
+</div>
+
+<div class="mb-3 mt-4">
+  <button id="resetFilters" class="btn btn-outline-secondary"> Reset Filters</button>
+</div>
+
+<table id="catalogTable" class="table table-striped">
+  <colgroup>
+    <col style="width: 50%;">
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Dataset</th>
+      <th>Product</th>
+      <th>Access</th>
+    </tr>
+  </thead>
+  <tbody>
+
+```{python}
+import pandas as pd
+from IPython.display import display, HTML
+
+df = pd.read_csv("spreadsheets/data_catalog_excel.csv")
+
+# Clean linebreaks and ensure no missing Access HTML
+df["Access"] = df["Access"].fillna("").astype(str).str.replace(r"\\n", "", regex=True).str.strip()
+
+html_rows = ""
+for _, row in df.iterrows():
+    html_rows += f'''
+    <tr class="data-row"
+        data-product="{row['Product']}"
+        data-sensor="{row['Sensor Type']}"
+        data-region="{row['Region']}"
+        data-timeseries="{row['Time Series Type']}"
+        data-geo="{row['Geostationary']}"
+        data-blended="{row['Blended']}"
+        data-gapfilled="{row['Gap-Filled']}"
+        data-derived="{row['Derived Product']}">
+        <td><a href="#" class="toggle-details">{row['Title']}</a></td>
+        <td>{row['Product']}</td>
+        <td>{row['Access']}</td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">{row.get('Description', '')}</td>
+    </tr>
+    '''
+
+display(HTML(html_rows))
+```
+</table>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const steps = [
+    { id: "productFilter", wrapper: "step-product" },
+    { id: "sensorTypeFilter", wrapper: "step-sensor" },
+    { id: "regionFilter", wrapper: "step-region" },
+    { id: "timeSeriesFilter", wrapper: "step-timeseries" },
+    { id: "geoFilter", wrapper: "step-geo" },
+    { id: "blendFilter", wrapper: "step-blend" },
+    { id: "gapFilter", wrapper: "step-gap" },
+    { id: "derivedFilter", wrapper: "step-derived" }
+  ];
+
+  function filterTable() {
+    const product = document.getElementById("productFilter").value;
+    const sensorType = document.getElementById("sensorTypeFilter").value;
+    const region = document.getElementById("regionFilter").value;
+    const timeSeries = document.getElementById("timeSeriesFilter").value;
+    const geo = document.getElementById("geoFilter").value;
+    const blend = document.getElementById("blendFilter").value;
+    const gap = document.getElementById("gapFilter").value;
+    const derived = document.getElementById("derivedFilter").value;
+
+    const rows = document.querySelectorAll("tr.data-row");
+    rows.forEach(dataRow => {
+      const detailRow = dataRow.nextElementSibling;
+
+      const visible =
+        (!product || product === "All" || dataRow.dataset.product === product) &&
+        (!sensorType || sensorType === "All" || dataRow.dataset.sensor === sensorType) &&
+        (!region || region === "All" || dataRow.dataset.region === region) &&
+        (!timeSeries || timeSeries === "All" || dataRow.dataset.timeseries === timeSeries) &&
+        (!geo || geo === "All" || dataRow.dataset.geo === geo) &&
+        (!blend || blend === "All" || dataRow.dataset.blended === blend) &&
+        (!gap || gap === "All" || dataRow.dataset.gapfilled === gap) &&
+        (!derived || derived === "All" || dataRow.dataset.derived === derived);
+
+      dataRow.style.display = visible ? "" : "none";
+      if (detailRow && detailRow.classList.contains("detail-row")) {
+        detailRow.style.display = "none";
+      }
+    });
+  }
+
+  // Set up progressive step visibility
+  steps.forEach((step, index) => {
+    const select = document.getElementById(step.id);
+    if (!select) return;
+
+    if (index < steps.length - 1) {
+      const nextWrapper = document.getElementById(steps[index + 1].wrapper);
+      select.addEventListener("change", () => {
+        if (select.value !== "") {
+          nextWrapper.style.display = "block";
+        } else {
+          for (let i = index + 1; i < steps.length; i++) {
+            const wrapper = document.getElementById(steps[i].wrapper);
+            if (wrapper) wrapper.style.display = "none";
+          }
+        }
+        filterTable();
+      });
+    }
+
+    select.addEventListener("change", filterTable);
+  });
+
+  // Reset button
+  document.getElementById("resetFilters")?.addEventListener("click", () => {
+    steps.forEach((step, index) => {
+      const select = document.getElementById(step.id);
+      if (select) select.value = "";
+      if (index !== 0) {
+        const wrapper = document.getElementById(step.wrapper);
+        if (wrapper) wrapper.style.display = "none";
+      }
+    });
+    filterTable();
+  });
+
+  // Toggle detail rows
+  document.querySelectorAll(".toggle-details").forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      const row = link.closest("tr");
+      const next = row?.nextElementSibling;
+      if (next && next.classList.contains("detail-row")) {
+        next.style.display = next.style.display === "none" ? "table-row" : "none";
+      }
+    });
+  });
+
+  // Enable <select class="access-dropdown"> to open links
+  document.querySelectorAll(".access-dropdown").forEach(dropdown => {
+    dropdown.addEventListener("change", function () {
+      const selected = this.options[this.selectedIndex];
+      const url = selected.getAttribute("data-url");
+      if (url) {
+        window.open(url, "_blank");
+        this.selectedIndex = 0;
+      }
+    });
+  });
+});
+</script>

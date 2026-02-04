@@ -1,0 +1,29 @@
+---
+title: "Software Tools and Resources"
+anchor-sections: false
+format:
+  html:
+    toc: false
+page-layout: full
+---
+
+::: {.callout-note}
+### [CoastWatch Utilities Software](https://coastwatch.noaa.gov/cwn/data-access-tools/coastwatch-utilities.html)
+The CoastWatch Utilities, created by the NOAA/NESDIS CoastWatch program, allow users to work with Earth science data created by the NOAA/NESDIS CoastWatch program. Users can easily manipulate and visualize data in CoastWatch HDF format, NOAA 1b format, and some flavors of NetCDF 4. The Utilities are available free via a software package that contains the CoastWatch Utilities Library and the CoastWatch Data Analysis Tool.
+:::
+
+::: {.callout-note}
+### [Rerddap - R Package for ERDDADP Data Acccess](https://packages.ropensci.org/rerddap/doc/rerddap.html)
+rerddap is an R package that leverages ERDDAP's RESTful web services to access metadata and data. It provides functions to query data from both gridded and tabular datasets, offering a convenient way to work with ERDDAP-hosted data.
+:::
+
+::: {.callout-note}
+### [RerddapXtracto - R and Matlab Package for Extracting Time Series Data](https://rmendels.github.io/rerddapXtracto_docs/articles/UsingrerddapXtracto.html)
+Rerddap-Xtractomatic (Rerddapxtracto) is a set of free tools, written in R, that allows client-side access of environmental data served on the ERD/CoastWatch ERDDAP Server. The Rerddapxtracto tools were originally developed for the marine biology tagging community to extract satellite data coincident to the tracks from tagged animals. The packages have been extended to extract a 3D cube of data and time series from the region defined by the polygon. Rerddapxtracto scripts work within R to subset and extract satellite and other oceanographic-related data from a remote server. A legacy Xtractomatic package for Matlab is available but not supported.
+:::
+
+::: {.callout-note}
+### [erddapy: Python Package for ERDDAP and Data](https://ioos.github.io/erddapy/)
+erddapy is a Python package that utilizes ERDDAP’s RESTful web services to generate ERDDAP URLs. It allows users to perform various tasks, such as searching for datasets, retrieving metadata, and downloading data in a flexible and customizable manner.
+:::
+

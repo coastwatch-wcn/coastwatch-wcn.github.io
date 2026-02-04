@@ -1,0 +1,53 @@
+---
+anchor-sections: false
+format:
+  html:
+    theme: lux
+    toc: false
+    page-layout: full
+---
+
+# News Archive
+
+Explore recent updates, publications, job opportunities, and dataset releases from the CoastWatch West Coast Node. This archive includes all past news and events, organized by year. The archive is updated regularly.
+
+<div class="news-archive-grid" style="margin-top: 2rem;">
+
+```{python}
+import pandas as pd
+from IPython.display import display, HTML
+
+# Load and parse
+df = pd.read_excel("spreadsheets/news_archive.xlsx")
+df['Date'] = pd.to_datetime(df['Date'], format='%d-%b-%y', errors='coerce')
+df = df[df['Date'].notna()]
+df = df.sort_values(by='Date', ascending=False)
+
+# Extract year
+df['Year'] = df['Date'].dt.year
+
+# Group by year
+html = ""
+for year, group in df.groupby('Year', sort=False):
+    html += f"<h2 style='margin-top: 2.5rem; color: #014077;'>{year}</h2>\n"
+    for _, row in group.iterrows():
+        day = row['Date'].day
+        month_year = row['Date'].strftime('%b. %Y')
+        html += f"""
+        <div class='news-item' style='
+          background-color: #f8f9fa;
+          border: 1px solid #e0e0e0;
+          border-radius: 10px;
+          padding: 1.25rem;
+          margin-bottom: 1.5rem;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.05);'>
+
+          <p class='news-title' style='font-weight: bold; font-size: 1.25rem; margin-bottom: 0.5rem;'>{row['Title']}</p>
+          <p style='font-size: 1.05rem; line-height: 1.6;'>{row['Description']}</p>
+          <p class='news-date' style='color: #777; font-size: 0.95rem; margin-top: 0.75rem;'>{day} {month_year}</p>
+        </div>
+        """
+display(HTML(html))
+```
+
+</div>

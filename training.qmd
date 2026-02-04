@@ -1,0 +1,36 @@
+---
+title: "Learning Resources"
+anchor-sections: false
+format:
+  html:
+    toc: false
+page-layout: full
+---
+
+<div class="stacked-info">
+
+<div class="info-block info-blue">
+  <h3>Satellite Courses</h3>
+  <p>Are you interested in using oceanographic satellite data in your work but don't know where to start? The NOAA CoastWatch program offers in-person and online courses where participants learn about environmental satellite data and how to easily obtain it. Participants also gain hands on experience working with the data of interest to them. A major goal of the course is to provide scientists who are not regular users of satellite data with the knowledge and tools they need to incorporate satellite data into their research and management projects.</p>
+  <a href="https://coastwatch.noaa.gov/cwn/training-courses.html" class="btn btn-primary">Information and Course Dates</a>
+</div>
+
+<div class="info-block info-gray">
+  <h3>Tutorials and Code Examples</h3>
+  <p>These tutorials demonstrate how to access and work with satellite data using various software systems such as R and Python. The materials provide practical examples of how to retrieve data from ERDDAP and work with it in the specified software.</p>
+  <a href="https://github.com/coastwatch-training/CoastWatch-Tutorials?tab=readme-ov-file#readme" class="btn btn-primary">CoastWatch Tutorials on Github</a>
+</div>
+
+<div class="info-block info-blue">
+  <h3>Learning Portal</h3>
+  <p>CoastWatch learning portal is a one-stop shop for all CoastWatch learning resources . Everything is self-paced and publicly available for free.</p>
+  <a href="https://umd.instructure.com/courses/1336575" class="btn btn-primary">CoastWatch Learning Portal</a>
+</div>
+
+<div class="info-block info-gray">
+  <h3>Trainings and Workshops</h3>
+  <p>CoastWatch regularly organizes and offers in-person and online satellite training classes or workshops featuring lectures, tutorials, & tool demonstrations.</p>
+  <a href="https://coastwatch-training.github.io/CoastWatch-Workshops/" class="btn btn-primary">CoastWatch Workshop Schedule</a>
+</div>
+
+</div>

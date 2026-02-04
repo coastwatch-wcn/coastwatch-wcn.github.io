@@ -1,0 +1,46 @@
+---
+title: "Code Gallery"
+anchor-sections: false
+format:
+  html:
+    toc: false
+page-layout: full
+jupyter: python3
+---
+
+<p>Examples demonstrating accessing and working with ocean satellite data from ERDDAP servers.</p>
+
+<p>To view all tutorials, visit our <a href="https://github.com/coastwatch-training/CoastWatch-Tutorials/tree/main" target="_blank">Github</a>.</p>
+
+```{python}
+import pandas as pd
+from IPython.display import display, HTML
+
+# Use a more forgiving encoding to avoid UnicodeDecodeError
+df = pd.read_csv("spreadsheets/tutorials.csv", encoding="latin1")
+
+# Generate tutorial cards
+html = '<div class="tutorial-grid">'
+
+for _, row in df.iterrows():
+    html += f'''
+    <div class="tutorial-card">
+        <img src="{row['image']}" alt="{row['alt']}" style="cursor: zoom-in;" onclick="openLightbox(this.src)">
+        <div class="tags">{row['tags']}</div>
+        <h3>{row['title']}</h3>
+        <p>{row['description']}</p>
+        <p><a href="{row['link']}" target="_blank">View in Github</a></p>
+    </div>
+    '''
+
+html += '</div>'
+
+display(HTML(html))
+```
+
+<!-- Lightbox Container --> 
+<div id="lightbox" style="display:none !important; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); display:flex; justify-content:center; align-items:center; z-index:9999;" onclick="closeLightbox()"> <img id="lightbox-img" src="" style="max-width:95vw; max-height:90vh; box-shadow:0 0 20px black; cursor:zoom-out; object-fit: contain;"> </div>
+
+
+<!-- Lightbox Script --> 
+<script> function openLightbox(src) { const img = document.getElementById('lightbox-img'); const box = document.getElementById('lightbox'); img.src = src; box.style.display = 'flex'; } function closeLightbox() { document.getElementById('lightbox').style.display = 'none'; } </script>

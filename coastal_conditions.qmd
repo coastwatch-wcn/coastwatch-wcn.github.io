@@ -1,0 +1,171 @@
+---
+title: "Coastal Conditions"
+anchor-sections: false
+format:
+  html:
+    toc: false
+page-layout: full
+---
+
+::: {.coastal-columns}
+::: {.coastal-column}
+## ENSO Status:
+
+The Climate Prediction Center defines El Niño conditions as existing when a one-month positive sea surface temperature anomaly of 0.5C or greater is observed in the Niño-3.4 region of the equatorial Pacific Ocean, an expectation that the 3-month Oceanic Niño Index (ONI) threshold will be met (see graphs below), and an atmospheric response typically associated with El Niño is observed over the equatorial Pacific Ocean. Please visit the [Climate Prediction Center website](https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml) for El Niño status and predictions.
+
+![](images/elnino34region.png)
+
+![](images/ONI.png)
+
+:::
+
+::: {.coastal-column}
+## US West Coast Ocean Conditions
+### Data narrative
+Monthly reports of recent climate conditions provided by Southwest Fisheries Science Center. Please contact Jerrold Norton (Jerrold.G.Norton at noaa.gov) for more information.
+
+### Download Reports
+
+<div class="report-dropdowns">
+
+  <select onchange="openReport(this)">
+    <option value="">2018</option>
+    <option value="files/Oct2018_Climate_Narrative.pdf">Oct 2018</option>
+    <option value="files/Nov2018_Climate_Narrative.pdf">Nov 2018</option>
+    <option value="files/Dec2018_Climate_Narrative.pdf">Dec 2018</option>
+  </select>
+  
+  <select onchange="openReport(this)">
+    <option value="">2019</option>
+    <option value="files/Jan2019_Climate_Narrative.pdf">Jan 2019</option>
+    <option value="files/Feb2019_Climate_Narrative.pdf">Feb 2019</option>
+    <option value="files/Mar2019_Climate_Narrative.pdf">Mar 2019</option>
+    <option value="files/Apr2019_Climate_Narrative.pdf">Apr 2019</option>
+    <option value="files/May2019_Climate_Narrative.pdf">May 2019</option>
+    <option value="files/Jun2019_Climate_Narrative.pdf">Jun 2019</option>
+    <option value="files/Jul2019_Climate_Narrative.pdf">Jul 2019</option>
+    <option value="files/Aug2019_Climate_Narrative.pdf">Aug 2019</option>
+    <option value="files/Sep2019_Climate_Narrative.pdf">Sep 2019</option>
+    <option value="files/Oct2019_Climate_Narrative.pdf">Oct 2019</option>
+    <option value="files/Nov2019_Climate_Narrative.pdf">Nov 2019</option>
+    <option value="files/Dec2019_Climate_Narrative.pdf">Dec 2019</option>
+  </select>
+
+  <select onchange="openReport(this)">
+    <option value="">2020</option>
+    <option value="files/Jan2020_Climate_Narrative.pdf">Jan 2020</option>
+    <option value="files/Feb2020_Climate_Narrative.pdf">Feb 2020</option>
+    <option value="files/Mar2020_Climate_Narrative.pdf">Mar 2020</option>
+    <option value="files/Apr2020_Climate_Narrative.pdf">Apr 2020</option>
+    <option value="files/May2020_Climate_Narrative.pdf">May 2020</option>
+    <option value="files/Jun2020_Climate_Narrative.pdf">Jun 2020</option>
+    <option value="files/Jul2020_Climate_Narrative.pdf">Jul 2020</option>
+    <option value="files/Aug2020_Climate_Narrative.pdf">Aug 2020</option>
+    <option value="files/Sep2020_Climate_Narrative.pdf">Sep 2020</option>
+    <option value="files/Oct2020_Climate_Narrative.pdf">Oct 2020</option>
+    <option value="files/Nov2020_Climate_Narrative.pdf">Nov 2020</option>
+    <option value="files/Dec2020_Climate_Narrative.pdf">Dec 2020</option>
+  </select>
+
+</div>
+
+---
+
+### View Recent Data
+
+:::{.map-subcard}
+:::{.map-slider}
+
+##### <span id="map-title" class="map-title">Sea Surface Temperature (SST) Map</span>
+
+[‹ Previous]{.prev}
+[Next ›]{.next}
+
+![](images/imgSst.png){#map-image fig-align="center"}
+
+::: {.map-caption #map-caption}
+The NOAA 1/4° daily Optimum Interpolation Sea Surface Temperature data (http://www.ncdc.noaa.gov/oisst).
+:::
+
+:::
+:::
+
+
+:::
+:::
+
+
+## Additional Information
+
+<details class="coastal-faq">
+    <summary><strong>Related Websites</strong></summary>
+
+- [El Niño/Southern Oscillation (ENSO) DIAGNOSTIC Discussion](https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.pdf)
+- [El Niño/ENSO: Recent Evolution, Current Status and Predictions](https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/lanina/enso_evolution-status-fcsts-web.pdf)
+- [Southern California Coastal Ocean Observing System El Niño page](https://www.sccoos.org/data/el-nino/)
+- [International Research Institute ENSO Forecast](https://iri.columbia.edu/our-expertise/climate/forecasts/enso/current/)
+- [NOAA PSD El Niño/Southern Oscillation (ENSO)](https://www.esrl.noaa.gov/psd/enso/)
+
+</details>
+
+
+<script>
+function openReport(sel) {
+  if (sel.value) {
+    window.open(sel.value, '_blank');   // open the PDF in a new tab
+    sel.selectedIndex = 0;              // reset dropdown back to the year
+  }
+}
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const slides = [
+    { src: "images/imgSst.png",  title: "Sea Surface Temperature (SST) Map", caption: "The NOAA 1/4° daily Optimum Interpolation Sea Surface Temperature data (http://www.ncdc.noaa.gov/oisst)." },
+    { src: "images/imgAnom.png", title: "SST Anomaly Map", caption: "The NOAA 1/4° daily Optimum Interpolation Sea Surface Temperature data (http://www.ncdc.noaa.gov/oisst). The climatology used to compute the anomalies is from a 1971–2000 base period." },
+    { src: "images/imgAnomTSn.png", title: "SST Anomaly Time Series - Northern California", caption: "The Sea Surface Temperature Anomaly time series off of the California Coast west of Humboldt Bay. The climatology used to compute the anomalies is from a 1971–2000 base period." },
+    { src: "images/imgAnomTSc.png", title: "SST Anomaly Time Series - Central California", caption: "The Sea Surface Temperature Anomaly time series off of the California Coast west of Monterey Bay. The climatology used to compute the anomalies is from a 1971–2000 base period." },
+    { src: "images/imgAnomTSs.png", title: "SST Anomaly Time Series - Southern California", caption: "The Sea Surface Temperature Anomaly time series off of the California Coast west of the Southern California Bight." },
+    { src: "images/imgSstTSn.png", title: "SST Time Series - Northern California", caption: "The Sea Surface Temperature time series off of the California Coast west of Humboldt Bay. The climatology used to compute the anomalies is from a 1971–2000 base period." },
+    { src: "images/imgSstTSc.png", title: "SST Time Series - Central California", caption: "The Sea Surface Temperature time series off of the California Coast west of Monterey Bay. The climatology used to compute the anomalies is from a 1971–2000 base period." },
+    { src: "images/imgEk.png", title: "Ekman Upwelling Map", caption: "The wind-driven vertical movement of water." },
+    { src: "images/imgCurl.png", title: "Wind Curl Map", caption: "Wind curl or torque: the tendency of wind stress to cause rotation or its ability to supply relative vorticity to the ocean." },
+    { src: "images/imgChl.png",  title: "Chlorophyll Concentration Map", caption: "Chlorophyll concentration from the VIIRS sensor." }
+  ];
+
+  let index = 0;
+
+  const imgEl = document.getElementById("map-image");
+  const titleEl = document.getElementById("map-title");  // now updates <span>
+  const captionEl = document.getElementById("map-caption");
+  const prevLink = document.querySelector(".map-slider .prev");
+  const nextLink = document.querySelector(".map-slider .next");
+
+  function updateSlide() {
+    imgEl.src = slides[index].src;
+    titleEl.textContent = slides[index].title;
+    captionEl.textContent = slides[index].caption;
+
+    prevLink.style.opacity = index === 0 ? 0.5 : 1;
+    nextLink.style.opacity = index === slides.length - 1 ? 0.5 : 1;
+  }
+
+  prevLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (index > 0) {
+      index--;
+      updateSlide();
+    }
+  });
+
+  nextLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (index < slides.length - 1) {
+      index++;
+      updateSlide();
+    }
+  });
+
+  updateSlide();
+});
+</script>

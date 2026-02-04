@@ -1,0 +1,276 @@
+﻿Product,Title,Dates,Resolution,Region,Sensor Type,Time Series Type,Geostationary,Blended,Gap-Filled,Derived Product,Composite,Access,Description
+SST,VIIRS SNPP - SST  • Single Sensor • 0.04°/4km • 2020-Now • Global,2020-present,4km,Global,Single,Short,No,No,No,No,Daily,"<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1sstd1day_R2022NRTMasked.graph"">Daily</option>
+</select>",These VIIRS SST data are produced using the NOAA Advanced Clear-Sky Processor for Ocean (ACSPO) SST system from the afternoon NPP and N20 satellites.
+SST,MODIS Aqua - SST • Single Sensor • Near Real-Time • 0.04°/4km • 2019-Now • Global,2019-present,4km,Global,Single,Short,No,No,No,No,Daily,"<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNsstDaily.graph"">Daily</option>
+</select>","This is the near real-time version of Sea Surface Temperature (SST), from Moderate Resolution Imaging Spectroradiometer (MODIS) on Aqua, Level-3 Standard Mapped Image (SMI), from NASA GSFC OBPG, R2022.0."
+SST,MODIS Aqua - SST •  Single Sensor • Science Quality • 0.04°/4km • 2003-Now • Global,2003-present,4km,Global,Single,Short,No,No,No,No,"""Daily, 8-Day, Monthly""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1sstd1day_R2022SQMasked.graph"">Daily</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1sstd8day_R2022SQMasked.graph"">8-Day</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1sstdmday_R2022SQMasked.graph"">Monthly</option>
+</select>","This is the delayed, science-quality version of Sea Surface Temperature (SST), masked, from Moderate Resolution Imaging Spectroradiometer (MODIS) on Aqua, Level-3 Standard Mapped Image (SMI), from NASA GSFC OBPG, R2022.0."
+SST,NOAA Gridded Super-collated (LEO) - SST • Thermal Fronts • 0.02°/2km •  2012‑present • Global,2012-present,2km,Global,Multi-Sensor,Short,No,Yes,Yes,No,Daily,"<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwLEOACSPOSSTL3SCDaily.graph"">Daily</option>
+</select>
+","NOAA Advanced Clear-Sky Processor for Ocean L3S-LEO SST is a family of multisensor, 0.02º resolution super-collated dataset."
+SST,MUR - SST | SST Anomaly • Gap-Filled • 0.01°/1km • 2003-Now • Global,2002-present,1km,Global,Multi-Sensor,Short,No,Yes,Yes,No,"""SST Daily, SST Monthly, Anomaly Daily, Anomaly Monthly""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41.graph"">SST Daily</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41mday.graph"">SST Monthly</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41anom1day.graph"">Anomaly Daily</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41anommday.graph"">Anomaly Monthly</option>
+</select>","A Sea Surface Temperature (SST) Anomaly product created by ERD based on JPL MUR's climatology (2003-2014) of the Jet Propulsion Laboratory's (JPL) Multi-scale Ultra-high Resolution (MUR), merged, multi-sensor L4 v4.1 Foundation SST analysis product (part of the Group for High-Resolution Sea Surface Temperature (GHRSST) project)."
+SST,NOAA Coral Reef Watch - SST • SST Anomaly • Gap-Filled • Long Time Series • 0.05°/5km • 1985-Now • Global,1985-present,5km,Global,Single,Long,No,No,Yes,No,"""SST Daily, SST Monthly, Anomaly Daily, Anomaly Monthly""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/NOAA_DHW.graph?CRW_SST"">SST Daily</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/NOAA_DHW_monthly.graph"">SST Monthly</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/NOAA_DHW.graph?CRW_SSTANOMALY"">Anomaly Daily</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/NOAA_DHW_monthly.graph?sea_surface_temperature_anomaly"">Anomaly Monthly</option>
+</select>","CoralTemp 5km gap-free analysed blended sea surface temperature over the global ocean. CoralTemp is derived from three different but related 5km daily gap-free SST data sets and provides an internally consistent SST product that stretches from 1985 to present: Operational Sea Surface Temperature and Sea Ice Analysis (OSTIA) Sea Surface Temperature Reanalysis (1985-2002), Geo-Polar Blended Night-only Sea Surface Temperature Reanalysis (2002-2016), Geo-Polar Blended Night-only Sea Surface Temperature Near Real-Time (2017 to present)."
+SST,NOAA Pathfinder v5.3 Night - SST • Long Time Series • 0.05°/5km • 1981-2020 • Global,1981-2023,5km,Global,Single,Long,No,No,Yes,No,"""Daily-night, 8-Day-night, Monthly-night, Daily-day, 8-Day-day, Monthly-day""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/nceiPH53sstn1day.graph"">SST Daily-night</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdPH53sstn8day.graph"">8-Day-night</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdPH53sstnmday.graph"">Monthly-night</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/nceiPH53sstd1day.graph"">Daily-day</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdPH53sstd8day.graph"">8-Day-day</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdPH53sstdmday.graph"">Monthly-day</option>
+</select>",Advanced Very High Resolution Radiometer (AVHRR) Pathfinder Version 5.3 L3-Collated (L3C) sea surface temperature. This netCDF-4 file contains sea surface temperature (SST) data produced as part of the AVHRR Pathfinder SST Project. These data were created using Version 5.3 of the Pathfinder algorithm.
+SST,NOAA AVHRR Optimum Interpolation v2.1 - SST | SST Anomaly • Gap-Filled • Long Time Series • 0.05°/5km • 1981-Now • Global,"""1981-present, 2020-present""",5km,Global,Single,Long,No,No,Yes,No,"""SST Science Quality, SST NRT, Anomaly Science Quality, Anomaly NRT""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/ncdcOisst21Agg.graph"">SST Science Quality</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/ncdcOisst21Agg.graph?anom"">SST NRT</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/ncdcOisst21NrtAgg.graph"">Anomaly Science Quality</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/ncdcOisst21NrtAgg.graph?anom"">Anomaly NRT</option>
+</select>","NOAA/National Centers for Environmental Information (NCEI) 1/4 Degree Daily Optimum Interpolation Sea Surface Temperature (OISST) Analysis, Version 2.1 - Inter. NOAAs 1/4-degree Daily Optimum Interpolation Sea Surface Temperature (OISST) (sometimes referred to as Reynolds SST, which however also refers to earlier products at different resolution), currently available as version v02r01, is created by interpolating and extrapolating SST observations from different sources, resulting in a smoothed complete field."
+SST,NOAA VIIRS California - SST • High-Resolution • 750m • 2014-Now • California Coast,2014-present,750m,California Coast,Single ,Short,No,No,No,No,3-Day,"<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVHsstaWS3day.graph"">3-Day</option>
+</select>
+
+",These high-resolution SST data are produced using the NOAA Advanced Clear-Sky Processor for Ocean (ACSPO) SST system NPP VIIRS is a multi-disciplinary instrument that flies on the Suomi-NPP (National Polar-orbiting Partnership) satellite.
+SST,MODIS Aqua West Coast - SST • High-Resolution • 0.0125°/1.25km • 2002-Now • US West Coast,2002-present,1.25km,West Coast,Single ,Short,No,No,No,No,"""Daily, 3-Day, 8-Day, 14-Day, Monthly""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMWsstd1day.graph"">Daily</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMWsstd3day.graph"">3-Day</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMWsstd8day.graph"">8-Day</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMWsstd14day.graph"">14-Day</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMWsstdmday.graph"">Monthly</option>
+</select>",NOAA CoastWatch provides SST data from NASA's Aqua Spacecraft. Measurements are gathered by the Moderate Resolution Imaging Spectroradiometer (MODIS) carried aboard the spacecraft.
+SST,GOES-18 West- SST • Geostationary • 0.02°/2km • 2019-Now • Western Hemisphere 0.25° • 2022-present,2022-present,2km,Western Hemisphere,Single ,Short,Yes,No,No,No,Hourly,"<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/goes_west.graph"">Hourly</option>
+</select>
+
+",Sea surface temperature retrievals produced by NOAA/NESDIS/STAR from the ABI sensor on the GOES-16 satellite covering the US West Coast and more. L2P algorithm V2.70; L3U algorithm V4.1.5. SSTs are a weighted average of the SSTs of contributing pixels.
+Ocean Color,NOAA VIIRS SNPP - Chlorophyll • Science Quality • Near Real-Time • 0.04°/4km • 2012‑Now • Global,"""2012-present, 2017-present""",4km,Global,Single ,Short,No,No,No,No,"""SQ Daily, SQ Weekly, SQ Monthly, NRT Daily, NRT Weekly""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQchlaDaily.graph"">SQ Daily</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQchlaWeekly.graph"">SQ Weekly</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQchlaMonthly.graph"">SQ Monthly</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNchlaDaily.graph"">NRT Daily</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNchlaWeekly.graph"">NRT Weekly</option>
+</select>","Visible and Infrared Imager/Radiometer Suite/Suomi-NPP (VIIRSN) produced by NOAA/STAR Ocean Color Team through NOAA Multi-Sensor Level 1 to Level 2 processing system (MSL12) using the Ocean Color improved satellite data record. This is Science Quality data, reprocessed in 2017."
+Ocean Color,NOAA VIIRS NOAA-20 - Chlorophyll • Science Quality • Near Real-Time • 0.04°/4km • 2012‑Now • Global,2017-present,4km,Global,Single ,Short,No,No,No,No,"""Daily, Weekly""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&itemsPerPage=1000&searchFor=nesdisVHNnoaa20chlaDaily"">Daily</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&itemsPerPage=1000&searchFor=nesdisVHNnoaa20chlaWeekly"">Weekly</option>
+</select>","Visible and Infrared Imager/Radiometer Suite/Suomi-NPP (VIIRSN) produced by NOAA/STAR Ocean Color Team through NOAA Multi-Sensor Level 1 to Level 2 processing system (MSL12) using the Ocean Color improved satellite data record. This is Science Quality data, reprocessed in 2017."
+Ocean Color,MODIS Aqua - Chlorophyll • Science Quality • 0.04°/4km • 2003‑Now • Global,2003-present,4km,Global,Single ,Short,No,No,No,No,"""Daily, Weekly, Monthly""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1chla1day.graph"">Daily</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1chla8day.graph"">Weekly</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1chlamday.graph"">Monthly</option>
+</select>","The MODIS (Moderate Resolution Imaging Spectro-radiometer) sensor was deployed onboard the NASA Aqua satellite. It is a multi-disciplinary sensor providing data for the ocean, land, aerosol, and cloud research and is used for detecting chlorophyll-a concentrations in the world's oceans, among other applications. Aqua MODIS views the entire Earth's surface every 2 days, acquiring data in 36 spectral bands. This dataset was reprocessed by NASA in 2018."
+Ocean Color,SeaWiFS - Chlorophyll • Science Quality • 0.1°/9km • 1997‑2010 • Global,1997-2010,9km,Global,Single ,Short,No,No,No,No,"""Daily, Weekly, Monthly""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdSW2018chla1day.graph"">Daily</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdSW2018chla8day.graph"">Weekly</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdSW2018chlamday.graph"">Monthly</option>
+</select>","The NASA SeaWiFS (Sea-viewing Wide Field-of-view Sensor) sensor onboard the SeaStart spacecraft was used for detecting and measuring global sea-surface chlorophyll-a concentrations throughout the world's oceans from 1997 through 2010. During that time, the satellite was able to establish an unprecedented time series of global chlorophyll-a concentrations. The sensor started experiencing issues around 2008 leading to significant missing data in 2008-2010, so it is recommended to be cautious with data post 2007. This dataset was reprocessed by NASA in 2018."
+Ocean Color,NASA VIIRS SNPP - Chlorophyll • Science Quality • Near Real-Time • 0.04°/4km • 2012‑Now • Global,2012-present,4km,Global,Single ,Short,No,No,No,No,"""Daily, Weekly, Monthly""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVH2018chla1day.graph"">Daily</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVH2018chla8day.graph"">Weekly</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVH2018chlamday.graph"">Monthly</option>
+</select>","R2018 version of Level-3 Standard Mapped Image (SMI), Global, 4km, Chlorophyll a, OCI Algorithm, 8-Day composite data from the Visible and Infrared Imager/Radiometer Suite (VIIRS), as processed by NASA GSFC Ocean Biology Processing Group (OBPG). VIIRS is a multi-disciplinary instrument that flies on the Suomi-NPP (National Polar-orbiting Partnership) satellite. Suomi-NPP is the initial spacecraft in the JPSS (Joint Polar Satellite Systems) series of spacecraft. JPSS is our Nation's next generation polar-orbiting operational environmental satellite system. JPSS is a collaborative program between NOAA and its acquisition agent NASA. VIIRS is the successor to MODIS for Earth science data product generation."
+Ocean Color,NASA VIIRS NOAA-20 - Chlorophyll • Science Quality • Near Real-Time • 0.04°/4km • 2012‑Now • Global,2021-present,4km,Global,Single ,Short,No,No,No,No,"""Daily, Weekly""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&itemsPerPage=1000&searchFor=nesdisVHNnoaa20chlaDaily"">Daily</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&itemsPerPage=1000&searchFor=nesdisVHNnoaa20chlaWeekly"">Weekly</option>
+</select>","R2018 version of Level-3 Standard Mapped Image (SMI), Global, 4km, Chlorophyll a, OCI Algorithm, 8-Day composite data from the Visible and Infrared Imager/Radiometer Suite (VIIRS), as processed by NASA GSFC Ocean Biology Processing Group (OBPG). VIIRS is a multi-disciplinary instrument that flies on the Suomi-NPP (National Polar-orbiting Partnership) satellite. Suomi-NPP is the initial spacecraft in the JPSS (Joint Polar Satellite Systems) series of spacecraft. JPSS is our Nation's next generation polar-orbiting operational environmental satellite system. JPSS is a collaborative program between NOAA and its acquisition agent NASA. VIIRS is the successor to MODIS for Earth science data product generation."
+Ocean Color,NOAA Gap-Filled VIIRS SNPP & NOAA-20 - Chlorophyll • Science Quality • 0.1°/9km • 2020‑Now • Global,"""2018-present, 2020-present""",9km,Global,Multi-Sensor,Short,No,Yes,Yes,No,"""Daily NRT, Science Quality""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNnoaaSNPPnoaa20NRTchlaGapfilledDaily.graph"">Daily NRT</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily.graph"">Science Quality</option>
+</select>",This datasets blends chlorophyll data from the NOAA-SNPP and NOAA-20 VIIRS ocean color sensors. A gap-filling application was employed to fill in data gaps that uses a mathematical technique based on the data interpolating empirical orthogonal function (DINEOF). This technique exploits the coherency over location and time of the data from the two satellites to infer a value at the missing location. CoastWatch serves this daily global gap-filled product at ~9 km spatial resolution in a NetCDF file format.
+Ocean Color,ESA OC-CCI v6.0 - Chlorophyll | 30+ more • Long Time Series • Science Quality • 0.04°/4km • 1997-Now • Global,1997-present,4km,Global,Multi-Sensor,Long,No,Yes,Yes,No,"""Daily, 5-Day, 8-Day, Monthly""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/pmlEsaCCI60OceanColorDaily.graph"">Daily</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/pmlEsaCCI60OceanColor5Day.graph"">5-Day</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/pmlEsaCCI60OceanColor8Day.graph"">8-Day</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/pmlEsaCCI60OceanColorMonthly.graph"">Monthly</option>
+</select>","The European Space Agency (ESA) started the Climate Change Initiative (CCI) to generate satellite-based Essential Climate Variables to allow assessing long-term trends from satellite products. The dataset is created by band-shifting and bias-correcting MERIS, MODIS and VIIRS data to match SeaWiFS data, merging the datasets and computing per-pixel uncertainty estimates. Parameters include chlorophyll a, remote sensing reflectance, diffuse attenuation coefficients, absorption coefficients, backscatter coefficients, and water classification."
+Ocean Color,NOAA VIIRS SNPP - Chlorophyll • Near Real-Time • High Resolution • 750m • 2015‑Now • North Pacific,2015-present,750m,North Pacific,Single,Short,No,No,No,No,"""Daily, 3-Day, 8-Day, Monthly""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVHNchla1day.graph"">Daily</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVHNchla3day.graph"">3-Day</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVHNchla8day.graph"">8-Day</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVHNchlamday.graph"">Monthly</option>
+</select>",NOAA CoastWatch distributes L3 level chlorophyll a concentration data derived from measurements take by the VIIRS sensor (Visible Infrared Imaging Radiometer Suite) aboard the Suomi-NPP satellite. Chlorophyll values were calculated using NOAA-MSL12 NRT processing with LAND+CLDICE+HIGLINT+HISATZEN+HISOLZEN masking.
+Ocean Color,MODIS Aqua - Chlorophyll • Science Quality • 0.0125°/1.25km • 2002‑Now • US West Coast,2002-present,1.25km,West Coast,Single,Short,No,No,No,No,"""Daily, 3-Day, 8-Day, 14-Day, Monthly""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMWchla1day.graph"">Daily</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMWchla3day.graph"">3-Day</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMWchla8day.graph"">8-Day</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMWchla14day.graph"">14-Day</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMWchlamday.graph"">Monthly</option>
+</select>","The MODIS (Moderate Resolution Imaging Spectro-radiometer) sensor was deployed onboard the NASA Aqua satellite. It is a multi-disciplinary sensor providing data for the ocean, land, aerosol, and cloud research and is used for detecting chlorophyll-a concentrations in the world's oceans, among other applications. Aqua MODIS views the entire Earth's surface every 2 days, acquiring data in 36 spectral bands."
+Ocean Color,MODIS Aqua - Chlorophyll • Science Quality • 0.025°/2.5km • 2002‑Now • Pacific Ocean,2006-present,2.5km,Pacific Ocean,Single,Short,No,No,No,No,"""Daily, 3-Day, 8-Day, 14-Day, Monthly""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMBchla1day.graph"">Daily</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMBchla3day.graph"">3-Day</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMBchla8day.graph"">8-Day</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMBchla14day.graph"">14-Day</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMBchlamday.graph"">Monthly</option>
+</select>","The MODIS (Moderate Resolution Imaging Spectro-radiometer) sensor was deployed onboard the NASA Aqua satellite. It is a multi-disciplinary sensor providing data for the ocean, land, aerosol, and cloud research and is used for detecting chlorophyll-a concentrations in the world's oceans, among other applications. Aqua MODIS views the entire Earth's surface every 2 days, acquiring data in 36 spectral bands."
+Ocean Color,NOAA VIIRS SNPP - Kd490 • Science Quality • Near Real-Time • 0.04°/4km • 2012‑Now • Global,2012-present,4km,Global,Single,Short,No,No,No,Yes,"""Kd490 SQ Daily, Kd490 SQ Weekly, Kd490 Monthly, Kd490 NRT Daily, Kd490 NRT Weekly, Kd490 NRT Monthly""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQkd490Daily.graph"">Kd490 SQ Daily</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQkd490Weekly.graph"">Kd490 SQ Weekly</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQkd490Monthly.graph"">Kd490 SQ Monthly</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVH2018k4901day.graph"">Kd490 NRT Daily</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVH2018k4908day.graph"">Kd490 NRT Weekly</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVH2018k490mday.graph"">Kd490 NRT Monthly</option>
+</select>","Diffuse attenuation coefficient for 490 nm wavelength (Kd490). Daily composite data from the Visible and Infrared Imager/Radiometer Suite (VIIRS). The science quality data have a 15-day latency. The data, processed by the NOAA/STAR Ocean Color Team, are produced from MSL12 v1.2 using OC-SDR v04."
+Ocean Color,NOAA VIIRS SNPP - KdPAR • Science Quality • Near Real-Time • 0.04°/4km • 2012‑Now • Global,2012-present,4km,Global,Single,Short,No,No,No,Yes,"""KdPAR SQ Daily, KdPAR SQ Weekly, KdPAR SQ Monthly, KdPAR NRT Daily, KdPAR NRT Weekly""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQkdparDaily.graph"">KdPAR SQ Daily</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQkdparWeekly.graph"">KdPAR SQ Weekly</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQkdparMonthly.graph"">KdPAR SQ Monthly</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNkdparDaily.graph"">KdPAR NRT Daily</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNkdparWeekly.graph"">KdPAR NRT Weekly</option>
+</select>","Diffuse attenuation coefficient for photosynthetically available radiation (KdPAR). Daily composite data from the Visible and Infrared Imager/Radiometer Suite (VIIRS). The science quality data have a 15-day latency. The data, processed by the NOAA/STAR Ocean Color Team, are produced from MSL12 v1.2 using OC-SDR v04."
+Ocean Color,NOAA VIIRS SNPP - nLw • Science Quality • Near Real-Time • 0.04°/4km • 2012‑Now • Global,2012-present,4km,Global,Single,Short,No,No,No,Yes,"""nLw410 SQ, nLw443 SQ, nLw486 SQ, nLw551 SQ, nLw671 SQ, nLw410 NRT, nLw443 NRT, nLw486 NRT, nLw551 NRT, nLw671 NRT""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&itemsPerPage=1000&searchFor=nesdisVHNSQnLw410"">nLw410 SQ</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&itemsPerPage=1000&searchFor=nesdisVHNSQnLw443"">nLw443 SQ</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&itemsPerPage=1000&searchFor=nesdisVHNSQnLw486"">nLw486 SQ</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&itemsPerPage=1000&searchFor=nesdisVHNSQnLw551"">nLw551 SQ</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&itemsPerPage=1000&searchFor=nesdisVHNSQnLw671"">nLw671 SQ</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&itemsPerPage=1000&searchFor=nesdisVHNnLw410"">nLw410 NRT</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&itemsPerPage=1000&searchFor=nesdisVHNnLw443"">nLw443 NRT</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&itemsPerPage=1000&searchFor=nesdisVHNnLw486"">nLw486 NRT</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&itemsPerPage=1000&searchFor=nesdisVHNnLw551"">nLw551 NRT</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&itemsPerPage=1000&searchFor=nesdisVHNnLw671"">nLw671 NRT</option>
+</select>","Normalized water leaving radiance (nLw) at 410nm, 443, 486nm, 551nm, 671nm wavelengths. Daily composite data from the Visible and Infrared Imager/Radiometer Suite (VIIRS). The science quality data have a 15-day latency. The data, processed by the NOAA/STAR Ocean Color Team, are produced from MSL12 v1.2 using OC-SDR v04."
+Ocean Color,VIIRS SNPP - POC • Science Quality • 0.04°/4km • 2012‑Now • Global,2012-present,4km,Global,Single,Short,No,No,No,Yes,"""POC Daily, POC 8-Day, POC Monthly""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVH2018poc1day.graph"">POC Daily</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVH2018poc8day.graph"">POC 8-Day</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVH2018pocmday.graph"">POC Monthly</option>
+</select>","Particular Organic Carbon and Photosynthetically Available Radiation calculated from MODIS Aqua ocean color data. Primary Productivity is vertically integrated and calculated from satellite measurements of chlorophyll a, PAR, and sea surface temperature using the using the method of Behrenfield & Falkowski (Behrenfield and Falkowski, L&O 1997)."
+Ocean Color,VIIRS SNPP - PIC • Science Quality • 0.04°/4km • 2012‑Now • Global,2012-present,4km,Global,Single,Short,No,No,No,Yes,"""PIC Daily, PIC 8-Day, PIC Monthly""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVH2018pic1day.graph"">PIC Daily</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVH2018pic8day.graph"">PIC 8-Day</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVH2018picmday.graph"">PIC Monthly</option>
+</select>","Particular Inorganic Carbon and Photosynthetically Available Radiation calculated from MODIS Aqua ocean color data. Primary Productivity is vertically integrated and calculated from satellite measurements of chlorophyll a, PAR, and sea surface temperature using the using the method of Behrenfield & Falkowski (Behrenfield and Falkowski, L&O 1997)."
+Ocean Color,MODIS Aqua - Kd490 • Science Quality • 0.04°/4km • 2002‑Now • Global,2003-present,4km,Global,Single,Short,No,No,No,Yes,"""Kd490 Daily, Kd490 8-Day, Kd490 Monthly""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1kd4901day.graph"">Kd490 Daily</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1kd4908day.graph"">Kd490 8-Day</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1kd490mday.graph"">Kd490 Monthly</option>
+</select>",Diffuse attenuation coefficient at 490 nm wavelength (Kd490). Daily composite data from MODIS Aqua The science quality data have a 15-day latency.
+Ocean Color,MODIS Aqua - 1° Productivity • Science Quality • 0.04°/4km • 2003‑Now • Global,2003-present,4km,Global,Single,Short,No,No,No,Yes,"""1° Prod Daily, 1° Prod 8-Day, 1° Prod Monthly""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1pp1day.graph"">1° Prod Daily</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1ppmday.graph"">1° Prod 8-Day</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1ppmday.graph"">1° Prod Monthly</option>
+</select>","Primary Productivity from  MODIS Aqua ocean color data is vertically integrated and calculated from satellite measurements of chlorophyll a, PAR, and sea surface temperature using the using the method of Behrenfield & Falkowski (Behrenfield and Falkowski, L&O 1997)."
+Ocean Color,MODIS Aqua - POC • Science Quality • 0.04°/4km • 2003‑Now • Global,2003-2022,4km,Global,Single,Short,No,No,No,Yes,"""POC Daily, POC 8-Day, POC Monthly""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMPIC1day.graph"">POC Daily</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMPOC8day.graph"">POC 8-Day</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMPOCmday.graph"">POC Monthly</option>
+</select>",Particular Organic Carbon is calculated from MODIS Aqua ocean color data. 
+Ocean Color,MODIS Aqua - PIC • Science Quality • 0.04°/4km • 2003‑Now • Global,2003-2022,4km,Global,Single,Short,No,No,No,Yes,"""PIC Daily, PIC 8-Day, PIC Monthly""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMPIC1day.graph"">PIC Daily</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMPIC8day.graph"">PIC 8-Day</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMPICmday.graph"">PIC Monthly</option>
+</select>",Particular Inorganic Carbon is calculated from MODIS Aqua ocean color data. 
+Ocean Color,MODIS Aqua -PAR • Science Quality • 0.04°/4km • 2003‑Now • Global,2003-2023,4km,Global,Single,Short,No,No,No,No,"""PAR Daily, PAR 8-Day, PAR Monthly""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1par01day.graph"">PAR Daily</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1par08day.graph"">PAR 8-Day</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1par0mday.graph"">PAR Monthly</option>
+</select>",Photosynthetically Available Radiation is calculated from MODIS Aqua ocean color data.
+Wind,ACSAT MetOp Winds - Speed • Single Sensor • 0.25°/25km • 2009‑Now • Global,"""2009-present, 2013-present""",25km,Global,Single,Short,No,No,No,No,"""ASCAT A, ASCAT B""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&itemsPerPage=1000&searchFor=erdQAwind"">ASCAT A</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&itemsPerPage=1000&searchFor=erdQBwind"">ASCAT B</option>
+</select>","This data begins with wind velocity measurements from the ASCAT instrument onboard EUMETSAT's Metop-A satellite. ASCAT is a microwave scatterometer designed to measure surface winds over the global ocean. NOAA CoastWatch processes zonal and meridional winds (vector winds) to obtain scalar winds (modulus), wind stress, wind curl, wind divergence, wind driven currents, and Ekman upwelling."
+Wind,ACSAT MetOp Winds - Stress • Single Sensor • 0.25°/25km • 2009‑Now • Global,"""2009-present, 2013-present""",25km,Global,Single,Short,No,No,No,No,"""ASCAT A, ASCAT B""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&itemsPerPage=1000&searchFor=erdQAstress"">ASCAT A</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&itemsPerPage=1000&searchFor=erdQBstress"">ASCAT B</option>
+</select>","This data begins with wind velocity measurements from the ASCAT instrument onboard EUMETSAT's Metop-A satellite. ASCAT is a microwave scatterometer designed to measure surface winds over the global ocean. NOAA CoastWatch processes zonal and meridional winds (vector winds) to obtain scalar winds (modulus), wind stress, wind curl, wind divergence, wind driven currents, and Ekman upwelling."
+Wind,ACSAT MetOp Winds - Diffusivity Current • Single Sensor • 0.25°/25km • 2009‑Now • Global,"""2009-present, 2013-present""",25km,Global,Single,Short,No,No,No,No,"""ASCAT A, ASCAT B""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&itemsPerPage=1000&searchFor=erdQAekm"">ASCAT A</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&itemsPerPage=1000&searchFor=erdQBekm"">ASCAT B</option>
+</select>","This data begins with wind velocity measurements from the ASCAT instrument onboard EUMETSAT's Metop-A satellite. ASCAT is a microwave scatterometer designed to measure surface winds over the global ocean. NOAA CoastWatch processes zonal and meridional winds (vector winds) to obtain scalar winds (modulus), wind stress, wind curl, wind divergence, wind driven currents, and Ekman upwelling."
+Wind,ACSAT MetOp Winds - Speed | Direction | Stress | Curl | Divergence | Ekman Upwelling  | Single Sensor • 0.25°/25km • 2009‑Now • Global,2020-present,25km,Global,Single,Short,No,No,No,No,"""4hr Ascending, 4hr Descending, 1-Day, 3-Day, 7-Day, Monthly""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdQCwindproducts4hrAscending.graph"">4hr Ascending</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdQCwindproducts4hrDecending.graph"">4hr Descending</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdQCwindproducts1day.graph"">1-Day</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdQCwindproducts3day.graph"">3-Day</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdQCwindproducts7day.graph"">7-Day</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdQCwindproductsMonthly.graph"">Monthly</option>
+</select>","This data begins with wind velocity measurements from the ASCAT instrument onboard EUMETSAT's Metop-A satellite. ASCAT is a microwave scatterometer designed to measure surface winds over the global ocean. NOAA CoastWatch processes zonal and meridional winds (vector winds) to obtain scalar winds (modulus), wind stress, wind curl, wind divergence, wind driven currents, and Ekman upwelling."
+Wind,QuickScat Winds - Speed | Single Sensor • 0.25°/25km • 1999‑2009 • Global,"""1999-2009, 2007-2007""",1.25km,Global,Single,Short,No,No,No,No,"""Vector Winds""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&itemsPerPage=1000&searchFor=erdQSwind"">Vector Winds</option>
+</select>","Remote Sensing Inc. distributes science quality wind velocity data from the SeaWinds instrument onboard the NASA QuikSCAT satellite. SeaWinds is a microwave scatterometer designed to measure surface winds over the global ocean. Wind velocity fields are provided in zonal, meridional sets. The reference height for all wind velocities is 10 meters. NOAA CoastWatch processes zonal and meridional winds (vector winds) to obtain scalar winds (modulus), wind stress, wind curl, wind divergence, wind driven currents, and Ekman upwelling."
+Wind,QuickScat Winds - Stress |  Single Sensor • 0.25°/25km • 1999‑2009 • Global,1999-2009,1.25km,Global,Single,Short,No,No,No,No,"""Wind Stress""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&itemsPerPage=1000&searchFor=erdQSstress"">Wind Stress</option>
+</select>","Remote Sensing Inc. distributes science quality wind velocity data from the SeaWinds instrument onboard the NASA QuikSCAT satellite. SeaWinds is a microwave scatterometer designed to measure surface winds over the global ocean. Wind velocity fields are provided in zonal, meridional sets. The reference height for all wind velocities is 10 meters. NOAA CoastWatch processes zonal and meridional winds (vector winds) to obtain scalar winds (modulus), wind stress, wind curl, wind divergence, wind driven currents, and Ekman upwelling."
+Wind,QuickScat Winds -Diffusivity Current | Single Sensor • 0.25°/25km • 1999‑2009 • Global,1999-2010,1.25km,Global,Single,Short,No,No,No,No,"""Wind Diffusivity Current""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&itemsPerPage=1000&searchFor=erdQSekm"">Wind Diffusivity Current</option>
+</select>","Remote Sensing Inc. distributes science quality wind velocity data from the SeaWinds instrument onboard the NASA QuikSCAT satellite. SeaWinds is a microwave scatterometer designed to measure surface winds over the global ocean. Wind velocity fields are provided in zonal, meridional sets. The reference height for all wind velocities is 10 meters. NOAA CoastWatch processes zonal and meridional winds (vector winds) to obtain scalar winds (modulus), wind stress, wind curl, wind divergence, wind driven currents, and Ekman upwelling."
+Salinity,SMOS - Salinty • 0.25°/25km • 2010‑present • Global,2010-present,25km,Global,Single,Short,No,No,No,No,"""Daily, 3-Day""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/coastwatchSMOSv662SSS1day.graph"">Daily</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/coastwatchSMOSv662SSS3day.graph"">3-Day</option>
+</select>",Sea Surface Salinity - Near Real Time - Miras SMOS 3-Day Mean. CoastWatch/OceanWatch Level-3 SSS products are generated directly from the ESA MIRAS SMOS Level-2. The CoastWatch L3 product ingests the SSS with values between 25 - 40 Practical Salinity Scale (PSS). These products improve the application of satellite SSS products in NOAA by minimizing the data latency to within 24 hours of Level-2 data availability.
+Salinity,SMAP - Salinity • 0.25°/25km • 2003-Now • Global,2015-present,25km,Global,Single,Short,No,No,No,No,"""Daily""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.noaa.gov/erddap/griddap/noaacwSMAPsssDaily.graph"">Daily</option>
+</select>",Sea Surface Salinity - Near Real Time - SMAP Daily Composite. CoastWatch/OceanWatch Level-3 SSS products are generated directly from the NASA Jet Propulsion Laboratory (JPL) SMAP Level-2B SSS near real time swath HDF5 files. These products improve the application of satellite SSS products in NOAA by minimizing the data latency to within 24 hours of Level-2 data availability.
+Salinity,Aquarius - Salinity • 1.0°/100km • 2011‑2015 • Global,2011-2015,100km,Global,Single,Short,No,No,No,No,"""7-Day""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/iprcAquariusOISSS7day.graph"">7-Day</option>
+</select>","This dataset has daily composites of Aquarius Sea Surface Salinity data, version 5. Part of NASA's Earth System Science Pathfinder (ESSP) Mission International Partnership between NASA and CONAE, Aquarius provides unprecedented global maps of surface sea water salinity (SSS) to discover how our oceans respond to climate change and the water cycle. Sea surface salinity, along with sea surface temperature, determines the sea surface density. This controls the formation of water masses in the ocean and regulates the 3-dimensional ocean circulation."
+"Sea Level, Geostrophic Currents",CoastWatch Altimetry - Sea Level Anomaly | Geostrophic Currents • 0.25°/25km • 2017-Now • Global,2017-present,25km,Global,Single,Short,No,No,No,No,"""Daily""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisSSH1day.graph"">Daily</option>
+</select>","The altimetry data are from the Radar Altimetry Database System (RADS), first developed at Delft University of Technology, now also at the NOAA and the European Organisation for the Exploitation of Meteorological Satellites (EUMETSAT). The RADS data for each mission is updated with state of the art corrections for tides, atmospheric path delay, etc. Because they are all computed consistently between the various missions, this avoids the possibility of introducing biases and drifts because of the different implementation of the various corrections by different agencies."
+Sea Level,AVISO Altimetry - Sea Surface Height | Sea Surface Height Anomaly • 0.25°/25km • 1992-2010 • Global,"""1992-2012, 1992-2010""",25km,Global,Single,Short,No,No,No,No,"""Daily, Monthly""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdTAssh1day.graph"">Daily</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdTAsshmday.graph"">Monthly</option>
+</select>",Aviso Absolute Sea Surface Height is the Sea Surface Height Deviation plus the long term mean dynamic height.
+Geostrophic Currents,AVISO Altimetry - Geostrophic Currents • 0.25°/25km • 1992-2010 • Global,"""1992-2012, 1992-2009""",25km,Global,Single,Short,No,No,No,No,"""Daily, Monthly""","<select class=""access-dropdown"">
+  <option value="""">ERDDAP</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdTAgeo1day.graph"">Daily</option>
+  <option data-url=""https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdTAgeomday.graph"">Monthly</option>
+</select>",This dataset delivers daily global composites of geostrophic surface-current velocities at 25 km resolution. The geostrophic currents are inferred from satellite-measured sea-surface-height deviations combined with climatological dynamic-height fields using basic fluid-mechanics principles.
