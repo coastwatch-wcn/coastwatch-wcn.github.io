@@ -1,21 +1,62 @@
 project:
   type: website
+  output-dir: docs
+  resources:
+    - files/**
+    - images/**
+    - projects/**
 
 website:
-  title: "coastwatch-wcn2"
+  title: "CoastWatch West Code Node"
   navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+    logo: images/coastwatch_logo.png
+    right:
+      - text: " "
+        href: index.qmd
+      - text: "Data Access"
+        menu:
+          - text: Data Catalog
+            href: data_catalog.qmd
+          - text: Data Server
+            href: data_server.qmd
+
+      - text: "Tools and Training"
+        menu:
+          - text: Tools
+            href: tools.qmd
+          - text: Training
+            href: training.qmd
+          - text: Code Gallery
+            href: code_gallery.qmd
+
+      - text: "Applications"
+        href: applications.qmd
+
+      - text: "About"
+        menu:
+          - text: CoastWatch
+            href: coastwatch.qmd
+          - text: Contact Us
+            href: contact_us.qmd
+          - text: Customer Survey
+            href: customer_survey.qmd
+          - text: News Archive
+            href: news_archive.qmd
 
 format:
   html:
-    theme:
-      - cosmo
-      - brand
+    theme: lux
     css: styles.css
     toc: true
+    include-after-body: footer.html
+
+execute:
+  echo: false
+  warning: false
+  error: false
+
+
+
 
 
 

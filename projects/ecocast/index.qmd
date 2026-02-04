@@ -1,0 +1,43 @@
+---
+anchor-sections: false
+format:
+  html:
+    theme: lux
+    toc: false
+    page-layout: full
+    css: styles.css
+---
+### *An Eco-Informatic Tool for Sustainable Fisheries*
+
+::: {.ecocast-hero}
+![](images/blue_shark.png){.hero-img}
+
+<span class="image-caption">Mark Conlin – NOAA Fisheries / Mark Conlin</span>
+:::
+
+---
+
+::: {.ecocast-card-grid}
+
+::: {.ecocast-card}
+### What is EcoCast?
+EcoCast is a real-time tool to help fishers and managers allocate effort to reduce bycatch while optimizing target harvest.
+
+[Learn More](about_ecocast.qmd){.btn-noaa}
+:::
+
+::: {.ecocast-card}
+### Finding a good place to fish
+EcoCast maps combine predicted distributions of target and bycatch species to suggest better and worse fishing zones.
+
+[View the Map](ecocast_map.qmd){.btn-noaa}
+:::
+
+::: {.ecocast-card}
+### Scenario analysis
+EcoCast Explorer tool gives users an opportunity to explore how species are responding to changing ocean conditions, and how that can influence the EcoCast Map product.
+
+[Run Analysis](ecocast_explorer.qmd){.btn-noaa}
+:::
+
+:::

@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>data_catalog – coastwatch-wcn2</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-08e1269e8557b430e2197ccc38ae6770.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">coastwatch-wcn2</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <span class="nav-link">
+<span class="menu-text">about.qmd</span>
+    </span>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Data Catalog</h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-page">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>The West Coast Node ERDDAP data server hosts over 1,700 datasets.</p>
+<p>On this catalog page, we’ve highlighted the most commonly used datasets by our users. To help you quickly find the dataset you need, use the interactive filter tool below — just answer a few short questions about the product type, sensor, region, and more.</p>
+<p>To explore the full list of all available datasets, visit the <a href="https://coastwatch.pfeg.noaa.gov/erddap/info/index.html?page=1&amp;itemsPerPage=1000"><strong>ERDDAP Server</strong></a>.</p>
+<section id="find-the-dataset-youre-looking-for" class="level3 filter-panel" data-appearance="card" style="padding: 2rem; border-radius: 1rem; background-color: #f8f9fa;">
+<h3 data-anchor-id="find-the-dataset-youre-looking-for">Find the dataset you’re looking for</h3>
+<p>Use the step-by-step filters below to narrow down to your ideal dataset.</p>
+<hr style="margin-top: 0.5rem; margin-bottom: 1.5rem;">
+<!-- Step 1 -->
+<div id="step-product" class="mb-3">
+<p><label><strong><strong>Step 1:</strong> Choose a Data Product</strong></label> <select id="productFilter" class="form-select"> <option value="">– Select –</option> <option value="All">All</option> <option value="SST">SST</option> <option value="Ocean Color">Ocean Color</option> <option value="Wind">Wind</option> <option value="Salinity">Salinity</option> <option value="Sea Level &amp; Geostrophic Currents">Sea Level &amp; Geostrophic Currents</option> </select></p>
+</div>
+<!-- Step 2 -->
+<div id="step-sensor" class="mb-3" style="display: none;">
+<p><label><strong><strong>Step 2:</strong> What Type of Sensor?</strong></label> <select id="sensorTypeFilter" class="form-select"> <option value="">– Select –</option> <option value="All">All</option> <option value="Single">Single</option> <option value="Multi-Sensor">Multi-Sensor</option> </select></p>
+</div>
+<!-- Step 3 -->
+<div id="step-region" class="mb-3" style="display: none;">
+<p><label><strong><strong>Step 3:</strong> Select Region</strong></label> <select id="regionFilter" class="form-select"> <option value="">– Select –</option> <option value="All">All</option> <option value="Global">Global</option> <option value="California Coast">California Coast</option> <option value="US West Coast">US West Coast</option> <option value="Western Hemisphere">Western Hemisphere</option> <option value="North Pacific">North Pacific</option> <option value="Pacific Ocean">Pacific Ocean</option> </select></p>
+</div>
+<!-- Step 4 -->
+<div id="step-timeseries" class="mb-3" style="display: none;">
+<p><label><strong><strong>Step 4:</strong> Time Series Type</strong></label> <select id="timeSeriesFilter" class="form-select"> <option value="">– Select –</option> <option value="All">All</option> <option value="Long Time Series">Long Time Series</option> <option value="Short Time Series">Short Time Series</option> </select></p>
+</div>
+<!-- Step 5 -->
+<div id="step-geo" class="mb-3" style="display: none;">
+<p><label><strong><strong>Step 5:</strong> Is it Geostationary?</strong></label> <select id="geoFilter" class="form-select"> <option value="">– Select –</option> <option value="All">All</option> <option value="Yes">Yes</option> <option value="No">No</option> </select></p>
+</div>
+<!-- Step 6 -->
+<div id="step-blend" class="mb-3" style="display: none;">
+<p><label><strong><strong>Step 6:</strong> Is it a Blended Product?</strong></label> <select id="blendFilter" class="form-select"> <option value="">– Select –</option> <option value="All">All</option> <option value="Yes">Yes</option> <option value="No">No</option> </select></p>
+</div>
+<!-- Step 7 -->
+<div id="step-gap" class="mb-3" style="display: none;">
+<p><label><strong><strong>Step 7:</strong> Gap Filled?</strong></label> <select id="gapFilter" class="form-select"> <option value="">– Select –</option> <option value="All">All</option> <option value="Yes">Yes</option> <option value="No">No</option> </select></p>
+</div>
+<!-- Step 8 -->
+<div id="step-derived" class="mb-3" style="display: none;">
+<p><label><strong><strong>Step 8:</strong> Is it a derived product (optical property)?</strong></label> <select id="derivedFilter" class="form-select"> <option value="">– Select –</option> <option value="All">All</option> <option value="Yes">Yes</option> <option value="No">No</option> </select></p>
+</div>
+<div class="mb-3 mt-4">
+<p><button id="resetFilters" class="btn btn-outline-secondary"> Reset Filters</button></p>
+</div>
+<div id="9a0ed03d" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display, HTML</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"spreadsheets/data_catalog_excel.csv"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean linebreaks and ensure no missing Access HTML</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Access"</span>] <span class="op">=</span> df[<span class="st">"Access"</span>].fillna(<span class="st">""</span>).astype(<span class="bu">str</span>).<span class="bu">str</span>.replace(<span class="vs">r"</span><span class="ch">\\</span><span class="vs">n"</span>, <span class="st">""</span>, regex<span class="op">=</span><span class="va">True</span>).<span class="bu">str</span>.strip()</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>html_rows <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _, row <span class="kw">in</span> df.iterrows():</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    html_rows <span class="op">+=</span> <span class="ss">f'''</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ss">    &lt;tr class="data-row"</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ss">        data-product="</span><span class="sc">{</span>row[<span class="st">'Product'</span>]<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">        data-sensor="</span><span class="sc">{</span>row[<span class="st">'Sensor Type'</span>]<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">        data-region="</span><span class="sc">{</span>row[<span class="st">'Region'</span>]<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">        data-timeseries="</span><span class="sc">{</span>row[<span class="st">'Time Series Type'</span>]<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">        data-geo="</span><span class="sc">{</span>row[<span class="st">'Geostationary'</span>]<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">        data-blended="</span><span class="sc">{</span>row[<span class="st">'Blended'</span>]<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">        data-gapfilled="</span><span class="sc">{</span>row[<span class="st">'Gap-Filled'</span>]<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">        data-derived="</span><span class="sc">{</span>row[<span class="st">'Derived Product'</span>]<span class="sc">}</span><span class="ss">"&gt;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;td&gt;&lt;a href="#" class="toggle-details"&gt;</span><span class="sc">{</span>row[<span class="st">'Title'</span>]<span class="sc">}</span><span class="ss">&lt;/a&gt;&lt;/td&gt;</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;td&gt;</span><span class="sc">{</span>row[<span class="st">'Product'</span>]<span class="sc">}</span><span class="ss">&lt;/td&gt;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;td&gt;</span><span class="sc">{</span>row[<span class="st">'Access'</span>]<span class="sc">}</span><span class="ss">&lt;/td&gt;</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">    &lt;/tr&gt;</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">    &lt;tr class="detail-row" style="display: none;"&gt;</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">      &lt;td colspan="3"&gt;</span><span class="sc">{</span>row<span class="sc">.</span>get(<span class="st">'Description'</span>, <span class="st">''</span>)<span class="sc">}</span><span class="ss">&lt;/td&gt;</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">    &lt;/tr&gt;</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">    '''</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>display(HTML(html_rows))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+    </div></div><table id="catalogTable" class="table table-striped">
+<colgroup>
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th>
+Dataset
+</th>
+<th>
+Product
+</th>
+<th>
+Access
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="data-row" data-product="SST" data-sensor="Single" data-region="Global" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="No">
+        <td><a href="#" class="toggle-details">VIIRS SNPP -&nbsp;SST  • Single Sensor •&nbsp;0.04°/4km •&nbsp;2020-Now • Global</a></td>
+        <td>SST</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1sstd1day_R2022NRTMasked.graph">Daily</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">These VIIRS SST data are produced using the NOAA Advanced Clear-Sky Processor for Ocean (ACSPO) SST system from the afternoon NPP and N20 satellites.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="SST" data-sensor="Single" data-region="Global" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="No">
+        <td><a href="#" class="toggle-details">MODIS Aqua -&nbsp;SST • Single Sensor • Near Real-Time •&nbsp;0.04°/4km •&nbsp;2019-Now • Global</a></td>
+        <td>SST</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNsstDaily.graph">Daily</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">This is the near real-time version of Sea Surface Temperature (SST), from Moderate Resolution Imaging Spectroradiometer (MODIS) on Aqua, Level-3 Standard Mapped Image (SMI), from NASA GSFC OBPG, R2022.0.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="SST" data-sensor="Single" data-region="Global" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="No">
+        <td><a href="#" class="toggle-details">MODIS Aqua -&nbsp;SST •&nbsp; Single Sensor • Science Quality&nbsp;•&nbsp;0.04°/4km • 2003-Now •&nbsp;Global</a></td>
+        <td>SST</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1sstd1day_R2022SQMasked.graph">Daily</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1sstd8day_R2022SQMasked.graph">8-Day</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1sstdmday_R2022SQMasked.graph">Monthly</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">This is the delayed, science-quality version of Sea Surface Temperature (SST), masked, from Moderate Resolution Imaging Spectroradiometer (MODIS) on Aqua, Level-3 Standard Mapped Image (SMI), from NASA GSFC OBPG, R2022.0.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="SST" data-sensor="Multi-Sensor" data-region="Global" data-timeseries="Short" data-geo="No" data-blended="Yes" data-gapfilled="Yes" data-derived="No">
+        <td><a href="#" class="toggle-details">NOAA Gridded Super-collated (LEO) -&nbsp;SST •&nbsp;Thermal Fronts&nbsp;•&nbsp;0.02°/2km •&nbsp; 2012‑present&nbsp;•&nbsp;Global</a></td>
+        <td>SST</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwLEOACSPOSSTL3SCDaily.graph">Daily</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">NOAA Advanced Clear-Sky Processor for Ocean L3S-LEO SST is a family of multisensor, 0.02º resolution super-collated dataset.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="SST" data-sensor="Multi-Sensor" data-region="Global" data-timeseries="Short" data-geo="No" data-blended="Yes" data-gapfilled="Yes" data-derived="No">
+        <td><a href="#" class="toggle-details">MUR -&nbsp;SST&nbsp;|&nbsp;SST Anomaly •&nbsp;Gap-Filled • 0.01°/1km&nbsp;•&nbsp;2003-Now •&nbsp;Global</a></td>
+        <td>SST</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41.graph">SST Daily</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41mday.graph">SST Monthly</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41anom1day.graph">Anomaly Daily</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41anommday.graph">Anomaly Monthly</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">A Sea Surface Temperature (SST) Anomaly product created by ERD based on JPL MUR's climatology (2003-2014) of the Jet Propulsion Laboratory's (JPL) Multi-scale Ultra-high Resolution (MUR), merged, multi-sensor L4 v4.1 Foundation SST analysis product (part of the Group for High-Resolution Sea Surface Temperature (GHRSST) project).</td>
+    </tr>
+    
+    <tr class="data-row" data-product="SST" data-sensor="Single" data-region="Global" data-timeseries="Long" data-geo="No" data-blended="No" data-gapfilled="Yes" data-derived="No">
+        <td><a href="#" class="toggle-details">NOAA Coral Reef Watch -&nbsp;SST •&nbsp;SST Anomaly •&nbsp;Gap-Filled •&nbsp;Long Time Series •&nbsp;0.05°/5km&nbsp;•&nbsp;1985-Now •&nbsp;Global</a></td>
+        <td>SST</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/NOAA_DHW.graph?CRW_SST">SST Daily</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/NOAA_DHW_monthly.graph">SST Monthly</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/NOAA_DHW.graph?CRW_SSTANOMALY">Anomaly Daily</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/NOAA_DHW_monthly.graph?sea_surface_temperature_anomaly">Anomaly Monthly</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">CoralTemp 5km gap-free analysed blended sea surface temperature over the global ocean. CoralTemp is derived from three different but related 5km daily gap-free SST data sets and provides an internally consistent SST product that stretches from 1985 to present: Operational Sea Surface Temperature and Sea Ice Analysis (OSTIA) Sea Surface Temperature Reanalysis (1985-2002), Geo-Polar Blended Night-only Sea Surface Temperature Reanalysis (2002-2016), Geo-Polar Blended Night-only Sea Surface Temperature Near Real-Time (2017 to present).</td>
+    </tr>
+    
+    <tr class="data-row" data-product="SST" data-sensor="Single" data-region="Global" data-timeseries="Long" data-geo="No" data-blended="No" data-gapfilled="Yes" data-derived="No">
+        <td><a href="#" class="toggle-details">NOAA Pathfinder v5.3 Night -&nbsp;SST • Long Time Series •&nbsp;0.05°/5km •&nbsp;1981-2020 • Global</a></td>
+        <td>SST</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/nceiPH53sstn1day.graph">SST Daily-night</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdPH53sstn8day.graph">8-Day-night</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdPH53sstnmday.graph">Monthly-night</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/nceiPH53sstd1day.graph">Daily-day</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdPH53sstd8day.graph">8-Day-day</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdPH53sstdmday.graph">Monthly-day</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">Advanced Very High Resolution Radiometer (AVHRR) Pathfinder Version 5.3 L3-Collated (L3C) sea surface temperature. This netCDF-4 file contains sea surface temperature (SST) data produced as part of the AVHRR Pathfinder SST Project. These data were created using Version 5.3 of the Pathfinder algorithm.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="SST" data-sensor="Single" data-region="Global" data-timeseries="Long" data-geo="No" data-blended="No" data-gapfilled="Yes" data-derived="No">
+        <td><a href="#" class="toggle-details">NOAA AVHRR Optimum Interpolation v2.1 -&nbsp;SST | SST Anomaly&nbsp;•&nbsp;Gap-Filled •&nbsp;Long Time Series •&nbsp;0.05°/5km •&nbsp;1981-Now •&nbsp;Global</a></td>
+        <td>SST</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/ncdcOisst21Agg.graph">SST Science Quality</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/ncdcOisst21Agg.graph?anom">SST NRT</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/ncdcOisst21NrtAgg.graph">Anomaly Science Quality</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/ncdcOisst21NrtAgg.graph?anom">Anomaly NRT</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">NOAA/National Centers for Environmental Information (NCEI) 1/4 Degree Daily Optimum Interpolation Sea Surface Temperature (OISST) Analysis, Version 2.1 - Inter. NOAAs 1/4-degree Daily Optimum Interpolation Sea Surface Temperature (OISST) (sometimes referred to as Reynolds SST, which however also refers to earlier products at different resolution), currently available as version v02r01, is created by interpolating and extrapolating SST observations from different sources, resulting in a smoothed complete field.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="SST" data-sensor="Single " data-region="California Coast" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="No">
+        <td><a href="#" class="toggle-details">NOAA VIIRS California -&nbsp;SST&nbsp;•&nbsp;High-Resolution&nbsp;•&nbsp;750m&nbsp;• 2014-Now •&nbsp;California Coast</a></td>
+        <td>SST</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVHsstaWS3day.graph">3-Day</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">These high-resolution SST data are produced using the NOAA Advanced Clear-Sky Processor for Ocean (ACSPO) SST system NPP VIIRS is a multi-disciplinary instrument that flies on the Suomi-NPP (National Polar-orbiting Partnership) satellite.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="SST" data-sensor="Single " data-region="West Coast" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="No">
+        <td><a href="#" class="toggle-details">MODIS Aqua West Coast -&nbsp;SST •&nbsp;High-Resolution •&nbsp;0.0125°/1.25km •&nbsp;2002-Now •&nbsp;US West Coast</a></td>
+        <td>SST</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMWsstd1day.graph">Daily</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMWsstd3day.graph">3-Day</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMWsstd8day.graph">8-Day</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMWsstd14day.graph">14-Day</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMWsstdmday.graph">Monthly</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">NOAA CoastWatch provides SST data from NASA's Aqua Spacecraft. Measurements are gathered by the Moderate Resolution Imaging Spectroradiometer (MODIS) carried aboard the spacecraft.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="SST" data-sensor="Single " data-region="Western Hemisphere" data-timeseries="Short" data-geo="Yes" data-blended="No" data-gapfilled="No" data-derived="No">
+        <td><a href="#" class="toggle-details">GOES-18 West-&nbsp;SST •&nbsp;Geostationary • 0.02°/2km •&nbsp;2019-Now •&nbsp;Western Hemisphere 0.25°&nbsp;•&nbsp;2022-present</a></td>
+        <td>SST</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/goes_west.graph">Hourly</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">Sea surface temperature retrievals produced by NOAA/NESDIS/STAR from the ABI sensor on the GOES-16 satellite covering the US West Coast and more. L2P algorithm V2.70; L3U algorithm V4.1.5. SSTs are a weighted average of the SSTs of contributing pixels.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Ocean Color" data-sensor="Single " data-region="Global" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="No">
+        <td><a href="#" class="toggle-details">NOAA VIIRS SNPP -&nbsp;Chlorophyll •&nbsp;Science Quality •&nbsp;Near Real-Time • 0.04°/4km •&nbsp;2012‑Now&nbsp;•&nbsp;Global</a></td>
+        <td>Ocean Color</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQchlaDaily.graph">SQ Daily</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQchlaWeekly.graph">SQ Weekly</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQchlaMonthly.graph">SQ Monthly</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNchlaDaily.graph">NRT Daily</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNchlaWeekly.graph">NRT Weekly</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">Visible and Infrared Imager/Radiometer Suite/Suomi-NPP (VIIRSN) produced by NOAA/STAR Ocean Color Team through NOAA Multi-Sensor Level 1 to Level 2 processing system (MSL12) using the Ocean Color improved satellite data record. This is Science Quality data, reprocessed in 2017.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Ocean Color" data-sensor="Single " data-region="Global" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="No">
+        <td><a href="#" class="toggle-details">NOAA VIIRS NOAA-20 -&nbsp;Chlorophyll •&nbsp;Science Quality •&nbsp;Near Real-Time • 0.04°/4km •&nbsp;2012‑Now&nbsp;•&nbsp;Global</a></td>
+        <td>Ocean Color</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&amp;itemsPerPage=1000&amp;searchFor=nesdisVHNnoaa20chlaDaily">Daily</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&amp;itemsPerPage=1000&amp;searchFor=nesdisVHNnoaa20chlaWeekly">Weekly</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">Visible and Infrared Imager/Radiometer Suite/Suomi-NPP (VIIRSN) produced by NOAA/STAR Ocean Color Team through NOAA Multi-Sensor Level 1 to Level 2 processing system (MSL12) using the Ocean Color improved satellite data record. This is Science Quality data, reprocessed in 2017.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Ocean Color" data-sensor="Single " data-region="Global" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="No">
+        <td><a href="#" class="toggle-details">MODIS Aqua -&nbsp;Chlorophyll •&nbsp;Science Quality •&nbsp;0.04°/4km • 2003‑Now • Global</a></td>
+        <td>Ocean Color</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1chla1day.graph">Daily</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1chla8day.graph">Weekly</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1chlamday.graph">Monthly</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">The MODIS (Moderate Resolution Imaging Spectro-radiometer) sensor was deployed onboard the NASA Aqua satellite. It is a multi-disciplinary sensor providing data for the ocean, land, aerosol, and cloud research and is used for detecting chlorophyll-a concentrations in the world's oceans, among other applications. Aqua MODIS views the entire Earth's surface every 2 days, acquiring data in 36 spectral bands. This dataset was reprocessed by NASA in 2018.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Ocean Color" data-sensor="Single " data-region="Global" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="No">
+        <td><a href="#" class="toggle-details">SeaWiFS -&nbsp;Chlorophyll •&nbsp;Science Quality •&nbsp;0.1°/9km •&nbsp;1997‑2010 •&nbsp;Global</a></td>
+        <td>Ocean Color</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdSW2018chla1day.graph">Daily</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdSW2018chla8day.graph">Weekly</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdSW2018chlamday.graph">Monthly</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">The NASA SeaWiFS (Sea-viewing Wide Field-of-view Sensor) sensor onboard the SeaStart spacecraft was used for detecting and measuring global sea-surface chlorophyll-a concentrations throughout the world's oceans from 1997 through 2010. During that time, the satellite was able to establish an unprecedented time series of global chlorophyll-a concentrations. The sensor started experiencing issues around 2008 leading to significant missing data in 2008-2010, so it is recommended to be cautious with data post 2007. This dataset was reprocessed by NASA in 2018.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Ocean Color" data-sensor="Single " data-region="Global" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="No">
+        <td><a href="#" class="toggle-details">NASA VIIRS SNPP -&nbsp;Chlorophyll •&nbsp;Science Quality&nbsp;•&nbsp;Near Real-Time •&nbsp;0.04°/4km •&nbsp;2012‑Now •&nbsp;Global</a></td>
+        <td>Ocean Color</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVH2018chla1day.graph">Daily</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVH2018chla8day.graph">Weekly</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVH2018chlamday.graph">Monthly</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">R2018 version of Level-3 Standard Mapped Image (SMI), Global, 4km, Chlorophyll a, OCI Algorithm, 8-Day composite data from the Visible and Infrared Imager/Radiometer Suite (VIIRS), as processed by NASA GSFC Ocean Biology Processing Group (OBPG). VIIRS is a multi-disciplinary instrument that flies on the Suomi-NPP (National Polar-orbiting Partnership) satellite. Suomi-NPP is the initial spacecraft in the JPSS (Joint Polar Satellite Systems) series of spacecraft. JPSS is our Nation's next generation polar-orbiting operational environmental satellite system. JPSS is a collaborative program between NOAA and its acquisition agent NASA. VIIRS is the successor to MODIS for Earth science data product generation.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Ocean Color" data-sensor="Single " data-region="Global" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="No">
+        <td><a href="#" class="toggle-details">NASA VIIRS NOAA-20 -&nbsp;Chlorophyll •&nbsp;Science Quality&nbsp;•&nbsp;Near Real-Time •&nbsp;0.04°/4km •&nbsp;2012‑Now •&nbsp;Global</a></td>
+        <td>Ocean Color</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&amp;itemsPerPage=1000&amp;searchFor=nesdisVHNnoaa20chlaDaily">Daily</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&amp;itemsPerPage=1000&amp;searchFor=nesdisVHNnoaa20chlaWeekly">Weekly</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">R2018 version of Level-3 Standard Mapped Image (SMI), Global, 4km, Chlorophyll a, OCI Algorithm, 8-Day composite data from the Visible and Infrared Imager/Radiometer Suite (VIIRS), as processed by NASA GSFC Ocean Biology Processing Group (OBPG). VIIRS is a multi-disciplinary instrument that flies on the Suomi-NPP (National Polar-orbiting Partnership) satellite. Suomi-NPP is the initial spacecraft in the JPSS (Joint Polar Satellite Systems) series of spacecraft. JPSS is our Nation's next generation polar-orbiting operational environmental satellite system. JPSS is a collaborative program between NOAA and its acquisition agent NASA. VIIRS is the successor to MODIS for Earth science data product generation.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Ocean Color" data-sensor="Multi-Sensor" data-region="Global" data-timeseries="Short" data-geo="No" data-blended="Yes" data-gapfilled="Yes" data-derived="No">
+        <td><a href="#" class="toggle-details">NOAA Gap-Filled VIIRS SNPP &amp; NOAA-20 -&nbsp;Chlorophyll •&nbsp;Science Quality •&nbsp;0.1°/9km •&nbsp;2020‑Now •&nbsp;Global</a></td>
+        <td>Ocean Color</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNnoaaSNPPnoaa20NRTchlaGapfilledDaily.graph">Daily NRT</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily.graph">Science Quality</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">This datasets blends chlorophyll data from the NOAA-SNPP and NOAA-20 VIIRS ocean color sensors. A gap-filling application was employed to fill in data gaps that uses a mathematical technique based on the data interpolating empirical orthogonal function (DINEOF). This technique exploits the coherency over location and time of the data from the two satellites to infer a value at the missing location. CoastWatch serves this daily global gap-filled product at ~9 km spatial resolution in a NetCDF file format.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Ocean Color" data-sensor="Multi-Sensor" data-region="Global" data-timeseries="Long" data-geo="No" data-blended="Yes" data-gapfilled="Yes" data-derived="No">
+        <td><a href="#" class="toggle-details">ESA OC-CCI v6.0 -&nbsp;Chlorophyll | 30+ more •&nbsp;Long Time Series •&nbsp;Science Quality • 0.04°/4km •&nbsp;1997-Now •&nbsp;Global</a></td>
+        <td>Ocean Color</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/pmlEsaCCI60OceanColorDaily.graph">Daily</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/pmlEsaCCI60OceanColor5Day.graph">5-Day</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/pmlEsaCCI60OceanColor8Day.graph">8-Day</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/pmlEsaCCI60OceanColorMonthly.graph">Monthly</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">The European Space Agency (ESA) started the Climate Change Initiative (CCI) to generate satellite-based Essential Climate Variables to allow assessing long-term trends from satellite products. The dataset is created by band-shifting and bias-correcting MERIS, MODIS and VIIRS data to match SeaWiFS data, merging the datasets and computing per-pixel uncertainty estimates. Parameters include chlorophyll a, remote sensing reflectance, diffuse attenuation coefficients, absorption coefficients, backscatter coefficients, and water classification.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Ocean Color" data-sensor="Single" data-region="North Pacific" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="No">
+        <td><a href="#" class="toggle-details">NOAA VIIRS SNPP -&nbsp;Chlorophyll • Near Real-Time&nbsp;•&nbsp;High Resolution •&nbsp;750m •&nbsp;2015‑Now •&nbsp;North Pacific</a></td>
+        <td>Ocean Color</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVHNchla1day.graph">Daily</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVHNchla3day.graph">3-Day</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVHNchla8day.graph">8-Day</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVHNchlamday.graph">Monthly</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">NOAA CoastWatch distributes L3 level chlorophyll a concentration data derived from measurements take by the VIIRS sensor (Visible Infrared Imaging Radiometer Suite) aboard the Suomi-NPP satellite. Chlorophyll values were calculated using NOAA-MSL12 NRT processing with LAND+CLDICE+HIGLINT+HISATZEN+HISOLZEN masking.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Ocean Color" data-sensor="Single" data-region="West Coast" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="No">
+        <td><a href="#" class="toggle-details">MODIS Aqua -&nbsp;Chlorophyll •&nbsp;Science Quality •&nbsp;0.0125°/1.25km&nbsp;•&nbsp;2002‑Now&nbsp;•&nbsp;US West Coast</a></td>
+        <td>Ocean Color</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMWchla1day.graph">Daily</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMWchla3day.graph">3-Day</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMWchla8day.graph">8-Day</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMWchla14day.graph">14-Day</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMWchlamday.graph">Monthly</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">The MODIS (Moderate Resolution Imaging Spectro-radiometer) sensor was deployed onboard the NASA Aqua satellite. It is a multi-disciplinary sensor providing data for the ocean, land, aerosol, and cloud research and is used for detecting chlorophyll-a concentrations in the world's oceans, among other applications. Aqua MODIS views the entire Earth's surface every 2 days, acquiring data in 36 spectral bands.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Ocean Color" data-sensor="Single" data-region="Pacific Ocean" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="No">
+        <td><a href="#" class="toggle-details">MODIS Aqua -&nbsp;Chlorophyll&nbsp;•&nbsp;Science Quality •&nbsp;0.025°/2.5km • 2002‑Now •&nbsp;Pacific Ocean</a></td>
+        <td>Ocean Color</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMBchla1day.graph">Daily</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMBchla3day.graph">3-Day</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMBchla8day.graph">8-Day</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMBchla14day.graph">14-Day</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMBchlamday.graph">Monthly</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">The MODIS (Moderate Resolution Imaging Spectro-radiometer) sensor was deployed onboard the NASA Aqua satellite. It is a multi-disciplinary sensor providing data for the ocean, land, aerosol, and cloud research and is used for detecting chlorophyll-a concentrations in the world's oceans, among other applications. Aqua MODIS views the entire Earth's surface every 2 days, acquiring data in 36 spectral bands.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Ocean Color" data-sensor="Single" data-region="Global" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="Yes">
+        <td><a href="#" class="toggle-details">NOAA VIIRS SNPP - Kd490&nbsp;•&nbsp;Science Quality •&nbsp;Near Real-Time •&nbsp;0.04°/4km •&nbsp;2012‑Now • Global</a></td>
+        <td>Ocean Color</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQkd490Daily.graph">Kd490 SQ Daily</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQkd490Weekly.graph">Kd490 SQ Weekly</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQkd490Monthly.graph">Kd490 SQ Monthly</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVH2018k4901day.graph">Kd490 NRT Daily</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVH2018k4908day.graph">Kd490 NRT Weekly</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVH2018k490mday.graph">Kd490 NRT Monthly</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">Diffuse attenuation coefficient for 490 nm wavelength (Kd490). Daily composite data from the Visible and Infrared Imager/Radiometer Suite (VIIRS). The science quality data have a 15-day latency. The data, processed by the NOAA/STAR Ocean Color Team, are produced from MSL12 v1.2 using OC-SDR v04.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Ocean Color" data-sensor="Single" data-region="Global" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="Yes">
+        <td><a href="#" class="toggle-details">NOAA VIIRS SNPP -&nbsp;KdPAR&nbsp;•&nbsp;Science Quality •&nbsp;Near Real-Time •&nbsp;0.04°/4km •&nbsp;2012‑Now • Global</a></td>
+        <td>Ocean Color</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQkdparDaily.graph">KdPAR SQ Daily</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQkdparWeekly.graph">KdPAR SQ Weekly</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQkdparMonthly.graph">KdPAR SQ Monthly</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNkdparDaily.graph">KdPAR NRT Daily</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNkdparWeekly.graph">KdPAR NRT Weekly</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">Diffuse attenuation coefficient for photosynthetically available radiation (KdPAR). Daily composite data from the Visible and Infrared Imager/Radiometer Suite (VIIRS). The science quality data have a 15-day latency. The data, processed by the NOAA/STAR Ocean Color Team, are produced from MSL12 v1.2 using OC-SDR v04.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Ocean Color" data-sensor="Single" data-region="Global" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="Yes">
+        <td><a href="#" class="toggle-details">NOAA VIIRS SNPP -&nbsp;nLw •&nbsp;Science Quality •&nbsp;Near Real-Time •&nbsp;0.04°/4km •&nbsp;2012‑Now • Global</a></td>
+        <td>Ocean Color</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&amp;itemsPerPage=1000&amp;searchFor=nesdisVHNSQnLw410">nLw410 SQ</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&amp;itemsPerPage=1000&amp;searchFor=nesdisVHNSQnLw443">nLw443 SQ</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&amp;itemsPerPage=1000&amp;searchFor=nesdisVHNSQnLw486">nLw486 SQ</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&amp;itemsPerPage=1000&amp;searchFor=nesdisVHNSQnLw551">nLw551 SQ</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&amp;itemsPerPage=1000&amp;searchFor=nesdisVHNSQnLw671">nLw671 SQ</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&amp;itemsPerPage=1000&amp;searchFor=nesdisVHNnLw410">nLw410 NRT</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&amp;itemsPerPage=1000&amp;searchFor=nesdisVHNnLw443">nLw443 NRT</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&amp;itemsPerPage=1000&amp;searchFor=nesdisVHNnLw486">nLw486 NRT</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&amp;itemsPerPage=1000&amp;searchFor=nesdisVHNnLw551">nLw551 NRT</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&amp;itemsPerPage=1000&amp;searchFor=nesdisVHNnLw671">nLw671 NRT</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">Normalized water leaving radiance (nLw) at 410nm, 443, 486nm, 551nm, 671nm wavelengths. Daily composite data from the Visible and Infrared Imager/Radiometer Suite (VIIRS). The science quality data have a 15-day latency. The data, processed by the NOAA/STAR Ocean Color Team, are produced from MSL12 v1.2 using OC-SDR v04.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Ocean Color" data-sensor="Single" data-region="Global" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="Yes">
+        <td><a href="#" class="toggle-details">VIIRS SNPP -&nbsp;POC&nbsp;• Science Quality •&nbsp;0.04°/4km&nbsp;• 2012‑Now • Global</a></td>
+        <td>Ocean Color</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVH2018poc1day.graph">POC Daily</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVH2018poc8day.graph">POC 8-Day</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVH2018pocmday.graph">POC Monthly</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">Particular Organic Carbon and Photosynthetically Available Radiation calculated from MODIS Aqua ocean color data. Primary Productivity is vertically integrated and calculated from satellite measurements of chlorophyll a, PAR, and sea surface temperature using the using the method of Behrenfield &amp; Falkowski (Behrenfield and Falkowski, L&amp;O 1997).</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Ocean Color" data-sensor="Single" data-region="Global" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="Yes">
+        <td><a href="#" class="toggle-details">VIIRS SNPP -&nbsp;PIC&nbsp;• Science Quality •&nbsp;0.04°/4km&nbsp;• 2012‑Now • Global</a></td>
+        <td>Ocean Color</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVH2018pic1day.graph">PIC Daily</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVH2018pic8day.graph">PIC 8-Day</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVH2018picmday.graph">PIC Monthly</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">Particular Inorganic Carbon and Photosynthetically Available Radiation calculated from MODIS Aqua ocean color data. Primary Productivity is vertically integrated and calculated from satellite measurements of chlorophyll a, PAR, and sea surface temperature using the using the method of Behrenfield &amp; Falkowski (Behrenfield and Falkowski, L&amp;O 1997).</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Ocean Color" data-sensor="Single" data-region="Global" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="Yes">
+        <td><a href="#" class="toggle-details">MODIS Aqua -&nbsp;Kd490&nbsp;•&nbsp;Science Quality • 0.04°/4km • 2002‑Now • Global</a></td>
+        <td>Ocean Color</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1kd4901day.graph">Kd490 Daily</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1kd4908day.graph">Kd490 8-Day</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1kd490mday.graph">Kd490 Monthly</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">Diffuse attenuation coefficient at 490 nm wavelength (Kd490). Daily composite data from MODIS Aqua The science quality data have a 15-day latency.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Ocean Color" data-sensor="Single" data-region="Global" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="Yes">
+        <td><a href="#" class="toggle-details">MODIS Aqua -&nbsp;1° Productivity • Science Quality •&nbsp;0.04°/4km • 2003‑Now • Global</a></td>
+        <td>Ocean Color</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1pp1day.graph">1° Prod Daily</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1ppmday.graph">1° Prod 8-Day</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1ppmday.graph">1° Prod Monthly</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">Primary Productivity from&nbsp; MODIS Aqua ocean color data is vertically integrated and calculated from satellite measurements of chlorophyll a, PAR, and sea surface temperature using the using the method of Behrenfield &amp; Falkowski (Behrenfield and Falkowski, L&amp;O 1997).</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Ocean Color" data-sensor="Single" data-region="Global" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="Yes">
+        <td><a href="#" class="toggle-details">MODIS Aqua -&nbsp;POC • Science Quality • 0.04°/4km •&nbsp;2003‑Now •&nbsp;Global</a></td>
+        <td>Ocean Color</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMPIC1day.graph">POC Daily</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMPOC8day.graph">POC 8-Day</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMPOCmday.graph">POC Monthly</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">Particular Organic Carbon is calculated from MODIS Aqua ocean color data.&nbsp;</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Ocean Color" data-sensor="Single" data-region="Global" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="Yes">
+        <td><a href="#" class="toggle-details">MODIS Aqua -&nbsp;PIC • Science Quality • 0.04°/4km •&nbsp;2003‑Now •&nbsp;Global</a></td>
+        <td>Ocean Color</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMPIC1day.graph">PIC Daily</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMPIC8day.graph">PIC 8-Day</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMPICmday.graph">PIC Monthly</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">Particular Inorganic Carbon is calculated from MODIS Aqua ocean color data.&nbsp;</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Ocean Color" data-sensor="Single" data-region="Global" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="No">
+        <td><a href="#" class="toggle-details">MODIS Aqua -PAR • Science Quality • 0.04°/4km •&nbsp;2003‑Now •&nbsp;Global</a></td>
+        <td>Ocean Color</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1par01day.graph">PAR Daily</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1par08day.graph">PAR 8-Day</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1par0mday.graph">PAR Monthly</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">Photosynthetically Available Radiation is calculated from MODIS Aqua ocean color data.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Wind" data-sensor="Single" data-region="Global" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="No">
+        <td><a href="#" class="toggle-details">ACSAT MetOp Winds - Speed • Single Sensor&nbsp;•&nbsp;0.25°/25km •&nbsp;2009‑Now • Global</a></td>
+        <td>Wind</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&amp;itemsPerPage=1000&amp;searchFor=erdQAwind">ASCAT A</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&amp;itemsPerPage=1000&amp;searchFor=erdQBwind">ASCAT B</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">This data begins with wind velocity measurements from the ASCAT instrument onboard EUMETSAT's Metop-A satellite. ASCAT is a microwave scatterometer designed to measure surface winds over the global ocean. NOAA CoastWatch processes zonal and meridional winds (vector winds) to obtain scalar winds (modulus), wind stress, wind curl, wind divergence, wind driven currents, and Ekman upwelling.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Wind" data-sensor="Single" data-region="Global" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="No">
+        <td><a href="#" class="toggle-details">ACSAT MetOp Winds - Stress • Single Sensor&nbsp;•&nbsp;0.25°/25km •&nbsp;2009‑Now • Global</a></td>
+        <td>Wind</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&amp;itemsPerPage=1000&amp;searchFor=erdQAstress">ASCAT A</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&amp;itemsPerPage=1000&amp;searchFor=erdQBstress">ASCAT B</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">This data begins with wind velocity measurements from the ASCAT instrument onboard EUMETSAT's Metop-A satellite. ASCAT is a microwave scatterometer designed to measure surface winds over the global ocean. NOAA CoastWatch processes zonal and meridional winds (vector winds) to obtain scalar winds (modulus), wind stress, wind curl, wind divergence, wind driven currents, and Ekman upwelling.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Wind" data-sensor="Single" data-region="Global" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="No">
+        <td><a href="#" class="toggle-details">ACSAT MetOp Winds - Diffusivity Current • Single Sensor&nbsp;•&nbsp;0.25°/25km •&nbsp;2009‑Now • Global</a></td>
+        <td>Wind</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&amp;itemsPerPage=1000&amp;searchFor=erdQAekm">ASCAT A</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&amp;itemsPerPage=1000&amp;searchFor=erdQBekm">ASCAT B</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">This data begins with wind velocity measurements from the ASCAT instrument onboard EUMETSAT's Metop-A satellite. ASCAT is a microwave scatterometer designed to measure surface winds over the global ocean. NOAA CoastWatch processes zonal and meridional winds (vector winds) to obtain scalar winds (modulus), wind stress, wind curl, wind divergence, wind driven currents, and Ekman upwelling.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Wind" data-sensor="Single" data-region="Global" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="No">
+        <td><a href="#" class="toggle-details">ACSAT MetOp Winds - Speed | Direction | Stress | Curl | Divergence | Ekman Upwelling  | Single Sensor • 0.25°/25km • 2009‑Now • Global</a></td>
+        <td>Wind</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdQCwindproducts4hrAscending.graph">4hr Ascending</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdQCwindproducts4hrDecending.graph">4hr Descending</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdQCwindproducts1day.graph">1-Day</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdQCwindproducts3day.graph">3-Day</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdQCwindproducts7day.graph">7-Day</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdQCwindproductsMonthly.graph">Monthly</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">This data begins with wind velocity measurements from the ASCAT instrument onboard EUMETSAT's Metop-A satellite. ASCAT is a microwave scatterometer designed to measure surface winds over the global ocean. NOAA CoastWatch processes zonal and meridional winds (vector winds) to obtain scalar winds (modulus), wind stress, wind curl, wind divergence, wind driven currents, and Ekman upwelling.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Wind" data-sensor="Single" data-region="Global" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="No">
+        <td><a href="#" class="toggle-details">QuickScat Winds -&nbsp;Speed&nbsp;| Single Sensor • 0.25°/25km •&nbsp;1999‑2009&nbsp;•&nbsp;Global</a></td>
+        <td>Wind</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&amp;itemsPerPage=1000&amp;searchFor=erdQSwind">Vector Winds</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">Remote Sensing Inc. distributes science quality wind velocity data from the SeaWinds instrument onboard the NASA QuikSCAT satellite. SeaWinds is a microwave scatterometer designed to measure surface winds over the global ocean. Wind velocity fields are provided in zonal, meridional sets. The reference height for all wind velocities is 10 meters. NOAA CoastWatch processes zonal and meridional winds (vector winds) to obtain scalar winds (modulus), wind stress, wind curl, wind divergence, wind driven currents, and Ekman upwelling.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Wind" data-sensor="Single" data-region="Global" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="No">
+        <td><a href="#" class="toggle-details">QuickScat Winds -&nbsp;Stress |&nbsp; Single Sensor • 0.25°/25km •&nbsp;1999‑2009&nbsp;•&nbsp;Global</a></td>
+        <td>Wind</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&amp;itemsPerPage=1000&amp;searchFor=erdQSstress">Wind Stress</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">Remote Sensing Inc. distributes science quality wind velocity data from the SeaWinds instrument onboard the NASA QuikSCAT satellite. SeaWinds is a microwave scatterometer designed to measure surface winds over the global ocean. Wind velocity fields are provided in zonal, meridional sets. The reference height for all wind velocities is 10 meters. NOAA CoastWatch processes zonal and meridional winds (vector winds) to obtain scalar winds (modulus), wind stress, wind curl, wind divergence, wind driven currents, and Ekman upwelling.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Wind" data-sensor="Single" data-region="Global" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="No">
+        <td><a href="#" class="toggle-details">QuickScat Winds -Diffusivity Current |&nbsp;Single Sensor • 0.25°/25km •&nbsp;1999‑2009&nbsp;•&nbsp;Global</a></td>
+        <td>Wind</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&amp;itemsPerPage=1000&amp;searchFor=erdQSekm">Wind Diffusivity Current</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">Remote Sensing Inc. distributes science quality wind velocity data from the SeaWinds instrument onboard the NASA QuikSCAT satellite. SeaWinds is a microwave scatterometer designed to measure surface winds over the global ocean. Wind velocity fields are provided in zonal, meridional sets. The reference height for all wind velocities is 10 meters. NOAA CoastWatch processes zonal and meridional winds (vector winds) to obtain scalar winds (modulus), wind stress, wind curl, wind divergence, wind driven currents, and Ekman upwelling.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Salinity" data-sensor="Single" data-region="Global" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="No">
+        <td><a href="#" class="toggle-details">SMOS -&nbsp;Salinty •&nbsp;0.25°/25km&nbsp;•&nbsp;2010‑present •&nbsp;Global</a></td>
+        <td>Salinity</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/coastwatchSMOSv662SSS1day.graph">Daily</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/coastwatchSMOSv662SSS3day.graph">3-Day</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">Sea Surface Salinity - Near Real Time - Miras SMOS 3-Day Mean. CoastWatch/OceanWatch Level-3 SSS products are generated directly from the ESA MIRAS SMOS Level-2. The CoastWatch L3 product ingests the SSS with values between 25 - 40 Practical Salinity Scale (PSS). These products improve the application of satellite SSS products in NOAA by minimizing the data latency to within 24 hours of Level-2 data availability.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Salinity" data-sensor="Single" data-region="Global" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="No">
+        <td><a href="#" class="toggle-details">SMAP -&nbsp;Salinity •&nbsp;0.25°/25km&nbsp;•&nbsp;2003-Now • Global</a></td>
+        <td>Salinity</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.noaa.gov/erddap/griddap/noaacwSMAPsssDaily.graph">Daily</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">Sea Surface Salinity - Near Real Time - SMAP Daily Composite. CoastWatch/OceanWatch Level-3 SSS products are generated directly from the NASA Jet Propulsion Laboratory (JPL) SMAP Level-2B SSS near real time swath HDF5 files. These products improve the application of satellite SSS products in NOAA by minimizing the data latency to within 24 hours of Level-2 data availability.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Salinity" data-sensor="Single" data-region="Global" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="No">
+        <td><a href="#" class="toggle-details">Aquarius -&nbsp;Salinity • 1.0°/100km •&nbsp;2011‑2015 •&nbsp;Global</a></td>
+        <td>Salinity</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/iprcAquariusOISSS7day.graph">7-Day</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">This dataset has daily composites of Aquarius Sea Surface Salinity data, version 5. Part of NASA's Earth System Science Pathfinder (ESSP) Mission International Partnership between NASA and CONAE, Aquarius provides unprecedented global maps of surface sea water salinity (SSS) to discover how our oceans respond to climate change and the water cycle. Sea surface salinity, along with sea surface temperature, determines the sea surface density. This controls the formation of water masses in the ocean and regulates the 3-dimensional ocean circulation.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Sea Level, Geostrophic Currents" data-sensor="Single" data-region="Global" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="No">
+        <td><a href="#" class="toggle-details">CoastWatch Altimetry -&nbsp;Sea Level Anomaly |&nbsp;Geostrophic Currents •&nbsp;0.25°/25km •&nbsp;2017-Now •&nbsp;Global</a></td>
+        <td>Sea Level, Geostrophic Currents</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisSSH1day.graph">Daily</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">The altimetry data are from the Radar Altimetry Database System (RADS), first developed at Delft University of Technology, now also at the NOAA and the European Organisation for the Exploitation of Meteorological Satellites (EUMETSAT). The RADS data for each mission is updated with state of the art corrections for tides, atmospheric path delay, etc. Because they are all computed consistently between the various missions, this avoids the possibility of introducing biases and drifts because of the different implementation of the various corrections by different agencies.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Sea Level" data-sensor="Single" data-region="Global" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="No">
+        <td><a href="#" class="toggle-details">AVISO Altimetry -&nbsp;Sea Surface Height&nbsp;|&nbsp;Sea Surface Height Anomaly •&nbsp;0.25°/25km •&nbsp;1992-2010 •&nbsp;Global</a></td>
+        <td>Sea Level</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdTAssh1day.graph">Daily</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdTAsshmday.graph">Monthly</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">Aviso Absolute Sea Surface Height is the Sea Surface Height Deviation plus the long term mean dynamic height.</td>
+    </tr>
+    
+    <tr class="data-row" data-product="Geostrophic Currents" data-sensor="Single" data-region="Global" data-timeseries="Short" data-geo="No" data-blended="No" data-gapfilled="No" data-derived="No">
+        <td><a href="#" class="toggle-details">AVISO Altimetry -&nbsp;Geostrophic Currents •&nbsp;0.25°/25km •&nbsp;1992-2010&nbsp;•&nbsp;Global</a></td>
+        <td>Geostrophic Currents</td>
+        <td><select class="access-dropdown">
+  <option value="">ERDDAP</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdTAgeo1day.graph">Daily</option>
+  <option data-url="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdTAgeomday.graph">Monthly</option>
+</select></td>
+    </tr>
+    <tr class="detail-row" style="display: none;">
+      <td colspan="3">This dataset delivers daily global composites of geostrophic surface-current velocities at 25 km resolution. The geostrophic currents are inferred from satellite-measured sea-surface-height deviations combined with climatological dynamic-height fields using basic fluid-mechanics principles.</td>
+    </tr>
+    
+
+
+</tbody></table>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const steps = [
+    { id: "productFilter", wrapper: "step-product" },
+    { id: "sensorTypeFilter", wrapper: "step-sensor" },
+    { id: "regionFilter", wrapper: "step-region" },
+    { id: "timeSeriesFilter", wrapper: "step-timeseries" },
+    { id: "geoFilter", wrapper: "step-geo" },
+    { id: "blendFilter", wrapper: "step-blend" },
+    { id: "gapFilter", wrapper: "step-gap" },
+    { id: "derivedFilter", wrapper: "step-derived" }
+  ];
+
+  function filterTable() {
+    const product = document.getElementById("productFilter").value;
+    const sensorType = document.getElementById("sensorTypeFilter").value;
+    const region = document.getElementById("regionFilter").value;
+    const timeSeries = document.getElementById("timeSeriesFilter").value;
+    const geo = document.getElementById("geoFilter").value;
+    const blend = document.getElementById("blendFilter").value;
+    const gap = document.getElementById("gapFilter").value;
+    const derived = document.getElementById("derivedFilter").value;
+
+    const rows = document.querySelectorAll("tr.data-row");
+    rows.forEach(dataRow => {
+      const detailRow = dataRow.nextElementSibling;
+
+      const visible =
+        (!product || product === "All" || dataRow.dataset.product === product) &&
+        (!sensorType || sensorType === "All" || dataRow.dataset.sensor === sensorType) &&
+        (!region || region === "All" || dataRow.dataset.region === region) &&
+        (!timeSeries || timeSeries === "All" || dataRow.dataset.timeseries === timeSeries) &&
+        (!geo || geo === "All" || dataRow.dataset.geo === geo) &&
+        (!blend || blend === "All" || dataRow.dataset.blended === blend) &&
+        (!gap || gap === "All" || dataRow.dataset.gapfilled === gap) &&
+        (!derived || derived === "All" || dataRow.dataset.derived === derived);
+
+      dataRow.style.display = visible ? "" : "none";
+      if (detailRow && detailRow.classList.contains("detail-row")) {
+        detailRow.style.display = "none";
+      }
+    });
+  }
+
+  // Set up progressive step visibility
+  steps.forEach((step, index) => {
+    const select = document.getElementById(step.id);
+    if (!select) return;
+
+    if (index < steps.length - 1) {
+      const nextWrapper = document.getElementById(steps[index + 1].wrapper);
+      select.addEventListener("change", () => {
+        if (select.value !== "") {
+          nextWrapper.style.display = "block";
+        } else {
+          for (let i = index + 1; i < steps.length; i++) {
+            const wrapper = document.getElementById(steps[i].wrapper);
+            if (wrapper) wrapper.style.display = "none";
+          }
+        }
+        filterTable();
+      });
+    }
+
+    select.addEventListener("change", filterTable);
+  });
+
+  // Reset button
+  document.getElementById("resetFilters")?.addEventListener("click", () => {
+    steps.forEach((step, index) => {
+      const select = document.getElementById(step.id);
+      if (select) select.value = "";
+      if (index !== 0) {
+        const wrapper = document.getElementById(step.wrapper);
+        if (wrapper) wrapper.style.display = "none";
+      }
+    });
+    filterTable();
+  });
+
+  // Toggle detail rows
+  document.querySelectorAll(".toggle-details").forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      const row = link.closest("tr");
+      const next = row?.nextElementSibling;
+      if (next && next.classList.contains("detail-row")) {
+        next.style.display = next.style.display === "none" ? "table-row" : "none";
+      }
+    });
+  });
+
+  // Enable <select class="access-dropdown"> to open links
+  document.querySelectorAll(".access-dropdown").forEach(dropdown => {
+    dropdown.addEventListener("change", function () {
+      const selected = this.options[this.selectedIndex];
+      const url = selected.getAttribute("data-url");
+      if (url) {
+        window.open(url, "_blank");
+        this.selectedIndex = 0;
+      }
+    });
+  });
+});
+</script>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
