@@ -7,14 +7,14 @@ format:
     page-layout: full
     styles: ../../styles.css
 ---
-### *An Eco-Informatic Tool for Sustainable Fisheries*
 
 :::{.ecocast-page}
 
 ::: {.project-topbar}
 
 <div class="project-brand">
-  <img src="images/ecocast_logo_003366.png" alt="EcoCast logo" class="project-brand-logo">
+  <a href="index.qmd" class="project-brand-link">
+    <img src="images/ecocast_logo_003366.png" alt="EcoCast logo" class="project-brand-logo">
 </div>
 
 <nav class="project-tabs" aria-label="EcoCast navigation">
@@ -31,7 +31,8 @@ format:
 <span class="image-caption">Mark Conlin – NOAA Fisheries / Mark Conlin</span>
 :::
 
----
+### **An Eco-Informatic Tool for Sustainable Fisheries**
+
 
 ::: {.ecocast-card-grid}
 
