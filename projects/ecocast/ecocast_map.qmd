@@ -1,0 +1,105 @@
+---
+title: "EcoCast Map"
+format: html
+toc: false
+page-layout: full
+anchor-sections: false
+---
+
+::: {.ecocast-columns}
+::: {.ecocast-column .ecocast-card}
+
+**Select Map Date:**  
+
+<select id="mapSelect" class="form-select w-auto d-inline-block mb-3"
+        onchange="document.getElementById('mapFrame').src=this.value">
+  <option value="https://oceanview.pfeg.noaa.gov/ecocast/output/latest_week/latest.png">Today</option>
+  <option value="https://oceanview.pfeg.noaa.gov/ecocast/output/latest_week/latest1.png">1 Day Ago</option>
+  <option value="https://oceanview.pfeg.noaa.gov/ecocast/output/latest_week/latest2.png">2 Days Ago</option>
+  <option value="https://oceanview.pfeg.noaa.gov/ecocast/output/latest_week/latest3.png">3 Days Ago</option>
+  <option value="https://oceanview.pfeg.noaa.gov/ecocast/output/latest_week/latest4.png">4 Days Ago</option>
+  <option value="https://oceanview.pfeg.noaa.gov/ecocast/output/latest_week/latest5.png">5 Days Ago</option>
+</select>
+
+<img id="mapFrame"
+     src="https://oceanview.pfeg.noaa.gov/ecocast/output/latest_week/latest.png"
+     width="100%"
+     class="rounded shadow-sm">
+
+:::
+
+::: {.ecocast-column .ecocast-card}
+## EcoCast Map Product FAQs
+
+<details class="ecocast-faq">
+<summary><strong>What is the EcoCast Map product?</strong></summary>
+
+The EcoCast Map product is a novel fishery sustainability tool that helps fishers and managers better evaluate how to allocate fishing effort to optimize the catch of target species (e.g. swordfish) while minimizing the accidental bycatch of blue sharks and protected species (leatherback sea turtles, California sea lions).
+
+</details>
+
+<details class="ecocast-faq">
+<summary><strong>How do I use the EcoCast Map product?</strong></summary>
+
+<span style="color:blue;">Better for fishing</span> is indicated by increasingly blue colors, showing where the likelihood of target catch is good and the likelihood of bycatch in lower.
+
+<span style="color:red;">Poorer for fishing</span> is indicated by increasingly red colors, showing where the likelihood of target catch is lower and the likelihood of bycatch is higher.
+
+</details>
+
+<details class="ecocast-faq">
+<summary><strong>How is the EcoCast Map product made?</strong></summary>
+
+Each day the EcoCast tool generates predictions of the spatial distributions of important migratory species, including those targeted for catch by fishers (swordfish) and those that may be unintentionally captured during commercial fishing activities (bycatch). Each distribution is then weighted, based on prevailing management strategies, to produce the Ecocast Map product.
+
+![](images/ecocast_model.png)
+
+</details>
+
+<details class="ecocast-faq">
+<summary><strong>How are the species weightings determined?</strong></summary>
+
+Species weightings, which range from -1.0 to 1.0, are set to reflect management priorities and recent catch and bycatch events. A species is assigned a more negative weighting to avoid catch and a more positive weighting when catch is desired. For example, the default weightings (see map legend) are set to 0.9 for swordfish and -0.9 for leatherback turtles, creating a map that locates fishing areas where the chance of swordfish catch is optimal and the bycatch of leatherbacks, a protected and endangered species, is minimal. If there were elevated sea lion bycatch events, the weighting for that species (set to -0.05 by default) could be made more negative in order to locate fishing areas where the chance of their bycatch is less. You can use the [Explorer Tool](#ecocast_explore.qmd) to adjust species weightings based on your management scenarios and generate custom versions of the map.
+
+</details>
+
+<details class="ecocast-faq">
+<summary><strong>What environmental data are used?</strong></summary>
+
+The EcoCast Map product uses the following satellite data:
+
+- Sea surface chlorophyll concentration from [MODIS Aqua](https://modis.gsfc.nasa.gov/data/dataprod/chlor_a.php)
+- Sea surface temperature
+- Sea surface winds
+- Sea surface height
+- Eddy kinetic energy
+</details>
+
+<details class="ecocast-faq">
+<summary><strong>Can I access the environmental data?</strong></summary>
+
+The environmental data used to create the EcoCast Map product can be downloaded from the CoastWatch dataserver and the COPERNICUS Copernicus Marine Environmental Monitoring Service at following the links:
+
+- [NOAA/NCDC Blended Daily Global 0.25° Sea Surface Winds](https://coastwatch.pfeg.noaa.gov/erddap/griddap/ncdcOwDlyP_LonPM180.graph)
+- [GHRSST Global 1-km Sea Surface Temperature](https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplG1SST.graph)
+- [Multi-scale Ultra-high Resolution SST Analysis](https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41.graph)
+- [Global ocean gridded L4 sea surface heights and derived variable nrt](https://marine.copernicus.eu/services-portfolio/access-to-products/?option=com_csw&view=details&product_id=SEALEVEL_GLO_PHY_L4_NRT_OBSERVATIONS_008_046)
+</details>
+
+---
+
+## Download EcoCast Data
+
+The EcoCast product data can downloaded from the ERD/CoastWatch West Coast ERDDAP server:
+
+- [EcoCast Map product as a data file](https://coastwatch.pfeg.noaa.gov/erddap/griddap/ecocast.graph)  
+- [Animal weighting factors and the dates of the environmental data used for each map](https://coastwatch.pfeg.noaa.gov/erddap/tabledap/ecocast_inputs.graph)
+:::
+:::
+
+---
+
+::: {.ecocast-disclaimer}
+
+The information on this page may be used and redistributed freely, but is not intended for legal use. Neither the data contributors, EcoCast partner organizations, CoastWatch, NOAA SWFSC, nor any of their employees or contractors, makes any warranty, express or implied, including warranties of merchantability and fitness for a particular purpose, or assumes any legal liability for the accuracy, completeness, or usefulness of this information. Although it is distributed by the NOAA CoastWatch West Coast Regional Node, this product is solely the responsibility of the [EcoCast project (.pdf)](https://www.westcoast.fisheries.noaa.gov/publications/fishery_management/hms_program/swordfish2015/ecocast_infosheet.pdf) and is not associated with NOAA CoastWatch. For official information about EcoCast contact [Elliott Hazen](https://coastwatch.pfeg.noaa.gov/ecocast/mailto@elliott.hazen@noaa.gov?Subject=EcoCast) or [Heather Welch](https://coastwatch.pfeg.noaa.gov/ecocast/mailto@heather.welch@noaa.gov?Subject=EcoCast).
+:::

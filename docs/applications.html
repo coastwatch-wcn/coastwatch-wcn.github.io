@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>CoastWatch Projects – CoastWatch West Code Node</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-70d88079e524e7ac3589a57de67b8bd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./images/coastwatch_logo.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">CoastWatch West Code Node</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text"> </span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-access" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Data Access</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-data-access">    
+        <li>
+    <a class="dropdown-item" href="./data_catalog.html">
+ <span class="dropdown-text">Data Catalog</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./data_server.html">
+ <span class="dropdown-text">Data Server</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tools-and-training" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Tools and Training</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-tools-and-training">    
+        <li>
+    <a class="dropdown-item" href="./tools.html">
+ <span class="dropdown-text">Tools</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./training.html">
+ <span class="dropdown-text">Training</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./code_gallery.html">
+ <span class="dropdown-text">Code Gallery</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="./applications.html" aria-current="page"> 
+<span class="menu-text">Applications</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-about" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">About</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-about">    
+        <li>
+    <a class="dropdown-item" href="./coastwatch.html">
+ <span class="dropdown-text">CoastWatch</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./contact_us.html">
+ <span class="dropdown-text">Contact Us</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./customer_survey.html">
+ <span class="dropdown-text">Customer Survey</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./news_archive.html">
+ <span class="dropdown-text">News Archive</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">CoastWatch Projects</h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-page">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>NOAA CoastWatch Nodes and participants in the CoastWatch satellite courses.</p>
+<div id="041760ef" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display">
+<div class="project-grid">
+    <div class="project-card open-modal" data-modal="modal-ecocast">
+      <img src="images/ecocast.png" alt="EcoCast">
+      <h3>Dynamic Ocean Management</h3>
+      <h7>EcoCast</h7>
+    </div>
+    
+    <div class="project-card open-modal" data-modal="modal-turtle">
+      <img src="images/loggerhead_turtles.png" alt="Turtles">
+      <h3>Turtle Conservation</h3>
+      <h7>Loggerhead Turtles Bycatch</h7>
+    </div>
+    
+    <div class="project-card open-modal" data-modal="modal-whalewatch">
+      <img src="images/whalewatch.png" alt="WhaleWatch Image">
+      <h3>Blue Whale Conservation</h3>
+      <h7>WhaleWatch 2.0</h7>
+    </div>
+    
+    <div class="project-card open-modal" data-modal="modal-sardine">
+      <img src="images/sardine_habitat.png" alt="Sardine Potential Habitat Image">
+      <h3>Habitat Modeling</h3>
+      <h7>Sardine Potential Habitat</h7>
+    </div>
+    
+    <div class="project-card open-modal" data-modal="modal-netpp">
+      <img src="images/productivity.png" alt="NetPP Image">
+      <h3>Primary Productivity </h3>
+      <h7>VIIRS Interim Products</h7>
+    </div>
+    
+    <div class="project-card open-modal" data-modal="modal-polarwatch">
+      <img src="images/polarwatch.png" alt="PolarWatch Image">
+      <h3>Polar Regions Satellite Data</h3>
+      <h7>PolarWatch</h7>
+    </div>
+    
+    <div class="project-card open-modal" data-modal="modal-poc">
+      <img src="images/poc.png" alt="Particulate Organic Carbon Image">
+      <h3>POC Algorithm Development</h3>
+      <h7>Particulate Organic Carbon</h7>
+    </div>
+    
+    <div class="project-card open-modal" data-modal="modal-oceanmodeling">
+      <img src="images/ocean_modeling.png" alt="WCOFS Image">
+      <h3>Ocean Modeling</h3>
+      <h7>Advancing WCOFS Modeling</h7>
+    </div>
+    
+    <div class="project-card open-modal" data-modal="modal-charm">
+      <img src="images/charm.png" alt="C-HARM Image">
+      <h3>Harmful Algal Blooms</h3>
+      <h7>C-HARM HABs Forecast</h7>
+    </div>
+    
+    <div class="project-card open-modal" data-modal="modal-fishstock">
+      <img src="images/fishstock.png" alt="Fisheries Stock Assessment Image">
+      <h3>Fisheries Stock Assessment</h3>
+      <h7>Alaska Stock Assessment Tool</h7>
+    </div>
+    
+    <div class="project-card open-modal" data-modal="modal-satcourse">
+      <img src="images/satcourse.png" alt="Satellite Course Image">
+      <h3>User Training Courses</h3>
+      <h7>CoastWatch Satellite Course</h7>
+    </div>
+    
+    <div class="project-card open-modal" data-modal="modal-tutorials">
+      <img src="images/tutorials.png" alt="ERDDAP Image">
+      <h3>Tutorials: Using ERDDAP</h3>
+      <h7>Accessing Satellite Data</h7>
+    </div>
+    
+    <div class="project-card open-modal" data-modal="modal-coding">
+      <img src="images/coding.png" alt="Coding Image">
+      <h3>Tutorials: R and Python</h3>
+      <h7>Accessing Satellite Data</h7>
+    </div>
+    </div>
+<div id="modal-ecocast" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">×</span>
+    <h2>EcoCast</h2>
+    <div class="modal-columns">
+      <div class="modal-column">
+        <img src="images/ecocast.png" alt="EcoCast" class="modal-top-image">
+        <p class="caption">The blue shark is a protected species included in the EcoCast fisheries sustainability tool.</p>
+        <h4>Partners</h4>
+        <p>San Diego State University, UC Santa Cruz, University of Maryland, Old Dominion University, Stanford University, and NOAA SWFSC Environmental Research Division.</p>
+      </div>
+      <div class="modal-column">
+        <h4>Description</h4>
+        <p>CoastWatch West Coast Node (WCN) provides satellite data products and a web presence to the EcoCast project. EcoCast is a real-time tool to help fishers and managers allocate fishing effort to optimize the harvest of target fish while minimizing bycatch of protected species. WCN also serves the EcoCast products via ERDDAP.</p>
+        <h4>Funding</h4>
+        <p>NASA EcoForecasting and Applied Science program (NNH12ZDA001N-ECOF) with additional support from California SeaGrant, NOAA Bycatch Reduction Engineering Program, NOAA West Coast Regional Office, NOAA Integrated Ecosystem Assessment program, StanfordÕs Center for Ocean Solutions, and NOAA CoastWatch.</p>
+        <a href="https://example.com/ecocast" target="_blank" class="btn btn-primary">Homepage</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="modal-turtle" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">×</span>
+    <h2>Loggerhead Turtles Bycatch</h2>
+    <div class="modal-columns">
+      <div class="modal-column">
+        <img src="images/loggerhead_turtles.png" alt="Turtles" class="modal-top-image">
+        <p class="caption">A Loggerhead turtle swimming in the waters off Southern California.</p>
+        <h4>Partners</h4>
+        <p>UC Santa Cruz, NOAA Southwest Fisheries Science Center, Stanford University, ant the University of Maryland.</p>
+      </div>
+      <div class="modal-column">
+        <h4>Description</h4>
+        <p>The TOTAL (Temperature Observations To Avoid Loggerheads) project uses satellite-based environmental indicators within a dynamic ocean management framework to deliver a tool that helps minimize loggerhead bycatch without causing undue impact on the industry. The CoastWatch West Coast Node provides satellite data products and a web presence for the project.</p>
+        <h4>Funding</h4>
+        <p>NOAA Fisheries Bycatch Reduction Engineering Program (grant number NA16NMF4720278), with support from NOAA Southwest Fisheries Science Center and NOAA CoastWatch.</p>
+        <a href="https://madrichardson.github.io/turtlewatch/" target="_blank" class="btn btn-primary">Homepage</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="modal-whalewatch" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">×</span>
+    <h2>WhaleWatch 2.0</h2>
+    <div class="modal-columns">
+      <div class="modal-column">
+        <img src="images/whalewatch.png" alt="WhaleWatch Image" class="modal-top-image">
+        <p class="caption">A blue whale surfacing in the waters off the California coast within the California Current Ecosystem.</p>
+        <h4>Partners</h4>
+        <p>A consortium of scientists, managers, and members of the shipping industry. The WhaleWatch 2.0 team is scientists from University of California Santa Cruz and Oregon State University and NOAA's Environmental Resource Division.</p>
+      </div>
+      <div class="modal-column">
+        <h4>Description</h4>
+        <p>The WhaleWatch 2.0 project produces a daily map product that is a predictive spatial management tool to categorize suitable blue whale habitat within the California Current Ecosystem. The map identifies where whales are most likely to be each day based on current environmental conditions, such as ocean temperature and productivity.</p>
+        <h4>Funding</h4>
+        <p>The Benioff Ocean Initiative.</p>
+        <a href="https://madrichardson.github.io/whalewatch/" target="_blank" class="btn btn-primary">Homepage</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="modal-sardine" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">×</span>
+    <h2>Sardine Potential Habitat</h2>
+    <div class="modal-columns">
+      <div class="modal-column">
+        <img src="images/sardine_habitat.png" alt="Sardine Potential Habitat Image" class="modal-top-image">
+        <p class="caption">Maps of potential sardine habitat (left) and sea surface temperature maps (right).</p>
+        <h4>Partners</h4>
+        <p>NOAA's Southwest Fisheries Science Center.</p>
+      </div>
+      <div class="modal-column">
+        <h4>Description</h4>
+        <p>CoastWatch West Coast Node is operationalizing the Pacific sardines predictive habitat model. The model characterizes the relationships between the occurrence of the northern stock of Pacific sardine and the species' preferred habitat, as determine from environment factors measured with satellites. The predicted habitat can be used to schedule the time and location of ship and aerial surveys to create an optimal sampling strategy.</p>
+        <h4>Funding</h4>
+        <p>NOAA CoastWatch.</p>
+        <a href="https://example.com/ecocast" target="_blank" class="btn btn-primary">Homepage</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="modal-netpp" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">×</span>
+    <h2>VIIRS Interim Products</h2>
+    <div class="modal-columns">
+      <div class="modal-column">
+        <img src="images/productivity.png" alt="NetPP Image" class="modal-top-image">
+        <p class="caption">Global primary productivity from the VIIRS-SNPP netPP product.</p>
+        <h4>Partners</h4>
+        <p>NOAA CoastWatch Nodes, NOAA Southeast Fisheries Science Center, and NOAA National Marine Fisheries Service.</p>
+      </div>
+      <div class="modal-column">
+        <h4>Description</h4>
+        <p>NOAA CoastWatch developed interim primary productivity products to bridge the gap created by the upcoming retirement of the MODIS-Aqua sensor, which has supported the legacy global product since 2007. These interim products, driven by VIIRS-SNPP and VIIRS-NOAA20 data using the established VPGM algorithm, provide continuity for users until the next generation of primary productivity products is available.</p>
+        <h4>Funding</h4>
+        <p>The project was supported by funding from the Portfolio Management Branch of NESDIS, NOAA CoastWatch, and CSU COAST.</p>
+        <a href="https://coastwatch-wcn.github.io/primary_productivity/" target="_blank" class="btn btn-primary">Homepage</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="modal-polarwatch" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">×</span>
+    <h2>PolarWatch</h2>
+    <div class="modal-columns">
+      <div class="modal-column">
+        <img src="images/polarwatch.png" alt="PolarWatch Image" class="modal-top-image">
+        <p class="caption">Sea Ice Cover in the Arctic and the Antarctic.</p>
+        <h4>Partners</h4>
+        <p>The Alaska Fisheries Science Center (AFSC), the National Ice Center, the National Snow and Ice Center, CoastWatch West Coast Node and Central Office, and the NOAA SWFSC Environmental Research and Fisheries Antarctic Ecosystem Research Divisions.</p>
+      </div>
+      <div class="modal-column">
+        <h4>Description</h4>
+        <p>PolarWatch extends the CoastWatch program by providing high-latitude satellite observation data to governmental, academic, commercial, and public users in support of broad applications in the Arctic and Southern Oceans.</p>
+        <h4>Funding</h4>
+        <p>NOAA CoastWatch.</p>
+        <a href="https://polarwatch.noaa.gov/" target="_blank" class="btn btn-primary">Homepage</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="modal-poc" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">×</span>
+    <h2>Particulate Organic Carbon</h2>
+    <div class="modal-columns">
+      <div class="modal-column">
+        <img src="images/poc.png" alt="Particulate Organic Carbon Image" class="modal-top-image">
+        <p class="caption">Global POC distribution generated with a potential new algorithm for the SeaWiFS sensor.</p>
+        <h4>Partners</h4>
+        <p>UC San Diego's Scripps Institution of Oceanography.</p>
+      </div>
+      <div class="modal-column">
+        <h4>Description</h4>
+        <p>Particulate organic carbon (POC) is a standard global product that is generated for many ocean color sensors. The POC algorithm used as of 2020 is over a decade old and was validated with only limited in situ observations. CoastWatch West Coast Node is supporting the work of researchers from Scripps Institution of Oceanography to develop updated POC algorithms for the SeaWiFS, MODIS, and VIIRS ocean color satellites.</p>
+        <h4>Funding</h4>
+        <p>NASA Science of TERRA, AQUA, and SUOMI NPP program (80NSSC18K0956) with support from NOAA CoastWatch.</p>
+        <a href="https://oceanoptics.ucsd.edu/" target="_blank" class="btn btn-primary">Homepage</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="modal-oceanmodeling" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">×</span>
+    <h2>Advancing WCOFS Modeling</h2>
+    <div class="modal-columns">
+      <div class="modal-column">
+        <img src="images/ocean_modeling.png" alt="WCOFS Image" class="modal-top-image">
+        <p class="caption">WCOFS model output for bathymetry (left) and the model grid (right).</p>
+        <h4>Partners</h4>
+        <p>UC Santa Cruz, NOAA National Environmental Satellite Data and Information Service, NOAA National Marine Fisheries Service, NOAA Coast Survey Development Lab, Northwest Association of Networked Ocean Observing System, and Central &amp; Northern California Ocean Observing System.</p>
+      </div>
+      <div class="modal-column">
+        <h4>Description</h4>
+        <p>CoastWatch West Coast Node is a member of a research group working to transition established ecological products that are generated using ocean model output, such as the California-Harmful Algae Risk Mapping (C-HARM) products, to use output from the WCOFS model.</p>
+        <h4>Funding</h4>
+        <p>U.S. IOOS Coastal and Ocean Modeling Testbed (COMT) program, with support from NOAA CoastWatch.</p>
+        <a href="https://comt.ioos.us/projects/wcofs_advancement" target="_blank" class="btn btn-primary">Homepage</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="modal-charm" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">×</span>
+    <h2>C-HARM HABs Forecast</h2>
+    <div class="modal-columns">
+      <div class="modal-column">
+        <img src="images/charm.png" alt="C-HARM Image" class="modal-top-image">
+        <p class="caption">The probability of Pseudo-nitzschia (left) and Cellular Domoic Acid (right) occurrence of the California coast.</p>
+        <h4>Partners</h4>
+        <p>Central &amp; Northern California Ocean Observing System, Southern California Coastal Ocean Observing System, UC Santa Cruz, UC Los Angeles, RSS Inc, and NOAA National Ocean Service.</p>
+      </div>
+      <div class="modal-column">
+        <h4>Description</h4>
+        <p>The CoastWatch West Coast Node operationalized the C-HARM harmful algal bloom (HAB) products, which predict the occurrences of Pseudo-nitzschia and the domoic acid toxin using sophisticated circulation models, satellite remote-sensing data, and statistical models.</p>
+        <h4>Funding</h4>
+        <p>National Aeronautics and Space Administration (NNX13AL28G, NNX14AC42G), US IOOS Coastal Ocean Modeling Testbed (COMT), NOAA ECOHAB, and the Packard Foundation with support from NOAA CoastWatch.</p>
+        <a href="https://habs.sccoos.org/hab-forecast" target="_blank" class="btn btn-primary">Homepage</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="modal-fishstock" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">×</span>
+    <h2>Alaska Stock Assessment Tool</h2>
+    <div class="modal-columns">
+      <div class="modal-column">
+        <img src="images/fishstock.png" alt="Fisheries Stock Assessment Image" class="modal-top-image">
+        <p class="caption">Fisheries management regions in the Bering Sea and the Gulf of Alaska.</p>
+        <h4>Partners</h4>
+        <p>NOAA Alaska Fisheries Science Center and CoastWatch West Coast Node.</p>
+      </div>
+      <div class="modal-column">
+        <h4>Description</h4>
+        <p>CoastWatch West Coast Node has created satellite indices for the Alaskan Fishery Management areas to be used in the Ecosystem and Socioeconomic Profiles (ESP), which are submitted as part of the annual Stock Assessment and Fishery Evaluation (SAFE) Reports.</p>
+        <h4>Funding</h4>
+        <p>NOAA Alaska Fisheries Science Center and CoastWatch West Coast Node.</p>
+        <a href="https://coastwatch.pfeg.noaa.gov/projects/afsc/" target="_blank" class="btn btn-primary">Homepage</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="modal-satcourse" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">×</span>
+    <h2>CoastWatch Satellite Course</h2>
+    <div class="modal-columns">
+      <div class="modal-column">
+        <img src="images/satcourse.png" alt="Satellite Course Image" class="modal-top-image">
+        <p class="caption">Course instructor Dr. Cara Wilson teaching course participants the basics of satellite remote sensing.</p>
+        <h4>Partners</h4>
+        <p>NOAA CoastWatch Regional Nodes and NOAA CoastWatch Central Office.</p>
+      </div>
+      <div class="modal-column">
+        <h4>Description</h4>
+        <p>The CoastWatch West Coast Node offers courses for NOAA scientists and managers, and anybody wanting to learn how to access and use ocean satellite data. The course has been offered each year since 2006.</p>
+        <h4>Funding</h4>
+        <p>NOAA CoastWatch.</p>
+        <a href="./sat_courses.html" target="_blank" class="btn btn-primary">Homepage</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="modal-tutorials" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">×</span>
+    <h2>Accessing Satellite Data</h2>
+    <div class="modal-columns">
+      <div class="modal-column">
+        <img src="images/tutorials.png" alt="ERDDAP Image" class="modal-top-image">
+        <p class="caption">Online lesson demonstrating how to construct a URL for an ERDDAP data request.</p>
+        <h4>Partners</h4>
+        <p>NOAA CoastWatch Nodes and participants in the CoastWatch satellite courses.</p>
+      </div>
+      <div class="modal-column">
+        <h4>Description</h4>
+        <p>CoastWatch West Coast Node provides online tutorials on how to visualize and access satellite data using the ERDDAP data server.</p>
+        <h4>Funding</h4>
+        <p>NOAA CoastWatch.</p>
+        <a href="https://coastwatch.pfeg.noaa.gov/projects/erddap/" target="_blank" class="btn btn-primary">Homepage</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="modal-coding" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">×</span>
+    <h2>Accessing Satellite Data</h2>
+    <div class="modal-columns">
+      <div class="modal-column">
+        <img src="images/coding.png" alt="Coding Image" class="modal-top-image">
+        <p class="caption">An online tutorial with example R code that downloads satellite data for an irregularly shaped area using the RerddapXactractomatic package.</p>
+        <h4>Partners</h4>
+        <p>NOAA CoastWatch Nodes and participants in the CoastWatch satellite courses.</p>
+      </div>
+      <div class="modal-column">
+        <h4>Description</h4>
+        <p>CoastWatch West Coast Node provides online tutorials on how to download and use satellite data using the R software package and RerddapXtractomatic library.</p>
+        <h4>Funding</h4>
+        <p>NOAA CoastWatch.</p>
+        <a href="https://coastwatch.pfeg.noaa.gov/projects/r/" target="_blank" class="btn btn-primary">Homepage</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".project-card.open-modal").forEach(card => {
+    card.addEventListener("click", () => {
+      const modalId = card.getAttribute("data-modal");
+      const modal = document.getElementById(modalId);
+      if (modal) modal.classList.add("show");
+    });
+  });
+
+  document.querySelectorAll(".close-btn").forEach(button => {
+    button.addEventListener("click", () => {
+      const modal = button.closest(".modal");
+      if (modal) modal.classList.remove("show");
+    });
+  });
+
+  window.addEventListener("click", (e) => {
+    document.querySelectorAll(".modal").forEach(modal => {
+      if (e.target === modal) modal.classList.remove("show");
+    });
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      document.querySelectorAll(".modal.show").forEach(modal => modal.classList.remove("show"));
+    }
+  });
+});
+</script>
+
+
+
+</main> <!-- /main -->
+<footer style="
+  width: 100%;
+  padding: 2rem 1rem;
+  border-top: 1px solid #ddd;
+  background: none;
+  color: #333;
+  font-size: 1.125rem;
+">
+  <div style="
+    max-width: 1200px;
+    margin: 0 auto;
+  ">
+
+    <!-- Top link bar -->
+    <div style="
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+      white-space: nowrap;
+    ">
+      <a href="https://www.fisheries.noaa.gov/" style="color: #336699; text-decoration: none;">Fisheries</a>
+      <a href="https://www.star.nesdis.noaa.gov/star/index.php" style="color: #336699; text-decoration: none;">STAR</a>
+      <a href="https://coastwatch.noaa.gov/cwn/index.html" style="color: #336699; text-decoration: none;">CoastWatch</a>
+      <a href="https://www.fisheries.noaa.gov/about/southwest-fisheries-science-center" style="color: #336699; text-decoration: none;">Southwest Fisheries</a>
+      <a href="https://www.fisheries.noaa.gov/about/climate-and-ecosystems-program-southwest-fisheries-science-center" style="color: #336699; text-decoration: none;">Environmental Research Division</a>
+    </div>
+
+    <!-- Logo + tagline -->
+    <div style="
+      text-align: center;
+      margin: 2rem 0;
+    ">
+      <img src="./images/noaa_logo.png" alt="NOAA logo" style="height: 56px; display: block; margin: 0 auto 0.5rem;">
+      <div style="font-style: italic; color: #333;">Science. Service. Stewardship.</div>
+    </div>
+
+    <!-- Bottom legal links -->
+    <div style="
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem 1.5rem;
+    ">
+      <a href="https://www.noaa.gov/protecting-your-privacy" style="color: #336699; text-decoration: none;">Protecting Your Privacy</a>
+      <a href="https://www.noaa.gov/information-technology/foia" style="color: #336699; text-decoration: none;">FOIA</a>
+      <a href="https://www.noaa.gov/information-technology" style="color: #336699; text-decoration: none;">Information Quality</a>
+      <a href="https://www.noaa.gov/disclaimer" style="color: #336699; text-decoration: none;">Disclaimer</a>
+      <a href="https://www.commerce.gov/" style="color: #336699; text-decoration: none;">Commerce.gov</a>
+    </div>
+
+    <!-- Final credit line -->
+    <div style="
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+    ">
+      © 2025 NOAA CoastWatch West Coast | Built with <a href="https://quarto.org" style="color: #336699; text-decoration: none;">Quarto</a>
+    </div>
+
+  </div>
+</footer>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
