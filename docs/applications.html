@@ -193,8 +193,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>NOAA CoastWatch Nodes and participants in the CoastWatch satellite courses.</p>
-<div id="041760ef" class="cell" data-execution_count="1">
+<p>CoastWatch West Coast Node has contributed the following projects.</p>
+<div id="996d5e5c" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div class="project-grid">
     <div class="project-card open-modal" data-modal="modal-ecocast">
@@ -291,7 +291,7 @@ ul.task-list li input[type="checkbox"] {
         <p>CoastWatch West Coast Node (WCN) provides satellite data products and a web presence to the EcoCast project. EcoCast is a real-time tool to help fishers and managers allocate fishing effort to optimize the harvest of target fish while minimizing bycatch of protected species. WCN also serves the EcoCast products via ERDDAP.</p>
         <h4>Funding</h4>
         <p>NASA EcoForecasting and Applied Science program (NNH12ZDA001N-ECOF) with additional support from California SeaGrant, NOAA Bycatch Reduction Engineering Program, NOAA West Coast Regional Office, NOAA Integrated Ecosystem Assessment program, StanfordÕs Center for Ocean Solutions, and NOAA CoastWatch.</p>
-        <a href="https://example.com/ecocast" target="_blank" class="btn btn-primary">Homepage</a>
+        <a href="./projects/ecocast/index.html" class="btn btn-primary">View Project</a>
       </div>
     </div>
   </div>
@@ -564,6 +564,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+
   document.querySelectorAll(".project-card.open-modal").forEach(card => {
     card.addEventListener("click", () => {
       const modalId = card.getAttribute("data-modal");
@@ -587,9 +588,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") {
-      document.querySelectorAll(".modal.show").forEach(modal => modal.classList.remove("show"));
+      document.querySelectorAll(".modal.show").forEach(modal =>
+        modal.classList.remove("show")
+      );
     }
   });
+
 });
 </script>
 

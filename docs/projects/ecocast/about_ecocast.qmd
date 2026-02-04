@@ -1,0 +1,124 @@
+---
+title: "About EcoCast"
+anchor-sections: false
+format:
+  html:
+    theme: lux
+    toc: false
+    page-layout: full
+---
+
+
+::: {.ecocast-columns}
+::: {.ecocast-column}
+### Mission and Vision
+EcoCast is a fisheries sustainability tool that helps fishers and managers evaluate how to allocate fishing effort to maintain target fish catch while minimizing bycatch of protected or threatened species.
+
+The mission of our project is to bring best-available science and analyses to support the ecological sustainability and economic viability for U.S. fisheries. With decades of experience in fisheries bycatch, fisheries mapping, oceanographic and species distribution analyses, our research team is working to support the development of innovative management approaches that meet ecological and economic management objectives and mandates.
+
+---
+
+### EcoCast Team
+EcoCast is a consortium of scientists, managers, and members of the fishing industry, including:  
+
+- San Diego State University  
+- UC Santa Cruz  
+- University of Maryland  
+- Old Dominion University  
+- Stanford University  
+- NOAA Environmental Resource Division  
+
+They work directly with resource managers, fishing industry, and other stakeholders.
+
+---
+
+### Project Funding
+Funding has been provided by: 
+
+- NASA EcoForecasting & Applied Science Program (NNH12ZDA001N-ECOF)  
+- California SeaGrant  
+- NOAA Bycatch Reduction Engineering Program  
+- NOAA West Coast Regional Office  
+- NOAA Integrated Ecosystem Assessment Program  
+- Stanford Center for Ocean Solutions
+:::
+
+::: {.ecocast-column}
+#### Targeted Species
+![Broadbill Swordfish (*Xiphias gladius*), also known as North Pacific Swordfish, Emperado, A`u, Mekajiki, Shutome. Artwork: Les Hata © Secretariat of the Pacific Community.](images/swordfish.png){fig-align="center" width="80%" style="object-fit:contain; margin-bottom:1rem;"}
+
+#### Bycatch Species
+![The leatherback sea turtle (*Dermochelys coriacea*) is a highly migratory species, swimming over 10,000 miles in a year. Photo copyright: NOAA Fisheries](images/leatherback_sea_turtle.png){fig-align="center" width="80%" style="object-fit:contain; margin-bottom:1rem;"}
+
+![The California sea lion (*Zalophus californianus*) native to the West Coast of North America. Photo copyright: NOAA Fisheries](images/sea_lion.png){fig-align="center" width="80%" style="object-fit:contain; margin-bottom:1rem;"}
+:::
+:::
+
+---
+
+## Dynamic Ocean Management
+
+Dynamic ocean management is a new management approach that uses real-time and near real-time data to support management responses that can change in space and time, at scales relevant for animal movement and human use. Dynamic ocean management can use diverse analytical approaches (simple to complex), supports climate-resilient fisheries, and is already implemented in many oceans around the world.
+
+
+### How does it differ from traditional ocean management?
+
+<span style="font-weight:bold" class="noaa-blue">Traditional Ocean Management</span>
+
+- Boundaries are fixed in space and time.
+- Static schemes must be large enough to capture broad-scale ocean processes.
+- Can have high opportunity costs for fishers.
+- Rendered ineffective during anomalous events (e.g. species seasonal migrations or shifts of fishing fleets).
+
+<span style="font-weight:bold" class="noaa-blue">Dynamic Ocean Management</span>
+
+- Boundaries and recommendations can change in near real time.
+- Align management actions with the variability of ecosystems.
+- Incorporates diverse data sources:
+  - Satellite data
+  - Ocean monitoring arrays
+  - Bio-geochemical models
+  - Crowd-sourced reports from ocean users
+- Provides managers with recommendations that reflect current marine conditions.
+
+### Why it matters
+
+Dynamic ocean management sits at the interface of science and management. It captures the best-available science and directs it to meet the needs of resource managers and the fishing industry. 
+
+<span style="font-weight:bold" class="noaa-blue">What’s exciting about this research:</span>
+
+- Puts science and data analytics to work in real time, and
+- Fundamentally changes how oceans are managed.
+
+---
+
+::: {.ecocast-card}
+## Additional Information
+
+<details class="ecocast-faq">
+    <summary><strong>Related Websites</strong></summary>
+
+- [TurtleWatch](https://www.fisheries.noaa.gov/resource/map/turtlewatch): A product produced by NOAA's Pacific Islands Fisheries Science Center to provides up-to-date information about the thermal habitat of loggerhead sea turtles in the Pacific Ocean north of the Hawaiian Islands.
+- [WhaleWatch](https://www.fisheries.noaa.gov/west-coast/marine-mammal-protection/whalewatch): A project coordinated by NOAA Fisheries' West Coast Region to help reduce human impacts on whales.
+- [California Integrated Ecosystem Assessment](https://www.integratedecosystemassessment.noaa.gov/regions/california-current-region/index.html): A project with a primary goal of better understanding the California Current ecosystem.
+
+</details>
+
+<details class="ecocast-faq">
+<summary><strong>References</strong></summary>
+
+- Hazen et al. (2018) A dynamic ocean management tool to reduce bycatch and support sustainable fisheries. Science Advances. 4(5):eaar3001. [doi.org/10.1126/sciadv.aar3001](https://dx.doi.org/10.1126/sciadv.aar3001)
+- Briscoe et al. (2018) Characterizing habitat suitability for a central-place forager in a dynamic marine environment. Ecol Evol.. 8:2788–2801. [doi.org/10.1002/ece3.3827.](https://doi.org/10.1002/ece3.3827)
+- Scales et al. (2017) Fit to predict? Eco-informatics for predicting the catchability of a pelagic fish in near real time. [Ecological Applications. 0:1-17.](https://www.conservationecologylab.com/uploads/1/9/7/6/19763887/scales_et_al_2017.pdf)
+- Lewison et al. (2015) Dynamic Ocean Management: Identifying the Critical Ingredients of Dynamic Approaches to Ocean Resource Management. BioScience, 65:486–498. [doi.org/10.1093/biosci/biv018](https://doi.org/10.1093/biosci/biv018)
+- Maxwell et al. (2015) Dynamic ocean management: Defining and conceptualizing real-time management of the ocean. Marine Policy. 58:42-50. [doi.org/10.1016/j.marpol.2015.03.014](https://doi.org/10.1016/j.marpol.2015.03.014)
+
+</details>
+
+:::
+
+
+::: {.ecocast-disclaimer}
+
+The information on this page may be used and redistributed freely, but is not intended for legal use. Neither the data contributors, EcoCast partner organizations, CoastWatch, NOAA SWFSC, nor any of their employees or contractors, makes any warranty, express or implied, including warranties of merchantability and fitness for a particular purpose, or assumes any legal liability for the accuracy, completeness, or usefulness of this information. Although it is distributed by the NOAA CoastWatch West Coast Regional Node, this product is solely the responsibility of the [EcoCast project (.pdf)](https://www.westcoast.fisheries.noaa.gov/publications/fishery_management/hms_program/swordfish2015/ecocast_infosheet.pdf) and is not associated with NOAA CoastWatch. For official information about EcoCast contact [Elliott Hazen](https://coastwatch.pfeg.noaa.gov/ecocast/mailto@elliott.hazen@noaa.gov?Subject=EcoCast) or [Heather Welch](https://coastwatch.pfeg.noaa.gov/ecocast/mailto@heather.welch@noaa.gov?Subject=EcoCast).
+:::
