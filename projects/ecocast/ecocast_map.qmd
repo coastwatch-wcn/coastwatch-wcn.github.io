@@ -10,8 +10,9 @@ anchor-sections: false
 
 :::{ecocast-page}
 
-::: {.ecocast-columns}
-::: {.ecocast-column .ecocast-card}
+::: {.ecocast-sbs}
+
+::: {.ecocast-sbs-left .ecocast-card}
 
 **Select Map Date:**  
 
@@ -32,7 +33,7 @@ anchor-sections: false
 
 :::
 
-::: {.ecocast-column .ecocast-card}
+::: {.ecocast-sbs-right .ecocast-card}
 ## EcoCast Map Product FAQs
 
 <details class="ecocast-faq">
@@ -101,6 +102,7 @@ The EcoCast product data can downloaded from the ERD/CoastWatch West Coast ERDDA
 :::
 :::
 
+:::
 ---
 
 ::: {.ecocast-disclaimer}

@@ -1721,3 +1721,24 @@ button.btn-primary:hover {
   padding: 0.5em 0.75em;
   margin: 0.25em 0;
 }
+
+/* EcoCast Map page: map + FAQ side-by-side */
+.ecocast-page .ecocast-sbs{
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  gap: 1.25rem;
+  align-items: start;
+}
+
+/* Prevent children from forcing wrapping */
+.ecocast-page .ecocast-sbs-left,
+.ecocast-page .ecocast-sbs-right{
+  min-width: 0;
+}
+
+/* Mobile: stack */
+@media (max-width: 991px){
+  .ecocast-page .ecocast-sbs{
+    grid-template-columns: 1fr;
+  }
+}
