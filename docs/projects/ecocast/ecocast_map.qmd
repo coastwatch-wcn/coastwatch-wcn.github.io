@@ -8,7 +8,9 @@ format:
 anchor-sections: false
 ---
 
-:::{.ecocast-page}
+:::{.ecocast-page .ecocast-map-page}
+
+:::{.ecocast-map-zoom}
 
 ::: {.ecocast-sbs}
 
@@ -101,7 +103,7 @@ The EcoCast product data can downloaded from the ERD/CoastWatch West Coast ERDDA
 - [Animal weighting factors and the dates of the environmental data used for each map](https://coastwatch.pfeg.noaa.gov/erddap/tabledap/ecocast_inputs.graph)
 :::
 :::
-
+:::
 ---
 
 ::: {.ecocast-disclaimer}

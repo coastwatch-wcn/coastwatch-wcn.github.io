@@ -1742,3 +1742,9 @@ button.btn-primary:hover {
     grid-template-columns: 1fr;
   }
 }
+
+/*Zoom out ONLY the EcoCast Map page */
+.ecocast-map-page .ecocast-map-zoom{
+  transform: scale(0.95);
+  transform-origin: top center;
+}
