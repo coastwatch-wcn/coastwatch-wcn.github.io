@@ -1,9 +1,23 @@
-<div class="d-flex justify-content-between mt-4 mb-4">
-  <a href="{{ page.prev }}" class="btn btn-noaa">
-    ← {{ page.prev_label }}
-  </a>
+<div class="d-flex justify-content-between mt-4 mb-4" id="page-nav"></div>
 
-  <a href="{{ page.next }}" class="btn btn-noaa">
-    {{ page.next_label }} →
-  </a>
-</div>
+<script>
+(function () {
+  const prev = "{{< meta prev >}}";
+  const prevLabel = "{{< meta prev_label >}}";
+  const next = "{{< meta next >}}";
+  const nextLabel = "{{< meta next_label >}}";
+
+  const el = document.getElementById("page-nav");
+  if (!el) return;
+
+  const prevBtn = prev && prev !== "NA"
+    ? `<a href="${prev}" class="btn btn-outline-primary">← ${prevLabel || "Previous"}</a>`
+    : `<span></span>`;
+
+  const nextBtn = next && next !== "NA"
+    ? `<a href="${next}" class="btn btn-outline-primary">${nextLabel || "Next"} →</a>`
+    : `<span></span>`;
+
+  el.innerHTML = prevBtn + nextBtn;
+})();
+</script>
