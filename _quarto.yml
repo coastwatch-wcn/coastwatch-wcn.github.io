@@ -46,27 +46,6 @@ website:
           - text: News Archive
             href: news_archive.qmd
 
-  sidebar:
-    style: "docked"
-    contents:
-      - index.qmd
-      - section: "Data Access"
-        contents:
-          - data_catalog.qmd
-          - data_server.qmd
-      - section: "Tools and Training"
-        contents:
-          - tools.qmd
-          - training.qmd
-          - code_gallery.qmd
-      - applications.qmd
-      - section: "About"
-        contents:
-          - coastwatch.qmd
-          - contact_us.qmd
-          - customer_survey.qmd
-          - news_archive.qmd
-
 format:
   html:
     theme: lux
@@ -74,8 +53,7 @@ format:
     toc: true
     include-after-body: footer.html
     grid:
-      body-width: 1000px
-      margin-width: 200px
+      body-width: 1100px
 
 execute:
   echo: false
