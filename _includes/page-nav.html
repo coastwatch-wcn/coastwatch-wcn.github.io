@@ -11,11 +11,11 @@
   if (!el) return;
 
   const prevBtn = prev && prev !== "NA"
-    ? `<a href="${prev}" class="btn btn-outline-primary">← ${prevLabel || "Previous"}</a>`
+    ? `<a href="${prev}" class="btn btn-noaa">← ${prevLabel || "Previous"}</a>`
     : `<span></span>`;
 
   const nextBtn = next && next !== "NA"
-    ? `<a href="${next}" class="btn btn-outline-primary">${nextLabel || "Next"} →</a>`
+    ? `<a href="${next}" class="btn btn-noaa">${nextLabel || "Next"} →</a>`
     : `<span></span>`;
 
   el.innerHTML = prevBtn + nextBtn;
