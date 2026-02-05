@@ -1,5 +1,9 @@
 ---
 title: "EcoCast Map"
+prev: ././about_ecocast.html
+prev_label: About EcoCast
+next: ././ecocast_explorer.html
+next_label: EcoCast Explorer
 format: 
   html:
    toc: false
@@ -112,15 +116,3 @@ The information on this page may be used and redistributed freely, but is not in
 :::
 
 :::
-
----
-
-<div class="d-flex justify-content-between mt-4">
-  <a href="about_ecocast.html" class="btn btn-noaa">
-    ← About EcoCast
-  </a>
-
-  <a href="ecocast_explorer.html" class="btn btn-noaa">
-    EcoCast Explorer →
-  </a>
-</div>
