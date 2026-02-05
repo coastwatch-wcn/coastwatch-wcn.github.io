@@ -1,5 +1,10 @@
 /* css styles */
 
+/* Global zoom out*/
+html {
+  zoom: 0.85
+}
+
 /* ---------------------------------- */
 /* NAVBAR                            */
 /* ---------------------------------- */
@@ -13,6 +18,10 @@
 .navbar {
   background-color: #003366 !important;  /* NOAA deep blue */
   border-bottom: none;
+}
+
+.navbar-nav .nav-link{
+  font-size: 1.1rem;
 }
 
 .navbar a,

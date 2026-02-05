@@ -51,6 +51,9 @@ format:
     css: styles.css
     toc: true
     include-after-body: footer.html
+    grid:
+      body-width: 1000px
+      margin-width: 200px
 
 execute:
   echo: false
