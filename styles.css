@@ -1723,7 +1723,7 @@ button.btn-primary:hover {
 }
 
 /* EcoCast Map page: map + FAQ side-by-side */
-.ecocast-page .ecocast-sbs{
+.ecocast-page .ecocast-map-page .ecocast-sbs{
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
   gap: 1.25rem;
@@ -1731,14 +1731,20 @@ button.btn-primary:hover {
 }
 
 /* Prevent children from forcing wrapping */
-.ecocast-page .ecocast-sbs-left,
-.ecocast-page .ecocast-sbs-right{
+.ecocast-page .ecocast-map-page .ecocast-sbs-left,
+.ecocast-page .ecocast-map-page .ecocast-sbs-right{
   min-width: 0;
 }
 
 /* Mobile: stack */
 @media (max-width: 991px){
-  .ecocast-page .ecocast-sbs{
+  .ecocast-page .ecocast-map-page .ecocast-sbs{
     grid-template-columns: 1fr;
   }
+}
+
+/*Zoom out ONLY the EcoCast Map page */
+.ecocast-page .ecocast-map-page{
+  transform: scale(0.95);
+  transform-origin: top center;
 }

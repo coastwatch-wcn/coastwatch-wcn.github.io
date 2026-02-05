@@ -8,10 +8,11 @@ format:
 anchor-sections: false
 ---
 
-:::{ecocast-page}
+:::{.ecocast-page}
 
-::: {.ecocast-layout}
-::: {.ecocast-panel .ecocast-card}
+::: {.ecocast-sbs}
+
+::: {.ecocast-sbs-left .ecocast-card}
 
 **Select Map Date:**  
 
@@ -32,7 +33,7 @@ anchor-sections: false
 
 :::
 
-::: {.ecocast-panel .ecocast-card}
+::: {.ecocast-sbs-right .ecocast-card}
 ## EcoCast Map Product FAQs
 
 <details class="ecocast-faq">

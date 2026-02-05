@@ -1722,27 +1722,23 @@ button.btn-primary:hover {
   margin: 0.25em 0;
 }
 
-/* EcoCast Map page only: side-by-side layout */
-.ecocast-page .ecocast-layout{
+/* EcoCast Map page: map + FAQ side-by-side */
+.ecocast-page .ecocast-sbs{
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
   gap: 1.25rem;
   align-items: start;
 }
 
-/* Optional: sticky FAQ panel */
-@media (min-width: 992px){
-  .ecocast-page .ecocast-layout .ecocast-panel:nth-child(2){
-    position: sticky;
-    top: 90px;                 /* adjust for navbar */
-    max-height: calc(100vh - 110px);
-    overflow-y: auto;
-  }
+/* Prevent children from forcing wrapping */
+.ecocast-page .ecocast-sbs-left,
+.ecocast-page .ecocast-sbs-right{
+  min-width: 0;
 }
 
-/* Mobile stack */
+/* Mobile: stack */
 @media (max-width: 991px){
-  .ecocast-page .ecocast-layout{
+  .ecocast-page .ecocast-sbs{
     grid-template-columns: 1fr;
   }
 }

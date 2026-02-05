@@ -8,7 +8,7 @@ format:
 anchor-sections: false
 ---
 
-:::{ecocast-page}
+:::{.ecocast-page .ecocast-map-page}
 
 ::: {.ecocast-sbs}
 
@@ -102,7 +102,6 @@ The EcoCast product data can downloaded from the ERD/CoastWatch West Coast ERDDA
 :::
 :::
 
-:::
 ---
 
 ::: {.ecocast-disclaimer}
