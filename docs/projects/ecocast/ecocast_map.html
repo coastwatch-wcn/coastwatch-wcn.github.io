@@ -171,6 +171,29 @@ ul.task-list li input[type="checkbox"] {
     
 <!-- main -->
 <main class="content column-page" id="quarto-document-content">
+<div class="d-flex justify-content-between mt-4 mb-4" id="page-nav"></div>
+
+<script>
+(function () {
+  const prev = "about_ecocast.html";
+  const prevLabel = "About EcoCast";
+  const next = "ecocast_explorer.html";
+  const nextLabel = "EcoCast Explorer";
+
+  const el = document.getElementById("page-nav");
+  if (!el) return;
+
+  const prevBtn = prev && prev !== "NA"
+    ? `<a href="${prev}" class="btn btn-noaa">← ${prevLabel || "Previous"}</a>`
+    : `<span></span>`;
+
+  const nextBtn = next && next !== "NA"
+    ? `<a href="${next}" class="btn btn-noaa">${nextLabel || "Next"} →</a>`
+    : `<span></span>`;
+
+  el.innerHTML = prevBtn + nextBtn;
+})();
+</script>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -342,29 +365,6 @@ ul.task-list li input[type="checkbox"] {
 
   </div>
 </footer>
-<div class="d-flex justify-content-between mt-4 mb-4" id="page-nav"></div>
-
-<script>
-(function () {
-  const prev = "../../about_ecocast.html";
-  const prevLabel = "About EcoCast";
-  const next = "../../ecocast_explorer.html";
-  const nextLabel = "EcoCast Explorer";
-
-  const el = document.getElementById("page-nav");
-  if (!el) return;
-
-  const prevBtn = prev && prev !== "NA"
-    ? `<a href="${prev}" class="btn btn-outline-primary">← ${prevLabel || "Previous"}</a>`
-    : `<span></span>`;
-
-  const nextBtn = next && next !== "NA"
-    ? `<a href="${next}" class="btn btn-outline-primary">${nextLabel || "Next"} →</a>`
-    : `<span></span>`;
-
-  el.innerHTML = prevBtn + nextBtn;
-})();
-</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const isCodeAnnotation = (el) => {

@@ -1,10 +1,9 @@
 ---
 title: "EcoCast Map"
-prev: ../../about_ecocast.html
+prev: about_ecocast.html
 prev_label: About EcoCast
-next: ../../ecocast_explorer.html
+next: ecocast_explorer.html
 next_label: EcoCast Explorer
-include-after-body: ../../_includes/page-nav.html
 format: 
   html:
    toc: false
@@ -117,3 +116,5 @@ The information on this page may be used and redistributed freely, but is not in
 :::
 
 :::
+
+{{< include ../../_includes/page-nav.html >}}
