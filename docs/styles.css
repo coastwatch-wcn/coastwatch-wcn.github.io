@@ -1748,3 +1748,304 @@ button.btn-primary:hover {
   transform: scale(0.95);
   transform-origin: top center;
 }
+
+/* ---------------------- */
+/* WHALEWATCH PROJECT     */
+/* ---------------------- */
+
+.whalewatch-page .whale-hero {
+  text-align: right;
+  margin-bottom: 2rem;
+  position: relative;
+  margin-top: 1rem;
+}
+
+.whalewatch-page .hero-img {
+  width: 100%;
+  max-height: 400px;
+  display: block;
+  object-fit: cover;
+  border-radius: 0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.whalewatch-page .image-caption {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #555;
+  margin-top: 0.25rem;
+  padding-right: 0.5rem;
+  display: block;
+}
+
+.whalewatch-page .whale-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.whalewatch-page .whale-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.whalewatch-page .whale-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.whalewatch-page .whale-card h3 {
+  margin-top: 0;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.whalewatch-page .btn-outline-primary {
+  margin-top: 1rem;
+  padding: 0.5rem 1.2rem;
+  border: 2px solid black;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.whalewatch-page .btn-outline-primary:hover {
+  background-color: black;
+  color: white;
+}
+
+.whalewatch-page .callout-note.whale-dropdown {
+  border-left: 6px solid #0077c8;
+  background-color: #f9f9f9;
+}
+
+.whalewatch-page .callout-note.whale-dropdown .callout-header {
+  font-weight: 600;
+  color: black;
+}
+
+/* whale layout styles */
+.whalewatch-page .whale-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  align-items: flex-start;
+  margin-bottom: 2em;
+}
+
+.whalewatch-page .whale-column {
+  flex: 1;
+  min-width: 300px; /* ensures stacking on narrow screens */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.whalewatch-page .whale-card {
+  background: #f8f9fa;
+  padding: 1em 1.25em;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.whalewatch-page .whale-card a {
+  color: #2b6da8; /* NOAA blue for links */
+  text-decoration: underline;
+}
+
+/* Ensure figures in whale cards look clean */
+.whalewatch-page .whale-card img {
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  margin-bottom: 1em;
+}
+
+/* Replace boring bullets with custom ones */
+.whalewatch-page .whale-card ul {
+  list-style: none;        /* remove default bullets */
+  padding-left: 1.2em;     /* indent */
+}
+
+.whalewatch-page .whale-card ul li {
+  position: relative;
+  margin-bottom: 0.5em;
+}
+
+.whalewatch-page .whale-card ul li::before {
+  content: "◆";            
+  color: #2b6da8;          /* NOAA blue */
+  font-size: 0.8em;
+  position: absolute;
+  left: -1.2em;
+  top: 0.2em;
+}
+
+.whalewatch-page .whale-disclaimer {
+  background: #f1f3f5;     /* lighter gray */
+  padding: 1em 1.25em;
+  border-radius: 6px;
+  font-size: 0.85em;       /* slightly smaller text */
+  line-height: 1.5;
+  border-left: 4px solid #6c757d; /* accent bar */
+  margin-top: 2em;
+}
+
+.whalewatch-page .whale-disclaimer a {
+  color: #2b6da8; /* NOAA blue for links */
+  text-decoration: underline;
+}
+
+/* Make summary look like a blue Bootstrap-style button */
+.whalewatch-page .whale-buttons summary {
+  display: inline-block;
+  background-color: #2b6da8; /* NOAA blue */
+  color: #fff;
+  padding: 0.5em 1em;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  border: none;
+}
+
+.whalewatch-page .whale-buttons summary:hover {
+  background-color: #244f7a; /* darker blue on hover */
+}
+
+/* Remove the ugly default <details> border and triangle */
+.whalewatch-page .whale-buttons {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.whalewatch-page .whale-buttons summary::-webkit-details-marker {
+  display: none;
+}
+
+.whalewatch-page .whale-buttons summary::marker {
+  display: none;
+}
+
+.whalewatch-page .noaa-blue {
+  color: #2b6da8;
+}
+
+
+/* Base collapsible card */
+.whalewatch-page .whale-faq {
+  margin-bottom: 1em;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+  background: #f8f9fa;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+/* Summary = card header */
+.whalewatch-page .whale-faq summary {
+  cursor: pointer;
+  padding: 0.25em 0.5em;
+  font-weight: 600;
+  color: #2b6da8; /* NOAA blue */
+  background: #f0f6fa;
+  list-style: none; /* remove triangle marker */
+}
+
+.whalewatch-page .whale-faq summary::-webkit-details-marker,
+.whalewatch-page .whale-faq summary::marker {
+  display: none; /* hide disclosure triangle */
+}
+
+/* Content area = card body */
+.whalewatch-page .whale-faq[open] {
+  background: #fff;
+}
+
+.whalewatch-page .whale-faq[open] summary {
+  border-bottom: 1px solid #dee2e6;
+  background: #e9f3fb;
+}
+
+.whalewatch-page .whale-faq p,
+.whalewatch-page .whale-faq ul {
+  padding: 0.5em 0.75em;
+  margin: 0.25em 0;
+}
+
+.whalewatch-page .project-topbar{
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: .65rem 1.1rem;
+  margin: 0 0 1.25rem 0;
+
+  background: #f2f4f6;
+  border-bottom: 2px solid rgba(0,0,0,.08);
+}
+
+/* Brand stays left and is vertically centered */
+.whalewatch-page .project-topbar .project-brand{
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  white-space: nowrap;
+}
+
+.whalewatch-page .project-topbar .project-brand-title{
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* Nudge only if your PNG has transparent padding */
+.whalewatch-page .project-topbar .project-brand-logo{
+  height: 80px;
+  width: auto;
+  display: block;
+  transform: translateY(1px); /* try 0px, 1px, or 2px */
+}
+
+/* Tabs are centered across the bar */
+.whalewatch-page .project-topbar .project-tabs{
+  position: static;          /* tabs now affect bar height */
+  transform: none;
+  left: auto;
+
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  max-width: none;
+  margin: 0;            /* center within bar */
+}
+
+
+.whalewatch-page .project-tab{
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+/* Mobile: stack instead of absolute centering */
+@media (max-width: 900px){
+  .whalewatch-page .project-topbar{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .6rem;
+  }
+  .whalewatch-page .project-topbar .project-tabs{
+    position: static;
+    transform: none;
+    left: auto;
+    justify-content: flex-start;
+  }
+}

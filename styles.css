@@ -1979,3 +1979,73 @@ button.btn-primary:hover {
   padding: 0.5em 0.75em;
   margin: 0.25em 0;
 }
+
+.whalewatch-page .project-topbar{
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: .65rem 1.1rem;
+  margin: 0 0 1.25rem 0;
+
+  background: #f2f4f6;
+  border-bottom: 2px solid rgba(0,0,0,.08);
+}
+
+/* Brand stays left and is vertically centered */
+.whalewatch-page .project-topbar .project-brand{
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  white-space: nowrap;
+}
+
+.whalewatch-page .project-topbar .project-brand-title{
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* Nudge only if your PNG has transparent padding */
+.whalewatch-page .project-topbar .project-brand-logo{
+  height: 80px;
+  width: auto;
+  display: block;
+  transform: translateY(1px); /* try 0px, 1px, or 2px */
+}
+
+/* Tabs are centered across the bar */
+.whalewatch-page .project-topbar .project-tabs{
+  position: static;          /* tabs now affect bar height */
+  transform: none;
+  left: auto;
+
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  max-width: none;
+  margin: 0;            /* center within bar */
+}
+
+
+.whalewatch-page .project-tab{
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+/* Mobile: stack instead of absolute centering */
+@media (max-width: 900px){
+  .whalewatch-page .project-topbar{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .6rem;
+  }
+  .whalewatch-page .project-topbar .project-tabs{
+    position: static;
+    transform: none;
+    left: auto;
+    justify-content: flex-start;
+  }
+}
