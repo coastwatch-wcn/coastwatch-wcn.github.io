@@ -1,5 +1,9 @@
 ---
 title: "About EcoCast"
+prev: index.html
+prev_label: EcoCast Home Page
+next: ecocast_map.html
+next_label: EcoCast Map
 anchor-sections: false
 format:
   html:
@@ -126,3 +130,5 @@ The information on this page may be used and redistributed freely, but is not in
 :::
 
 :::
+
+{{< include ../../_includes/page-nav.html >}}

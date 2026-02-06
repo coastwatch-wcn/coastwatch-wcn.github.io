@@ -1,5 +1,9 @@
 ---
 title: "EcoCast Explorer"
+prev: ecocast_map.html
+prev_label: EcoCast Map
+next: index.html
+next_label: EcoCast Home Page
 anchor-sections: false
 format:
   html:
@@ -53,3 +57,5 @@ The information on this page may be used and redistributed freely, but is not in
 :::
 
 :::
+
+{{< include ../../_includes/page-nav.html >}}
