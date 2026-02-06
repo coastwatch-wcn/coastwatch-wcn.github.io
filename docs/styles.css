@@ -2116,3 +2116,847 @@ button.btn-primary:hover {
 .afsc-page .dataset-details dd {
   margin: 0 0 0.75em 1em;
 }
+
+/* ----------------------- */
+/*  TURTLEWATCH PROJECT    */
+/* ----------------------- */
+
+.turtlewatch-page .turtlewatch-hero {
+  text-align: right;
+  margin-bottom: 2rem;
+  position: relative;
+  margin-top: 1rem;
+}
+
+.turtlewatch-page .hero-img {
+  width: 100%;
+  max-height: 400px;
+  display: block;
+  object-fit: cover;
+  border-radius: 0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.turtlewatch-page .image-caption {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #555;
+  margin-top: 0.25rem;
+  padding-right: 0.5rem;
+  display: block;
+}
+
+.turtlewatch-page .turtlewatch-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.turtlewatch-page .turtlewatch-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.turtlewatch-page .turtlewatch-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.turtlewatch-page .turtlewatch-card h3 {
+  margin-top: 0;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.turtlewatch-page .btn-outline-primary {
+  margin-top: 1rem;
+  padding: 0.5rem 1.2rem;
+  border: 2px solid black;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.turtlewatch-page .btn-outline-primary:hover {
+  background-color: black;
+  color: white;
+}
+
+.turtlewatch-page .callout-note.turtlewatch-dropdown {
+  border-left: 6px solid #0077c8;
+  background-color: #f9f9f9;
+}
+
+.turtlewatch-page .callout-note.turtlewatch-dropdown .callout-header {
+  font-weight: 600;
+  color: black;
+}
+
+/* turtlewatch layout styles */
+.turtlewatch-page .turtlewatch-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  align-items: flex-start;
+  margin-bottom: 2em;
+}
+
+.turtlewatch-page .turtlewatch-column {
+  flex: 1 1 0;
+  min-width: 300px; /* ensures stacking on narrow screens */
+}
+
+.turtlewatch-page .turtlewatch-card {
+  background: #f8f9fa;
+  padding: 1em 1.25em;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.turtlewatch-page .turtlewatch-card a {
+  color: #2b6da8; /* NOAA blue for links */
+  text-decoration: underline;
+}
+
+/* Ensure figures in turtlewatch cards look clean */
+.turtlewatch-page .turtlewatch-card img {
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  margin-bottom: 1em;
+}
+
+/* Replace boring bullets with custom ones */
+.turtlewatch-page .turtlewatch-card ul {
+  list-style: none;        /* remove default bullets */
+  padding-left: 1.2em;     /* indent */
+}
+
+.turtlewatch-page .turtlewatch-card ul li {
+  position: relative;
+  margin-bottom: 0.5em;
+}
+
+.turtlewatch-page .turtlewatch-card ul li::before {
+  content: "◆";            
+  color: #2b6da8;          /* NOAA blue */
+  font-size: 0.8em;
+  position: absolute;
+  left: -1.2em;
+  top: 0.2em;
+}
+
+.turtlewatch-page .turtlewatch-disclaimer {
+  background: #f1f3f5;     /* lighter gray */
+  padding: 1em 1.25em;
+  border-radius: 6px;
+  font-size: 0.85em;       /* slightly smaller text */
+  line-height: 1.5;
+  border-left: 4px solid #6c757d; /* accent bar */
+  margin-top: 2em;
+}
+.turtlewatch-page .turtlewatch-disclaimer a {
+  color: #2b6da8; /* NOAA blue for links */
+  text-decoration: underline;
+}
+
+/* Make summary look like a blue Bootstrap-style button */
+.turtlewatch-page .turtlewatch-buttons summary {
+  display: inline-block;
+  background-color: #2b6da8; /* NOAA blue */
+  color: #fff;
+  padding: 0.5em 1em;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  border: none;
+}
+.turtlewatch-page .turtlewatch-buttons summary:hover {
+  background-color: #244f7a; /* darker blue on hover */
+}
+
+/* Remove the ugly default <details> border and triangle */
+.turtlewatch-page .turtlewatch-buttons {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.turtlewatch-page .turtlewatch-buttons summary::-webkit-details-marker {
+  display: none;
+}
+
+.turtlewatch-page .turtlewatch-buttons summary::marker {
+  display: none;
+}
+
+.turtlewatch-page .noaa-blue {
+  color: #2b6da8;
+}
+
+/* Base collapsible card */
+.turtlewatch-page .turtlewatch-faq {
+  margin-bottom: 1em;
+  border-radius: 8px;
+  border: none;
+  background: #f8f9fa;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+/* Summary = card header */
+.turtlewatch-page .turtlewatch-faq summary {
+  cursor: pointer;
+  padding: 0.25em 0.5em;
+  font-weight: 600;
+  color: #2b6da8; /* NOAA blue */
+  background: #f0f6fa;
+  list-style: none; /* remove triangle marker */
+}
+
+.turtlewatch-page .turtlewatch-faq summary::-webkit-details-marker,
+.turtlewatch-page .turtlewatch-faq summary::marker {
+  display: none; /* hide disclosure triangle */
+}
+
+/* Content area = card body */
+.turtlewatch-page .turtlewatch-faq[open] {
+  background: #fff;
+}
+
+.turtlewatch-page .turtlewatch-faq[open] summary {
+  border-bottom: 1px solid #dee2e6;
+  background: #e9f3fb;
+}
+
+.turtlewatch-page .turtlewatch-faq p,
+.turtlewatch-page .turtlewatch-faq ul {
+  padding: 0.5em 0.75em;
+  margin: 0.25em 0;
+}
+
+/* FAQ lists: use diamonds like cards */
+.turtlewatch-page .turtlewatch-faq ul {
+  list-style: none;
+  padding-left: 1.2em;
+}
+
+.turtlewatch-page .turtlewatch-faq ul li {
+  position: relative;
+  margin-bottom: 0.5em;
+}
+
+.turtlewatch-page .turtlewatch-faq ul li::before {
+  content: "◆";            /* diamond shape */
+  color: #2b6da8;          /* NOAA blue */
+  font-size: 0.8em;
+  position: absolute;
+  left: -1.2em;
+  top: 0.2em;
+}
+
+/* FAQ hyperlinks: NOAA blue + underline */
+.turtlewatch-page .turtlewatch-faq a {
+  color: #2b6da8;
+  text-decoration: underline;
+}
+
+.turtlewatch-page .btn-noaa {
+  background-color: #2b6da8;   /* NOAA blue */
+  color: #fff !important;      /* force white text */
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  padding: 0.5em 1.25em;
+  text-transform: none;        /* prevent uppercase */
+  text-decoration: none !important; /* remove underline */
+  letter-spacing: normal;      /* reset spacing */
+}
+
+.turtlewatch-page .btn-noaa:hover {
+  background-color: #244f7a;   /* darker NOAA blue */
+  color: #fff !important;      /* keep white text */
+  text-decoration: none !important; /* prevent underline on hover */
+}
+
+.turtlewatch-page .turtlewatch-form input,
+.turtlewatch-page .turtlewatch-form select,
+.turtlewatch-page .turtlewatch-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.turtlewatch-page .turtlewatch-form textarea {
+  resize: vertical; /* allow vertical resize only */
+}
+
+.turtlewatch-page .turtlewatch-form button {
+  margin-right: 0.5rem;
+}
+
+
+/* Banner at top of card */
+.turtlewatch-page .status-banner {
+  display: flex;
+  flex-direction: column;   /* stack vertically */
+  align-items: center;      /* center horizontally */
+  text-align: center;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.turtlewatch-page .status-banner span {
+  text-transform: uppercase;   /* ALL CAPS */
+  font-size: 1.4rem;           /* larger text */
+  letter-spacing: 1px;         /* slight spacing for clarity */
+}
+
+.turtlewatch-page .status-banner small {
+  margin-top: 0.25rem;
+  font-size: 0.85rem;
+  font-weight: normal;
+  color: rgba(255,255,255,0.9);
+}
+
+/* Status color variants */
+.turtlewatch-page .status-banner.success {
+  background: #2e8540;  /* green */
+}
+
+.turtlewatch-page .status-banner.alert {
+  background: #d9534f;  /* red */
+}
+
+.turtlewatch-page .status-banner.warning {
+  background: #f0ad4e;  /* orange */
+}
+
+.turtlewatch-page .status-text {
+  text-transform: uppercase; 
+  font-size: 1.6rem;       /* larger headline */
+  margin-bottom: 0.25rem;
+}
+
+.turtlewatch-page .status-date {
+  font-size: 1.1rem;       /* same or slightly smaller */
+  font-weight: 500;
+}
+
+/* Parent card */
+.turtlewatch-page .status-card {
+  background: rgba(0,0,0,0.05);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Grid layout inside card */
+.turtlewatch-page .status-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.turtlewatch-page .status-subcard {
+  background: #fff;                  /* light gray-blue */
+  padding: 1rem 1.25rem;
+  border: 2px solid #2b6da8;
+  border-radius: 8px;
+  margin-bottom: 1rem;                  /* space between sections */
+  box-shadow: 0 1px 3px #fff; /* subtle lift */
+}
+
+.turtlewatch-page .status-subcard strong {
+  color: #003366;                       /* NOAA blue for key labels */
+  font-weight: bold;
+}
+
+/* Table styling */
+.turtlewatch-page .status-subcard table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.turtlewatch-page .status-subcard th {
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid #e5e7eb;
+  padding: 0.5rem;
+}
+
+.turtlewatch-page .status-subcard td {
+  padding: 0.4rem 0.5rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.turtlewatch-page .status-subcard table tbody tr:nth-of-type(2) td {
+  font-weight: bold;
+  color: #d9534f;  /* NOAA red */
+}
+
+/* Small notes */
+.turtlewatch-page .status-subcard small {
+  display: block;
+  margin-top: 0.5rem;
+  color: #666;
+  font-style: italic;
+}
+
+.turtlewatch-page .status-subcard tr:nth-child(even) {
+  background: #f4f9fc; /* faint NOAA blue tint */
+}
+
+.turtlewatch-page h4.subcard-title {
+  background: #2b6da8;   /* NOAA blue */
+  color: #fff;
+  padding: 0.4rem 0.75rem;
+  margin: 1rem 0 0.75rem;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+/* Container */
+.turtlewatch-page .status-info {
+  list-style: none;         /* remove bullets */
+  padding: 0;
+  margin: 0 0 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.turtlewatch-page .status-info ul {
+  list-style: none;   /* remove bullets */
+  padding: 0;
+  margin: 0;
+}
+
+.turtlewatch-page .status-info li {
+  background: #f8f9fa;
+  border-left: 4px solid #2b6da8;  /* NOAA blue accent */
+  padding: 0.4rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;  /* spacing between rows */
+}
+
+/* Header with toggle aligned right */
+.turtlewatch-page .temp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #2b6da8; /* NOAA blue */
+}
+
+/* Toggle controls */
+.turtlewatch-page .unit-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.turtlewatch-page .unit-toggle input[type="radio"] {
+  margin-right: 0.25rem;
+  cursor: pointer;
+}
+
+.turtlewatch-page .unit-toggle label {
+  cursor: pointer;
+  font-weight: normal;
+  color: #333;
+}
+
+.turtlewatch-page .sst-slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.turtlewatch-page .sst-slider .prev,
+.turtlewatch-page .sst-slider .next {
+  background: #2b6da8;  /* NOAA blue */
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.75rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0 0.25rem;
+}
+
+.turtlewatch-page .sst-slider .controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.turtlewatch-page .sst-slider img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.turtlewatch-page .anom-slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.turtlewatch-page .anom-slider .prev,
+.turtlewatch-page .anom-slider .next {
+  background: #2b6da8;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.75rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0 0.25rem;
+}
+
+.turtlewatch-page .anom-slider img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.turtlewatch-page #elnino-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.turtlewatch-page #elnino-table th,
+.turtlewatch-page #elnino-table td {
+  border: 1px solid #dee2e6;   /* light gray borders */
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+.turtlewatch-page #elnino-table th {
+  background: #2b6da8;   /* NOAA blue header */
+  color: #fff;
+  font-weight: 600;
+}
+
+.turtlewatch-page #elnino-table tr:nth-child(even) {
+  background: #f8f9fa;   /* subtle striping */
+}
+
+.turtlewatch-page td.positive {
+  color: #d9534f;   /* red */
+}
+
+.turtlewatch-page td.negative {
+  color: blue;   /* NOAA blue */
+}
+
+/* Force only the anomaly cell to inherit the color */
+.turtlewatch-page td.positive,
+.turtlewatch-page td.negative {
+  font-weight: bold;
+}
+
+/* Reset color for other cells in the row */
+.turtlewatch-page tr td:not(.positive):not(.negative) {
+  color: inherit;
+  font-weight: normal;
+}
+
+
+.turtlewatch-page .dashboard-text {
+  text-transform: uppercase; 
+  font-size: 1.6rem;       /* larger headline */
+  margin-bottom: 0.25rem;
+}
+
+.turtlewatch-page .dashboard-date {
+  font-size: 1.1rem;       /* same or slightly smaller */
+  font-weight: 500;
+}
+
+/* Parent card */
+.turtlewatch-page .dashboard-card {
+  background: rgba(0,0,0,0.05);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Grid layout inside card */
+.turtlewatch-page .dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.turtlewatch-page .dashboard-subcard {
+  background: #fff;                  /* light gray-blue */
+  padding: 1rem 1.25rem;
+  border: 2px solid #2b6da8;
+  border-radius: 8px;
+  margin-bottom: 1rem;                  /* space between sections */
+  box-shadow: 0 1px 3px #fff; /* subtle lift */
+}
+
+.turtlewatch-page .dashboard-subcard strong {
+  color: #003366;                       /* NOAA blue for key labels */
+  font-weight: bold;
+}
+
+/* Table styling */
+.turtlewatch-page .dashboard-subcard table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.turtlewatch-page .dashboard-subcard th {
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid #e5e7eb;
+  padding: 0.5rem;
+}
+
+.turtlewatch-page .dashboard-subcard td {
+  padding: 0.4rem 0.5rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* Small notes */
+.turtlewatch-page .dashboard-subcard small {
+  display: block;
+  margin-top: 0.5rem;
+  color: #666;
+  font-style: italic;
+}
+
+.turtlewatch-page .dashboard-subcard tr:nth-child(even) {
+  background: #f4f9fc; /* faint NOAA blue tint */
+}
+
+.turtlewatch-page h4.dashboard-title {
+  background: #2b6da8;   /* NOAA blue */
+  color: #fff;
+  padding: 0.4rem 0.75rem;
+  margin: 1rem 0 0.75rem;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+/* Container */
+.turtlewatch-page .dashboard-info {
+  list-style: none;         /* remove bullets */
+  padding: 0;
+  margin: 0 0 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.turtlewatch-page .dashboard-info ul {
+  list-style: none;   /* remove bullets */
+  padding: 0;
+  margin: 0;
+}
+
+.turtlewatch-page .dashboard-info li {
+  background: #f8f9fa;
+  border-left: 4px solid #2b6da8;  /* NOAA blue accent */
+  padding: 0.4rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;  /* spacing between rows */
+}
+
+.turtlewatch-page .sst-dash-slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.turtlewatch-page .sst-dash-slider .prev,
+.turtlewatch-page .sst-dash-slider .next {
+  background: #2b6da8;  /* NOAA blue */
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.75rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0 0.25rem;
+}
+
+.turtlewatch-page .sst-dash-slider .controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.turtlewatch-page .sst-dash-slider img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.turtlewatch-page .anom-dash-slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.turtlewatch-page .anom-dash-slider .prev,
+.turtlewatch-page .anom-dash-slider .next {
+  background: #2b6da8;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.75rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0 0.25rem;
+}
+
+.turtlewatch-page .anom-dash-slider img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
+.turtlewatch-page .year-select-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.turtlewatch-page #year-select-input {
+  appearance: none;              /* remove default arrow */
+  background: #2b6da8;           /* NOAA blue */
+  color: #fff;
+  padding: 0.4rem 1.5rem 0.4rem 0.75rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1rem;
+}
+
+.turtlewatch-page #year-select-input:hover {
+  background-color: #1e4d75;
+}
+
+.turtlewatch-page .project-topbar{
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: .65rem 1.1rem;
+  margin: 0 0 1.25rem 0;
+
+  background: #f2f4f6;
+  border-bottom: 2px solid rgba(0,0,0,.08);
+}
+
+/* Brand stays left and is vertically centered */
+.turtlewatch-page .project-topbar .project-brand{
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  white-space: nowrap;
+}
+
+.turtlewatch-page .project-topbar .project-brand-title{
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* Nudge only if your PNG has transparent padding */
+.turtlewatch-page .project-topbar .project-brand-logo{
+  height: 80px;
+  width: auto;
+  display: block;
+  transform: translateY(1px); /* try 0px, 1px, or 2px */
+}
+
+/* Tabs are centered across the bar */
+.turtlewatch-page .project-topbar .project-tabs{
+  position: static;          /* tabs now affect bar height */
+  transform: none;
+  left: auto;
+
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  max-width: none;
+  margin: 0;            /* center within bar */
+}
+
+
+.turtlewatch-page .project-tab{
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+/* Mobile: stack instead of absolute centering */
+@media (max-width: 900px){
+  .turtlewatch-page .project-topbar{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .6rem;
+  }
+  .turtlewatch-page .project-topbar .project-tabs{
+    position: static;
+    transform: none;
+    left: auto;
+    justify-content: flex-start;
+  }
+}
