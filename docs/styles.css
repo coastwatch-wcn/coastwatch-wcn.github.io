@@ -2049,3 +2049,70 @@ button.btn-primary:hover {
     justify-content: flex-start;
   }
 }
+
+/* -------------------------------- */
+/* AFSC-STOCK-ASSESSMENT PROJECT    */
+/* -------------------------------- */
+
+/* Responsive grid: 2 columns normally, 1 column on narrow screens */
+.afsc-page .dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media (max-width: 900px) {
+  .afsc-page .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* NOAA-style button dropdown */
+.afsc-page .btn-noaa {
+  background-color: #2b6da8;   /* NOAA blue */
+  color: #fff !important;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  padding: 0.5em 2em 0.5em 1.25em; /* extra right padding for arrow */
+  text-transform: none;
+  text-decoration: none !important;
+  letter-spacing: normal;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  /* Add dropdown arrow */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'><path fill='white' d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.75em center;
+  background-size: 1em;
+}
+
+.afsc-page .btn-noaa:hover {
+  background-color: #244f7a;   /* darker NOAA blue */
+  color: #fff !important;
+  cursor: pointer;
+}
+
+.afsc-page .afsc-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  align-items: flex-start;
+  margin-bottom: 2em;
+}
+
+.afsc-page .afsc-column {
+  flex: 1 1 0;
+  min-width: 300px; /* ensures stacking on narrow screens */
+}
+
+.afsc-page .dataset-details dt {
+  font-weight: bold;
+  color: #003366; /* NOAA blue */
+  margin-top: 0.5em;
+}
+
+.afsc-page .dataset-details dd {
+  margin: 0 0 0.75em 1em;
+}
