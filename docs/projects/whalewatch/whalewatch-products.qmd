@@ -1,5 +1,9 @@
 ---
 title: "WhaleWatch 2.0 Products"
+prev: about-whalewatch.html
+prev_label: About WhaleWatch 2.0
+next: whalewatch-explorer.html
+next_label: WhaleWatch 2.0 Explorer
 anchor-sections: false
 format:
   html:
@@ -102,3 +106,5 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 :::
+
+{{< include ../../_includes/page-nav.html >}}

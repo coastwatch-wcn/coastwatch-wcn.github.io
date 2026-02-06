@@ -1,5 +1,9 @@
 ---
 title: "WhaleWatch 2.0 Explorer"
+prev: whalewatch-products.html
+prev_label: WhaleWatch 2.0 Products
+next: index.html
+next_label: WhaleWatch 2.0 Home Page
 anchor-sections: false
 format:
   html:
@@ -43,3 +47,5 @@ The information on this page may be used and redistributed freely, but is not in
 :::
 
 :::
+
+{{< include ../../_includes/page-nav.html >}}
