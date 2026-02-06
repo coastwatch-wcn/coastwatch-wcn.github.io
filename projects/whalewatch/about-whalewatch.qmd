@@ -1,5 +1,9 @@
 ---
 title: "About WhaleWatch 2.0"
+prev: index.html
+prev_label: WhaleWatch 2.0 Home Page
+next: whalewatch-products.html
+next_label: WhaleWatch 2.0 Products
 anchor-sections: false
 format:
   html:
@@ -109,4 +113,7 @@ Dynamic ocean management sits at the interface of science and management. It cap
 The information on this page may be used and redistributed freely, but is not intended for legal use. Neither the data contributors, WhaleWatch 2.0 partner organizations, CoastWatch, NOAA SWFSC, nor any of their employees or contractors, makes any warranty, express or implied, including warranties of merchantability and fitness for a particular purpose, or assumes any legal liability for the accuracy, completeness, or usefulness of this information. Although it is distributed by the NOAA CoastWatch West Coast Regional Node, this product is solely the responsibility of the WhaleWatch 2.0 project and is not associated with NOAA CoastWatch. For official information about WhaleWatch 2.0 contact [Briana Abrahms](https://coastwatch.pfeg.noaa.gov/whalewatch2/mailto@briana.abrahms@noaa.gov?Subject=EcoCast), [Elliott Hazen](https://coastwatch.pfeg.noaa.gov/whalewatch2/mailto@elliott.hazen@noaa.gov?Subject=EcoCast), or [Heather Welch](https://coastwatch.pfeg.noaa.gov/whalewatch2/mailto@heather.welch@noaa.gov?Subject=EcoCast).
 :::
 
-:::{whalewatch-page}
+:::
+
+{{< include ../../_includes/page-nav.html >}}
+

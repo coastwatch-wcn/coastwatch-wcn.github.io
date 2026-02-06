@@ -6,7 +6,10 @@ format:
     theme: lux
     toc: false
     page-layout: full
+    css: ../../styles.css
 ---
+
+::: {.whalewatch-page}
 
 ::: {.whale-columns}
 ::: {.whale-column .whale-card}
@@ -97,3 +100,5 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 </script>
+
+:::
