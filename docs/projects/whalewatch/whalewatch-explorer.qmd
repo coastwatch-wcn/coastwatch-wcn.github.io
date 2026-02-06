@@ -2,7 +2,7 @@
 title: "WhaleWatch 2.0 Explorer"
 prev: whalewatch-products.html
 prev_label: WhaleWatch 2.0 Products
-next: index.html
+next: whalewatch.html
 next_label: WhaleWatch 2.0 Home Page
 anchor-sections: false
 format:

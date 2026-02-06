@@ -1,0 +1,56 @@
+---
+title: "TurtleWatch"
+anchor-sections: false
+format:
+  html:
+    theme: lux
+    toc: false
+    page-layout: full
+    css: ../../styles.css
+---
+
+:::{.turtlewatch-page}
+
+<nav class="project-tabs" aria-label="TurtleWatch navigation">
+  <a class="project-tab is-brand is-active" href="turtlewatch.qmd">TurtleWatch</a>
+  <a class="project-tab is-active" href="turtlewatch-background.qmd">Background</a>
+  <a class="project-tab" href="turtlewatch-closure-rules.qmd">Closure Rules</a>
+  <a class="project-tab" href="turtlewatch-closure-status.qmd">Conservation Area Status</a>
+  <a class="project-tab" href="turtlewatch-data-dashboard.qmd">Data Dashboard</a>
+</nav>
+
+::: {.turtlewatch-hero}
+![](images/loggerhead.png){.hero-img}
+
+<span class="image-caption">Photo copyright: Ralph Pace • [Contact](https://www.ralphpace.com/) for use outside NOAA</span>
+:::
+
+### <span style="color:#2b6da8;">**Supporting turtle conservation and sustainable fisheries with dynamic ocean management**</span>
+
+::: {.turtlewatch-card-grid}
+
+::: {.turtlewatch-card}
+### Turtle Bycatch Overview
+The TOTAL program brings together agencies, universities, and the fishing industry to reduce bycatch of endangered North Pacific loggerhead turtles, which migrate near California during warm seasons and risk unintended capture by commercial fisheries.
+
+[Learn More](turtlewatch-background.qmd){.btn-noaa}
+:::
+
+::: {.turtlewatch-card}
+### Conservation Area Status
+The Pacific Loggerhead Conservation Area off Southern California closes to drift gillnet fishing when warm ocean conditions bring loggerheads into fishing grounds, with closure rules and real-time status available online.
+
+[Closure Rules](turtlewatch-closure-rules.qmd){.btn-noaa}
+[Closure Status](turtlewatch-closure-status.qmd){.btn-noaa}
+:::
+
+::: {.turtlewatch-card}
+### Historical Data Dashboard
+Historical data since 2003 provide sea surface temperature, anomalies, El Niño status, and closure history for the Pacific Loggerhead Conservation Area off Southern California.
+
+[View Data](turtlewatch-data-dashboard.qmd){.btn-noaa}
+:::
+
+:::
+
+:::

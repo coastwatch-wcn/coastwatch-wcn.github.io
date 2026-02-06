@@ -1,6 +1,6 @@
 ---
 title: "About EcoCast"
-prev: index.html
+prev: ecocast.html
 prev_label: EcoCast Home Page
 next: ecocast_map.html
 next_label: EcoCast Map

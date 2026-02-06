@@ -84,8 +84,8 @@
     "text": "Related Websites\n\n\nEcocast: A real-time data tool to help fishers and managers allocate fishing effort to optimize the harvest of target fish while minimizing bycatch of protected species.\nTurtleWatch: A product produced by NOAA’s Pacific Islands Fisheries Science Center to provides up-to-date information about the thermal habitat of loggerhead sea turtles in the Pacific Ocean north of the Hawaiian Islands.\nWhaleWatch: A project coordinated by NOAA Fisheries’ West Coast Region to help reduce human impacts on whales.\nCalifornia Integrated Ecosystem Assessment: A project with a primary goal of better understanding the California Current ecosystem.\n\n\n\n\nReferences\n\n\nAbrahms et al. (2019) Dynamic ensemble models to predict distributions and anthropogenic risk exposure for highly mobile species. Diversity and Distributions. 25(8): 1182-1193. doi.org/10.1111/ddi.12940\nHazen et al. (2016) WhaleWatch: a dynamic management tool for predicting blue whale density in the California Current. Journal of Applied Ecology. 54(5): 1415-1428. doi.org/10.1111/1365-2664.12820.\nMaxwell et al. (2015) Dynamic ocean management: Defining and conceptualizing real-time management of the ocean. Marine Policy. 58:42-50. doi.org/10.1016/j.marpol.2015.03.014"
   },
   {
-    "objectID": "projects/whalewatch/index.html",
-    "href": "projects/whalewatch/index.html",
+    "objectID": "projects/whalewatch/whalewatch.html",
+    "href": "projects/whalewatch/whalewatch.html",
     "title": "WhaleWatch 2.0",
     "section": "",
     "text": "WhaleWatch 2.0 About WhaleWatch 2.0 WhaleWatch 2.0 Products WhaleWatch 2.0 Explorer\n\n\n\n\nPhoto courtesy of Elliott Hazen, NOAA Fisheries\n\n\nAn Eco-Informatic Tool for Conserving Protected Species\n\n\n\nWhat is WhaleWatch 2.0?\nBlue whales are an endangered species that inhabit the water off the U.S. West Coast, where they are threatened by ship strikes. The WhaleWatch 2.0 project has developed a dynamic model that helps scientists and managers reduce risk to blue whales of ship strikes.\nView Details\n\n\nReducing risk to Blue Whales\nThe WhaleWatch 2.0 Map product is a spatial management tool predicts the most likely times and places that blue whales will be present along the U.S. West Coast, which helps inform management decisions that reduce the risk of ship strikes and other threats.\nView the Map\n\n\nHistorical Data Explorer\nWhaleWatch 2.0 Explorer tool gives users an opportunity to explore how our model predicts blue whales are responding to changing ocean conditions between and within years, and how that can influence the WhaleWatch 2.0 Map product. Users are able to generate predictive, interactive maps for specific dates in three different years.\nRun Analyses"
@@ -126,8 +126,8 @@
     "text": "The EcoCast product data can downloaded from the ERD/CoastWatch West Coast ERDDAP server:\n\nEcoCast Map product as a data file\n\nAnimal weighting factors and the dates of the environmental data used for each map"
   },
   {
-    "objectID": "projects/ecocast/index.html",
-    "href": "projects/ecocast/index.html",
+    "objectID": "projects/ecocast/ecocast.html",
+    "href": "projects/ecocast/ecocast.html",
     "title": "CoastWatch West Code Node",
     "section": "",
     "text": "About EcoCast EcoCast Map EcoCast Explorer\n\n\n\n\nMark Conlin – NOAA Fisheries / Mark Conlin\n\n\nAn Eco-Informatic Tool for Sustainable Fisheries\n\n\n\nWhat is EcoCast?\nEcoCast is a real-time tool to help fishers and managers allocate effort to reduce bycatch while optimizing target harvest.\nLearn More\n\n\nFinding a good place to fish\nEcoCast maps combine predicted distributions of target and bycatch species to suggest better and worse fishing zones.\nView the Map\n\n\nScenario analysis\nEcoCast Explorer tool gives users an opportunity to explore how species are responding to changing ocean conditions, and how that can influence the EcoCast Map product.\nRun Analysis"
