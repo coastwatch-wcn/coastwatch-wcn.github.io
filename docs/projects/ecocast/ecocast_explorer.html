@@ -224,6 +224,30 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
+<div id="page-nav" class="d-flex justify-content-between mt-4 mb-4">
+
+</div>
+<script>
+(function () {
+  const prev = "ecocast_map.html";
+  const prevLabel = "EcoCast Map";
+  const next = "index.html";
+  const nextLabel = "EcoCast Home Page";
+
+  const el = document.getElementById("page-nav");
+  if (!el) return;
+
+  const prevBtn = prev && prev !== "NA"
+    ? `<a href="${prev}" class="btn btn-noaa">← ${prevLabel || "Previous"}</a>`
+    : `<span></span>`;
+
+  const nextBtn = next && next !== "NA"
+    ? `<a href="${next}" class="btn btn-noaa">${nextLabel || "Next"} →</a>`
+    : `<span></span>`;
+
+  el.innerHTML = prevBtn + nextBtn;
+})();
+</script>
 
 
 

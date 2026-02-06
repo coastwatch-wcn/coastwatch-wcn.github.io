@@ -1,0 +1,107 @@
+---
+title: "About WhaleWatch 2.0"
+anchor-sections: false
+format:
+  html:
+    theme: lux
+    toc: false
+    page-layout: full
+---
+
+::: {.whale-columns}
+::: {.whale-column}
+### Mission and Vision
+The mission of our project is to bring best-available science and analyses to support the ecological sustainability and economic viability for U.S. ocean users. With decades of experience in endangered species protection, marine resource management, and oceanographic and species distribution analyses, our research team is working to support the development of innovative management approaches that meet ecological and economic management objectives and mandates.
+
+Blue whales are an [Endangered Species](https://www.epa.gov/laws-regulations/summary-endangered-species-act), with roughly 1500 whales estimated in the migratory Eastern North Pacific Population off of the U.S. West Coast. This population is threatened by ship strikes, which are the largest source of mortality, as well as bycatch in fishing gear. WhaleWatch 2.0 is a predictive spatial management tool that helps scientists and managers evaluate the most likely times and places that blue whales will be present along the U.S. West Coast in order to inform management decisions and mitigate risk of ship strikes, bycatch, or other threats. This is the latest dynamic model for blue whales. Previous models for blue whales in the California Current Ecosystem include the [original WhaleWatch effort](https://people.ucsc.edu/~elhazen/hazen/Publications_files/Hazen_et_al-2017-JAE.pdf) and a [climatological ensemble model](https://people.ucsc.edu/~elhazen/hazen/Publications_files/Woodman_et_al-2019-Methods_in_Ecology_and_Evolution.pdf) that provides a best seasonal estimate from [multiple data sources and modeling approaches](https://cetsound.noaa.gov/cda-index).
+
+---
+
+### Project Funding
+Funding has been provided by: 
+
+- [Benioff Ocean Initiative](https://boi.ucsb.edu/)
+:::
+
+::: {.whale-column}
+#### Targeted Species
+![The blue whale (*Balaenoptera musculus*) is the largest animal on Earth. Photo copyright: NOAA Fisheries.](images/blue_whale_noaa.png){fig-align="center" width="100%" style="object-fit:contain; margin-bottom:1rem;"}
+
+---
+
+### WhaleWatch 2.0 Team
+WhaleWatch 2.0 is a consortium of scientists, managers, and members of the shipping industry, including:  
+
+- UC Santa Cruz  
+- Oregon State University
+- NOAA Environmental Resource Division  
+
+They work directly with resource managers, fishing industry, and other stakeholders.
+:::
+:::
+
+---
+
+## Dynamic Ocean Management
+
+Dynamic ocean management is a new management approach that uses real-time and near real-time data to support management responses that can change in space and time, at scales relevant for animal movement and human use. Dynamic ocean management can use diverse analytical approaches (simple to complex), supports climate-resilient fisheries, and is already implemented in many oceans around the world.
+
+
+### How does it differ from traditional ocean management?
+
+<span style="font-weight:bold" class="noaa-blue">Traditional Ocean Management</span>
+
+- Boundaries are fixed in space and time.
+- Static schemes must be large enough to capture broad-scale ocean processes.
+- Can have high opportunity costs for fishers.
+- Rendered ineffective during anomalous events (e.g. species seasonal migrations or shifts of fishing fleets).
+
+<span style="font-weight:bold" class="noaa-blue">Dynamic Ocean Management</span>
+
+- Boundaries and recommendations can change in near real time.
+- Align management actions with the variability of ecosystems.
+- Incorporates diverse data sources:
+  - Satellite data
+  - Ocean monitoring arrays
+  - Bio-geochemical models
+  - Crowd-sourced reports from ocean users
+- Provides managers with recommendations that reflect current marine conditions.
+
+### Why it matters
+
+Dynamic ocean management sits at the interface of science and management. It captures the best-available science and directs it to meet the needs of resource managers and the fishing industry. 
+
+<span style="font-weight:bold" class="noaa-blue">What’s exciting about this research:</span>
+
+- Puts science and data analytics to work in real time, and
+- Fundamentally changes how oceans are managed.
+
+---
+
+::: {.whale-card}
+## Additional Information
+
+<details class="whale-faq">
+    <summary><strong>Related Websites</strong></summary>
+
+- [Ecocast](https://coastwatch.pfeg.noaa.gov/ecocast/): A real-time data tool to help fishers and managers allocate fishing effort to optimize the harvest of target fish while minimizing bycatch of protected species.
+- [TurtleWatch](https://www.fisheries.noaa.gov/resource/map/turtlewatch): A product produced by NOAA's Pacific Islands Fisheries Science Center to provides up-to-date information about the thermal habitat of loggerhead sea turtles in the Pacific Ocean north of the Hawaiian Islands.
+- [WhaleWatch](http://www.westcoast.fisheries.noaa.gov/whalewatch/): A project coordinated by NOAA Fisheries' West Coast Region to help reduce human impacts on whales.
+- [California Integrated Ecosystem Assessment](https://www.integratedecosystemassessment.noaa.gov/regions/california-current-region/index.html): A project with a primary goal of better understanding the California Current ecosystem.
+
+</details>
+
+<details class="whale-faq">
+<summary><strong>References</strong></summary>
+
+- Abrahms et al. (2019) Dynamic ensemble models to predict distributions and anthropogenic risk exposure for highly mobile species. Diversity and Distributions. 25(8): 1182-1193. [doi.org/10.1111/ddi.12940](https://doi.org/10.1111/ddi.12940)
+- Hazen et al. (2016) WhaleWatch: a dynamic management tool for predicting blue whale density in the California Current. Journal of Applied Ecology. 54(5): 1415-1428. [doi.org/10.1111/1365-2664.12820.](https://doi.org/10.1111/1365-2664.12820)
+- Maxwell et al. (2015) Dynamic ocean management: Defining and conceptualizing real-time management of the ocean. Marine Policy. 58:42-50. [doi.org/10.1016/j.marpol.2015.03.014](https://doi.org/10.1016/j.marpol.2015.03.014)
+
+</details>
+
+:::
+
+::: {.whale-disclaimer}
+The information on this page may be used and redistributed freely, but is not intended for legal use. Neither the data contributors, WhaleWatch 2.0 partner organizations, CoastWatch, NOAA SWFSC, nor any of their employees or contractors, makes any warranty, express or implied, including warranties of merchantability and fitness for a particular purpose, or assumes any legal liability for the accuracy, completeness, or usefulness of this information. Although it is distributed by the NOAA CoastWatch West Coast Regional Node, this product is solely the responsibility of the WhaleWatch 2.0 project and is not associated with NOAA CoastWatch. For official information about WhaleWatch 2.0 contact [Briana Abrahms](https://coastwatch.pfeg.noaa.gov/whalewatch2/mailto@briana.abrahms@noaa.gov?Subject=EcoCast), [Elliott Hazen](https://coastwatch.pfeg.noaa.gov/whalewatch2/mailto@elliott.hazen@noaa.gov?Subject=EcoCast), or [Heather Welch](https://coastwatch.pfeg.noaa.gov/whalewatch2/mailto@heather.welch@noaa.gov?Subject=EcoCast).
+:::

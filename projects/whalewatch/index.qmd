@@ -1,0 +1,63 @@
+---
+title: WhaleWatch 2.0
+anchor-sections: false
+format:
+  html:
+    theme: lux
+    toc: false
+    page-layout: full
+    css: ../../styles.css
+---
+
+:::{.whalewatch-page}
+
+::: {.project-topbar}
+
+<div class="project-brand">
+  <a href="index.qmd" class="project-brand-link project-brand-text">
+    WhaleWatch 2.0
+  </a>
+</div>
+
+<nav class="project-tabs" aria-label="WhaleWatch navigation">
+  <a class="project-tab is-active" href="about-whalewatch.qmd">About WhaleWatch 2.0</a>
+  <a class="project-tab" href="whalewatch-products.qmd">WhaleWatch 2.0 Products</a>
+  <a class="project-tab" href="whalewatch-explorer.qmd">WhaleWatch 2.0 Explorer</a>
+</nav>
+
+:::
+
+::: {.whale-hero}
+![](images/blue_whale.png){.hero-img}
+
+<span class="image-caption">Photo courtesy of Elliott Hazen, NOAA Fisheries</span>
+:::
+
+### <span style="color:#2b6da8;">**An Eco-Informatic Tool for Conserving Protected Species**</span>
+
+::: {.whale-card-grid}
+
+::: {.whale-card}
+### What is WhaleWatch 2.0?
+Blue whales are an endangered species that inhabit the water off the U.S. West Coast, where they are threatened by ship strikes. The WhaleWatch 2.0 project has developed a dynamic model that helps scientists and managers reduce risk to blue whales of ship strikes.
+
+[View Details](about-whalewatch.qmd){.btn-noaa}
+:::
+
+::: {.whale-card}
+### Reducing risk to Blue Whales
+The WhaleWatch 2.0 Map product is a spatial management tool predicts the most likely times and places that blue whales will be present along the U.S. West Coast, which helps inform management decisions that reduce the risk of ship strikes and other threats.
+
+[View the Map](whalewatch-products.qmd){.btn-noaa}
+:::
+
+::: {.whale-card}
+### Historical Data Explorer
+WhaleWatch 2.0 Explorer tool gives users an opportunity to explore how our model predicts blue whales are responding to changing ocean conditions between and within years, and how that can influence the WhaleWatch 2.0 Map product. Users are able to generate predictive, interactive maps for specific dates in three different years.
+
+[Run Analyses](whalewatch-explorer.qmd){.btn-noaa}
+:::
+
+:::
+
+:::
