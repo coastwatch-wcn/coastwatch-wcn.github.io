@@ -1,6 +1,6 @@
 ---
 title: "About WhaleWatch 2.0"
-prev: index.html
+prev: whalewatch.html
 prev_label: WhaleWatch 2.0 Home Page
 next: whalewatch-products.html
 next_label: WhaleWatch 2.0 Products

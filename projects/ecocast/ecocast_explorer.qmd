@@ -2,7 +2,7 @@
 title: "EcoCast Explorer"
 prev: ecocast_map.html
 prev_label: EcoCast Map
-next: index.html
+next: ecocast.html
 next_label: EcoCast Home Page
 anchor-sections: false
 format:
