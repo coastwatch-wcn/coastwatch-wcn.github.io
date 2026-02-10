@@ -10,18 +10,18 @@ Instead, it:
      date (jplMURSST41anommday).
   2. Checks the dates of local TOTAL products:
        - The loggerhead indicator time series CSV
-         (data/resources/loggerhead_indx.csv).
+         (projects/turtlewatch/data/resources/loggerhead_indx.csv).
        - The most recent monthly SST map in data/images/ (files starting
          with "sst_2", e.g. sst_20250116.png).
   3. If the indicator time series is behind ERDDAP, calls:
        - update_total_indicator_2025.py to append new monthly indicator
          values to loggerhead_indx.csv.
        - plot_total_tool_2025.py to regenerate the indicator time-series
-         plot (data/images/indicator_latest.png).
+         plot (projects/turtlewatch/data/images/indicator_latest.png).
   4. If the monthly maps are behind ERDDAP, calls:
        - make_monthly_maps_2025.py with arguments to create/update the
          most recent SST / SST anomaly maps and associated JSON summaries.
-  5. Builds a small JSON summary (data/json/web_data.json) used by the
+  5. Builds a small JSON summary (projects/turtlewatch/data/json/web_data.json) used by the
      website to display the current TOTAL status (alert / no alert),
      indicator value, forecast month label, and last update timestamp.
 
@@ -209,7 +209,10 @@ def parse_date_from_filename(filename: str) -> datetime:
     """
     return parse(filename[4:12])
 
+
 # Define a function to find the most recent file in a directory
+
+
 def find_latest_file_date(directory: Path, pattern: str) -> datetime:
     """Finds the date of the most recent file matching a pattern.
 
@@ -307,7 +310,7 @@ def main():
     """
     # Configuration
     CONFIG = {
-        'ROOT_DIR': Path(__file__).resolve().parents[1],
+        'PROJECT_DIR': Path(__file__).resolve().parents[1],
         'ERDDAP_URL': 'https://coastwatch.pfeg.noaa.gov/erddap/griddap',
         'PYTHON_PATH': Path(sys.executable),
         'SCRIPTS': {
@@ -319,9 +322,9 @@ def main():
         'MAP_FILE_PREFIX': 'sst_2'
     }
 
-    BIN_DIR = CONFIG['ROOT_DIR'] / 'scripts'
-    RES_DIR = CONFIG['ROOT_DIR'] / 'data' / 'resources'
-    MAP_DIR = CONFIG['ROOT_DIR'] / 'data' / 'images'
+    BIN_DIR = CONFIG['PROJECT_DIR'] / 'scripts'
+    RES_DIR = CONFIG['PROJECT_DIR'] / 'data' / 'resources'
+    MAP_DIR = CONFIG['PROJECT_DIR'] / 'data' / 'images'
 
     with requests.Session() as session:
         latest_erddap_date = get_latest_erddap_date(session).replace(tzinfo=None)
@@ -398,7 +401,7 @@ def main():
             "new_index": f"{latest_index:.2f}",
         }
 
-        json_dir = CONFIG['ROOT_DIR'] / "data" / "json"
+        json_dir = CONFIG['PROJECT_DIR'] / "data" / "json"
         json_dir.mkdir(parents=True, exist_ok=True)
         json_path = json_dir / "web_data.json"
         with open(json_path, "w") as f:

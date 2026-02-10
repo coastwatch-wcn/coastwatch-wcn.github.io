@@ -204,7 +204,7 @@ def main():
     ROOT_DIR = CONFIG['BASE_DIR']
     RES_DIR = ROOT_DIR / 'data' / 'resources'
     JSON_DIR = ROOT_DIR / 'data' / 'json'
-    WORK_DIR = ROOT_DIR / 'work'
+    # WORK_DIR = ROOT_DIR / 'work'
     
     # Load and prepare indicator time series DataFrame
     try:
@@ -272,7 +272,7 @@ def main():
     save_and_transfer_data(
         web_data,
         df,
-        WORK_DIR / CONFIG['WEB_DATA_JSON'],
+        JSON_DIR / CONFIG['WEB_DATA_JSON'],
         RES_DIR / CONFIG['INDICATOR_CSV']
     )
 

@@ -196,15 +196,15 @@ def main() -> None:
         raise TypeError("-e / --enddate must be in the form YYYY-mm")
 
     # Define paths
-    base_dir = Path.cwd()
-    #work_dir = base_dir / "data" / "work"
+    PROJECT_DIR = Path(__file__).resolve().parents[1]
+    #work_dir = PROJECT_DIR / "data" / "work"
 
-    res_dir = base_dir / "data" / "resources"
-    csv_file = res_dir / "loggerhead_indx.csv"
+    RES_DIR = PROJECT_DIR / "data" / "resources"
+    csv_file = RES_DIR / "loggerhead_indx.csv"
 
-    results_dir = base_dir / "data" / "images"
+    RESULTS_DIR = PROJECT_DIR / "data" / "images"
 
-    erddap_dir = base_dir / "data" / "upload"
+    ERDDAP_DIR = PROJECT_DIR / "data" / "upload"
 
     indicator_png = "indicator_latest.png"
 
@@ -224,17 +224,17 @@ def main() -> None:
     print(f"Plot time range: {start_time:%Y-%m} to {end_time:%Y-%m}")
 
     # Plot and save
-    plot_index(indx_df, indicator_png, results_dir, time_range)
-    #shutil.copyfile(work_dir / indicator_png, results_dir / indicator_png)
-    #send_to_erddap(results_dir, indicator_png, erddap_dir, indicator_png)
+    plot_index(indx_df, indicator_png, RESULTS_DIR, time_range)
+    #shutil.copyfile(work_dir / indicator_png, RESULTS_DIR / indicator_png)
+    #send_to_erddap(RESULTS_DIR, indicator_png, ERDDAP_DIR, indicator_png)
 
     # Generate yearly summary if December
     if end_time.month == 12:
         yearly_plot = f"indicator_{end_time.year}.png"
-        results_dir.joinpath(indicator_png).replace(results_dir / yearly_plot)
+        RESULTS_DIR.joinpath(indicator_png).replace(RESULTS_DIR / yearly_plot)
         if "GITHUB_ACTIONS" not in os.environ:
-            #shutil.copyfile(results_dir / indicator_png, results_dir / yearly_plot)
-            send_to_erddap(results_dir, yearly_plot, erddap_dir, yearly_plot)
+            #shutil.copyfile(RESULTS_DIR / indicator_png, RESULTS_DIR / yearly_plot)
+            send_to_erddap(RESULTS_DIR, yearly_plot, ERDDAP_DIR, yearly_plot)
 
 
 if __name__ == "__main__":

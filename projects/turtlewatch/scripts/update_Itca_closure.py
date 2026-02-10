@@ -47,6 +47,7 @@ project_root/
 """
 
 import csv
+import sys
 import json
 import requests
 import time
@@ -54,12 +55,15 @@ from datetime import datetime
 from pathlib import Path
 
 # === Constants ===
-CSV_PATH = Path("data/resources/ltca_closure.csv")
+PROJECTS_DIR = Path(__file__).resolve().parents[1]
+RES_DIR = PROJECTS_DIR / 'data' / 'resources'
+CSV_PATH = RES_DIR / 'ltca_closure.csv'
 API_URL = (
     "https://www.federalregister.gov/api/v1/documents.json?"
     "conditions[term]=highly+migratory+species+fishery+closure&"
     "conditions[publication_date][gte]=2010-01-01&order=newest"
 )
+
 
 def load_existing_records():
     """
@@ -171,6 +175,7 @@ def get_new_closures():
             })
     return closures
 
+
 def merge_records(existing, new):
     """
     Merge newly fetched closure records with existing ones.
@@ -202,6 +207,7 @@ def merge_records(existing, new):
 
     return merged
 
+
 def save_records(records):
     """
     Save closure records to CSV in standardized format.
@@ -222,6 +228,7 @@ def save_records(records):
         writer.writeheader()
         writer.writerows(records)
 
+
 def main():
     """
     Main driver function.
@@ -241,5 +248,7 @@ def main():
     print(f"Closure CSV updated ({len(merged)} total records)")
 
 # === Script Entry Point ===
+
+
 if __name__ == "__main__":
     main()

@@ -191,7 +191,7 @@ def get_latest_heatwave_data(session: requests.Session, url: str) -> Dict[str, A
 def main():
     """Controls and coordinates updates to the TOTAL heatwave status."""
     CONFIG = {
-        'ROOT_DIR': Path.cwd().resolve(),
+        'ROOT_DIR': Path(__file__).resolve().parents[1],
         'WORK_DIR_NAME': 'work',
         'DATA_DIR_NAME': 'data',
         'JSON_DIR_NAME': 'json',
