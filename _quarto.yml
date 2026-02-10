@@ -49,6 +49,7 @@ website:
 format:
   html:
     theme: lux
+    fontsize: 1.15em
     css: styles.css
     toc: true
     include-after-body: footer.html
