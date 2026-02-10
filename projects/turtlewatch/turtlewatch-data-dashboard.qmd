@@ -1,5 +1,9 @@
 ---
 title: "Data Dashboard"
+prev: turtlewatch-closure-status.html
+prev_label: Conservation Area Status
+next: turtlewatch.html
+next_label: TurtleWatch Home Page
 format: 
   html:
     theme: lux
@@ -460,3 +464,5 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 :::
+
+{{< include ../../_includes/page-nav.html >}}

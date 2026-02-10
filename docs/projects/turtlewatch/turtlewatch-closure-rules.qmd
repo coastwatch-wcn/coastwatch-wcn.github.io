@@ -1,5 +1,9 @@
 ---
 title: "Closure Rules"
+prev: turtlewatch-background.html
+prev_label: TurtleWatch Background
+next: turtlewatch-closure-status.html
+next_label: Conservation Area Status
 format: 
   html:
     theme: lux
@@ -60,3 +64,5 @@ Each month, new temperature anomaly data are processed to extend the length of t
 :::
 
 :::
+
+{{< include ../../_includes/page-nav.html >}}

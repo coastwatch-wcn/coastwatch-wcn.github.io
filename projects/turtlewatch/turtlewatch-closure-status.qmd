@@ -1,5 +1,9 @@
 ---
 title: "Conservation Area Status"
+prev: turtlewatch-closure-rules.html
+prev_label: Closure Rules
+next: turtlewatch-data-dashboard.html
+next_label: Data Dashboard
 format: 
   html:
     theme: lux
@@ -472,3 +476,5 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 :::
+
+{{< include ../../_includes/page-nav.html >}}

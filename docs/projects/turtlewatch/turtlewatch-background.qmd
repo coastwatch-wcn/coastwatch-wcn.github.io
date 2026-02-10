@@ -1,5 +1,9 @@
 ---
 title: "TurtleWatch Background"
+prev: turtlewatch.html
+prev_label: TurtleWatch Home Page
+next: turtlewatch-closure-rules.html
+next_label: Closure Rules
 format: 
   html:
     theme: lux
@@ -13,8 +17,8 @@ anchor-sections: false
 
 ::: {.turtlewatch-columns}
 ::: {.turtlewatch-column}
-## Loggerhead Sea Turtles
-![Photo copyright: NOAA Fisheries](images/noaa_loggerhead_turtle.png){fig-align="center" width="100%"}
+### Loggerhead Sea Turtles
+![Photo copyright: NOAA Fisheries](images/noaa_loggerhead_turtle.png){fig-align="left" width="50%"}
 :::
 
 ::: {.turtlewatch-column}
@@ -40,7 +44,7 @@ The [California drift gillnet (DGN) fishery](https://www.westcoast.fisheries.noa
 :::
 
 ::: {.turtlewatch-column}
-![Photo copyright: NOAA Fisheries](images/drift_gillnet.png){fig-align="center" width="100%"}
+![Photo copyright: NOAA Fisheries](images/drift_gillnet.png){fig-align="left" width="80%"}
 :::
 :::
 
@@ -81,3 +85,5 @@ The number of active vessels in the DGN fishery has remained under 50 vessels si
 :::
 
 :::
+
+{{< include ../../_includes/page-nav.html >}}
