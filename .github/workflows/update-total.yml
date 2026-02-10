@@ -1,0 +1,57 @@
+name: Update TurtleWatch TOTAL Dashboard
+
+on:
+  schedule:
+    - cron: "0 12 3 * *"   # run on the 1st of each month at 12:00 UTC
+    - cron: "0 12 16 * *" # run on the 16th of each month at 12:00 UTC
+    - cron: "0 12 28 * *" # run on the 28th of each month at 12:00 UTC
+  workflow_dispatch:         # manual trigger option
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install pandas numpy netCDF4 requests python-dateutil matplotlib cartopy beautifulsoup4 lxml plotnine xarray
+     
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Run TOTAL update controller
+        run: python projects/turtlewatch/scripts/control_total_data_2025.py
+
+      - name: Scrape ENSO status
+        run: python projects/turtlewatch/scripts/scape_elnino_2025.py
+
+      - name: Scrape Heatwave status
+        run: python projects/turtlewatch/scripts/update_heatwave_2025.py
+
+      - name: Update closure history from Federal Register
+        run: python projects/turtlewatch/scripts/update_Itca_closure.py
+
+      - name: Render Quarto site (to docs/)
+        run: quarto render
+
+      - name: Commit updated docs outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/ data/
+          git commit -m "Automated dashboard update" || echo "No changes to commit"
+          git push origin HEAD:main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
