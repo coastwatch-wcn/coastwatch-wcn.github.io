@@ -25,7 +25,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install pandas numpy netCDF4 requests python-dateutil matplotlib cartopy beautifulsoup4 lxml plotnine xarray
+         python -m pip install --upgrade pip
+         python -m pip install \
+           jupyter ipykernel nbformat \
+           pandas numpy netCDF4 requests python-dateutil matplotlib cartopy \
+           beautifulsoup4 lxml plotnine xarray
      
       - name: Setup Quarto
         uses: quarto-dev/quarto-actions/setup@v2
