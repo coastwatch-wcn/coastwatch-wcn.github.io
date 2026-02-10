@@ -582,6 +582,30 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 </div>
+<div id="page-nav" class="d-flex justify-content-between mt-4 mb-4">
+
+</div>
+<script>
+(function () {
+  const prev = "turtlewatch-closure-status.html";
+  const prevLabel = "Conservation Area Status";
+  const next = "turtlewatch.html";
+  const nextLabel = "TurtleWatch Home Page";
+
+  const el = document.getElementById("page-nav");
+  if (!el) return;
+
+  const prevBtn = prev && prev !== "NA"
+    ? `<a href="${prev}" class="btn btn-noaa">← ${prevLabel || "Previous"}</a>`
+    : `<span></span>`;
+
+  const nextBtn = next && next !== "NA"
+    ? `<a href="${next}" class="btn btn-noaa">${nextLabel || "Next"} →</a>`
+    : `<span></span>`;
+
+  el.innerHTML = prevBtn + nextBtn;
+})();
+</script>
 
 
 

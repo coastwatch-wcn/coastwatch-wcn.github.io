@@ -193,11 +193,11 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="turtlewatch-page">
 <div class="turtlewatch-columns">
-<section id="loggerhead-sea-turtles" class="level2 turtlewatch-column">
-<h2 data-anchor-id="loggerhead-sea-turtles">Loggerhead Sea Turtles</h2>
-<div class="quarto-figure quarto-figure-center">
+<section id="loggerhead-sea-turtles" class="level3 turtlewatch-column">
+<h3 data-anchor-id="loggerhead-sea-turtles">Loggerhead Sea Turtles</h3>
+<div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><img src="images/noaa_loggerhead_turtle.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="images/noaa_loggerhead_turtle.png" class="img-fluid figure-img" style="width:50.0%"></p>
 <figcaption>Photo copyright: NOAA Fisheries</figcaption>
 </figure>
 </div>
@@ -223,9 +223,9 @@ ul.task-list li input[type="checkbox"] {
 <p>The <a href="https://www.westcoast.fisheries.noaa.gov/fisheries/migratory_species/hms_DGN_gear.html">California drift gillnet (DGN) fishery</a> for swordfish and thresher shark is federally managed under the Federal Fishery Management Plan for U.S. West Coast Fisheries for Highly Migratory Species (<a href="https://www.westcoast.fisheries.noaa.gov/publications/fishery_management/hms_program/hms-fmp-jul11.pdf">HMS FMP</a>), implemented in 2004. The fishery is also managed by California and Oregon via regulations to conserve target and non-target species. A drift gillnet is an unanchored panel of stretched mesh (14 inches or greater) suspended vertically in the water by floats along the top and weights along the bottom. Regulations require large mesh drift gillnet fishing off the West Coast to be equipped with acoustic pingers and extenders (&gt; 36 ft. buoy lines to protect marine mammals).</p>
 </section>
 <div class="turtlewatch-column">
-<div class="quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><img src="images/drift_gillnet.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="images/drift_gillnet.png" class="img-fluid figure-img" style="width:80.0%"></p>
 <figcaption>Photo copyright: NOAA Fisheries</figcaption>
 </figure>
 </div>
@@ -273,6 +273,30 @@ Clear Form
 </details>
 </section>
 </div>
+<div id="page-nav" class="d-flex justify-content-between mt-4 mb-4">
+
+</div>
+<script>
+(function () {
+  const prev = "turtlewatch.html";
+  const prevLabel = "TurtleWatch Home Page";
+  const next = "turtlewatch-closure-rules.html";
+  const nextLabel = "Closure Rules";
+
+  const el = document.getElementById("page-nav");
+  if (!el) return;
+
+  const prevBtn = prev && prev !== "NA"
+    ? `<a href="${prev}" class="btn btn-noaa">← ${prevLabel || "Previous"}</a>`
+    : `<span></span>`;
+
+  const nextBtn = next && next !== "NA"
+    ? `<a href="${next}" class="btn btn-noaa">${nextLabel || "Next"} →</a>`
+    : `<span></span>`;
+
+  el.innerHTML = prevBtn + nextBtn;
+})();
+</script>
 
 
 
