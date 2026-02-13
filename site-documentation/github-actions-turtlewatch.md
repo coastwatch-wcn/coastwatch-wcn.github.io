@@ -1,102 +1,150 @@
-
 # GitHub Actions: TurtleWatch TOTAL Dashboard Auto-Update
 
-This repository uses **GitHub Actions** to automatically refresh the TurtleWatch/TOTAL dashboard content on a schedule. The workflow runs a series of Python scripts that **scrape and/or update data**, generate **plots/maps**, then **renders the Quarto website** and commits the updated outputs back to the repository.
+This repository uses GitHub Actions to automatically refresh the TurtleWatch/TOTAL dashboard content on a schedule.
 
-The goal is that the live website stays up-to-date **without any manual rerendering**.
+The workflow runs a series of Python scripts that:
+
+- scrape and/or update data
+- generate plots/maps
+- render the Quarto website
+- deploy the site directly to GitHub Pages
+
+The live website stays up-to-date without manual rerendering or committing generated files.
 
 ---
 
 ## Where this automation lives
 
-Workflow file (typically):  
-`.github/workflows/<workflow-name>.yml`
+Workflow file:
+.github/workflows/update-total.yml
 
-Workflow name shown in GitHub Actions:  
-**Update TurtleWatch TOTAL Dashboard**
+Workflow name shown in GitHub Actions:
+Update TurtleWatch TOTAL Dashboard
 
 ---
 
 ## When it runs
 
-This workflow can run in two ways:
+This workflow runs in two ways:
 
 ### 1) Scheduled runs (automatic)
-It runs **3 times per month** via cron schedules:
 
-- `0 12 3 * *`  → runs on the **3rd** of each month at **12:00 UTC**
-- `0 12 16 * *` → runs on the **16th** of each month at **12:00 UTC**
-- `0 12 28 * *` → runs on the **28th** of each month at **12:00 UTC**
+It runs 3 times per month via cron schedules:
 
+- 0 12 3 * * → runs on the 3rd of each month at 12:00 UTC
+- 0 12 16 * * → runs on the 16th of each month at 12:00 UTC
+- 0 12 28 * * → runs on the 28th of each month at 12:00 UTC
 
 ### 2) Manual runs (on demand)
-`workflow_dispatch` enables a **Run workflow** button in the GitHub Actions UI so maintainers can run it anytime.
+
+workflow_dispatch enables a Run workflow button in the GitHub Actions UI so maintainers can trigger the update anytime.
+
+## Deployment Model
+
+This repository uses:
+
+GitHub Pages → Source: GitHub Actions
+
+The workflow:
+
+1. Renders the Quarto site into docs/
+2. Uploads docs/ as a Pages artifact
+3. Deploys it using actions/deploy-pages
+
+The site is not committed back to main.
+Rendered output exists only in the Pages deployment artifact.
+
+---
+## Permissions
+
+```
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+```
+
+- contents: read → allows repo checkout
+- pages: write → allows deployment to GitHub Pages
+- id-token: write → required for GitHub Pages OIDC deployment
+
+No commit permissions are required.
 
 ---
 
-## Permissions (why the workflow can push commits)
+## Concurrency Control
 
-```yml
-permissions:
-  contents: write
 ```
-This grants the workflow permission to commit and push changes back into the repository (required because the workflow updates docs/ and data files).
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+```
+
+Prevents overlapping deployments.
+If a new run starts while another is deploying, the previous run is canceled.
+
+---
 
 ## What the workflow does (step-by-step)
 
-The workflow has one job: update, running on an Ubuntu virtual machine:
+The workflow has one primary job: update.
 
-``` yml
+```
 jobs:
   update:
     runs-on: ubuntu-latest
 ```
 
-### Step 1 — Check out the repository
+### Step 1 — Checkout the repository
 
-``` yml
+```
 - name: Checkout repo
   uses: actions/checkout@v4
 ```
-This downloads the repo contents onto the runner so scripts and Quarto files are available.
+
+Downloads repository contents onto the runner.
 
 ### Step 2 — Set up Python
 
-``` yml
+```
 - name: Set up Python
   uses: actions/setup-python@v5
   with:
     python-version: "3.11"
+    cache: "pip"
 ```
-Creates a Python 3.11 environment on the runner.
+
+Creates a Python 3.11 environment.
+Enables pip dependency caching (based on requirements.txt).
 
 ### Step 3 — Install Python dependencies
 
-``` yml
+```
 - name: Install dependencies
   run: |
-   python -m pip install --upgrade pip
-   python -m pip install \
-     jupyter ipykernel nbformat \
-     pandas numpy openpyxl \
-     netCDF4 requests python-dateutil matplotlib cartopy \
-     beautifulsoup4 lxml plotnine xarray
+    python -m pip install --upgrade pip
+    python -m pip install -r requirements.txt
 ```
-Installs required Python libraries for:
 
-- data handling (pandas, numpy, xarray, netCDF4)
-- HTTP + date handling (requests, python-dateutil)
-- scraping/parsing (beautifulsoup4, lxml)
-- plotting + mapping (matplotlib, cartopy, plotnine)
-- notebook-related utilities (included, though scripts appear to be .py)
+Dependencies are defined centrally in requirements.txt.
+
+This includes:
+
+- pandas, numpy, xarray, netCDF4
+- requests, python-dateutil
+- beautifulsoup4, lxm
+- matplotlib, cartopy, plotnine
+- openpyxl (for Excel reads)
+- jupyter/ipykernel/nbformat (required for Quarto execution)
 
 ### Step 4 — Install Quarto
 
-``` yml
+```
 - name: Setup Quarto
   uses: quarto-dev/quarto-actions/setup@v2
 ```
-Installs Quarto on the runner so the site can be rendered.
+
+Installs Quarto CLI for rendering.
 
 ### Data update scripts (what gets refreshed)
 
@@ -149,72 +197,69 @@ This script scrapes the NOAA PSL marine heatwaves page for the latest forecast d
 
 This script queries the Federal Register API for new Pacific Loggerhead Conservation Area (LTCA) closure notices published by NOAA/NMFS. It filters results for relevant “loggerhead” or “highly migratory” closure announcements and compares them against the existing `ltca_closure.csv` file. Any new notices (based on missing URLs) are appended to the dataset, preserving existing records. The updated CSV is written to `projects/turtlewatch/data/resources/ltca_closure.csv`, which is used by the Quarto dashboard to display closure history. In short, it keeps the website’s closure dataset synchronized with the Federal Register without manual edits.
 
-### Rendering the website
-### Step 9 — Render the Quarto site
+### Deploying to GitHub Pages
+### Step 9 — Upload Pages artifact
 
-``` yml
-- name: Render Quarto site (to docs/)
-  run: quarto render
+```
+- name: Upload Pages artifact
+  uses: actions/upload-pages-artifact@v3
+  with:
+    path: docs
 ```
 
-**Important behavior**:
+Uploads the rendered site as a deployment artifact.
 
-- Rendering produces the site output in docs/ (GitHub Pages typically serves from docs/ on the main branch).
-- Any .qmd pages that read from projects/turtlewatch/data/ will now incorporate the newly updated data.
+### Step 10 — Deploy to GitHub Pages
 
-
-### Committing and pushing the updated outputs
-### Step 10 — Commit updated files
-
-``` yml
-- name: Commit updated docs outputs
-  run: |
-    git config user.name "github-actions[bot]"
-    git config user.email "github-actions[bot]@users.noreply.github.com"
-    git add docs/ projects/turtlewatch/data/
-    git commit -m "Automated dashboard update" || echo "No changes to commit"
-    git push origin HEAD:main
-  env:
-    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
-What this does:
+deploy:
+  needs: update
+  runs-on: ubuntu-latest
+  environment:
+    name: github-pages
+  steps:
+    - name: Deploy to GitHub Pages
+      uses: actions/deploy-pages@v4
+```
 
-- Sets a bot identity for the commit.
-- Stages the rendered website output (docs/) and the updated dashboard data (projects/turtlewatch/data/).
-- Commits with message "Automated dashboard update".
-- If nothing changed, it prints "No changes to commit" and continues.
-- Pushes the commit directly to main.
+Publishes the artifact to GitHub Pages.
 
-Why GITHUB_TOKEN is included:
-GitHub provides a built-in token so the workflow can authenticate to push changes back to the repo.
+No git commits occur.
 
-### What to expect after it runs
+---
+
+## What to expect after it runs
 
 After a successful workflow run:
 
-- projects/turtlewatch/data/ should contain updated data products (CSV/JSON/etc.)
-- docs/ should contain updated rendered HTML and updated images/assets
-- The live GitHub Pages site should reflect new data after Pages finishes serving the updated docs/
+- projects/turtlewatch/data/ contains updated data
+- docs/ was rendered during the workflow
+- The GitHub Pages site updates automatically
 
-## Common troubleshooting
-#### The Actions run succeeds but the website doesn’t change
+You will not see a commit adding docs/ changes — deployment happens via artifact.
 
-- GitHub Pages may take a minute to serve the new docs/ output.
-- Confirm the commit was pushed to main and includes docs/ changes.
+--- 
 
-#### The Actions run fails during scraping
+## Common Troubleshooting
 
-- The external site may have changed HTML structure or blocked the runner.
-- Check the Actions logs for the failing script and update selectors/URLs.
+The workflow succeeds but the site doesn't update
 
-#### The Actions run fails during quarto render
+- Confirm GitHub Pages is set to Source: GitHub Actions
+- Check the Pages deployment status under the "Deployments" tab
 
-- Quarto may be missing system dependencies (rare, but mapping libraries can require system packages).
-- Verify the render works locally; if it only fails in Actions, the runner may need additional apt packages.
+---
 
-#### No changes to commit (but you expected changes)
+## The workflow fails during render
 
-- The script outputs may be written somewhere not included in:
-  - git add docs/ projects/turtlewatch/data/
-- Or the scripts may be writing to a path that’s ignored by .gitignore
-- Confirm file paths and where the Quarto pages read from.
+Missing dependency in requirements.txt
+
+- Excel reads require openpyxl
+- Notebook execution requires jupyter, ipykernel, nbformat
+
+---
+
+## Scraping fails
+
+- External site HTML changed
+- Site temporarily unavailable
+- Check logs in the Actions tab
