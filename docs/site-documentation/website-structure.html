@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Contact and Feedback – CoastWatch West Code Node</title>
+<title>website-structure – CoastWatch West Code Node</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +20,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./images/coastwatch.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5db250258425642d6fa6ee827e81bb3f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../images/coastwatch.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5db250258425642d6fa6ee827e81bb3f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,7 +105,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -79,10 +115,10 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./images/coastwatch_logo.png" alt="" class="navbar-logo">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/coastwatch_logo.png" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">CoastWatch West Code Node</span>
     </a>
   </div>
@@ -93,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text"> </span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -102,11 +138,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-data-access">    
         <li>
-    <a class="dropdown-item" href="./data_catalog.html">
+    <a class="dropdown-item" href="../data_catalog.html">
  <span class="dropdown-text">Data Catalog</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./data_server.html">
+    <a class="dropdown-item" href="../data_server.html">
  <span class="dropdown-text">Data Server</span></a>
   </li>  
     </ul>
@@ -117,21 +153,21 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-tools-and-training">    
         <li>
-    <a class="dropdown-item" href="./tools.html">
+    <a class="dropdown-item" href="../tools.html">
  <span class="dropdown-text">Tools</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./training.html">
+    <a class="dropdown-item" href="../training.html">
  <span class="dropdown-text">Training</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./code_gallery.html">
+    <a class="dropdown-item" href="../code_gallery.html">
  <span class="dropdown-text">Code Gallery</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./applications.html"> 
+    <a class="nav-link" href="../applications.html"> 
 <span class="menu-text">Applications</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -140,19 +176,19 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-about">    
         <li>
-    <a class="dropdown-item" href="./coastwatch.html">
+    <a class="dropdown-item" href="../coastwatch.html">
  <span class="dropdown-text">CoastWatch</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./contact_us.html">
+    <a class="dropdown-item" href="../contact_us.html">
  <span class="dropdown-text">Contact Us</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./customer_survey.html">
+    <a class="dropdown-item" href="../customer_survey.html">
  <span class="dropdown-text">Customer Survey</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./news_archive.html">
+    <a class="dropdown-item" href="../news_archive.html">
  <span class="dropdown-text">News Archive</span></a>
   </li>  
     </ul>
@@ -165,78 +201,245 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#website-structure-documentation" id="toc-website-structure-documentation" class="nav-link active" data-scroll-target="#website-structure-documentation">Website Structure Documentation</a>
+  <ul class="collapse">
+  <li><a href="#quarto-configuration-_quarto.yml" id="toc-quarto-configuration-_quarto.yml" class="nav-link" data-scroll-target="#quarto-configuration-_quarto.yml">1. Quarto Configuration (<code>_quarto.yml</code>)</a>
+  <ul class="collapse">
+  <li><a href="#project-settings" id="toc-project-settings" class="nav-link" data-scroll-target="#project-settings">Project Settings</a></li>
+  <li><a href="#website-metadata-navigation" id="toc-website-metadata-navigation" class="nav-link" data-scroll-target="#website-metadata-navigation">Website Metadata &amp; Navigation</a></li>
+  <li><a href="#navbar-structure" id="toc-navbar-structure" class="nav-link" data-scroll-target="#navbar-structure">Navbar Structure</a></li>
+  <li><a href="#html-output-settings" id="toc-html-output-settings" class="nav-link" data-scroll-target="#html-output-settings">HTML Output Settings</a></li>
+  </ul></li>
+  <li><a href="#core-directory-structure" id="toc-core-directory-structure" class="nav-link" data-scroll-target="#core-directory-structure">2. Core Directory Structure</a></li>
+  <li><a href="#projects-directory" id="toc-projects-directory" class="nav-link" data-scroll-target="#projects-directory">3. <code>/projects/</code> Directory</a></li>
+  <li><a href="#spreadsheets-directory-dynamic-content-sources" id="toc-spreadsheets-directory-dynamic-content-sources" class="nav-link" data-scroll-target="#spreadsheets-directory-dynamic-content-sources">4. <code>/spreadsheets/</code> Directory (Dynamic Content Sources)</a></li>
+  <li><a href="#rendering-workflow" id="toc-rendering-workflow" class="nav-link" data-scroll-target="#rendering-workflow">5. Rendering Workflow</a>
+  <ul class="collapse">
+  <li><a href="#local-development" id="toc-local-development" class="nav-link" data-scroll-target="#local-development">Local Development</a></li>
+  <li><a href="#deployment" id="toc-deployment" class="nav-link" data-scroll-target="#deployment">Deployment</a></li>
+  </ul></li>
+  <li><a href="#maintenance-notes" id="toc-maintenance-notes" class="nav-link" data-scroll-target="#maintenance-notes">6. Maintenance Notes</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Contact and Feedback</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta column-page">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<div style="display: flex; flex-direction: column; gap: 2rem; margin-top: 2rem;">
-<!-- Contact Card -->
-<section id="contact-us" class="level3 contact-card" style="background-color: #f8f9fa; padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);">
-<h3 data-anchor-id="contact-us">Contact Us</h3>
-<div style="display: flex; flex-wrap: wrap; gap: 2rem;">
-<div style="flex: 1 1 250px;">
-<p><span style="font-weight: 700; font-size: 1.2rem;">Cara Wilson</span><br>
-<span style="color: #0077be;">Manager, CoastWatch West Coast</span><br> 99 Pacific Street, Suite 255A Monterey, CA 93940 <a href="mailto:cara.wilson@noaa.gov">cara.wilson@noaa.gov</a><br>
-831-648-5337</p>
-</div>
-<div style="flex: 1 1 250px;">
-<p><span style="font-weight: 700; font-size: 1.2rem;">Dale Robinson</span><br>
-<span style="color: #0077be;">Development Lead, CoastWatch West Coast</span><br> 110 Shaffer Road Santa Cruz, CA 95060 <a href="mailto:dale.robinson@noaa.gov">dale.robinson@noaa.gov</a><br>
-831-420-3667</p>
-</div>
-</div>
+<section id="website-structure-documentation" class="level1">
+<h1>Website Structure Documentation</h1>
+<p>This document describes the structure and organization of the CoastWatch West Code Node website. The site is built using <strong>Quarto</strong> and rendered to the <code>docs/</code> directory for publication via GitHub Pages.</p>
+<hr>
+<section id="quarto-configuration-_quarto.yml" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-configuration-_quarto.yml">1. Quarto Configuration (<code>_quarto.yml</code>)</h2>
+<p>The <code>_quarto.yml</code> file defines the overall site structure, navigation, styling, and rendering behavior.</p>
+<section id="project-settings" class="level3">
+<h3 class="anchored" data-anchor-id="project-settings">Project Settings</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">resources</span><span class="kw">:</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> files/**</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> images/**</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> projects/**</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>type: website → Enables multi-page website mode.</li>
+<li>output-dir: docs → Rendered HTML is written to docs/ (served by GitHub Pages).</li>
+<li>resources: → Ensures static assets (files, images, project content) are copied into the rendered site.</li>
+</ul>
 </section>
-<!-- Feedback Card -->
-<section id="guest-book-and-feedback-form" class="level3 form-card" style="background-color: #f8f9fa; padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);">
-<h3 data-anchor-id="guest-book-and-feedback-form">Guest Book and Feedback Form</h3>
-<p>Please comment on the website and data products.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 2rem;">
-<div style="flex: 1 1 250px;">
-<p><input type="text" placeholder="Name (required)" required=""> <input type="email" placeholder="Email (required)" required=""></p>
-</div>
-<div style="flex: 1 1 250px;">
-<p><input type="text" placeholder="Organization (required)" required=""> <input type="tel" placeholder="Phone"></p>
-</div>
-<div style="flex: 1 1 250px;">
-<p><input type="text" placeholder="Address"> <input type="text" placeholder="City-State-Zip-Country"></p>
-</div>
-<!-- Dropdown -->
-<p><select required="" style="padding: 0.75rem; border-radius: 6px; border: 1px solid #ccc; font-size: 0.95rem; width: 100%;"> <option value="" disabled="" selected="">CATEGORY</option> <option>NOAA (intra-agency)</option> <option>US Government (non-NOAA)</option> <option>State Government</option> <option>Local Government</option> <option>Foreign Government</option> <option>Academic (US)</option> <option>Academic (Foreign)</option> <option>Private</option> <option>Military</option> <option>Other</option> </select></p>
-<textarea rows="6" placeholder="Please enter comments here..." style="padding: 0.75rem; border-radius: 6px; border: 1px solid #ccc;"></textarea>
-<!-- Submit and Clear Buttons -->
-<button type="submit" class="btn btn-primary">
-Submit Comments
-</button>
-<button type="reset" class="btn btn-primary">
-Clear Form
-</button>
-</div>
+<section id="website-metadata-navigation" class="level3">
+<h3 class="anchored" data-anchor-id="website-metadata-navigation">Website Metadata &amp; Navigation</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"CoastWatch West Code Node"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">favicon</span><span class="kw">:</span><span class="at"> images/coastwatch.png</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">page-navigation</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-</div>
+<section id="navbar-structure" class="level3">
+<h3 class="anchored" data-anchor-id="navbar-structure">Navbar Structure</h3>
+<p>The navigation bar is defined hierarchically:</p>
+<p><strong>Top-Level Sections</strong></p>
+<ul>
+<li>Home</li>
+<li>Data Access</li>
+<li>Tools and Training</li>
+<li>Applications</li>
+<li>About</li>
+</ul>
+<p><strong>Data Access</strong></p>
+<ul>
+<li>Data Catalog (data_catalog.qmd)</li>
+<li>Data Server (data_server.qmd)</li>
+</ul>
+<p><strong>Tools and Training</strong></p>
+<ul>
+<li>Tools (tools.qmd)</li>
+<li>Training (training.qmd)</li>
+<li>Code Gallery (code_gallery.qmd)</li>
+</ul>
+<p><strong>Applications</strong></p>
+<ul>
+<li>applications.qmd
+<ul>
+<li>Dynamically populated from a CSV (see spreadsheets/applications.csv)</li>
+</ul></li>
+</ul>
+<p><strong>About</strong></p>
+<ul>
+<li>CoastWatch (coastwatch.qmd)</li>
+<li>Contact Us (contact_us.qmd)</li>
+<li>Customer Survey (customer_survey.qmd)</li>
+<li>News Archive (news_archive.qmd)</li>
+</ul>
+</section>
+<section id="html-output-settings" class="level3">
+<h3 class="anchored" data-anchor-id="html-output-settings">HTML Output Settings</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> lux</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">fontsize</span><span class="kw">:</span><span class="at"> 1.15em</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">css</span><span class="kw">:</span><span class="at"> styles.css</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">include-after-body</span><span class="kw">:</span><span class="at"> footer.html</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">grid</span><span class="kw">:</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">body-width</span><span class="kw">:</span><span class="at"> 1100px</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>theme: lux → Base Bootstrap theme.</li>
+<li>fontsize → Global text scaling.</li>
+<li>css: styles.css → Custom styling.</li>
+<li>toc: true → Enables table of contents on pages.</li>
+<li>include-after-body → Injects custom footer.</li>
+<li>grid.body-width → Controls content width.</li>
+</ul>
+<p><strong>Execution Settings</strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">warning</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">error</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Hides code by default.</li>
+<li>Suppresses warnings and errors in rendered output.</li>
+<li>Intended for clean production display.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="core-directory-structure" class="level2">
+<h2 class="anchored" data-anchor-id="core-directory-structure">2. Core Directory Structure</h2>
+<pre><code>/docs/</code></pre>
+<ul>
+<li>Auto-generated output from quarto render</li>
+<li>Contains final HTML site</li>
+<li>Should not be manually edited</li>
+</ul>
+<pre><code>/images/</code></pre>
+<ul>
+<li>Global site images (logos, icons, figures)</li>
+</ul>
+<pre><code>/files/</code></pre>
+<ul>
+<li>Static downloadable assets (PDFs, documents, etc.)</li>
+</ul>
+<hr>
+</section>
+<section id="projects-directory" class="level2">
+<h2 class="anchored" data-anchor-id="projects-directory">3. <code>/projects/</code> Directory</h2>
+<p>This folder contains all major web applications displayed on the Applications page.</p>
+<p>Examples:</p>
+<ul>
+<li>projects/turtlewatch/</li>
+<li>projects/ecocast/</li>
+</ul>
+<p>Each project may contain:</p>
+<ul>
+<li>Project-specific .qmd files</li>
+<li>Data folders</li>
+<li>Images</li>
+<li>Scripts</li>
+<li>JSON outputs</li>
+<li>Custom CSS/JS</li>
+</ul>
+<p>Projects are linked from:</p>
+<ul>
+<li>applications.qmd</li>
+<li>spreadsheets/applications.csv</li>
+</ul>
+<hr>
+</section>
+<section id="spreadsheets-directory-dynamic-content-sources" class="level2">
+<h2 class="anchored" data-anchor-id="spreadsheets-directory-dynamic-content-sources">4. <code>/spreadsheets/</code> Directory (Dynamic Content Sources)</h2>
+<p>This folder contains CSV files used as structured data sources for site pages.</p>
+<pre><code>applications.csv</code></pre>
+<ul>
+<li>Controls which projects appear on the Applications page</li>
+<li>Add new rows to display additional projects</li>
+</ul>
+<pre><code>data_catalog_excel.csv</code></pre>
+<ul>
+<li>Source for Data Catalog products</li>
+<li>Add/update rows to modify catalog entries</li>
+</ul>
+<pre><code>news_archive.csv</code></pre>
+<ul>
+<li>Controls the News &amp; Events archive page</li>
+</ul>
+<pre><code>tutorials.csv</code></pre>
+<ul>
+<li>Controls tutorial listings on training/code pages</li>
+</ul>
+<p>These CSV files act as content databases for Quarto pages that dynamically generate cards, tables, and listings.</p>
+<hr>
+</section>
+<section id="rendering-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="rendering-workflow">5. Rendering Workflow</h2>
+<section id="local-development" class="level3">
+<h3 class="anchored" data-anchor-id="local-development">Local Development</h3>
+<ol type="1">
+<li><p>Edit .qmd, CSV, or project files</p></li>
+<li><p>Run:</p></li>
+</ol>
+<pre><code>quarto render</code></pre>
+<ol start="3" type="1">
+<li>Confirm changes in docs/</li>
+</ol>
+</section>
+<section id="deployment" class="level3">
+<h3 class="anchored" data-anchor-id="deployment">Deployment</h3>
+<ul>
+<li>Push changes to main</li>
+<li>GitHub Pages serves the docs/ folder</li>
+<li>Some projects may also rely on GitHub Actions for automated updates</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="maintenance-notes" class="level2">
+<h2 class="anchored" data-anchor-id="maintenance-notes">6. Maintenance Notes</h2>
+<ul>
+<li>Never manually edit files inside docs/</li>
+<li>When adding a new project:
+<ul>
+<li>Create folder under /projects/</li>
+<li>Add entry to spreadsheets/applications.csv</li>
+<li>Ensure paths are relative to rendered output</li>
+</ul></li>
+<li>When modifying data-driven pages, verify CSV schema consistency</li>
+</ul>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <footer style="
@@ -273,7 +476,7 @@ Clear Form
       text-align: center;
       margin: 2rem 0;
     ">
-      <img src="./images/noaa_logo.png" alt="NOAA logo" style="height: 56px; display: block; margin: 0 auto 0.5rem;">
+      <img src="../images/noaa_logo.png" alt="NOAA logo" style="height: 56px; display: block; margin: 0 auto 0.5rem;">
       <div style="font-style: italic; color: #333;">Science. Service. Stewardship.</div>
     </div>
 
@@ -307,6 +510,13 @@ Clear Form
 </footer>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     

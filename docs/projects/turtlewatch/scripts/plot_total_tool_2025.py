@@ -44,44 +44,6 @@ __email__ = "dale.Robinson@noaa.gov"
 __status__ = "Production"
 
 
-def send_to_erddap(work_dir: Path, infile: str, erddap_path: Path, ofile: str) -> None:
-    """Transfer a file to a remote ERDDAP directory using SCP.
-
-    Constructs and executes a secure copy (SCP) command to transfer a file
-    from a local working directory to a remote ERDDAP server.
-
-    Args:
-        work_dir (Path): Path to the local directory containing the file.
-        infile (str): Name of the local file to send.
-        erddap_path (Path): Remote directory path on the ERDDAP server.
-        ofile (str): Desired name of the file on the ERDDAP server.
-
-    Returns:
-        None
-
-    Raises:
-        subprocess.CalledProcessError: If the SCP command fails.
-
-    Example:
-        >>> send_to_erddap(
-        ...     work_dir=Path("/home/cwatch/production/turtles/maps"),
-        ...     infile="indicator_latest.png",
-        ...     erddap_path=Path("/var/www/html/elnino/dash"),
-        ...     ofile="indicator_latest.png"
-        ... )
-    """
-    cmd = [
-        "scp",
-        str(work_dir / infile),
-        f"cwatch@192.168.31.15:{erddap_path / ofile}",
-    ]
-    print(" ".join(cmd))
-    result = subprocess.call(cmd)
-    print("Send to ERDDAP:", ofile, "return code:", result)
-    if result != 0:
-        raise subprocess.CalledProcessError(result, cmd)
-
-
 def plot_index(
     my_data: pd.DataFrame, png_name: str, png_dir: Path, t_range: list[pd.Timestamp]
 ) -> int:
@@ -232,9 +194,6 @@ def main() -> None:
     if end_time.month == 12:
         yearly_plot = f"indicator_{end_time.year}.png"
         RESULTS_DIR.joinpath(indicator_png).replace(RESULTS_DIR / yearly_plot)
-        if "GITHUB_ACTIONS" not in os.environ:
-            #shutil.copyfile(RESULTS_DIR / indicator_png, RESULTS_DIR / yearly_plot)
-            send_to_erddap(RESULTS_DIR, yearly_plot, ERDDAP_DIR, yearly_plot)
 
 
 if __name__ == "__main__":

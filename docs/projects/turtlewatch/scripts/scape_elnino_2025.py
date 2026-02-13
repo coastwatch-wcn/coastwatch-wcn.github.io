@@ -40,31 +40,6 @@ CONFIG = {
 }
 
 
-def send_to_erddap(local_file: Path, remote_path: Path) -> bool:
-    """Sends a local file to a remote ERDDAP server via SCP.
-
-    Args:
-        local_file (Path): The path to the local file to send.
-        remote_path (Path): The path on the remote server where the file should be saved.
-
-    Returns:
-        bool: True if the transfer was successful, False otherwise.
-    """
-    cmd = ['scp', str(local_file), f'{CONFIG["ERDDAP_USER_HOST"]}:{remote_path.as_posix()}']
-    
-    print(f"Executing: {' '.join(cmd)}")
-    try:
-        subprocess.run(cmd, check=True, capture_output=True, text=True)
-        print(f"Successfully sent {local_file.name} to ERDDAP.")
-        return True
-    except subprocess.CalledProcessError as e:
-        print(f"SCP command failed with exit code {e.returncode}.", file=sys.stderr)
-        print("Error details:", e.stderr, file=sys.stderr)
-    except FileNotFoundError:
-        print("SCP command not found. Is it installed and in your PATH?", file=sys.stderr)
-    return False
-
-
 def fetch_with_retry_html(
     session: requests.Session,
     url: str,
