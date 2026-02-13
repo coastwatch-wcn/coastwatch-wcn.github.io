@@ -1,0 +1,16 @@
+jupyter
+ipykernel
+nbformat
+pandas
+numpy
+openpyxl
+netCDF4
+requests
+python-dateutil
+matplotlib
+cartopy
+beautifulsoup4
+lxml
+plotnine
+xarray
+
