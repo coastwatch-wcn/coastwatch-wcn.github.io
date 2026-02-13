@@ -63,10 +63,10 @@ jobs:
           path: docs   # must match output-dir: docs in _quarto.yml
 
   deploy:
-    needs: build
+    needs: update
     runs-on: ubuntu-latest
     environment:
-      name: github-page
+      name: github-pages
     steps:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
