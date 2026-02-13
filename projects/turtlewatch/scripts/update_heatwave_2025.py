@@ -20,36 +20,6 @@ from pathlib import Path
 from typing import Dict, Any, Optional
 
 
-def send_to_erddap(work_dir: Path, infile: Path, erddap_path: str, ofile: str) -> bool:
-    """Sends files from the production server to an ERDDAP server via SCP.
-
-    Args:
-        work_dir (Path): The local directory of the file.
-        infile (Path): The name of the local file.
-        erddap_path (str): The remote directory path on the ERDDAP server.
-        ofile (str): The name of the remote file.
-
-    Returns:
-        bool: True if the file transfer was successful, False otherwise.
-    """
-    cmd = [
-        'scp',
-        str(work_dir / infile),
-        f'cwatch@192.168.31.15:{os.path.join(erddap_path, ofile)}'
-    ]
-    print(f"Executing: {' '.join(cmd)}")
-    try:
-        subprocess.run(cmd, check=True, capture_output=True, text=True)
-        print(f"Successfully sent {ofile} to ERDDAP.")
-        return True
-    except subprocess.CalledProcessError as e:
-        print(f"SCP command failed with exit code {e.returncode}.", file=sys.stderr)
-        print("Error details:", e.stderr, file=sys.stderr)
-    except FileNotFoundError:
-        print("SCP command not found. Is it installed and in your PATH?", file=sys.stderr)
-    return False
-
-
 def fetch_with_retry_html(
     session: requests.Session,
     url: str,
