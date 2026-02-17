@@ -3120,3 +3120,17 @@ button.btn-primary:hover {
   color: #fff !important;      /* keep white text */
   text-decoration: none !important; /* prevent underline on hover */
 }
+
+/*  layout styles */
+.course-slides-page .course-slide-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  align-items: flex-start;
+  margin-bottom: 2em;
+}
+
+.course-slides-page .course-slides-column {
+  flex: 1 1 0;
+  min-width: 300px; /* ensures stacking on narrow screens */
+}

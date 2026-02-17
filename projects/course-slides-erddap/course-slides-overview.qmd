@@ -9,19 +9,21 @@ format:
     css: ../../styles.css
 ---
 
-This project demonstrates a **non-traditional use of ERDDAP**: not just as a public data portal, but as a **secure, searchable database + image server** that can feed an end-to-end automation workflow. Authorized users can query participant metadata from NOAA CoastWatch satellite training courses, download the matching **slide PNGs**, and automatically assemble a **custom PowerPoint deck**, all while keeping personally identifiable information (PII) protected behind authentication.
+::: {.course-slides-page}
 
-Importantly, the tutorials associated with this project are designed so users can adapt this workflow to **their own password-protected ERDDAP datasets**, not just the CoastWatch example shown here.
+This project demonstrates a **non-traditional use of ERDDAP**: not just as a public data portal, but as a secure, searchable database and image server that can feed an end-to-end automation workflow. Authorized users can query participant metadata from NOAA CoastWatch satellite training courses, download the matching slide PNGs, and automatically assemble a custom PowerPoint deck, all while keeping personally identifiable information (PII) protected behind authentication.
+
+Importantly, the tutorials associated with this project are designed so users can adapt this workflow to their own password-protected ERDDAP datasets, not just the CoastWatch example shown here.
 
 ## Why this matters: access control + automation don’t usually mix
 
-ERDDAP is commonly used for **open discovery and reuse** (public datasets, anonymous access). But some datasets must be restricted, especially when they contain **PII**, internal reporting metrics, or unpublished materials.
+ERDDAP is commonly used for open discovery and reuse (public datasets, anonymous access). But some datasets must be restricted, especially when they contain **PII**, internal reporting metrics, or unpublished materials.
 
 Manual login works for interactive browsing, but becomes a blocker for reproducible scripts and automated reporting.
 
 This project shows a practical pattern for bridging that gap:
 
-> **Interactive browser login once → authenticated scripted access for the rest of the workflow.**
+**Interactive browser login once → authenticated scripted access for the rest of the workflow.**
 
 ## The CoastWatch Satellite Training Course Overview
 
@@ -33,9 +35,12 @@ This project shows a practical pattern for bridging that gap:
 
 Over **250 participant slides** have been collected since 2013 (and growing).
 
-![Example participant project slide.](images/slide-example.png)
+![Example participant project slide.](images/slide-example.png){width=80%}
 
 ## The CoastWatch Slide Archive Problem 
+
+::: {.course-slides-columns}
+::: {.course-slides-column}
 
 ### Then
 
@@ -45,6 +50,8 @@ Over **250 participant slides** have been collected since 2013 (and growing).
 - Difficult to summarize course impact across years  
 
 ![](images/before-archive.png)
+:::
+::: {.course-slides-column}
 
 ### Now
 
@@ -55,9 +62,14 @@ Over **250 participant slides** have been collected since 2013 (and growing).
 
 ![](images/after-archive.png)
 
+:::
+:::
+
 
 ## ERDDAP used in nonconventional ways
 
+::: {.course-slides-columns}
+::: {.course-slides-column}
 ### 1) ERDDAP as a searchable database (metadata)
 
 A password-protected **tabledap** dataset acts like a structured, queryable registry of participant information and slide IDs.
@@ -67,6 +79,8 @@ Instead of just serving environmental measurements, ERDDAP here functions as:
 - A relational-style metadata store  
 - A searchable reporting backend  
 - A structured index for downstream automation  
+:::
+::: {.course-slides-column}
 
 ### 2) ERDDAP as an authenticated image server
 
@@ -80,9 +94,13 @@ Once authenticated, scripts can:
 
 This transforms ERDDAP from a “data API” into a **controlled asset distribution system**.
 
-## How secure access is implemented
+:::
+:::
 
-### Server-side configuration
+
+::: {.course-slides-columns}
+::: {.course-slides-column}
+## How secure access is implemented
 
 ERDDAP is configured for:
 
@@ -97,7 +115,8 @@ Users:
 3. Gain access only to approved datasets  
 
 No credentials are stored in scripts.
-
+:::
+::: {.course-slides-column}
 ## What this enables
 
 Authorized users can generate:
@@ -110,8 +129,13 @@ Authorized users can generate:
 
 All without manually searching folders.
 
+:::
+:::
+
 ## Strengths and limitations
 
+::: {.course-slides-columns}
+::: {.course-slides-column}
 ### Strengths
 
 - Uses existing ERDDAP infrastructure  
@@ -119,13 +143,17 @@ All without manually searching folders.
 - No stored credentials  
 - Reproducible + auditable  
 - Demonstrates ERDDAP versatility beyond environmental grids  
-
+:::
+::: {.course-slides-column}
 ### Limitations
 
 - Requires interactive login (Selenium)  
 - Not fully headless unless extended  
 - Sensitive to ERDDAP dataset restructuring  
 - Depends on role-based permissions being configured correctly  
+
+:::
+:::
 
 ## Why ERDDAP versatility matters
 

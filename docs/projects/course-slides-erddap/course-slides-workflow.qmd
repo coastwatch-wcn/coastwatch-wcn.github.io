@@ -1,5 +1,122 @@
 ---
-title: "Untitled"
-format: html
+title: "Secure Automated ERDDAP Workflow"
+anchor-sections: false
+format:
+  html:
+    theme: lux
+    toc: false
+    page-layout: full
+    css: ../../styles.css
 ---
+
+## Technical Workflow
+
+![How the secured automated ERDDAP workflow works.](images/workflow.png)
+
+## Selenium: bridging interactive login with automation
+
+Because the metadata and slide datasets contain PII, they cannot be accessed anonymously.
+
+Instead, this workflow uses **Selenium WebDriver** to automate the browser login process safely and reproducibly.
+
+### What Selenium does in this project
+
+1. Opens a Chrome browser window from Python  
+2. Navigates to the ERDDAP login page  
+3. User completes:
+   - Google login
+   - 2-factor authentication
+   - ERDDAP confirmation step  
+4. Script extracts the authenticated **session cookies** from the browser  
+5. Cookies are transferred into a `requests.Session()` object  
+6. The browser closes  
+7. All subsequent downloads use that authenticated session  
+
+### Why this matters
+
+- No passwords are stored in code  
+- Authentication uses NOAA identity systems  
+- Scripts can access protected datasets securely  
+- The workflow remains reproducible  
+
+This pattern allows **human authentication + machine automation** to coexist.
+
+### Why not use API tokens?
+
+For identity-managed ERDDAP systems (like NOAA’s), login is often federated via Google OAuth rather than static API keys. Selenium allows us to integrate that identity-based login into Python workflows without bypassing security.
+
+## Data sources hosted in ERDDAP
+
+### Participant metadata (CSV → ERDDAP tabledap)
+
+Fields include:
+
+- Course / Year  
+- Name / Affiliation  
+- Products  
+- Topic  
+- Software  
+- Slide ID (key that links metadata to slide image)
+
+### Participant slides (PNG files → ERDDAP file index)
+
+A directory of PNG slides with a consistent naming pattern:
+
+```
+[Year][Course][Number].png
+```
+
+ERDDAP exposes these files via predictable URLs, allowing programmatic download after authentication.
+
+## Server-Side Configuration of Protected ERDDAP Datasets
+
+## End-to-end workflow (Query → PowerPoint)
+
+### Step 1 — Authenticate once (Selenium)
+
+Interactive login → session cookies → authenticated `requests.Session()`.
+
+### Step 2 — Query metadata (ERDDAP tabledap)
+
+Two supported approaches:
+
+**Option 1**
+- Download full metadata table
+- Filter locally in Python
+- Maximum flexibility and automation
+
+**Option 2**
+- Use ERDDAP web interface to subset
+- Generate query URL visually
+- Download filtered CSV directly
+
+Both approaches produce the same metadata table.
+
+Example query used in the showcase:
+
+> “NMFS participants who used JPSS data”
+
+### Step 3 — Construct slide URLs
+
+Slide IDs from metadata are converted into image URLs pointing to the slide archive.
+
+### Step 4 — Parallel image download
+
+Slides are downloaded through the authenticated session.
+
+Parallel downloads (ThreadPoolExecutor) significantly reduce runtime when retrieving dozens of slides.
+
+### Step 5 — Generate PowerPoint
+
+Using `python-pptx`:
+
+- Each participant slide PNG becomes one PowerPoint slide  
+- Title text is dynamically constructed from metadata fields  
+- Layout and formatting are standardized  
+- Output is a ready-to-use `.pptx` file  
+
+Result:
+
+> A fully customized, query-driven presentation built directly from ERDDAP.
+
 

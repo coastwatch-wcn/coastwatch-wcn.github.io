@@ -523,5 +523,110 @@
     "title": "Automated Access to Password-Protected ERDDAP Datasets",
     "section": "Credits / Acknowledgements",
     "text": "Credits / Acknowledgements\nMadison Richardson, Sunny Hospital, Dale Robinson, Cara Wilson, Roy Mendelssohn.\nCoastWatch West Coast Node & PolarWatch, SWFSC, CoastWatch Central, and JPSS PGRR Program support."
+  },
+  {
+    "objectID": "projects/course-slides-erddap/course-slides-overview.html",
+    "href": "projects/course-slides-erddap/course-slides-overview.html",
+    "title": "Automated Access to Password-Protected ERDDAP Datasets",
+    "section": "",
+    "text": "This project demonstrates a non-traditional use of ERDDAP: not just as a public data portal, but as a secure, searchable database and image server that can feed an end-to-end automation workflow. Authorized users can query participant metadata from NOAA CoastWatch satellite training courses, download the matching slide PNGs, and automatically assemble a custom PowerPoint deck, all while keeping personally identifiable information (PII) protected behind authentication.\nImportantly, the tutorials associated with this project are designed so users can adapt this workflow to their own password-protected ERDDAP datasets, not just the CoastWatch example shown here.\n\n\nERDDAP is commonly used for open discovery and reuse (public datasets, anonymous access). But some datasets must be restricted, especially when they contain PII, internal reporting metrics, or unpublished materials.\nManual login works for interactive browsing, but becomes a blocker for reproducible scripts and automated reporting.\nThis project shows a practical pattern for bridging that gap:\nInteractive browser login once → authenticated scripted access for the rest of the workflow.\n\n\n\n\nCoastWatch offers satellite data training workshops each year\nParticipants are asked to submit a project summary slide and the end of the course\nSlides capture satellite use and participant/project metadata\n\nSlides contain PII → access is restricted\n\nGoal: Allow authorized users to generate presentations from an automated workflow\n\nOver 250 participant slides have been collected since 2013 (and growing).\n\n\n\nExample participant project slide.\n\n\n\n\n\n\n\n\n\nSlides scattered across shared drives/folders\n\nInconsistent naming and organization\n\nManual discovery (slow, error-prone, and knowledge-dependent)\n\nDifficult to summarize course impact across years\n\n\n\n\n\n\nSlides and metadata hosted in ERDDAP\n\nFully searchable by course, year, affiliation, products, topics, software, etc.\n\nSlide IDs link metadata to image files\n\n“Find participant work instantly” → supports reporting + impact documentation\n\n\n\n\n\n\n\n\n\n\nA password-protected tabledap dataset acts like a structured, queryable registry of participant information and slide IDs.\nInstead of just serving environmental measurements, ERDDAP here functions as:\n\nA relational-style metadata store\n\nA searchable reporting backend\n\nA structured index for downstream automation\n\n\n\n\n\nA second dataset indexes a folder of PNG slide files and exposes them through predictable URLs.\nOnce authenticated, scripts can:\n\nConstruct file URLs dynamically from Slide IDs\n\nRetrieve slide PNGs directly\n\nBatch-download content for automated reporting\n\nThis transforms ERDDAP from a “data API” into a controlled asset distribution system.\n\n\n\n\n\n\nERDDAP is configured for:\n\nGoogle-based authentication\nRole-based dataset access\nDataset-level permission control\n\nUsers:\n\nLog in using NOAA-authorized Google accounts\n\nAre assigned roles within ERDDAP\n\nGain access only to approved datasets\n\nNo credentials are stored in scripts.\n\n\n\nAuthorized users can generate:\n\nCourse impact summaries\n\nProgram reviews by year or affiliation\n\nThematic decks (e.g., “Ocean Color + Telemetry projects”)\n\nInternal reporting materials\n\nPresentation-ready slide decks\n\nAll without manually searching folders.\n\n\n\n\n\n\n\n\nUses existing ERDDAP infrastructure\n\nSecure identity-based access\n\nNo stored credentials\n\nReproducible + auditable\n\nDemonstrates ERDDAP versatility beyond environmental grids\n\n\n\n\n\n\nRequires interactive login (Selenium)\n\nNot fully headless unless extended\n\nSensitive to ERDDAP dataset restructuring\n\nDepends on role-based permissions being configured correctly\n\n\n\n\n\n\nThis project is a blueprint for other secure workflows:\n\nInternal asset archives\n\nImage repositories\n\nMetadata registries\n\nProtected environmental products\n\nProgram tracking dashboards\n\nIt demonstrates that ERDDAP can function as:\n\nA data API\n\nA metadata database\n\nA file server\n\nA reporting backend\n\nNot just a public data catalog."
+  },
+  {
+    "objectID": "projects/course-slides-erddap/course-slides-overview.html#why-this-matters-access-control-automation-dont-usually-mix",
+    "href": "projects/course-slides-erddap/course-slides-overview.html#why-this-matters-access-control-automation-dont-usually-mix",
+    "title": "Automated Access to Password-Protected ERDDAP Datasets",
+    "section": "",
+    "text": "ERDDAP is commonly used for open discovery and reuse (public datasets, anonymous access). But some datasets must be restricted, especially when they contain PII, internal reporting metrics, or unpublished materials.\nManual login works for interactive browsing, but becomes a blocker for reproducible scripts and automated reporting.\nThis project shows a practical pattern for bridging that gap:\nInteractive browser login once → authenticated scripted access for the rest of the workflow."
+  },
+  {
+    "objectID": "projects/course-slides-erddap/course-slides-overview.html#the-coastwatch-satellite-training-course-overview",
+    "href": "projects/course-slides-erddap/course-slides-overview.html#the-coastwatch-satellite-training-course-overview",
+    "title": "Automated Access to Password-Protected ERDDAP Datasets",
+    "section": "",
+    "text": "CoastWatch offers satellite data training workshops each year\nParticipants are asked to submit a project summary slide and the end of the course\nSlides capture satellite use and participant/project metadata\n\nSlides contain PII → access is restricted\n\nGoal: Allow authorized users to generate presentations from an automated workflow\n\nOver 250 participant slides have been collected since 2013 (and growing).\n\n\n\nExample participant project slide."
+  },
+  {
+    "objectID": "projects/course-slides-erddap/course-slides-overview.html#the-coastwatch-slide-archive-problem",
+    "href": "projects/course-slides-erddap/course-slides-overview.html#the-coastwatch-slide-archive-problem",
+    "title": "Automated Access to Password-Protected ERDDAP Datasets",
+    "section": "",
+    "text": "Slides scattered across shared drives/folders\n\nInconsistent naming and organization\n\nManual discovery (slow, error-prone, and knowledge-dependent)\n\nDifficult to summarize course impact across years\n\n\n\n\n\n\nSlides and metadata hosted in ERDDAP\n\nFully searchable by course, year, affiliation, products, topics, software, etc.\n\nSlide IDs link metadata to image files\n\n“Find participant work instantly” → supports reporting + impact documentation"
+  },
+  {
+    "objectID": "projects/course-slides-erddap/course-slides-overview.html#erddap-used-in-nonconventional-ways",
+    "href": "projects/course-slides-erddap/course-slides-overview.html#erddap-used-in-nonconventional-ways",
+    "title": "Automated Access to Password-Protected ERDDAP Datasets",
+    "section": "",
+    "text": "A password-protected tabledap dataset acts like a structured, queryable registry of participant information and slide IDs.\nInstead of just serving environmental measurements, ERDDAP here functions as:\n\nA relational-style metadata store\n\nA searchable reporting backend\n\nA structured index for downstream automation\n\n\n\n\n\nA second dataset indexes a folder of PNG slide files and exposes them through predictable URLs.\nOnce authenticated, scripts can:\n\nConstruct file URLs dynamically from Slide IDs\n\nRetrieve slide PNGs directly\n\nBatch-download content for automated reporting\n\nThis transforms ERDDAP from a “data API” into a controlled asset distribution system."
+  },
+  {
+    "objectID": "projects/course-slides-erddap/course-slides-overview.html#how-secure-access-is-implemented",
+    "href": "projects/course-slides-erddap/course-slides-overview.html#how-secure-access-is-implemented",
+    "title": "Automated Access to Password-Protected ERDDAP Datasets",
+    "section": "",
+    "text": "ERDDAP is configured for:\n\nGoogle-based authentication\nRole-based dataset access\nDataset-level permission control\n\nUsers:\n\nLog in using NOAA-authorized Google accounts\n\nAre assigned roles within ERDDAP\n\nGain access only to approved datasets\n\nNo credentials are stored in scripts."
+  },
+  {
+    "objectID": "projects/course-slides-erddap/course-slides-overview.html#what-this-enables",
+    "href": "projects/course-slides-erddap/course-slides-overview.html#what-this-enables",
+    "title": "Automated Access to Password-Protected ERDDAP Datasets",
+    "section": "",
+    "text": "Authorized users can generate:\n\nCourse impact summaries\n\nProgram reviews by year or affiliation\n\nThematic decks (e.g., “Ocean Color + Telemetry projects”)\n\nInternal reporting materials\n\nPresentation-ready slide decks\n\nAll without manually searching folders."
+  },
+  {
+    "objectID": "projects/course-slides-erddap/course-slides-overview.html#strengths-and-limitations",
+    "href": "projects/course-slides-erddap/course-slides-overview.html#strengths-and-limitations",
+    "title": "Automated Access to Password-Protected ERDDAP Datasets",
+    "section": "",
+    "text": "Uses existing ERDDAP infrastructure\n\nSecure identity-based access\n\nNo stored credentials\n\nReproducible + auditable\n\nDemonstrates ERDDAP versatility beyond environmental grids\n\n\n\n\n\n\nRequires interactive login (Selenium)\n\nNot fully headless unless extended\n\nSensitive to ERDDAP dataset restructuring\n\nDepends on role-based permissions being configured correctly"
+  },
+  {
+    "objectID": "projects/course-slides-erddap/course-slides-overview.html#why-erddap-versatility-matters",
+    "href": "projects/course-slides-erddap/course-slides-overview.html#why-erddap-versatility-matters",
+    "title": "Automated Access to Password-Protected ERDDAP Datasets",
+    "section": "",
+    "text": "This project is a blueprint for other secure workflows:\n\nInternal asset archives\n\nImage repositories\n\nMetadata registries\n\nProtected environmental products\n\nProgram tracking dashboards\n\nIt demonstrates that ERDDAP can function as:\n\nA data API\n\nA metadata database\n\nA file server\n\nA reporting backend\n\nNot just a public data catalog."
+  },
+  {
+    "objectID": "projects/course-slides-erddap/course-slides-workflow.html",
+    "href": "projects/course-slides-erddap/course-slides-workflow.html",
+    "title": "Secure Automated ERDDAP Workflow",
+    "section": "",
+    "text": "How the secured automated ERDDAP workflow works."
+  },
+  {
+    "objectID": "projects/course-slides-erddap/course-slides-workflow.html#technical-workflow",
+    "href": "projects/course-slides-erddap/course-slides-workflow.html#technical-workflow",
+    "title": "Secure Automated ERDDAP Workflow",
+    "section": "",
+    "text": "How the secured automated ERDDAP workflow works."
+  },
+  {
+    "objectID": "projects/course-slides-erddap/course-slides-workflow.html#selenium-bridging-interactive-login-with-automation",
+    "href": "projects/course-slides-erddap/course-slides-workflow.html#selenium-bridging-interactive-login-with-automation",
+    "title": "Secure Automated ERDDAP Workflow",
+    "section": "Selenium: bridging interactive login with automation",
+    "text": "Selenium: bridging interactive login with automation\nBecause the metadata and slide datasets contain PII, they cannot be accessed anonymously.\nInstead, this workflow uses Selenium WebDriver to automate the browser login process safely and reproducibly.\n\nWhat Selenium does in this project\n\nOpens a Chrome browser window from Python\n\nNavigates to the ERDDAP login page\n\nUser completes:\n\nGoogle login\n2-factor authentication\nERDDAP confirmation step\n\n\nScript extracts the authenticated session cookies from the browser\n\nCookies are transferred into a requests.Session() object\n\nThe browser closes\n\nAll subsequent downloads use that authenticated session\n\n\n\nWhy this matters\n\nNo passwords are stored in code\n\nAuthentication uses NOAA identity systems\n\nScripts can access protected datasets securely\n\nThe workflow remains reproducible\n\nThis pattern allows human authentication + machine automation to coexist.\n\n\nWhy not use API tokens?\nFor identity-managed ERDDAP systems (like NOAA’s), login is often federated via Google OAuth rather than static API keys. Selenium allows us to integrate that identity-based login into Python workflows without bypassing security."
+  },
+  {
+    "objectID": "projects/course-slides-erddap/course-slides-workflow.html#data-sources-hosted-in-erddap",
+    "href": "projects/course-slides-erddap/course-slides-workflow.html#data-sources-hosted-in-erddap",
+    "title": "Secure Automated ERDDAP Workflow",
+    "section": "Data sources hosted in ERDDAP",
+    "text": "Data sources hosted in ERDDAP\n\nParticipant metadata (CSV → ERDDAP tabledap)\nFields include:\n\nCourse / Year\n\nName / Affiliation\n\nProducts\n\nTopic\n\nSoftware\n\nSlide ID (key that links metadata to slide image)\n\n\n\nParticipant slides (PNG files → ERDDAP file index)\nA directory of PNG slides with a consistent naming pattern:\n[Year][Course][Number].png\nERDDAP exposes these files via predictable URLs, allowing programmatic download after authentication."
+  },
+  {
+    "objectID": "projects/course-slides-erddap/course-slides-workflow.html#server-side-configuration-of-protected-erddap-datasets",
+    "href": "projects/course-slides-erddap/course-slides-workflow.html#server-side-configuration-of-protected-erddap-datasets",
+    "title": "Secure Automated ERDDAP Workflow",
+    "section": "Server-Side Configuration of Protected ERDDAP Datasets",
+    "text": "Server-Side Configuration of Protected ERDDAP Datasets"
+  },
+  {
+    "objectID": "projects/course-slides-erddap/course-slides-workflow.html#end-to-end-workflow-query-powerpoint",
+    "href": "projects/course-slides-erddap/course-slides-workflow.html#end-to-end-workflow-query-powerpoint",
+    "title": "Secure Automated ERDDAP Workflow",
+    "section": "End-to-end workflow (Query → PowerPoint)",
+    "text": "End-to-end workflow (Query → PowerPoint)\n\nStep 1 — Authenticate once (Selenium)\nInteractive login → session cookies → authenticated requests.Session().\n\n\nStep 2 — Query metadata (ERDDAP tabledap)\nTwo supported approaches:\nOption 1 - Download full metadata table - Filter locally in Python - Maximum flexibility and automation\nOption 2 - Use ERDDAP web interface to subset - Generate query URL visually - Download filtered CSV directly\nBoth approaches produce the same metadata table.\nExample query used in the showcase:\n\n“NMFS participants who used JPSS data”\n\n\n\nStep 3 — Construct slide URLs\nSlide IDs from metadata are converted into image URLs pointing to the slide archive.\n\n\nStep 4 — Parallel image download\nSlides are downloaded through the authenticated session.\nParallel downloads (ThreadPoolExecutor) significantly reduce runtime when retrieving dozens of slides.\n\n\nStep 5 — Generate PowerPoint\nUsing python-pptx:\n\nEach participant slide PNG becomes one PowerPoint slide\n\nTitle text is dynamically constructed from metadata fields\n\nLayout and formatting are standardized\n\nOutput is a ready-to-use .pptx file\n\nResult:\n\nA fully customized, query-driven presentation built directly from ERDDAP."
   }
 ]
