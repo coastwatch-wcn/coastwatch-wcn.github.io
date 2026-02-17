@@ -35,7 +35,7 @@ This project shows a practical pattern for bridging that gap:
 
 Over **250 participant slides** have been collected since 2013 (and growing).
 
-![Example participant project slide.](images/slide-example.png){width=80%}
+![Example participant project slide.](images/slide-example.png){width=60%}
 
 ## The CoastWatch Slide Archive Problem 
 
@@ -51,6 +51,7 @@ Over **250 participant slides** have been collected since 2013 (and growing).
 
 ![](images/before-archive.png)
 :::
+
 ::: {.course-slides-column}
 
 ### Now
@@ -66,10 +67,11 @@ Over **250 participant slides** have been collected since 2013 (and growing).
 :::
 
 
-## ERDDAP used in nonconventional ways
+## Details
 
-::: {.course-slides-columns}
-::: {.course-slides-column}
+<details class="course-slides-faq">
+<summary><strong>ERDDAP used in nonconventional ways</strong></summary>
+
 ### 1) ERDDAP as a searchable database (metadata)
 
 A password-protected **tabledap** dataset acts like a structured, queryable registry of participant information and slide IDs.
@@ -79,8 +81,6 @@ Instead of just serving environmental measurements, ERDDAP here functions as:
 - A relational-style metadata store  
 - A searchable reporting backend  
 - A structured index for downstream automation  
-:::
-::: {.course-slides-column}
 
 ### 2) ERDDAP as an authenticated image server
 
@@ -94,13 +94,10 @@ Once authenticated, scripts can:
 
 This transforms ERDDAP from a “data API” into a **controlled asset distribution system**.
 
-:::
-:::
+</details>
 
-
-::: {.course-slides-columns}
-::: {.course-slides-column}
-## How secure access is implemented
+<details class="course-slides-faq">
+<summary><strong>How secure access is implemented</strong></summary>
 
 ERDDAP is configured for:
 
@@ -115,9 +112,11 @@ Users:
 3. Gain access only to approved datasets  
 
 No credentials are stored in scripts.
-:::
-::: {.course-slides-column}
-## What this enables
+
+</details>
+
+<details class="course-slides-faq">
+<summary><strong>What this enables</strong></summary>
 
 Authorized users can generate:
 
@@ -129,13 +128,11 @@ Authorized users can generate:
 
 All without manually searching folders.
 
-:::
-:::
+</details>
 
-## Strengths and limitations
+<details class="course-slides-faq">
+<summary><strong>Strengths and Limitations</strong></summary>
 
-::: {.course-slides-columns}
-::: {.course-slides-column}
 ### Strengths
 
 - Uses existing ERDDAP infrastructure  
@@ -143,8 +140,7 @@ All without manually searching folders.
 - No stored credentials  
 - Reproducible + auditable  
 - Demonstrates ERDDAP versatility beyond environmental grids  
-:::
-::: {.course-slides-column}
+
 ### Limitations
 
 - Requires interactive login (Selenium)  
@@ -152,8 +148,9 @@ All without manually searching folders.
 - Sensitive to ERDDAP dataset restructuring  
 - Depends on role-based permissions being configured correctly  
 
-:::
-:::
+</details>
+
+---
 
 ## Why ERDDAP versatility matters
 
@@ -173,5 +170,6 @@ It demonstrates that ERDDAP can function as:
 - A reporting backend  
 
 Not just a public data catalog.
+
 
 :::

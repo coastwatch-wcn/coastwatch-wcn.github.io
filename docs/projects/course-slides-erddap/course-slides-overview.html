@@ -215,7 +215,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Over <strong>250 participant slides</strong> have been collected since 2013 (and growing).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/slide-example.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<p><img src="images/slide-example.png" class="img-fluid figure-img" style="width:60.0%"></p>
 <figcaption>Example participant project slide.</figcaption>
 </figure>
 </div>
@@ -251,10 +251,13 @@ ul.task-list li input[type="checkbox"] {
 </section>
 </div>
 </section>
-<section id="erddap-used-in-nonconventional-ways" class="level2">
-<h2 data-anchor-id="erddap-used-in-nonconventional-ways">ERDDAP used in nonconventional ways</h2>
-<div class="course-slides-columns">
-<section id="erddap-as-a-searchable-database-metadata" class="level3 course-slides-column">
+<section id="details" class="level2">
+<h2 data-anchor-id="details">Details</h2>
+<details class="course-slides-faq">
+<summary>
+<strong>ERDDAP used in nonconventional ways</strong>
+</summary>
+<section id="erddap-as-a-searchable-database-metadata" class="level3">
 <h3 data-anchor-id="erddap-as-a-searchable-database-metadata">1) ERDDAP as a searchable database (metadata)</h3>
 <p>A password-protected <strong>tabledap</strong> dataset acts like a structured, queryable registry of participant information and slide IDs.</p>
 <p>Instead of just serving environmental measurements, ERDDAP here functions as:</p>
@@ -263,11 +266,10 @@ ul.task-list li input[type="checkbox"] {
 </li>
 <li>A searchable reporting backend<br>
 </li>
-<li>A structured index for downstream automation<br>
-</li>
+<li>A structured index for downstream automation</li>
 </ul>
 </section>
-<section id="erddap-as-an-authenticated-image-server" class="level3 course-slides-column">
+<section id="erddap-as-an-authenticated-image-server" class="level3">
 <h3 data-anchor-id="erddap-as-an-authenticated-image-server">2) ERDDAP as an authenticated image server</h3>
 <p>A second dataset indexes a folder of PNG slide files and exposes them through predictable URLs.</p>
 <p>Once authenticated, scripts can:</p>
@@ -279,12 +281,11 @@ ul.task-list li input[type="checkbox"] {
 <li>Batch-download content for automated reporting</li>
 </ul>
 <p>This transforms ERDDAP from a “data API” into a <strong>controlled asset distribution system</strong>.</p>
-</section>
-</div>
-</section>
-<div class="course-slides-columns">
-<section id="how-secure-access-is-implemented" class="level2 course-slides-column">
-<h2 data-anchor-id="how-secure-access-is-implemented">How secure access is implemented</h2>
+</section></details>
+<details class="course-slides-faq">
+<summary>
+<strong>How secure access is implemented</strong>
+</summary>
 <p>ERDDAP is configured for:</p>
 <ul>
 <li><strong>Google-based authentication</strong></li>
@@ -300,9 +301,11 @@ ul.task-list li input[type="checkbox"] {
 <li>Gain access only to approved datasets</li>
 </ol>
 <p>No credentials are stored in scripts.</p>
-</section>
-<section id="what-this-enables" class="level2 course-slides-column">
-<h2 data-anchor-id="what-this-enables">What this enables</h2>
+</details>
+<details class="course-slides-faq">
+<summary>
+<strong>What this enables</strong>
+</summary>
 <p>Authorized users can generate:</p>
 <ul>
 <li>Course impact summaries<br>
@@ -316,12 +319,13 @@ ul.task-list li input[type="checkbox"] {
 <li>Presentation-ready slide decks</li>
 </ul>
 <p>All without manually searching folders.</p>
-</section>
-</div>
-<section id="strengths-and-limitations" class="level2">
-<h2 data-anchor-id="strengths-and-limitations">Strengths and limitations</h2>
-<div class="course-slides-columns">
-<section id="strengths" class="level3 course-slides-column">
+</details>
+<details class="course-slides-faq">
+<summary>
+<strong>Strengths and Limitations</strong>
+</summary>
+</details></section>
+<section id="strengths" class="level3">
 <h3 data-anchor-id="strengths">Strengths</h3>
 <ul>
 <li>Uses existing ERDDAP infrastructure<br>
@@ -332,11 +336,10 @@ ul.task-list li input[type="checkbox"] {
 </li>
 <li>Reproducible + auditable<br>
 </li>
-<li>Demonstrates ERDDAP versatility beyond environmental grids<br>
-</li>
+<li>Demonstrates ERDDAP versatility beyond environmental grids</li>
 </ul>
 </section>
-<section id="limitations" class="level3 course-slides-column">
+<section id="limitations" class="level3">
 <h3 data-anchor-id="limitations">Limitations</h3>
 <ul>
 <li>Requires interactive login (Selenium)<br>
@@ -347,9 +350,10 @@ ul.task-list li input[type="checkbox"] {
 </li>
 <li>Depends on role-based permissions being configured correctly</li>
 </ul>
+
+<hr>
 </section>
-</div>
-</section>
+
 <section id="why-erddap-versatility-matters" class="level2">
 <h2 data-anchor-id="why-erddap-versatility-matters">Why ERDDAP versatility matters</h2>
 <p>This project is a blueprint for other secure workflows:</p>

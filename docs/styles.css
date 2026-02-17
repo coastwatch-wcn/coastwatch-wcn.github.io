@@ -3122,7 +3122,7 @@ button.btn-primary:hover {
 }
 
 /*  layout styles */
-.course-slides-page .course-slide-columns {
+.course-slides-page .course-slides-columns {
   display: flex;
   flex-wrap: wrap;
   gap: 2em;
@@ -3131,6 +3131,47 @@ button.btn-primary:hover {
 }
 
 .course-slides-page .course-slides-column {
-  flex: 1 1 0;
+  flex: 1 1 48%;
   min-width: 300px; /* ensures stacking on narrow screens */
+}
+
+/* Base collapsible card */
+.course-slides-page .course-slides-faq {
+  margin-bottom: 1em;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+  background: #f8f9fa;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+/* Summary = card header */
+.course-slides-page .course-slides-faq summary {
+  cursor: pointer;
+  padding: 0.25em 0.5em;
+  font-weight: 600;
+  color: #2b6da8; /* NOAA blue */
+  background: #f0f6fa;
+  list-style: none; /* remove triangle marker */
+}
+
+.course-slides-page .course-slides-faq summary::-webkit-details-marker,
+.course-slides-page .course-slides-faq summary::marker {
+  display: none; /* hide disclosure triangle */
+}
+
+/* Content area = card body */
+.course-slides-page .course-slides-faq[open] {
+  background: #fff;
+}
+
+.course-slides-page .course-slides-faq[open] summary {
+  border-bottom: 1px solid #dee2e6;
+  background: #e9f3fb;
+}
+
+.course-slides-page .course-slides-faq p,
+.course-slides-page .course-slides-faq ul {
+  padding: 0.5em 0.75em;
+  margin: 0.25em 0;
 }
