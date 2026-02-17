@@ -1,0 +1,149 @@
+---
+title: "Automated Access to Password-Protected ERDDAP Datasets"
+anchor-sections: false
+format:
+  html:
+    theme: lux
+    toc: false
+    page-layout: full
+    css: ../../styles.css
+---
+
+This project demonstrates a **non-traditional use of ERDDAP**: not just as a public data portal, but as a **secure, searchable database + image server** that can feed an end-to-end automation workflow. Authorized users can query participant metadata from NOAA CoastWatch satellite training courses, download the matching **slide PNGs**, and automatically assemble a **custom PowerPoint deck**, all while keeping personally identifiable information (PII) protected behind authentication.
+
+Importantly, the tutorials associated with this project are designed so users can adapt this workflow to **their own password-protected ERDDAP datasets**, not just the CoastWatch example shown here.
+
+## Why this matters: access control + automation don’t usually mix
+
+ERDDAP is commonly used for **open discovery and reuse** (public datasets, anonymous access). But some datasets must be restricted, especially when they contain **PII**, internal reporting metrics, or unpublished materials.
+
+Manual login works for interactive browsing, but becomes a blocker for reproducible scripts and automated reporting.
+
+This project shows a practical pattern for bridging that gap:
+
+> **Interactive browser login once → authenticated scripted access for the rest of the workflow.**
+
+## The CoastWatch Satellite Training Course Overview
+
+- CoastWatch offers satellite data training workshops each year
+- Participants are asked to submit a project summary slide and the end of the course
+- Slides capture satellite use and participant/project metadata
+  - Slides contain PII → access is restricted
+- Goal: Allow authorized users to generate presentations from an automated workflow
+
+Over **250 participant slides** have been collected since 2013 (and growing).
+
+![Example participant project slide.](images/slide-example.png)
+
+## The CoastWatch Slide Archive Problem 
+
+### Then
+
+- Slides scattered across shared drives/folders  
+- Inconsistent naming and organization  
+- Manual discovery (slow, error-prone, and knowledge-dependent)  
+- Difficult to summarize course impact across years  
+
+![](images/before-archive.png)
+
+### Now
+
+- Slides and metadata hosted in ERDDAP  
+- Fully searchable by **course, year, affiliation, products, topics, software**, etc.  
+- Slide IDs link metadata to image files  
+- “Find participant work instantly” → supports reporting + impact documentation  
+
+![](images/after-archive.png)
+
+
+## ERDDAP used in nonconventional ways
+
+### 1) ERDDAP as a searchable database (metadata)
+
+A password-protected **tabledap** dataset acts like a structured, queryable registry of participant information and slide IDs.
+
+Instead of just serving environmental measurements, ERDDAP here functions as:
+
+- A relational-style metadata store  
+- A searchable reporting backend  
+- A structured index for downstream automation  
+
+### 2) ERDDAP as an authenticated image server
+
+A second dataset indexes a folder of PNG slide files and exposes them through predictable URLs.
+
+Once authenticated, scripts can:
+
+- Construct file URLs dynamically from Slide IDs  
+- Retrieve slide PNGs directly  
+- Batch-download content for automated reporting  
+
+This transforms ERDDAP from a “data API” into a **controlled asset distribution system**.
+
+## How secure access is implemented
+
+### Server-side configuration
+
+ERDDAP is configured for:
+
+- **Google-based authentication**
+- **Role-based dataset access**
+- Dataset-level permission control
+
+Users:
+
+1. Log in using NOAA-authorized Google accounts  
+2. Are assigned roles within ERDDAP  
+3. Gain access only to approved datasets  
+
+No credentials are stored in scripts.
+
+## What this enables
+
+Authorized users can generate:
+
+- Course impact summaries  
+- Program reviews by year or affiliation  
+- Thematic decks (e.g., “Ocean Color + Telemetry projects”)  
+- Internal reporting materials  
+- Presentation-ready slide decks  
+
+All without manually searching folders.
+
+## Strengths and limitations
+
+### Strengths
+
+- Uses existing ERDDAP infrastructure  
+- Secure identity-based access  
+- No stored credentials  
+- Reproducible + auditable  
+- Demonstrates ERDDAP versatility beyond environmental grids  
+
+### Limitations
+
+- Requires interactive login (Selenium)  
+- Not fully headless unless extended  
+- Sensitive to ERDDAP dataset restructuring  
+- Depends on role-based permissions being configured correctly  
+
+## Why ERDDAP versatility matters
+
+This project is a blueprint for other secure workflows:
+
+- Internal asset archives  
+- Image repositories  
+- Metadata registries  
+- Protected environmental products  
+- Program tracking dashboards  
+
+It demonstrates that ERDDAP can function as:
+
+- A data API  
+- A metadata database  
+- A file server  
+- A reporting backend  
+
+Not just a public data catalog.
+
+:::
