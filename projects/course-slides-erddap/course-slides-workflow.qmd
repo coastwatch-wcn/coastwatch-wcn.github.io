@@ -29,7 +29,7 @@ The workflow diagram illustrates how authenticated access, metadata querying, an
 
 ::: {.course-slides-columns}
 ::: {.course-slides-column}
-![](images/step-1.png){fig-align="center" width="80%" style="object-fit:contain; margin-bottom:1rem;"}
+![](images/step-1.png){fig-align="center" width="60%" style="object-fit:contain; margin-bottom:1rem;"}
 :::
 
 ::: {.course-slides-column}
@@ -52,7 +52,7 @@ Once login is successful, Selenium retrieves the authenticated session cookies f
 :::
 
 ::: {.course-slides-column}
-![](images/selenium.png){fig-align="center" width="80%" style="object-fit:contain; margin-bottom:1rem;"}
+![](images/selenium.png){fig-align="center" width="100%" style="object-fit:contain; margin-bottom:1rem;"}
 
 :::
 :::
@@ -61,7 +61,7 @@ Once login is successful, Selenium retrieves the authenticated session cookies f
 
 ::: {.course-slides-columns}
 ::: {.course-slides-column}
-![](images/step-2.png){fig-align="center" width="80%" style="object-fit:contain; margin-bottom:1rem;"}
+![](images/step-2.png){fig-align="center" width="60%" style="object-fit:contain; margin-bottom:1rem;"}
 :::
 
 ::: {.course-slides-column}
@@ -76,7 +76,7 @@ The returned dataset includes participant metadata along with the corresponding 
 
 ::: {.course-slides-columns}
 ::: {.course-slides-column}
-![](images/step-3.png){fig-align="center" width="80%" style="object-fit:contain; margin-bottom:1rem;"}
+![](images/step-3.png){fig-align="center" width="60%" style="object-fit:contain; margin-bottom:1rem;"}
 :::
 
 ::: {.course-slides-column}
@@ -92,7 +92,7 @@ Using these identifiers, the script constructs ERDDAP file URLs for each matchin
 
 ::: {.course-slides-columns}
 ::: {.course-slides-column}
-![](images/step-4.png){fig-align="center" width="80%" style="object-fit:contain; margin-bottom:1rem;"}
+![](images/step-4.png){fig-align="center" width="60%" style="object-fit:contain; margin-bottom:1rem;"}
 :::
 
 ::: {.course-slides-column}
@@ -108,7 +108,7 @@ Each slide image is downloaded locally and prepared for inclusion in the final p
 
 ::: {.course-slides-columns}
 ::: {.course-slides-column}
-![](images/step-5.png){fig-align="center" width="80%" style="object-fit:contain; margin-bottom:1rem;"}
+![](images/step-5.png){fig-align="center" width="60%" style="object-fit:contain; margin-bottom:1rem;"}
 :::
 
 ::: {.course-slides-column}
@@ -123,7 +123,7 @@ This ensures that the presentation reflects the original query criteria and main
 
 ::: {.course-slides-columns}
 ::: {.course-slides-column}
-![](images/powerpoint.png){fig-align="center" width="80%" style="object-fit:contain; margin-bottom:1rem;"}
+![](images/powerpoint.png){fig-align="center" width="100%" style="object-fit:contain; margin-bottom:1rem;"}
 :::
 
 ::: {.course-slides-column}
