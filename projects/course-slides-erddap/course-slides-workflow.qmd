@@ -1,5 +1,9 @@
 ---
 title: "Secure Automated ERDDAP Workflow"
+prev: course-slides-overview.html
+prev_label: Secure ERDDAP Automation Overview
+next: course-slides-resources.html
+next_label: Secure Automated ERDDAP Resources
 anchor-sections: false
 format:
   html:
@@ -9,114 +13,142 @@ format:
     css: ../../styles.css
 ---
 
-## Technical Workflow
+:::{.course-slides-page}
 
-![How the secured automated ERDDAP workflow works.](images/workflow.png)
+::: {.course-slides-columns}
+::: {.course-slides-column}
+The workflow diagram illustrates how authenticated access, metadata querying, and file retrieval combine to generate an automated PowerPoint presentation from protected ERDDAP datasets. The process is identical in Python and R; only the implementation language differs.
+:::
 
-## Selenium: bridging interactive login with automation
+::: {.course-slides-column}
+![Secured automated ERDDAP workflow diagram.](images/workflow.png){fig-align="center" width="80%" style="object-fit:contain; margin-bottom:1rem;"}
+:::
+:::
 
-Because the metadata and slide datasets contain PII, they cannot be accessed anonymously.
+## Step 1: Accessing Password Protected Datasets
 
-Instead, this workflow uses **Selenium WebDriver** to automate the browser login process safely and reproducibly.
+::: {.course-slides-columns}
+::: {.course-slides-column}
+![](images/step-1.png){fig-align="center" width="80%" style="object-fit:contain; margin-bottom:1rem;"}
+:::
 
-### What Selenium does in this project
+::: {.course-slides-column}
+The workflow begins when the Python or R script initiates a secure login sequence using Selenium. Because the metadata dataset is password-protected and contains personally identifiable information (PII), access must occur through NOAA’s Google-based authentication system. The script launches a browser window, allowing the user to complete Google sign-in and two-factor authentication.
 
-1. Opens a Chrome browser window from Python  
-2. Navigates to the ERDDAP login page  
-3. User completes:
-   - Google login
-   - 2-factor authentication
-   - ERDDAP confirmation step  
-4. Script extracts the authenticated **session cookies** from the browser  
-5. Cookies are transferred into a `requests.Session()` object  
-6. The browser closes  
-7. All subsequent downloads use that authenticated session  
+Once authentication is successful, the script extracts the active session cookies from the browser and transfers them into a programmatic HTTP session. This establishes an authenticated ERDDAP connection that can be used for subsequent API requests without storing credentials in the code.
 
-### Why this matters
+With the secure session in place, the script constructs an ERDDAP tabledap query URL and applies user-defined search criteria (such as course, year, affiliation, or other metadata fields) to retrieve only the relevant records.
 
-- No passwords are stored in code  
-- Authentication uses NOAA identity systems  
-- Scripts can access protected datasets securely  
-- The workflow remains reproducible  
+:::
+:::
 
-This pattern allows **human authentication + machine automation** to coexist.
+## Selenium WebDriver: Automating Access to ERDDAP
 
-### Why not use API tokens?
+::: {.course-slides-columns}
+::: {.course-slides-column}
+Selenium WebDriver is used to automate the browser-based login required to access password-protected ERDDAP datasets. Because authentication is managed through NOAA’s Google identity system, direct API tokens are not used. Instead, the script launches a browser window and allows the user to complete the standard Google sign-in and two-factor authentication process.
 
-For identity-managed ERDDAP systems (like NOAA’s), login is often federated via Google OAuth rather than static API keys. Selenium allows us to integrate that identity-based login into Python workflows without bypassing security.
+Once login is successful, Selenium retrieves the authenticated session cookies from the browser and transfers them to the script’s HTTP session. This enables secure, programmatic access to restricted ERDDAP datasets without storing passwords in code.
+:::
 
-## Data sources hosted in ERDDAP
+::: {.course-slides-column}
+![](images/selenium.png){fig-align="center" width="80%" style="object-fit:contain; margin-bottom:1rem;"}
 
-### Participant metadata (CSV → ERDDAP tabledap)
+:::
+:::
 
-Fields include:
+## Step 2: Retrieving Participant Metadata
 
-- Course / Year  
-- Name / Affiliation  
-- Products  
-- Topic  
-- Software  
-- Slide ID (key that links metadata to slide image)
+::: {.course-slides-columns}
+::: {.course-slides-column}
+![](images/step-2.png){fig-align="center" width="80%" style="object-fit:contain; margin-bottom:1rem;"}
+:::
 
-### Participant slides (PNG files → ERDDAP file index)
+::: {.course-slides-column}
+Once an authenticated ERDDAP session has been established, the script queries the metadata dataset to retrieve participant records that match user-defined search criteria. This query is executed through ERDDAP’s tabledap interface, which returns a structured CSV containing only the records relevant to the request.
 
-A directory of PNG slides with a consistent naming pattern:
+The returned dataset includes participant metadata along with the corresponding Slide IDs. These Slide IDs are critical, as they act as the index for the next stage of the workflow, determining which slide images should be retrieved from the archive.
 
-```
-[Year][Course][Number].png
-```
+:::
+:::
 
-ERDDAP exposes these files via predictable URLs, allowing programmatic download after authentication.
+## Step 3: Query Participant Slide PNGs
 
-## Server-Side Configuration of Protected ERDDAP Datasets
+::: {.course-slides-columns}
+::: {.course-slides-column}
+![](images/step-3.png){fig-align="center" width="80%" style="object-fit:contain; margin-bottom:1rem;"}
+:::
 
-## End-to-end workflow (Query → PowerPoint)
+::: {.course-slides-column}
+After retrieving the metadata table, the script uses the returned Slide IDs to determine which slide images correspond to the selected participants. Each Slide ID acts as a key that links the metadata dataset to the slide image dataset hosted in ERDDAP.
 
-### Step 1 — Authenticate once (Selenium)
-
-Interactive login → session cookies → authenticated `requests.Session()`.
-
-### Step 2 — Query metadata (ERDDAP tabledap)
-
-Two supported approaches:
-
-**Option 1**
-- Download full metadata table
-- Filter locally in Python
-- Maximum flexibility and automation
-
-**Option 2**
-- Use ERDDAP web interface to subset
-- Generate query URL visually
-- Download filtered CSV directly
-
-Both approaches produce the same metadata table.
-
-Example query used in the showcase:
-
-> “NMFS participants who used JPSS data”
-
-### Step 3 — Construct slide URLs
-
-Slide IDs from metadata are converted into image URLs pointing to the slide archive.
-
-### Step 4 — Parallel image download
-
-Slides are downloaded through the authenticated session.
-
-Parallel downloads (ThreadPoolExecutor) significantly reduce runtime when retrieving dozens of slides.
-
-### Step 5 — Generate PowerPoint
-
-Using `python-pptx`:
-
-- Each participant slide PNG becomes one PowerPoint slide  
-- Title text is dynamically constructed from metadata fields  
-- Layout and formatting are standardized  
-- Output is a ready-to-use `.pptx` file  
-
-Result:
-
-> A fully customized, query-driven presentation built directly from ERDDAP.
+Using these identifiers, the script constructs ERDDAP file URLs for each matching slide. Because the image dataset is indexed through predictable file naming conventions, URLs can be generated programmatically and accessed through the authenticated session established earlier.
 
 
+:::
+:::
+
+## Step 4: Download Participant Slide PNGs
+
+::: {.course-slides-columns}
+::: {.course-slides-column}
+![](images/step-4.png){fig-align="center" width="80%" style="object-fit:contain; margin-bottom:1rem;"}
+:::
+
+::: {.course-slides-column}
+With the slide image URLs constructed, the script accesses the slide PNG files through the authenticated ERDDAP session. Because authentication was established earlier via Selenium, the script can securely retrieve protected image assets without additional login steps.
+
+Each slide image is downloaded locally and prepared for inclusion in the final presentation. When multiple slides are requested, the script can optionally use parallel downloads to improve performance and reduce runtime.
+
+
+:::
+:::
+
+## Step 5: Generate Custom PowerPoint
+
+::: {.course-slides-columns}
+::: {.course-slides-column}
+![](images/step-5.png){fig-align="center" width="80%" style="object-fit:contain; margin-bottom:1rem;"}
+:::
+
+::: {.course-slides-column}
+After the slide images have been downloaded, the script uses both the image files and the associated metadata to generate a formatted PowerPoint presentation. Each slide PNG becomes a new presentation slide, while metadata fields such as participant name, affiliation, course, or product usage are used to dynamically populate titles and annotations.
+
+This ensures that the presentation reflects the original query criteria and maintains consistent formatting across slides. Because the workflow is fully automated, users can generate customized, presentation-ready outputs directly from ERDDAP without manually searching for files or editing slides.
+
+:::
+:::
+
+## End Product
+
+::: {.course-slides-columns}
+::: {.course-slides-column}
+![](images/powerpoint.png){fig-align="center" width="80%" style="object-fit:contain; margin-bottom:1rem;"}
+:::
+
+::: {.course-slides-column}
+The final output of the workflow is a fully assembled PowerPoint presentation generated directly from the ERDDAP query. Each slide combines the downloaded participant image with the corresponding metadata fields, producing a structured and consistently formatted presentation tailored to the original search criteria.
+
+What begins as a secure metadata query is transformed into a ready-to-use reporting product. By linking structured metadata with archived slide assets, the workflow enables users to move seamlessly from data discovery to presentation delivery without manual file searching or slide editing.
+
+:::
+:::
+
+## Strengths and Limitations of this ERDDAP Approach
+
+::: {.course-slides-columns}
+::: {.course-slides-column}
+This workflow leverages existing ERDDAP infrastructure to support secure, automated access to protected datasets without requiring new backend systems. By integrating Selenium with NOAA’s Google-based authentication, it maintains identity-managed security while avoiding the storage of passwords in code. The approach also demonstrates ERDDAP’s versatility, showing that it can function not only as a public data catalog, but as a structured metadata registry and controlled asset distribution platform.
+
+:::
+
+::: {.course-slides-column}
+However, there are important limitations to consider. Because the datasets contain personally identifiable information (PII), authentication must occur through a browser-based Selenium session, which requires user interaction during login. The workflow is also sensitive to changes in ERDDAP dataset configuration, such as renaming datasets or modifying file structures, which may require updates to the script.
+
+:::
+:::
+
+
+:::
+
+{{< include ../../_includes/page-nav.html >}}
