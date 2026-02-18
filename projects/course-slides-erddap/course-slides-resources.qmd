@@ -44,12 +44,11 @@ Project overview slides explaining the secure ERDDAP authentication pattern and 
 
 :::
 
-<details class="course-slides-faq" markdown="1">
-<summary><strong>Acknowledgements</strong></summary>
+
+## Acknowledgements
 
 The project was a team effort by the CoastWatch West Coast Node. Madison Richardson acted as the lead developer, Cara Wilson handeled the information extractio from participant slides, Sunny Hospital developed the Selenium solution, and Dale Robinson set up the ERDDAP datasets and wrote the first draft of the Python script for building the PowerPoint files from the participant slides. Roy Mendelssohn helped fix the access issues in ERDDAP after the servers were updated. CoastWatch Central isrecognized for their efforts in the training courses and slide collection, as well as all instructors, participants, and hosts of the satellite course trainings. Thank you to the JPSS PGRR Program for funding this project.
 
-</details>
 
 :::
 
