@@ -11,68 +11,33 @@ format:
 
 ::: {.course-slides-page}
 
+::: {.course-slides-columns}
+::: {.course-slides-column}
+## <span style="font-weight:bold" class="noaa-dark-blue">Project Purpose</span>
+
 This project demonstrates a **non-traditional use of ERDDAP**: not just as a public data portal, but as a secure, searchable database and image server that can feed an end-to-end automation workflow. Authorized users can query participant metadata from NOAA CoastWatch satellite training courses, download the matching slide PNGs, and automatically assemble a custom PowerPoint deck, all while keeping personally identifiable information (PII) protected behind authentication.
 
 Importantly, the tutorials associated with this project are designed so users can adapt this workflow to their own password-protected ERDDAP datasets, not just the CoastWatch example shown here.
 
-## Why this matters: access control + automation don’t usually mix
+:::
 
-ERDDAP is commonly used for open discovery and reuse (public datasets, anonymous access). But some datasets must be restricted, especially when they contain **PII**, internal reporting metrics, or unpublished materials.
+::: {.course-slides-column}
 
-Manual login works for interactive browsing, but becomes a blocker for reproducible scripts and automated reporting.
+## <span style="font-weight:bold" class="noaa-dark-blue">Why this matters</span>
 
-This project shows a practical pattern for bridging that gap:
+ERDDAP is commonly used for open discovery and reuse (public datasets, anonymous access). But some datasets must be restricted, especially when they contain PII, internal reporting metrics, or unpublished materials. 
 
-**Interactive browser login once → authenticated scripted access for the rest of the workflow.**
+This project serves as a blueprint for building secure, automated workflows. The same approach can be applied to managing archives, organizing image collections, and protecting preliminary data products. By combining identity-managed access with automated querying and file retrieval, users can securely manage and distribute protected resources without sacrificing efficiency. The project demonstrates that ERDDAP can function as far more than a public data catalog. It can operate as a data API, a structured metadata database, an image server, and a reporting backend, all within a secure role-based access framework. 
 
-## The CoastWatch Satellite Training Course Overview
+:::
+:::
 
-- CoastWatch offers satellite data training workshops each year
-- Participants are asked to submit a project summary slide and the end of the course
-- Slides capture satellite use and participant/project metadata
-  - Slides contain PII → access is restricted
-- Goal: Allow authorized users to generate presentations from an automated workflow
-
-Over **250 participant slides** have been collected since 2013 (and growing).
-
-![Example participant project slide.](images/slide-example.png){width=60%}
-
-## The CoastWatch Slide Archive Problem 
+## ERDDAP used in nonconventional ways
 
 ::: {.course-slides-columns}
 ::: {.course-slides-column}
 
-### Then
-
-- Slides scattered across shared drives/folders  
-- Inconsistent naming and organization  
-- Manual discovery (slow, error-prone, and knowledge-dependent)  
-- Difficult to summarize course impact across years  
-
-![](images/before-archive.png)
-:::
-
-::: {.course-slides-column}
-
-### Now
-
-- Slides and metadata hosted in ERDDAP  
-- Fully searchable by **course, year, affiliation, products, topics, software**, etc.  
-- Slide IDs link metadata to image files  
-- “Find participant work instantly” → supports reporting + impact documentation  
-
-![](images/after-archive.png)
-
-:::
-:::
-
-
-## Details
-
-<details class="course-slides-faq">
-<summary><strong>ERDDAP used in nonconventional ways</strong></summary>
-
-### 1) ERDDAP as a searchable database (metadata)
+### <span style="font-weight:bold" class="noaa-blue">1) ERDDAP as a searchable database</span>
 
 A password-protected **tabledap** dataset acts like a structured, queryable registry of participant information and slide IDs.
 
@@ -82,7 +47,10 @@ Instead of just serving environmental measurements, ERDDAP here functions as:
 - A searchable reporting backend  
 - A structured index for downstream automation  
 
-### 2) ERDDAP as an authenticated image server
+:::
+
+::: {.course-slides-column}
+### <span style="font-weight:bold" class="noaa-blue">2) ERDDAP as an image server</span>
 
 A second dataset indexes a folder of PNG slide files and exposes them through predictable URLs.
 
@@ -94,82 +62,116 @@ Once authenticated, scripts can:
 
 This transforms ERDDAP from a “data API” into a **controlled asset distribution system**.
 
-</details>
+:::
+:::
 
-<details class="course-slides-faq">
-<summary><strong>How secure access is implemented</strong></summary>
+## The CoastWatch Satellite Training Course Overview
 
-ERDDAP is configured for:
+::: {.course-slides-columns}
+::: {.course-slides-column}
 
-- **Google-based authentication**
-- **Role-based dataset access**
-- Dataset-level permission control
+CoastWatch offers satellite data training workshops each year, during which participants are asked to submit a project summary slide at the conclusion of the course. These sides document how satellite data were used and capture important participant and project metadata. Because the slides include personally identifiable information (PII), access must be restricted. The goal of this project is to allow authorized users to generate presentations from these archived slides through a secure, automated workflow.  
 
-Users:
+Over **250 participant slides** have been collected since 2013 and the archive continues to grow.
 
-1. Log in using NOAA-authorized Google accounts  
-2. Are assigned roles within ERDDAP  
-3. Gain access only to approved datasets  
+:::
 
-No credentials are stored in scripts.
+::: {.course-slides-column}
 
-</details>
+![Example participant project slide.](images/slide-example.png){fig-align="center" width="80%" style="object-fit:contain; margin-bottom:1rem;"}
 
-<details class="course-slides-faq">
-<summary><strong>What this enables</strong></summary>
+:::
+:::
 
-Authorized users can generate:
+## The CoastWatch Slide Archive Problem 
 
-- Course impact summaries  
-- Program reviews by year or affiliation  
-- Thematic decks (e.g., “Ocean Color + Telemetry projects”)  
-- Internal reporting materials  
-- Presentation-ready slide decks  
+::: {.course-slides-columns}
+::: {.course-slides-column}
 
-All without manually searching folders.
+### <span style="font-weight:bold" class="noaa-blue">Then</span>
 
-</details>
+Before this project, participant slides were scattered across shared drives and folders, often with inconsistent naming conventions and organization. Discovering past projects required manual searching and institutional knowledge, making the process very time consuming. As the archive grew, it became increasingly difficult to retrieve examples from specific years, topics, or participants. 
 
-<details class="course-slides-faq">
-<summary><strong>Strengths and Limitations</strong></summary>
+![](images/before-archive.png){fig-align="center" width="50%" style="object-fit:contain; margin-bottom:1rem;"}
 
-### Strengths
+:::
 
-- Uses existing ERDDAP infrastructure  
-- Secure identity-based access  
-- No stored credentials  
-- Reproducible + auditable  
-- Demonstrates ERDDAP versatility beyond environmental grids  
+:::{.course-slides-column}
+### <span style="font-weight:bold" class="noaa-blue">Now</span>
 
-### Limitations
+After this project, slides and associated metadata are hosted in ERDDAP, where they can be searched and filtered by course, year, affiliation, products, topics, software, and more. Each slide ID links structured metadata directly to its corresponding image file, allowing authorized users to retrieve participant work instantly. This supports documentation of course impact and the generation of presentation-ready materials through an automated workflow. 
 
-- Requires interactive login (Selenium)  
-- Not fully headless unless extended  
-- Sensitive to ERDDAP dataset restructuring  
-- Depends on role-based permissions being configured correctly  
+![](images/after-archive.png){fig-align="center" width="50%" style="object-fit:contain; margin-bottom:1rem;"}
 
-</details>
+:::
+:::
 
----
+## Server-Side Configuration of Datasets for Secure Access
 
-## Why ERDDAP versatility matters
 
-This project is a blueprint for other secure workflows:
+::: {.course-slides-columns}
+::: {.course-slides-column}
 
-- Internal asset archives  
-- Image repositories  
-- Metadata registries  
-- Protected environmental products  
-- Program tracking dashboards  
+### <span style="font-weight:bold" class="noaa-blue">How secure access is implemented</span>
 
-It demonstrates that ERDDAP can function as:
+To secure access to restricted datasets, ERDDAP must first be configured to authenticate users. This configuration lives entirely in the server's setup.xml file. By setting the authentication method to Google and providing a Google client ID, ERDDAP can authenticate users using NOAA-authorized Google accounts through OpenID Connect.
 
-- A data API  
-- A metadata database  
-- A file server  
-- A reporting backend  
+![](images/setup-xml.png){fig-align="center" width="50%" style="object-fit:contain; margin-bottom:1rem;"}
 
-Not just a public data catalog.
+:::
+
+:::{.course-slides-column}
+### <span style="font-weight:bold" class="noaa-blue">Who can access the datasets?</span>
+
+Once authentication is in place, the next step is authorization, deciding who can actually access specific datasets. In ERDDAP, this is handled through roles defined in datasets.xml. Authenticated users are assigned one or more roles, and datasets declare which roles are allowed to access them. In this project, users with the coastSlideUser role can query the private datasets, so our participant metadata and slide datasets, while all other users are denied access.  
+
+![](images/dataset-xml.png){fig-align="center" width="50%" style="object-fit:contain; margin-bottom:1rem;"}
+
+:::
+:::
+
+
+## Where does the ERDDAP data come from
+
+::: {.course-slides-columns}
+::: {.course-slides-column}
+### <span style="font-weight:bold" class="noaa-blue">Participant metadata CSV</span>
+
+Participant information is stored in a structured CSV table that captures details from each each satellite training course. This includes fields such as course name, year, affiliation, products used, and a unique slide ID that links metadata to the corresponding presentation file. The table functions as a searchable index that connects participant information directly to archived slide images. 
+
+:::
+
+::: {.course-slides-column}
+### <span style="font-weight:bold" class="noaa-blue">Participant Slide PNGs</span>
+
+The archive contains over 250 individual slide PNG files collected since 2013, each assigned a consistent identifier. Files follow a standardized naming convention: 
+
+```
+[Year][Course][Number].png
+```
+
+This allows the slide images to be programmatically retrieved and linked to their associated metadata. This structure enables automated queries and efficient presentation generation. 
+
+:::
+:::
+
+## How the ERDDAP Dataset XMLs Were Set Up
+
+::: {.course-slides-columns}
+::: {.course-slides-column}
+### <span style="font-weight:bold" class="noaa-blue">Participant Metadata Dataset</span>
+
+The participant metadata dataset is a searchable table that stores structured information about satellite training course participants. It is publised in ERDDAP under the dataset ID <span style="font-weight:bold" class="noaa-dark-blue">satellite_course_slides_metadata</span> and is built using <span style="font-weight:bold" class="noaa-dark-blue">EDDTableFromAsciiFiles</span>, with a local CSV file serving as the source. The table includes fields such as participant name, affiliation, course ID, products used, year, and the slide ID among others. Access to this dataset is restricted to authorized users assigned to the <span style="font-weight:bold" class="noaa-dark-blue">coastSlideUser</span> role.
+
+:::
+
+::: {.course-slides-column}
+### <span style="font-weight:bold" class="noaa-blue">Slide Images Dataset</span>
+
+The slide image dataset provides a linked archive of participant slide PNG files. It is published in ERDDAP under the dataset ID <span style="font-weight:bold" class="noaa-dark-blue">course_slide_deck</span> and is built using <span style="font-weight:bold" class="noaa-dark-blue">EDDTableFromFileNames</span>, which automatically indexes files from a designated folder of slide images. ERDDAP extracts file-level metadata such as file name, URL, size, type, and modification date, making the archive searchable and programmatically accessible. Like the metadata table, access to this dataset is limited to users with the <span style="font-weight:bold" class="noaa-dark-blue">coastSlideUser</span> role. 
+
+:::
+:::
 
 
 :::

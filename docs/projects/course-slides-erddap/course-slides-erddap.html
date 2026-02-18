@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Automated Access to Password-Protected ERDDAP Datasets – CoastWatch West Code Node</title>
+<title>course-slides-erddap – CoastWatch West Code Node</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -170,183 +170,43 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Automated Access to Password-Protected ERDDAP Datasets</h1>
+
+
+
+<div class="course-slides-page">
+<div class="project-topbar">
+<nav class="project-tabs" aria-label="Secure ERDDAP Automation navigation">
+<a class="project-tab is-brand is-active" href="../../projects/course-slides-erddap/course-slides-erddap.html">Secure ERDDAP Automation</a> <a class="project-tab is-active" href="../../projects/course-slides-erddap/course-slides-overview.html">Overview</a> <a class="project-tab" href="../../projects/course-slides-erddap/course-slides-workflow.html">Technical Workflow</a> <a class="project-tab" href="../../projects/course-slides-erddap/course-slides-resources.html">Resources</a>
+</nav>
+</div>
+<div class="course-slides-hero">
+<p><img src="images/non-traditional-erddap.png" class="hero-img img-fluid"></p>
+</div>
+<section id="secure-login-enables-automated-access-to-protected-erddap-datasets" class="level3">
+<h3 data-anchor-id="secure-login-enables-automated-access-to-protected-erddap-datasets"><span style="color:#2b6da8;"><strong>Secure login enables automated access to protected ERDDAP datasets</strong></span></h3>
+</section>
+<div class="course-slides-card-grid">
+<section id="project-overview" class="level3 course-slides-card">
+<h3 data-anchor-id="project-overview">Project Overview</h3>
+<p>This project demonstrates a non-traditional use of ERDDAP: not just as a public data portal, but as a secure searchable database and image server that can feed end-to-end automation workflow.</p>
+<p><a href="../../projects/course-slides-erddap/course-slides-overview.html" class="btn-noaa">Learn More</a></p>
+</section>
+<section id="technical-workflow" class="level3 course-slides-card">
+<h3 data-anchor-id="technical-workflow">Technical Workflow</h3>
+<p>Because the ERDDAP datasets contain personally identifiable information (PII), they cannot be accessed anonymously. Instead, this workflow uses Selenium WebDriver to automate the browser login process safely and reproducibly.</p>
+<p><a href="../../projects/course-slides-erddap/course-slides-workflow.html" class="btn-noaa">View Technical Workflow</a></p>
+</section>
+<section id="tutorials-and-resources" class="level3 course-slides-card">
+<h3 data-anchor-id="tutorials-and-resources">Tutorials and Resources</h3>
+<p>The Python and R tutorials show how to securely query protected ERDDAP datasets and automate reporting workflows.</p>
+<p><a href="../../projects/course-slides-erddap/course-slides-resources.html" class="btn-noaa">Open Resources</a></p>
+</section>
+</div>
 </div>
 
 
-
-<div class="quarto-title-meta column-page">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p>This project demonstrates a <strong>non-traditional use of ERDDAP</strong>: not just as a public data portal, but as a <strong>secure, searchable database + image server</strong> that can feed an end-to-end automation workflow. Authorized users can query participant metadata from NOAA CoastWatch satellite training courses, download the matching <strong>slide PNGs</strong>, and automatically assemble a <strong>custom PowerPoint deck</strong>—all while keeping personally identifiable information (PII) protected behind authentication.</p>
-<p>Importantly, the tutorials associated with this project are designed so users can adapt this workflow to <strong>their own password-protected ERDDAP datasets</strong>, not just the CoastWatch example shown here.</p>
-<section id="why-this-matters-access-control-automation-dont-usually-mix" class="level2">
-<h2 data-anchor-id="why-this-matters-access-control-automation-dont-usually-mix">Why this matters: access control + automation don’t usually mix</h2>
-<p>ERDDAP is commonly used for <strong>open discovery and reuse</strong> (public datasets, anonymous access). But some datasets must be restricted—especially when they contain <strong>PII</strong>, internal reporting metrics, or unpublished materials.</p>
-<p>Manual login works for interactive browsing, but becomes a blocker for reproducible scripts and automated reporting.</p>
-<p>This project shows a practical pattern for bridging that gap:</p>
-<blockquote class="blockquote">
-<p><strong>Interactive browser login once → authenticated scripted access for the rest of the workflow.</strong></p>
-</blockquote>
-</section>
-<section id="the-coastwatch-slide-archive-problem-and-the-erddap-solution" class="level2">
-<h2 data-anchor-id="the-coastwatch-slide-archive-problem-and-the-erddap-solution">The CoastWatch “slide archive” problem (and the ERDDAP solution)</h2>
-<section id="then" class="level3">
-<h3 data-anchor-id="then">Then</h3>
-<ul>
-<li>Slides scattered across shared drives/folders<br>
-</li>
-<li>Inconsistent naming and organization<br>
-</li>
-<li>Manual discovery (slow, error-prone, and knowledge-dependent)<br>
-</li>
-<li>Difficult to summarize course impact across years</li>
-</ul>
-</section>
-<section id="now" class="level3">
-<h3 data-anchor-id="now">Now</h3>
-<ul>
-<li>Slides and metadata hosted in ERDDAP<br>
-</li>
-<li>Fully searchable by <strong>course, year, affiliation, products, topics, software</strong>, etc.<br>
-</li>
-<li>Slide IDs link metadata to image files<br>
-</li>
-<li>“Find participant work instantly” → supports reporting + impact documentation</li>
-</ul>
-<p>Over <strong>250 participant slides</strong> have been collected since 2013 (and growing).</p>
-</section>
-</section>
-<section id="erddap-used-in-nonconventional-ways" class="level2">
-<h2 data-anchor-id="erddap-used-in-nonconventional-ways">ERDDAP used in nonconventional ways</h2>
-<section id="erddap-as-a-searchable-database-metadata" class="level3">
-<h3 data-anchor-id="erddap-as-a-searchable-database-metadata">1) ERDDAP as a searchable database (metadata)</h3>
-<p>A password-protected <strong>tabledap</strong> dataset acts like a structured, queryable registry of participant information and slide IDs.</p>
-<p>Instead of just serving environmental measurements, ERDDAP here functions as:</p>
-<ul>
-<li>A relational-style metadata store<br>
-</li>
-<li>A searchable reporting backend<br>
-</li>
-<li>A structured index for downstream automation</li>
-</ul>
-</section>
-<section id="erddap-as-an-authenticated-image-server" class="level3">
-<h3 data-anchor-id="erddap-as-an-authenticated-image-server">2) ERDDAP as an authenticated image server</h3>
-<p>A second dataset indexes a folder of PNG slide files and exposes them through predictable URLs.</p>
-<p>Once authenticated, scripts can:</p>
-<ul>
-<li>Construct file URLs dynamically from Slide IDs<br>
-</li>
-<li>Retrieve slide PNGs directly<br>
-</li>
-<li>Batch-download content for automated reporting</li>
-</ul>
-<p>This transforms ERDDAP from a “data API” into a <strong>controlled asset distribution system</strong>.</p>
-</section>
-</section>
-<section id="how-secure-access-is-implemented" class="level2">
-<h2 data-anchor-id="how-secure-access-is-implemented">How secure access is implemented</h2>
-<section id="server-side-configuration" class="level3">
-<h3 data-anchor-id="server-side-configuration">Server-side configuration</h3>
-<p>ERDDAP is configured for:</p>
-<ul>
-<li><strong>Google-based authentication</strong></li>
-<li><strong>Role-based dataset access</strong></li>
-<li>Dataset-level permission control</li>
-</ul>
-<p>Users: 1. Log in using NOAA-authorized Google accounts<br>
-2. Are assigned roles within ERDDAP<br>
-3. Gain access only to approved datasets</p>
-<p>No credentials are stored in scripts.</p>
-</section>
-</section>
-<section id="what-this-enables" class="level2">
-<h2 data-anchor-id="what-this-enables">What this enables</h2>
-<p>Authorized users can generate:</p>
-<ul>
-<li>Course impact summaries<br>
-</li>
-<li>Program reviews by year or affiliation<br>
-</li>
-<li>Thematic decks (e.g., “Ocean Color + Telemetry projects”)<br>
-</li>
-<li>Internal reporting materials<br>
-</li>
-<li>Briefing-ready slide decks</li>
-</ul>
-<p>All without manually searching folders.</p>
-</section>
-<section id="strengths-and-limitations" class="level2">
-<h2 data-anchor-id="strengths-and-limitations">Strengths and limitations</h2>
-<section id="strengths" class="level3">
-<h3 data-anchor-id="strengths">Strengths</h3>
-<ul>
-<li>Uses existing ERDDAP infrastructure<br>
-</li>
-<li>Secure identity-based access<br>
-</li>
-<li>No stored credentials<br>
-</li>
-<li>Reproducible + auditable<br>
-</li>
-<li>Demonstrates ERDDAP versatility beyond environmental grids</li>
-</ul>
-</section>
-<section id="limitations" class="level3">
-<h3 data-anchor-id="limitations">Limitations</h3>
-<ul>
-<li>Requires interactive login (Selenium)<br>
-</li>
-<li>Not fully headless unless extended<br>
-</li>
-<li>Sensitive to ERDDAP dataset restructuring<br>
-</li>
-<li>Depends on role-based permissions being configured correctly</li>
-</ul>
-</section>
-</section>
-<section id="why-erddap-versatility-matters" class="level2">
-<h2 data-anchor-id="why-erddap-versatility-matters">Why ERDDAP versatility matters</h2>
-<p>This project is a blueprint for other secure workflows:</p>
-<ul>
-<li>Internal asset archives<br>
-</li>
-<li>Image repositories<br>
-</li>
-<li>Metadata registries<br>
-</li>
-<li>Protected environmental products<br>
-</li>
-<li>Program tracking dashboards</li>
-</ul>
-<p>It demonstrates that ERDDAP can function as:</p>
-<ul>
-<li>A data API<br>
-</li>
-<li>A metadata database<br>
-</li>
-<li>A file server<br>
-</li>
-<li>A reporting backend</li>
-</ul>
-<p>Not just a public data catalog.</p>
-
-
-</section>
 
 </main> <!-- /main -->
 <footer style="

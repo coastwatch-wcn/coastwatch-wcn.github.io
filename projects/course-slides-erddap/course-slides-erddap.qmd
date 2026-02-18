@@ -22,7 +22,7 @@ format:
 :::
 
 ::: {.course-slides-hero}
-![](images/non-traditional-erddap.png){.hero-img}
+![](images/hero-img.png){.hero-img}
 
 :::
 

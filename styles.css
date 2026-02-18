@@ -3175,3 +3175,11 @@ button.btn-primary:hover {
   padding: 0.5em 0.75em;
   margin: 0.25em 0;
 }
+
+.course-slides-page .noaa-blue {
+  color: #2b6da8;
+}
+
+.course-slides-page .noaa-dark-blue {
+  color: #003366;
+}
