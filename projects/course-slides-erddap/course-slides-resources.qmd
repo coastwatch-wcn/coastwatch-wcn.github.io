@@ -15,29 +15,41 @@ format:
 
 ::: {.course-slides-page}
 
-This page provides the tutorials and supporting materials for implementing secure, automated workflows with protected ERDDAP datasets. The Python and R examples demonstrate how to authenticate using identity-managed login, query restricted metadata, retrieve linked files programmatically, and generate presentation-ready outputs.
+This page provides tutorials and supporting materials for implementing secure, automated workflows with protected ERDDAP datasets. The Python and R examples demonstrate how to authenticate using identity-managed login, query restricted metadata, retrieve linked files programmatically, and generate presentation-ready outputs.
 
 The CoastWatch slide archive is a real-world example of this pattern, but the workflow can be adapted to any protected ERDDAP instance.
 
-## Python Tutorial
+::: {.course-slides-card-grid}
+
+::: {.course-slides-card}
+### Python Tutorial
 A complete Python workflow for secure ERDDAP authentication, metadata querying, file retrieval, and automated PowerPoint generation.
 
-[View Python Tutorial](resources/Create_PowerPoint_Satellite_Slides.ipynb)
+[View Python Tutorial](resources/Create_PowerPoint_Satellite_Slides.ipynb){.btn-noaa}
+:::
 
-
-## R Tutorial
+::: {.course-slides-card}
+### R Tutorial
 A complete R workflow for secure ERDDAP authentication, metadata querying, file retrieval, and automated PowerPoint generation.
 
-[View R Tutorial](resource/Create_PowerPoint_Satellite_Slides.Rmd)
+[View R Tutorial](resource/Create_PowerPoint_Satellite_Slides.Rmd){.btn-noaa}
+:::
 
-## Project Presentation
+::: {.course-slides-card}
+### Project Presentation
 Project overview slides explaining the secure ERDDAP authentication pattern and automated PowerPoint generation workflow.
 
-[View Project Presentation](resources/Selenium_Jan_2026_ERDDAP_Showcase.pptx.pdf)
+[View Project Presentation](resources/Selenium_Jan_2026_ERDDAP_Showcase.pptx.pdf){.btn-noaa}
+:::
 
-## Acknowledgements
+:::
 
-The project was a team effort by the CoastWatch West Coast Node. Madison Richardson acted as the lead developer, Cara Wilson handeled the information extractio from participant slides, Sunny Hospital developed the Selenium solution, and Dale Robinson set up the ERDDAP datasets and wrote the first draft of the Python script for building the PowerPoint files from the participant slides. Roy Mendelssohn helped fix the access issues in ERDDAP after the servers were updated. CoastWatch Central isrecognized for their efforts in the training courses and slide collection, as well as all instructors, participants, and hosts of the satellite course trainings. Thank you to the JPSS PGRR Program for funding this project. 
+<details class="course-slides-faq" markdown="1">
+<summary><strong>Acknowledgements</strong></summary>
+
+The project was a team effort by the CoastWatch West Coast Node. Madison Richardson acted as the lead developer, Cara Wilson handeled the information extractio from participant slides, Sunny Hospital developed the Selenium solution, and Dale Robinson set up the ERDDAP datasets and wrote the first draft of the Python script for building the PowerPoint files from the participant slides. Roy Mendelssohn helped fix the access issues in ERDDAP after the servers were updated. CoastWatch Central isrecognized for their efforts in the training courses and slide collection, as well as all instructors, participants, and hosts of the satellite course trainings. Thank you to the JPSS PGRR Program for funding this project.
+
+</details>
 
 :::
 
