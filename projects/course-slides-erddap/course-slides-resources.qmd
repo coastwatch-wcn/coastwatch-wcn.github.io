@@ -32,7 +32,7 @@ A complete Python workflow for secure ERDDAP authentication, metadata querying, 
 ### R Tutorial
 A complete R workflow for secure ERDDAP authentication, metadata querying, file retrieval, and automated PowerPoint generation.
 
-[View R Tutorial](resource/Create_PowerPoint_Satellite_Slides.Rmd){.btn-noaa}
+[View R Tutorial](resources/Create_PowerPoint_Satellite_Slides.Rmd){.btn-noaa}
 :::
 
 ::: {.course-slides-card}
