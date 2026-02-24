@@ -39,7 +39,10 @@ df['Date'] = pd.to_datetime(df['Date'], format='%d-%b-%y', errors='coerce')
 df = df[df['Date'].notna()]
 df = df.sort_values(by='Date', ascending=False)
 
-# Limit to top 3
+# Exclude entries where Title starts with "Job Opportunity"
+df = df[~["Title"].str.strip().str.lower().str.startswith("job opportunity")]
+
+# Show latest 3 entries
 latest_news = df.head(3)
 
 html = ""
