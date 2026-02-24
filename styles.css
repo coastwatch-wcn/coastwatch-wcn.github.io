@@ -6,6 +6,20 @@ html {
 }
 
 /* ---------------------------------- */
+/* QUARTO FOOTER                      */
+/* ---------------------------------- */
+
+/* Remove Bootstrap container padding from footer */
+
+#quarto-footer .container,
+#quarto-footer .container-fluid {
+  max-width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+
+/* ---------------------------------- */
 /* NAVBAR                            */
 /* ---------------------------------- */
 
