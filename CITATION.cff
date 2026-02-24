@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: >-
+  If you use this website framework or its automation/build system, please cite it as below.
+  Note: This citation credits the website's engineering (site build, design, automation, and deployment).
+  Scientific/educational content is authored by multiple contributors and should be credited separately
+  (see the website's acknowledgments/contributors list).
+
+title: "CoastWatch West Coast Node Cyberinfrasturcture: Website build, automation, and deployment framework"
+version: 1.0.0
+date-released: 2026-03-01
+
+authors:
+  - family-names: Richardson
+    given-names: Madison
+    affiliation: NOAA CoastWatch West Coast Node and Miami TSPi
+
+repository-code: https://github.com/coastwatch-wcn/coastwatch-wcn.github.io
+url: https://coastwatch-wcn.github.io/
+
+abstract: >-
+  A Quarto-based website framework developed to publish and maintain a project-facing site, including
+  site architecture, theming and UI components, data-driven page generation, and automated build/deploy
+  workflows (e.g., GitHub Actions). This citation applies to the website engineering and maintenance
+  framework, not to the authored scientific/educational content hosted on the site.
+
+license: MIT
