@@ -37,10 +37,17 @@ df = pd.read_excel("spreadsheets/news_archive.xlsx")
 # Parse using known format: 27-Jun-25
 df['Date'] = pd.to_datetime(df['Date'], format='%d-%b-%y', errors='coerce')
 df = df[df['Date'].notna()]
-df = df.sort_values(by='Date', ascending=False)
 
-# Exclude entries where Title starts with "Job Opportunity"
-df = df[~df["Title"].astype(str).str.strip().str.lower().str.startswith("job opportunity")]
+# - Blank Expiration = keep
+# Expiration date in past = hide from news card
+today = pd.Timestamp(date.today())
+
+if "Expiration" in df.columns:
+  df["Expiration"] = pd.to_datetime(df["Expiration"], errors="coerce")
+  df = df[df["Expiration"].isna() | (df["Expiration"] >= today)]
+
+# Sort newest first
+df = df.sort_values(by="Date", ascending=False)
 
 # Show latest 3 entries
 latest_news = df.head(3)
