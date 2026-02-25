@@ -30,6 +30,7 @@ format:
 ```{python}
 import pandas as pd
 from IPython.display import display, HTML
+from datetime import date
 
 # Load Excel
 df = pd.read_excel("spreadsheets/news_archive.xlsx")
