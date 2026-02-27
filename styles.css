@@ -1760,10 +1760,28 @@ button.btn-primary:hover {
   background: #0f5c5b;  /* optional subtle background */
 }
 
+
 .whalewatch-page .whale-hero img {
   max-width: 100%;
   height: auto;
-  display: inline-block;
+  display: block;
+  margin: 0 auto;
+
+  /* LEFT → RIGHT fade only */
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
 }
 
 
