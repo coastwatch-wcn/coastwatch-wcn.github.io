@@ -23,12 +23,7 @@ format:
 
 ::: {.whale-hero}
 <div class="whale-hero">
-  <img 
-  src="images/blue_whale2.png"
-  alt="Blue whale"
-  width="850"
-  height="400"
-  class="hero-img">
+  <img src="images/blue_whale2.png" alt="Blue whale">
 </div>
 
 :::
