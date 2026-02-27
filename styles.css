@@ -1753,18 +1753,19 @@ button.btn-primary:hover {
 /* WHALEWATCH PROJECT     */
 /* ---------------------- */
 
-.whalewatch-page .whale-hero { 
-  height: 400px !important; 
-  overflow: hidden !important; 
+
+.whalewatch-page .whale-hero {
+  display: flex;
+  justify-content: center;
+  background: #f5f7fa;  /* optional subtle background */
 }
 
 .whalewatch-page .whale-hero img.hero-img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: contain !important;
-  object-position: center !important;
-  display: block !important;
+  width: 590px;   /* match intrinsic width */
+  height: auto;
+  display: block;
 }
+
 
 .whalewatch-page .image-caption {
   font-size: 0.85rem;
