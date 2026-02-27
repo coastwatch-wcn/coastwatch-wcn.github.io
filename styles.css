@@ -1754,18 +1754,16 @@ button.btn-primary:hover {
 /* ---------------------- */
 
 .whalewatch-page .whale-hero {
-  text-align: right;
-  margin-bottom: 2rem;
-  position: relative;
-  margin-top: 1rem;
+  height: 400px;
+  overflow: hidden;
 }
 
 .whalewatch-page .hero-img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   display: block;
-  border-radius: 0;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
 .whalewatch-page .image-caption {
