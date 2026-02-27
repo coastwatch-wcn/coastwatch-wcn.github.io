@@ -23,10 +23,15 @@ format:
 
 ::: {.whale-hero}
 <div class="whale-hero">
-  <img src="images/blue_whale.png" class="hero-img" alt="Blue whale">
+  <img 
+  src="images/blue_whale2.png"
+  alt="Blue whale"
+  width="850"
+  height="400"
+  class="hero-img">
+  <div class="image-caption">Photo courtesy of Elliott Hazen, NOAA Fisheries</div>
 </div>
 
-<span class="image-caption">Photo courtesy of Elliott Hazen, NOAA Fisheries</span>
 :::
 
 ### <span style="color:#2b6da8;">**An Eco-Informatic Tool for Conserving Protected Species**</span>
