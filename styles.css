@@ -1753,17 +1753,17 @@ button.btn-primary:hover {
 /* WHALEWATCH PROJECT     */
 /* ---------------------- */
 
-.whalewatch-page .whale-hero {
-  height: 400px;
-  overflow: hidden;
+.whalewatch-page .whale-hero { 
+  height: 400px !important; 
+  overflow: hidden !important; 
 }
 
-.whalewatch-page .hero-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
+.whalewatch-page .whale-hero img.hero-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
 }
 
 .whalewatch-page .image-caption {
