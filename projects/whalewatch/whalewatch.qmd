@@ -23,7 +23,7 @@ format:
 
 ::: {.whale-hero}
 <div class="whale-hero">
-  <img src="images/blue-whale.png" class="hero-img" alt="Blue whale">
+  <img src="images/blue_whale.png" class="hero-img" alt="Blue whale">
 </div>
 
 <span class="image-caption">Photo courtesy of Elliott Hazen, NOAA Fisheries</span>
