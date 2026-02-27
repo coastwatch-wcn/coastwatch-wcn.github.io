@@ -29,7 +29,6 @@ format:
   width="850"
   height="400"
   class="hero-img">
-  <div class="image-caption">Photo courtesy of Elliott Hazen, NOAA Fisheries</div>
 </div>
 
 :::

@@ -1757,7 +1757,7 @@ button.btn-primary:hover {
 .whalewatch-page .whale-hero {
   display: flex;
   justify-content: center;
-  background: #f5f7fa;  /* optional subtle background */
+  background: #0f5c5b;  /* optional subtle background */
 }
 
 .whalewatch-page .whale-hero img.hero-img {
