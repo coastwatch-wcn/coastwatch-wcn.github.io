@@ -1762,9 +1762,8 @@ button.btn-primary:hover {
 
 .whalewatch-page .hero-img {
   width: 100%;
-  max-height: 400px;
+  height: auto;
   display: block;
-  object-fit: cover;
   border-radius: 0;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
