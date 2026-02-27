@@ -22,7 +22,7 @@ format:
 :::
 
 ::: {.whale-hero}
-![](images/blue_whale.png){.hero-img}
+![](images/blue-whale.png){.hero-img}
 
 <span class="image-caption">Photo courtesy of Elliott Hazen, NOAA Fisheries</span>
 :::
