@@ -1755,7 +1755,7 @@ button.btn-primary:hover {
 
 
 .whalewatch-page .whale-hero {
-  padding: 2rem 0;
+  padding: 0;
   text-align: center;
   background: #0f5c5b;  /* optional subtle background */
 }
