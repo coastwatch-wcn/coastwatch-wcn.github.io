@@ -8,7 +8,7 @@ on:
   workflow_dispatch:         # manual trigger option
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -49,6 +49,18 @@ jobs:
 
       - name: Update closure history from Federal Register
         run: python projects/turtlewatch/scripts/update_Itca_closure.py
+
+      - name: Commit updated TurtleWatch Files
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add projects/turtlewatch/data/json/
+          git add projects/turtlewatch/data/resources/
+          git add projects/turtlewatch/data/images/
+
+          git diff --cached --quiet || git commit -m "Update TurtleWatch dashboard data"
+          git push     
 
       - name: Render Quarto site (to docs/)
         run: quarto render
