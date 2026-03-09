@@ -1763,7 +1763,7 @@ button.btn-primary:hover {
 .whalewatch-page .whale-hero img {
   display: block;
   margin: 0 auto;
-  width: min(850px, 100%);
+  max-width: 100%;
   height: auto;
 
   /* smoother side fade */
@@ -1784,8 +1784,8 @@ button.btn-primary:hover {
 }
 
 .whalewatch-page .hero-caption{
-  width: min(850px, 100%);
-  margin: 6px auto 0 auto;
+  max-width: 100%;
+  margin: 0 auto;
   text-align: right;
   font-size: 0.75rem;
   color: #555;
