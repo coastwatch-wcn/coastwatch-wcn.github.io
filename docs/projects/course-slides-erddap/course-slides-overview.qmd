@@ -1,5 +1,9 @@
 ---
 title: "Automated Access to Password-Protected ERDDAP Datasets"
+prev: course-slides-erddap.html
+prev_label: Secure ERDDAP Automation Home Page
+next: course-slides-workflow.html
+next_label: Secure Automated ERDDAP Workflow
 anchor-sections: false
 format:
   html:
@@ -175,3 +179,5 @@ The slide image dataset provides a linked archive of participant slide PNG files
 
 
 :::
+
+{{< include ../../_includes/page-nav.html >}}

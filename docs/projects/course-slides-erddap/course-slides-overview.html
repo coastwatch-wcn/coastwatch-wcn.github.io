@@ -194,16 +194,14 @@ ul.task-list li input[type="checkbox"] {
 <div class="course-slides-page">
 <div class="course-slides-columns">
 <section id="project-purpose" class="level2 course-slides-column">
-<h2 data-anchor-id="project-purpose">Project Purpose</h2>
+<h2 data-anchor-id="project-purpose"><span class="noaa-dark-blue" style="font-weight:bold">Project Purpose</span></h2>
 <p>This project demonstrates a <strong>non-traditional use of ERDDAP</strong>: not just as a public data portal, but as a secure, searchable database and image server that can feed an end-to-end automation workflow. Authorized users can query participant metadata from NOAA CoastWatch satellite training courses, download the matching slide PNGs, and automatically assemble a custom PowerPoint deck, all while keeping personally identifiable information (PII) protected behind authentication.</p>
 <p>Importantly, the tutorials associated with this project are designed so users can adapt this workflow to their own password-protected ERDDAP datasets, not just the CoastWatch example shown here.</p>
 </section>
 <section id="why-this-matters" class="level2 course-slides-column">
-<h2 data-anchor-id="why-this-matters">Why this matters</h2>
-<p>ERDDAP is commonly used for open discovery and reuse (public datasets, anonymous access). But some datasets must be restricted, especially when they contain <strong>PII</strong>, internal reporting metrics, or unpublished materials.</p>
-<p>Manual login works for interactive browsing, but becomes a blocker for reproducible scripts and automated reporting.</p>
-<p>This project shows a practical pattern for bridging that gap:</p>
-<p><strong>Interactive browser login once → authenticated scripted access for the rest of the workflow.</strong></p>
+<h2 data-anchor-id="why-this-matters"><span class="noaa-dark-blue" style="font-weight:bold">Why this matters</span></h2>
+<p>ERDDAP is commonly used for open discovery and reuse (public datasets, anonymous access). But some datasets must be restricted, especially when they contain PII, internal reporting metrics, or unpublished materials.</p>
+<p>This project serves as a blueprint for building secure, automated workflows. The same approach can be applied to managing archives, organizing image collections, and protecting preliminary data products. By combining identity-managed access with automated querying and file retrieval, users can securely manage and distribute protected resources without sacrificing efficiency. The project demonstrates that ERDDAP can function as far more than a public data catalog. It can operate as a data API, a structured metadata database, an image server, and a reporting backend, all within a secure role-based access framework.</p>
 </section>
 </div>
 <section id="erddap-used-in-nonconventional-ways" class="level2">
@@ -257,7 +255,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-anchor-id="the-coastwatch-slide-archive-problem">The CoastWatch Slide Archive Problem</h2>
 <div class="course-slides-columns">
 <section id="then" class="level3 course-slides-column">
-<h3 data-anchor-id="then">Then</h3>
+<h3 data-anchor-id="then"><span class="noaa-blue" style="font-weight:bold">Then</span></h3>
 <p>Before this project, participant slides were scattered across shared drives and folders, often with inconsistent naming conventions and organization. Discovering past projects required manual searching and institutional knowledge, making the process very time consuming. As the archive grew, it became increasingly difficult to retrieve examples from specific years, topics, or participants.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -266,7 +264,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </section>
 <section id="now" class="level3 course-slides-column">
-<h3 data-anchor-id="now">Now</h3>
+<h3 data-anchor-id="now"><span class="noaa-blue" style="font-weight:bold">Now</span></h3>
 <p>After this project, slides and associated metadata are hosted in ERDDAP, where they can be searched and filtered by course, year, affiliation, products, topics, software, and more. Each slide ID links structured metadata directly to its corresponding image file, allowing authorized users to retrieve participant work instantly. This supports documentation of course impact and the generation of presentation-ready materials through an automated workflow.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -280,7 +278,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-anchor-id="server-side-configuration-of-datasets-for-secure-access">Server-Side Configuration of Datasets for Secure Access</h2>
 <div class="course-slides-columns">
 <section id="how-secure-access-is-implemented" class="level3 course-slides-column">
-<h3 data-anchor-id="how-secure-access-is-implemented">How secure access is implemented</h3>
+<h3 data-anchor-id="how-secure-access-is-implemented"><span class="noaa-blue" style="font-weight:bold">How secure access is implemented</span></h3>
 <p>To secure access to restricted datasets, ERDDAP must first be configured to authenticate users. This configuration lives entirely in the server’s setup.xml file. By setting the authentication method to Google and providing a Google client ID, ERDDAP can authenticate users using NOAA-authorized Google accounts through OpenID Connect.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -289,7 +287,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </section>
 <section id="who-can-access-the-datasets" class="level3 course-slides-column">
-<h3 data-anchor-id="who-can-access-the-datasets">Who can access the datasets?</h3>
+<h3 data-anchor-id="who-can-access-the-datasets"><span class="noaa-blue" style="font-weight:bold">Who can access the datasets?</span></h3>
 <p>Once authentication is in place, the next step is authorization, deciding who can actually access specific datasets. In ERDDAP, this is handled through roles defined in datasets.xml. Authenticated users are assigned one or more roles, and datasets declare which roles are allowed to access them. In this project, users with the coastSlideUser role can query the private datasets, so our participant metadata and slide datasets, while all other users are denied access.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -299,65 +297,59 @@ ul.task-list li input[type="checkbox"] {
 </section>
 </div>
 </section>
-<section id="details" class="level2">
-<h2 data-anchor-id="details">Details</h2>
-<details class="course-slides-faq">
-<summary>
-<strong>Strengths and Limitations</strong>
-</summary>
-<p><span class="noaa-blue" style="font-weight:bold">Strengths</span></p>
-<ul>
-<li>Uses existing ERDDAP infrastructure<br>
-</li>
-<li>Secure identity-based access<br>
-</li>
-<li>No stored credentials<br>
-</li>
-<li>Reproducible + auditable<br>
-</li>
-<li>Demonstrates ERDDAP versatility beyond environmental grids</li>
-</ul>
-<p><span class="noaa-blue" style="font-weight:bold">Limitations</span></p>
-<ul>
-<li>Requires interactive login (Selenium)<br>
-</li>
-<li>Not fully headless unless extended<br>
-</li>
-<li>Sensitive to ERDDAP dataset restructuring<br>
-</li>
-<li>Depends on role-based permissions being configured correctly</li>
-</ul>
-</details>
-<details class="course-slides-faq">
-<summary>
-<strong>Why ERDDAP versatility matters</strong>
-</summary>
-<p>This project is a blueprint for other secure workflows:</p>
-<ul>
-<li>Internal asset archives<br>
-</li>
-<li>Image repositories<br>
-</li>
-<li>Metadata registries<br>
-</li>
-<li>Protected environmental products<br>
-</li>
-<li>Program tracking dashboards</li>
-</ul>
-<p>It demonstrates that ERDDAP can function as:</p>
-<ul>
-<li>A data API<br>
-</li>
-<li>A metadata database<br>
-</li>
-<li>A file server<br>
-</li>
-<li>A reporting backend</li>
-</ul>
-<p>Not just a public data catalog.</p>
-</details>
+<section id="where-does-the-erddap-data-come-from" class="level2">
+<h2 data-anchor-id="where-does-the-erddap-data-come-from">Where does the ERDDAP data come from</h2>
+<div class="course-slides-columns">
+<section id="participant-metadata-csv" class="level3 course-slides-column">
+<h3 data-anchor-id="participant-metadata-csv"><span class="noaa-blue" style="font-weight:bold">Participant metadata CSV</span></h3>
+<p>Participant information is stored in a structured CSV table that captures details from each each satellite training course. This includes fields such as course name, year, affiliation, products used, and a unique slide ID that links metadata to the corresponding presentation file. The table functions as a searchable index that connects participant information directly to archived slide images.</p>
+</section>
+<section id="participant-slide-pngs" class="level3 course-slides-column">
+<h3 data-anchor-id="participant-slide-pngs"><span class="noaa-blue" style="font-weight:bold">Participant Slide PNGs</span></h3>
+<p>The archive contains over 250 individual slide PNG files collected since 2013, each assigned a consistent identifier. Files follow a standardized naming convention:</p>
+<pre><code>[Year][Course][Number].png</code></pre>
+<p>This allows the slide images to be programmatically retrieved and linked to their associated metadata. This structure enables automated queries and efficient presentation generation.</p>
 </section>
 </div>
+</section>
+<section id="how-the-erddap-dataset-xmls-were-set-up" class="level2">
+<h2 data-anchor-id="how-the-erddap-dataset-xmls-were-set-up">How the ERDDAP Dataset XMLs Were Set Up</h2>
+<div class="course-slides-columns">
+<section id="participant-metadata-dataset" class="level3 course-slides-column">
+<h3 data-anchor-id="participant-metadata-dataset"><span class="noaa-blue" style="font-weight:bold">Participant Metadata Dataset</span></h3>
+<p>The participant metadata dataset is a searchable table that stores structured information about satellite training course participants. It is publised in ERDDAP under the dataset ID <span class="noaa-dark-blue" style="font-weight:bold">satellite_course_slides_metadata</span> and is built using <span class="noaa-dark-blue" style="font-weight:bold">EDDTableFromAsciiFiles</span>, with a local CSV file serving as the source. The table includes fields such as participant name, affiliation, course ID, products used, year, and the slide ID among others. Access to this dataset is restricted to authorized users assigned to the <span class="noaa-dark-blue" style="font-weight:bold">coastSlideUser</span> role.</p>
+</section>
+<section id="slide-images-dataset" class="level3 course-slides-column">
+<h3 data-anchor-id="slide-images-dataset"><span class="noaa-blue" style="font-weight:bold">Slide Images Dataset</span></h3>
+<p>The slide image dataset provides a linked archive of participant slide PNG files. It is published in ERDDAP under the dataset ID <span class="noaa-dark-blue" style="font-weight:bold">course_slide_deck</span> and is built using <span class="noaa-dark-blue" style="font-weight:bold">EDDTableFromFileNames</span>, which automatically indexes files from a designated folder of slide images. ERDDAP extracts file-level metadata such as file name, URL, size, type, and modification date, making the archive searchable and programmatically accessible. Like the metadata table, access to this dataset is limited to users with the <span class="noaa-dark-blue" style="font-weight:bold">coastSlideUser</span> role.</p>
+</section>
+</div>
+</section>
+</div>
+<div id="page-nav" class="d-flex justify-content-between mt-4 mb-4">
+
+</div>
+<script>
+(function () {
+  const prev = "course-slides-erddap.html";
+  const prevLabel = "Secure ERDDAP Automation Home Page";
+  const next = "course-slides-workflow.html";
+  const nextLabel = "Secure Automated ERDDAP Workflow";
+
+  const el = document.getElementById("page-nav");
+  if (!el) return;
+
+  const prevBtn = prev && prev !== "NA"
+    ? `<a href="${prev}" class="btn btn-noaa">← ${prevLabel || "Previous"}</a>`
+    : `<span></span>`;
+
+  const nextBtn = next && next !== "NA"
+    ? `<a href="${next}" class="btn btn-noaa">${nextLabel || "Next"} →</a>`
+    : `<span></span>`;
+
+  el.innerHTML = prevBtn + nextBtn;
+})();
+</script>
 
 
 
@@ -371,18 +363,19 @@ ul.task-list li input[type="checkbox"] {
   font-size: 1.125rem;
 ">
   <div style="
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
+    padding: 0 1rem;
   ">
-
-    <!-- Top link bar -->
+    
+  <!-- Top link bar -->
+  <div style="text-align: center; margin-bottom: 1.5rem;">
     <div style="
-      display: flex;
-      justify-content: space-evenly;
+      display: inline-flex;
+      justify-content: center;
       align-items: center;
-      gap: 1.5rem;
-      margin-bottom: 1.5rem;
-      white-space: nowrap;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
     ">
       <a href="https://www.fisheries.noaa.gov/" style="color: #336699; text-decoration: none;">Fisheries</a>
       <a href="https://www.star.nesdis.noaa.gov/star/index.php" style="color: #336699; text-decoration: none;">STAR</a>
@@ -390,6 +383,8 @@ ul.task-list li input[type="checkbox"] {
       <a href="https://www.fisheries.noaa.gov/about/southwest-fisheries-science-center" style="color: #336699; text-decoration: none;">Southwest Fisheries</a>
       <a href="https://www.fisheries.noaa.gov/about/climate-and-ecosystems-program-southwest-fisheries-science-center" style="color: #336699; text-decoration: none;">Environmental Research Division</a>
     </div>
+  </div>
+
 
     <!-- Logo + tagline -->
     <div style="

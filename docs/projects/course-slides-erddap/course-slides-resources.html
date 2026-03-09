@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>course-slides-resources – CoastWatch West Code Node</title>
+<title>Resources – CoastWatch West Code Node</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -35,7 +35,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
@@ -166,18 +165,81 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
-    </div>
+    
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content column-page" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Resources</h1>
+</div>
 
 
 
+<div class="quarto-title-meta column-page">
 
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="course-slides-page">
+<p>This page provides tutorials and supporting materials for implementing secure, automated workflows with protected ERDDAP datasets. The Python and R examples demonstrate how to authenticate using identity-managed login, query restricted metadata, retrieve linked files programmatically, and generate presentation-ready outputs.</p>
+<p>The CoastWatch slide archive is a real-world example of this pattern, but the workflow can be adapted to any protected ERDDAP instance.</p>
+<div class="course-slides-card-grid">
+<section id="python-tutorial" class="level3 course-slides-card">
+<h3 data-anchor-id="python-tutorial">Python Tutorial</h3>
+<p>A complete Python workflow for secure ERDDAP authentication, metadata querying, file retrieval, and automated PowerPoint generation.</p>
+<p><a href="resources/Create_PowerPoint_Satellite_Slides.ipynb" class="btn-noaa">View Python Tutorial</a></p>
+</section>
+<section id="r-tutorial" class="level3 course-slides-card">
+<h3 data-anchor-id="r-tutorial">R Tutorial</h3>
+<p>A complete R workflow for secure ERDDAP authentication, metadata querying, file retrieval, and automated PowerPoint generation.</p>
+<p><a href="resources/Create_PowerPoint_Satellite_Slides.Rmd" class="btn-noaa">View R Tutorial</a></p>
+</section>
+<section id="project-presentation" class="level3 course-slides-card">
+<h3 data-anchor-id="project-presentation">Project Presentation</h3>
+<p>Project overview slides explaining the secure ERDDAP authentication pattern and automated PowerPoint generation workflow.</p>
+<p><a href="resources/Selenium_Jan_2026_ERDDAP_Showcase.pptx.pdf" class="btn-noaa">View Project Presentation</a></p>
+</section>
+</div>
+<section id="acknowledgements" class="level2">
+<h2 data-anchor-id="acknowledgements">Acknowledgements</h2>
+<p>The project was a team effort by the CoastWatch West Coast Node. Madison Richardson acted as the lead developer, Cara Wilson handeled the information extractio from participant slides, Sunny Hospital developed the Selenium solution, and Dale Robinson set up the ERDDAP datasets and wrote the first draft of the Python script for building the PowerPoint files from the participant slides. Roy Mendelssohn helped fix the access issues in ERDDAP after the servers were updated. CoastWatch Central isrecognized for their efforts in the training courses and slide collection, as well as all instructors, participants, and hosts of the satellite course trainings. Thank you to the JPSS PGRR Program for funding this project.</p>
+</section>
+</div>
+<div id="page-nav" class="d-flex justify-content-between mt-4 mb-4">
+
+</div>
+<script>
+(function () {
+  const prev = "course-slides-workflow.html";
+  const prevLabel = "Secure Automated ERDDAP Workflow";
+  const next = "course-slides-erddap.html";
+  const nextLabel = "Secure ERDDAP Automation Home Page";
+
+  const el = document.getElementById("page-nav");
+  if (!el) return;
+
+  const prevBtn = prev && prev !== "NA"
+    ? `<a href="${prev}" class="btn btn-noaa">← ${prevLabel || "Previous"}</a>`
+    : `<span></span>`;
+
+  const nextBtn = next && next !== "NA"
+    ? `<a href="${next}" class="btn btn-noaa">${nextLabel || "Next"} →</a>`
+    : `<span></span>`;
+
+  el.innerHTML = prevBtn + nextBtn;
+})();
+</script>
 
 
 
@@ -191,18 +253,19 @@ ul.task-list li input[type="checkbox"] {
   font-size: 1.125rem;
 ">
   <div style="
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
+    padding: 0 1rem;
   ">
-
-    <!-- Top link bar -->
+    
+  <!-- Top link bar -->
+  <div style="text-align: center; margin-bottom: 1.5rem;">
     <div style="
-      display: flex;
-      justify-content: space-evenly;
+      display: inline-flex;
+      justify-content: center;
       align-items: center;
-      gap: 1.5rem;
-      margin-bottom: 1.5rem;
-      white-space: nowrap;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
     ">
       <a href="https://www.fisheries.noaa.gov/" style="color: #336699; text-decoration: none;">Fisheries</a>
       <a href="https://www.star.nesdis.noaa.gov/star/index.php" style="color: #336699; text-decoration: none;">STAR</a>
@@ -210,6 +273,8 @@ ul.task-list li input[type="checkbox"] {
       <a href="https://www.fisheries.noaa.gov/about/southwest-fisheries-science-center" style="color: #336699; text-decoration: none;">Southwest Fisheries</a>
       <a href="https://www.fisheries.noaa.gov/about/climate-and-ecosystems-program-southwest-fisheries-science-center" style="color: #336699; text-decoration: none;">Environmental Research Division</a>
     </div>
+  </div>
+
 
     <!-- Logo + tagline -->
     <div style="
@@ -250,13 +315,6 @@ ul.task-list li input[type="checkbox"] {
 </footer>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     

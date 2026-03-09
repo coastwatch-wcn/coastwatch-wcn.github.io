@@ -191,135 +191,171 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="technical-workflow" class="level2">
-<h2 data-anchor-id="technical-workflow">Technical Workflow</h2>
-<div class="quarto-figure quarto-figure-center">
+<div class="course-slides-page">
+<div class="course-slides-columns">
+<div class="course-slides-column">
+<p>The workflow diagram illustrates how authenticated access, metadata querying, and file retrieval combine to generate an automated PowerPoint presentation from protected ERDDAP datasets. The process is identical in Python and R; only the implementation language differs.</p>
+</div>
+<div class="course-slides-column">
+<div class="quarto-figure quarto-figure-center" style="object-fit:contain; margin-bottom:1rem;">
 <figure class="figure">
-<p><img src="images/workflow.png" class="img-fluid figure-img"></p>
-<figcaption>How the secured automated ERDDAP workflow works.</figcaption>
+<p><img src="images/workflow.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Secured automated ERDDAP workflow diagram.</figcaption>
 </figure>
 </div>
+</div>
+</div>
+<section id="step-1-accessing-password-protected-datasets" class="level2">
+<h2 data-anchor-id="step-1-accessing-password-protected-datasets">Step 1: Accessing Password Protected Datasets</h2>
+<div class="course-slides-columns">
+<div class="course-slides-column">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/step-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="object-fit:contain; margin-bottom:1rem;;width:60.0%"></p>
+</figure>
+</div>
+</div>
+<div class="course-slides-column">
+<p>The workflow begins when the Python or R script initiates a secure login sequence using Selenium. Because the metadata dataset is password-protected and contains personally identifiable information (PII), access must occur through NOAA’s Google-based authentication system. The script launches a browser window, allowing the user to complete Google sign-in and two-factor authentication.</p>
+<p>Once authentication is successful, the script extracts the active session cookies from the browser and transfers them into a programmatic HTTP session. This establishes an authenticated ERDDAP connection that can be used for subsequent API requests without storing credentials in the code.</p>
+<p>With the secure session in place, the script constructs an ERDDAP tabledap query URL and applies user-defined search criteria (such as course, year, affiliation, or other metadata fields) to retrieve only the relevant records.</p>
+</div>
+</div>
 </section>
-<section id="selenium-bridging-interactive-login-with-automation" class="level2">
-<h2 data-anchor-id="selenium-bridging-interactive-login-with-automation">Selenium: bridging interactive login with automation</h2>
-<p>Because the metadata and slide datasets contain PII, they cannot be accessed anonymously.</p>
-<p>Instead, this workflow uses <strong>Selenium WebDriver</strong> to automate the browser login process safely and reproducibly.</p>
-<section id="what-selenium-does-in-this-project" class="level3">
-<h3 data-anchor-id="what-selenium-does-in-this-project">What Selenium does in this project</h3>
-<ol type="1">
-<li>Opens a Chrome browser window from Python<br>
-</li>
-<li>Navigates to the ERDDAP login page<br>
-</li>
-<li>User completes:
-<ul>
-<li>Google login</li>
-<li>2-factor authentication</li>
-<li>ERDDAP confirmation step<br>
-</li>
-</ul></li>
-<li>Script extracts the authenticated <strong>session cookies</strong> from the browser<br>
-</li>
-<li>Cookies are transferred into a <code>requests.Session()</code> object<br>
-</li>
-<li>The browser closes<br>
-</li>
-<li>All subsequent downloads use that authenticated session</li>
-</ol>
+<section id="selenium-webdriver-automating-access-to-erddap" class="level2">
+<h2 data-anchor-id="selenium-webdriver-automating-access-to-erddap">Selenium WebDriver: Automating Access to ERDDAP</h2>
+<div class="course-slides-columns">
+<div class="course-slides-column">
+<p>Selenium WebDriver is used to automate the browser-based login required to access password-protected ERDDAP datasets. Because authentication is managed through NOAA’s Google identity system, direct API tokens are not used. Instead, the script launches a browser window and allows the user to complete the standard Google sign-in and two-factor authentication process.</p>
+<p>Once login is successful, Selenium retrieves the authenticated session cookies from the browser and transfers them to the script’s HTTP session. This enables secure, programmatic access to restricted ERDDAP datasets without storing passwords in code.</p>
+</div>
+<div class="course-slides-column">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/selenium.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="object-fit:contain; margin-bottom:1rem;;width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="why-this-matters" class="level3">
-<h3 data-anchor-id="why-this-matters">Why this matters</h3>
-<ul>
-<li>No passwords are stored in code<br>
-</li>
-<li>Authentication uses NOAA identity systems<br>
-</li>
-<li>Scripts can access protected datasets securely<br>
-</li>
-<li>The workflow remains reproducible</li>
-</ul>
-<p>This pattern allows <strong>human authentication + machine automation</strong> to coexist.</p>
+<section id="step-2-retrieving-participant-metadata" class="level2">
+<h2 data-anchor-id="step-2-retrieving-participant-metadata">Step 2: Retrieving Participant Metadata</h2>
+<div class="course-slides-columns">
+<div class="course-slides-column">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/step-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="object-fit:contain; margin-bottom:1rem;;width:60.0%"></p>
+</figure>
+</div>
+</div>
+<div class="course-slides-column">
+<p>Once an authenticated ERDDAP session has been established, the script queries the metadata dataset to retrieve participant records that match user-defined search criteria. This query is executed through ERDDAP’s tabledap interface, which returns a structured CSV containing only the records relevant to the request.</p>
+<p>The returned dataset includes participant metadata along with the corresponding Slide IDs. These Slide IDs are critical, as they act as the index for the next stage of the workflow, determining which slide images should be retrieved from the archive.</p>
+</div>
+</div>
 </section>
-<section id="why-not-use-api-tokens" class="level3">
-<h3 data-anchor-id="why-not-use-api-tokens">Why not use API tokens?</h3>
-<p>For identity-managed ERDDAP systems (like NOAA’s), login is often federated via Google OAuth rather than static API keys. Selenium allows us to integrate that identity-based login into Python workflows without bypassing security.</p>
+<section id="step-3-query-participant-slide-pngs" class="level2">
+<h2 data-anchor-id="step-3-query-participant-slide-pngs">Step 3: Query Participant Slide PNGs</h2>
+<div class="course-slides-columns">
+<div class="course-slides-column">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/step-3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="object-fit:contain; margin-bottom:1rem;;width:60.0%"></p>
+</figure>
+</div>
+</div>
+<div class="course-slides-column">
+<p>After retrieving the metadata table, the script uses the returned Slide IDs to determine which slide images correspond to the selected participants. Each Slide ID acts as a key that links the metadata dataset to the slide image dataset hosted in ERDDAP.</p>
+<p>Using these identifiers, the script constructs ERDDAP file URLs for each matching slide. Because the image dataset is indexed through predictable file naming conventions, URLs can be generated programmatically and accessed through the authenticated session established earlier.</p>
+</div>
+</div>
 </section>
+<section id="step-4-download-participant-slide-pngs" class="level2">
+<h2 data-anchor-id="step-4-download-participant-slide-pngs">Step 4: Download Participant Slide PNGs</h2>
+<div class="course-slides-columns">
+<div class="course-slides-column">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/step-4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="object-fit:contain; margin-bottom:1rem;;width:60.0%"></p>
+</figure>
+</div>
+</div>
+<div class="course-slides-column">
+<p>With the slide image URLs constructed, the script accesses the slide PNG files through the authenticated ERDDAP session. Because authentication was established earlier via Selenium, the script can securely retrieve protected image assets without additional login steps.</p>
+<p>Each slide image is downloaded locally and prepared for inclusion in the final presentation. When multiple slides are requested, the script can optionally use parallel downloads to improve performance and reduce runtime.</p>
+</div>
+</div>
 </section>
-<section id="data-sources-hosted-in-erddap" class="level2">
-<h2 data-anchor-id="data-sources-hosted-in-erddap">Data sources hosted in ERDDAP</h2>
-<section id="participant-metadata-csv-erddap-tabledap" class="level3">
-<h3 data-anchor-id="participant-metadata-csv-erddap-tabledap">Participant metadata (CSV → ERDDAP tabledap)</h3>
-<p>Fields include:</p>
-<ul>
-<li>Course / Year<br>
-</li>
-<li>Name / Affiliation<br>
-</li>
-<li>Products<br>
-</li>
-<li>Topic<br>
-</li>
-<li>Software<br>
-</li>
-<li>Slide ID (key that links metadata to slide image)</li>
-</ul>
+<section id="step-5-generate-custom-powerpoint" class="level2">
+<h2 data-anchor-id="step-5-generate-custom-powerpoint">Step 5: Generate Custom PowerPoint</h2>
+<div class="course-slides-columns">
+<div class="course-slides-column">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/step-5.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="object-fit:contain; margin-bottom:1rem;;width:60.0%"></p>
+</figure>
+</div>
+</div>
+<div class="course-slides-column">
+<p>After the slide images have been downloaded, the script uses both the image files and the associated metadata to generate a formatted PowerPoint presentation. Each slide PNG becomes a new presentation slide, while metadata fields such as participant name, affiliation, course, or product usage are used to dynamically populate titles and annotations.</p>
+<p>This ensures that the presentation reflects the original query criteria and maintains consistent formatting across slides. Because the workflow is fully automated, users can generate customized, presentation-ready outputs directly from ERDDAP without manually searching for files or editing slides.</p>
+</div>
+</div>
 </section>
-<section id="participant-slides-png-files-erddap-file-index" class="level3">
-<h3 data-anchor-id="participant-slides-png-files-erddap-file-index">Participant slides (PNG files → ERDDAP file index)</h3>
-<p>A directory of PNG slides with a consistent naming pattern:</p>
-<pre><code>[Year][Course][Number].png</code></pre>
-<p>ERDDAP exposes these files via predictable URLs, allowing programmatic download after authentication.</p>
+<section id="end-product" class="level2">
+<h2 data-anchor-id="end-product">End Product</h2>
+<div class="course-slides-columns">
+<div class="course-slides-column">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/powerpoint.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="object-fit:contain; margin-bottom:1rem;;width:100.0%"></p>
+</figure>
+</div>
+</div>
+<div class="course-slides-column">
+<p>The final output of the workflow is a fully assembled PowerPoint presentation generated directly from the ERDDAP query. Each slide combines the downloaded participant image with the corresponding metadata fields, producing a structured and consistently formatted presentation tailored to the original search criteria.</p>
+<p>What begins as a secure metadata query is transformed into a ready-to-use reporting product. By linking structured metadata with archived slide assets, the workflow enables users to move seamlessly from data discovery to presentation delivery without manual file searching or slide editing.</p>
+</div>
+</div>
 </section>
+<section id="strengths-and-limitations-of-this-erddap-approach" class="level2">
+<h2 data-anchor-id="strengths-and-limitations-of-this-erddap-approach">Strengths and Limitations of this ERDDAP Approach</h2>
+<div class="course-slides-columns">
+<div class="course-slides-column">
+<p>This workflow leverages existing ERDDAP infrastructure to support secure, automated access to protected datasets without requiring new backend systems. By integrating Selenium with NOAA’s Google-based authentication, it maintains identity-managed security while avoiding the storage of passwords in code. The approach also demonstrates ERDDAP’s versatility, showing that it can function not only as a public data catalog, but as a structured metadata registry and controlled asset distribution platform.</p>
+</div>
+<div class="course-slides-column">
+<p>However, there are important limitations to consider. Because the datasets contain personally identifiable information (PII), authentication must occur through a browser-based Selenium session, which requires user interaction during login. The workflow is also sensitive to changes in ERDDAP dataset configuration, such as renaming datasets or modifying file structures, which may require updates to the script.</p>
+</div>
+</div>
 </section>
-<section id="server-side-configuration-of-protected-erddap-datasets" class="level2">
-<h2 data-anchor-id="server-side-configuration-of-protected-erddap-datasets">Server-Side Configuration of Protected ERDDAP Datasets</h2>
-</section>
-<section id="end-to-end-workflow-query-powerpoint" class="level2">
-<h2 data-anchor-id="end-to-end-workflow-query-powerpoint">End-to-end workflow (Query → PowerPoint)</h2>
-<section id="step-1-authenticate-once-selenium" class="level3">
-<h3 data-anchor-id="step-1-authenticate-once-selenium">Step 1 — Authenticate once (Selenium)</h3>
-<p>Interactive login → session cookies → authenticated <code>requests.Session()</code>.</p>
-</section>
-<section id="step-2-query-metadata-erddap-tabledap" class="level3">
-<h3 data-anchor-id="step-2-query-metadata-erddap-tabledap">Step 2 — Query metadata (ERDDAP tabledap)</h3>
-<p>Two supported approaches:</p>
-<p><strong>Option 1</strong> - Download full metadata table - Filter locally in Python - Maximum flexibility and automation</p>
-<p><strong>Option 2</strong> - Use ERDDAP web interface to subset - Generate query URL visually - Download filtered CSV directly</p>
-<p>Both approaches produce the same metadata table.</p>
-<p>Example query used in the showcase:</p>
-<blockquote class="blockquote">
-<p>“NMFS participants who used JPSS data”</p>
-</blockquote>
-</section>
-<section id="step-3-construct-slide-urls" class="level3">
-<h3 data-anchor-id="step-3-construct-slide-urls">Step 3 — Construct slide URLs</h3>
-<p>Slide IDs from metadata are converted into image URLs pointing to the slide archive.</p>
-</section>
-<section id="step-4-parallel-image-download" class="level3">
-<h3 data-anchor-id="step-4-parallel-image-download">Step 4 — Parallel image download</h3>
-<p>Slides are downloaded through the authenticated session.</p>
-<p>Parallel downloads (ThreadPoolExecutor) significantly reduce runtime when retrieving dozens of slides.</p>
-</section>
-<section id="step-5-generate-powerpoint" class="level3">
-<h3 data-anchor-id="step-5-generate-powerpoint">Step 5 — Generate PowerPoint</h3>
-<p>Using <code>python-pptx</code>:</p>
-<ul>
-<li>Each participant slide PNG becomes one PowerPoint slide<br>
-</li>
-<li>Title text is dynamically constructed from metadata fields<br>
-</li>
-<li>Layout and formatting are standardized<br>
-</li>
-<li>Output is a ready-to-use <code>.pptx</code> file</li>
-</ul>
-<p>Result:</p>
-<blockquote class="blockquote">
-<p>A fully customized, query-driven presentation built directly from ERDDAP.</p>
-</blockquote>
+</div>
+<div id="page-nav" class="d-flex justify-content-between mt-4 mb-4">
+
+</div>
+<script>
+(function () {
+  const prev = "course-slides-overview.html";
+  const prevLabel = "Secure ERDDAP Automation Overview";
+  const next = "course-slides-resources.html";
+  const nextLabel = "Secure Automated ERDDAP Resources";
+
+  const el = document.getElementById("page-nav");
+  if (!el) return;
+
+  const prevBtn = prev && prev !== "NA"
+    ? `<a href="${prev}" class="btn btn-noaa">← ${prevLabel || "Previous"}</a>`
+    : `<span></span>`;
+
+  const nextBtn = next && next !== "NA"
+    ? `<a href="${next}" class="btn btn-noaa">${nextLabel || "Next"} →</a>`
+    : `<span></span>`;
+
+  el.innerHTML = prevBtn + nextBtn;
+})();
+</script>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <footer style="
@@ -331,18 +367,19 @@ ul.task-list li input[type="checkbox"] {
   font-size: 1.125rem;
 ">
   <div style="
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
+    padding: 0 1rem;
   ">
-
-    <!-- Top link bar -->
+    
+  <!-- Top link bar -->
+  <div style="text-align: center; margin-bottom: 1.5rem;">
     <div style="
-      display: flex;
-      justify-content: space-evenly;
+      display: inline-flex;
+      justify-content: center;
       align-items: center;
-      gap: 1.5rem;
-      margin-bottom: 1.5rem;
-      white-space: nowrap;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
     ">
       <a href="https://www.fisheries.noaa.gov/" style="color: #336699; text-decoration: none;">Fisheries</a>
       <a href="https://www.star.nesdis.noaa.gov/star/index.php" style="color: #336699; text-decoration: none;">STAR</a>
@@ -350,6 +387,8 @@ ul.task-list li input[type="checkbox"] {
       <a href="https://www.fisheries.noaa.gov/about/southwest-fisheries-science-center" style="color: #336699; text-decoration: none;">Southwest Fisheries</a>
       <a href="https://www.fisheries.noaa.gov/about/climate-and-ecosystems-program-southwest-fisheries-science-center" style="color: #336699; text-decoration: none;">Environmental Research Division</a>
     </div>
+  </div>
+
 
     <!-- Logo + tagline -->
     <div style="
