@@ -42,6 +42,8 @@ website:
         menu:
           - text: CoastWatch
             href: coastwatch.qmd
+          - text: People
+            href: people.qmd
           - text: Contact Us
             href: contact_us.qmd
           - text: Customer Survey
