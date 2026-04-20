@@ -1,0 +1,257 @@
+datasetID,label,category
+nesdisVHNsstDaily,"SST, NOAA-SNPP VIIRS, Near Real-Time, Global, Level 3, 0.0375°, 2020-present, EXPERIMENTAL, Daily",SST
+erdMH1sstd1day_R2022NRTMasked,"SST, AQUA_MODIS, Masked, R2022 NRT, NASA GSFC OBPG, Global, 0.04166°, 2019-present, Daily",SST
+erdMH1sstd1day_R2022SQMasked,"SST, AQUA_MODIS, Masked, R2022 SQ, NASA GSFC OBPG, Global, 0.04166°, 2019-present, Daily",SST
+erdMH1sstd8day_R2022SQMasked,"SST, AQUA_MODIS, Masked, R2022 SQ, NASA GSFC OBPG, Global, 0.04166°, 2019-present, 8 Day",SST
+erdMH1sstdmday_R2022SQMasked,"SST, AQUA_MODIS, Masked, R2022 SQ, NASA GSFC OBPG, Global, 0.04166°, 2019-present, Monthly",SST
+noaacwLEOACSPOSSTL3SCDaily,"Sea-Surface Temperature, NOAA ACSPO Daily Global 0.02° Gridded Super-collated SST and Thermal Fronts Reanalysis, 2012-present, Daily (L3S-LEO Kelvin)",SST
+jplMURSST41,"Multi-scale Ultra-high Resolution (MUR) SST Analysis fv04.1, Global, 0.01°, 2002-present, Daily",SST
+jplMURSST41mday,"Multi-scale Ultra-high Resolution (MUR) SST Analysis fv04.1, Global, 0.01°, 2002-present, Monthly",SST
+jplMURSST41anom1day,"Multi-scale Ultra-high Resolution (MUR) SST Analysis Anomaly fv04.1, Global, 0.01°, 2002-present, Daily",SST
+jplMURSST41anommday,"Multi-scale Ultra-high Resolution (MUR) SST Analysis Anomaly fv04.1, Global, 0.01°, 2002-present, Monthly",SST
+NOAA_DHW_monthly,"SST and SST Anomaly, NOAA Global Coral Bleaching Monitoring, 5km, V.3.1, Monthly, 1985-Present",SST
+NOAA_DHW_monthly,"SST and SST Anomaly, NOAA Global Coral Bleaching Monitoring, 5km, V.3.1, Monthly, 1985-Present",SST
+nceiPH53sstn1day,"AVHRR Pathfinder Version 5.3 L3-Collated (L3C) SST, Global, 0.0417°, 1981-present, Nighttime (1 Day Composite)",SST
+erdPH53sstn8day,"SST, Pathfinder Ver 5.3 (L3C), Night, Global, 0.0417°, 1981-present, Science Quality (8 Day Composite)",SST
+erdPH53sstnmday,"SST, Pathfinder Ver 5.3 (L3C), Night, Global, 0.0417°, 1981-present, Science Quality (Monthly Composite)",SST
+nceiPH53sstd1day,"AVHRR Pathfinder Version 5.3 L3-Collated (L3C) SST, Global, 0.0417°, 1981-present, Daytime (1 Day Composite)",SST
+erdPH53sstd8day,"SST, Pathfinder Ver 5.3 (L3C), Day, Global, 0.0417°, 1981-present, Science Quality (8 Day Composite)",SST
+erdPH53sstdmday,"SST, Pathfinder Ver 5.3 (L3C), Day, Global, 0.0417°, 1981-present, Science Quality (Monthly Composite)",SST
+ncdcOisst21Agg,"SST, Daily Optimum Interpolation (OI), AVHRR Only, Version 2.1, Final, Global, 0.25°, 1981-present",SST
+ncdcOisst21Agg,"SST, Daily Optimum Interpolation (OI), AVHRR Only, Version 2.1, Final, Global, 0.25°, 1981-present",SST
+ncdcOisst21NrtAgg,"SST, Daily Optimum Interpolation (OI), AVHRR Only, Version 2.1, Preliminary, Global, 0.25°, 2020-present",SST
+ncdcOisst21NrtAgg,"SST, Daily Optimum Interpolation (OI), AVHRR Only, Version 2.1, Preliminary, Global, 0.25°, 2020-present",SST
+erdVHsstaWS3day,VIIRS SST Day and Night 3 Day Composite,SST
+erdMWsstd1day,"SST, Aqua MODIS, NPP, 0.0125°, West US, Day time (11 microns), 2002-present (1 Day Composite)",SST
+erdMWsstd3day,"SST, Aqua MODIS, NPP, 0.0125°, West US, Day time (11 microns), 2002-present (3 Day Composite)",SST
+erdMWsstd8day,"SST, Aqua MODIS, NPP, 0.0125°, West US, Day time (11 microns), 2002-present (8 Day Composite)",SST
+erdMWsstd14day,"SST, Aqua MODIS, NPP, 0.0125°, West US, Day time (11 microns), 2002-present (14 Day Composite)",SST
+erdMWsstdmday,"SST, Aqua MODIS, NPP, 0.0125°, West US, Day time (11 microns), 2002-present (Monthly Composite)",SST
+goes_west,"Sea-Surface Temperature, Fronts, NOAA GOES-West (G-18), Hourly, NRT, 0.02 degree (~2 km)",SST
+nesdisVHNSQchlaDaily,"Chlorophyll, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Daily",Ocean Color
+nesdisVHNSQchlaWeekly,"Chlorophyll, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Weekly",Ocean Color
+nesdisVHNSQchlaMonthly,"Chlorophyll, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Monthly",Ocean Color
+nesdisVHNchlaDaily,"Chlorophyll, NOAA S-NPP VIIRS, Near Real-Time, Global 4km, Level 3, 2017-present, Daily",Ocean Color
+nesdisVHNchlaWeekly,"Chlorophyll, NOAA S-NPP VIIRS, Near Real-Time, Global 4km, Level 3, 2017-present, Weekly",Ocean Color
+nesdisVHNnoaa20chlaDaily,"Chlorophyll, NOAA NOAA-20 VIIRS, Near Real-Time, Global 4km, Level 3, 2017-present, Daily",Ocean Color
+nesdisVHNnoaa20chlaDaily_Lon0360,"Chlorophyll, NOAA NOAA-20 VIIRS, Near Real-Time, Global 4km, Level 3, 2017-present, Daily, Lon0360",Ocean Color
+nesdisVHNnoaa20chlaWeekly,"Chlorophyll, NOAA NOAA-20 VIIRS, Near Real-Time, Global 4km, Level 3, 2017-present, Weekly",Ocean Color
+nesdisVHNnoaa20chlaWeekly_Lon0360,"Chlorophyll, NOAA NOAA-20 VIIRS, Near Real-Time, Global 4km, Level 3, 2017-present, Weekly, Lon0360",Ocean Color
+erdMH1chla1day,"Chlorophyll-a, Aqua MODIS, NPP, L3SMI, Global, 4km, Science Quality, 2003-present (1 Day Composite)",Ocean Color
+erdMH1chla8day,"Chlorophyll-a, Aqua MODIS, NPP, L3SMI, Global, 4km, Science Quality, 2003-present (8 Day Composite)",Ocean Color
+erdMH1chlamday,"Chlorophyll-a, Aqua MODIS, NPP, L3SMI, Global, 4km, Science Quality, 2003-present (Monthly Composite)",Ocean Color
+erdSW2018chla1day,"Chlorophyll-a, Orbview-2 SeaWiFS, R2018.0, 0.1°, Global, 1997-2010 (1 Day Composite)",Ocean Color
+erdSW2018chla8day,"Chlorophyll-a, Orbview-2 SeaWiFS, R2018.0, 0.1°, Global, 1997-2010 (8 Day Composite)",Ocean Color
+erdSW2018chlamday,"Chlorophyll-a, Orbview-2 SeaWiFS, R2018.0, 0.1°, Global, 1997-2010 (Monthly Composite)",Ocean Color
+erdVH2018chla1day,"VIIRSN, Suomi-NPP, Level-3 SMI, NASA, Global, 4km, Chlorophyll a, OCI Algorithm, R2018, 2012-present, Daily",Ocean Color
+erdVH2018chla8day,"VIIRSN, Suomi-NPP, Level-3 SMI, NASA, Global, 4km, Chlorophyll a, OCI Algorithm, R2018, 2012-present, 8-Day",Ocean Color
+erdVH2018chlamday,"VIIRSN, Suomi-NPP, Level-3 SMI, NASA, Global, 4km, Chlorophyll a, OCI Algorithm, R2018, 2012-present, Monthly",Ocean Color
+nesdisVHNnoaa20chlaDaily,"Chlorophyll, NOAA NOAA-20 VIIRS, Near Real-Time, Global 4km, Level 3, 2017-present, Daily",Ocean Color
+nesdisVHNnoaa20chlaDaily_Lon0360,"Chlorophyll, NOAA NOAA-20 VIIRS, Near Real-Time, Global 4km, Level 3, 2017-present, Daily, Lon0360",Ocean Color
+nesdisVHNnoaa20chlaWeekly,"Chlorophyll, NOAA NOAA-20 VIIRS, Near Real-Time, Global 4km, Level 3, 2017-present, Weekly",Ocean Color
+nesdisVHNnoaa20chlaWeekly_Lon0360,"Chlorophyll, NOAA NOAA-20 VIIRS, Near Real-Time, Global 4km, Level 3, 2017-present, Weekly, Lon0360",Ocean Color
+nesdisVHNnoaaSNPPnoaa20NRTchlaGapfilledDaily,"Chlorophyll (Gap-filled DINEOF), NOAA S-NPP NOAA-20, VIIRS, Near Real-Time, Global 9km, 2020-present, Daily",Ocean Color
+nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily,"Chlorophyll (Gap-filled DINEOF), NOAA S-NPP NOAA-20, VIIRS, Science Quality, Global 9km, 2018-recent, Daily",Ocean Color
+pmlEsaCCI60OceanColorDaily,"ESA CCI Ocean Colour Product (CCI ALL-v6.0-DAILY), 0.041666668°, 1997-present",Ocean Color
+pmlEsaCCI60OceanColor5Day,"ESA CCI Ocean Colour Product (CCI ALL-v6.0-5DAY), 0.041666668°, 1997-present",Ocean Color
+pmlEsaCCI60OceanColor8Day,"ESA CCI Ocean Colour Product (CCI ALL-v6.0-8DAY), 0.041666668°, 1997-present",Ocean Color
+pmlEsaCCI60OceanColorMonthly,"ESA CCI Ocean Colour Product (CCI ALL-v6.0-MONTHLY), 0.041666668°, 1997-2022",Ocean Color
+erdVHNchla1day,"Chlorophyll a, North Pacific, NOAA VIIRS, 750m resolution, 2015-present (1 Day Composite)",Ocean Color
+erdVHNchla3day,"Chlorophyll a, North Pacific, NOAA VIIRS, 750m resolution, 2015-present (3 Day Composite)",Ocean Color
+erdVHNchla8day,"Chlorophyll a, North Pacific, NOAA VIIRS, 750m resolution, 2015-present (8 Day Composite)",Ocean Color
+erdVHNchlamday,"Chlorophyll a, North Pacific, NOAA VIIRS, 750m resolution, 2015-present (Monthly Composite)",Ocean Color
+erdMWchla1day,"Chlorophyll-a, Aqua MODIS, NPP, 0.0125°, West US, EXPERIMENTAL, 2002-present (1 Day Composite)",Ocean Color
+erdMWchla3day,"Chlorophyll-a, Aqua MODIS, NPP, 0.0125°, West US, EXPERIMENTAL, 2002-present (3 Day Composite)",Ocean Color
+erdMWchla8day,"Chlorophyll-a, Aqua MODIS, NPP, 0.0125°, West US, EXPERIMENTAL, 2002-present (8 Day Composite)",Ocean Color
+erdMWchla14day,"Chlorophyll-a, Aqua MODIS, NPP, 0.0125°, West US, EXPERIMENTAL, 2002-present (14 Day Composite)",Ocean Color
+erdMWchlamday,"Chlorophyll-a, Aqua MODIS, NPP, 0.0125°, West US, EXPERIMENTAL, 2002-present (Monthly Composite)",Ocean Color
+erdMBchla1day,"Chlorophyll-a, Aqua MODIS, NPP, 0.025 degrees, Pacific Ocean, 2006-present, EXPERIMENTAL (1 Day Composite)",Ocean Color
+erdMBchla3day,"Chlorophyll-a, Aqua MODIS, NPP, 0.025 degrees, Pacific Ocean, 2006-present, EXPERIMENTAL (3 Day Composite)",Ocean Color
+erdMBchla8day,"Chlorophyll-a, Aqua MODIS, NPP, 0.025 degrees, Pacific Ocean, 2006-present, EXPERIMENTAL (8 Day Composite)",Ocean Color
+erdMBchla14day,"Chlorophyll-a, Aqua MODIS, NPP, 0.025 degrees, Pacific Ocean, 2006-present, EXPERIMENTAL (14 Day Composite)",Ocean Color
+erdMBchlamday,"Chlorophyll-a, Aqua MODIS, NPP, 0.025 degrees, Pacific Ocean, 2006-present, EXPERIMENTAL (Monthly Composite)",Ocean Color
+nesdisVHNSQkd490Daily,"Kd490, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Daily",Ocean Color
+nesdisVHNSQkd490Weekly,"Kd490, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Weekly",Ocean Color
+nesdisVHNSQkd490Monthly,"Kd490, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Monthly",Ocean Color
+erdVH2018k4901day,"VIIRSN, Suomi-NPP, Level-3 SMI, NASA, Global, 4km, K490, R2018, 2012-present, Daily",Ocean Color
+erdVH2018k4908day,"VIIRSN, Suomi-NPP, Level-3 SMI, NASA, Global, 4km, K490, R2018, 2012-present, 8-Day",Ocean Color
+erdVH2018k490mday,"VIIRSN, Suomi-NPP, Level-3 SMI, NASA, Global, 4km, K490, R2018, 2012-present, Monthly",Ocean Color
+nesdisVHNSQkdparDaily,"KdPAR, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Daily",Ocean Color
+nesdisVHNSQkdparWeekly,"KdPAR, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Weekly",Ocean Color
+nesdisVHNSQkdparMonthly,"KdPAR, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Monthly",Ocean Color
+nesdisVHNkdparDaily,"KdPAR, NOAA S-NPP VIIRS, Near Real-Time, Global 4km, Level 3, 2015-present, Daily",Ocean Color
+nesdisVHNkdparWeekly,"KdPAR, NOAA S-NPP VIIRS, Near Real-Time, Global 4km, Level 3, 2015-present, Weekly",Ocean Color
+nesdisVHNSQnLw410Daily,"nLw410, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Daily",Ocean Color
+nesdisVHNSQnLw410Monthly,"nLw410, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Monthly",Ocean Color
+nesdisVHNSQnLw410Weekly,"nLw410, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Weekly",Ocean Color
+nesdisVHNSQnLw410Daily_Lon0360,"nLw410, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Daily, Lon0360",Ocean Color
+nesdisVHNSQnLw410Monthly_Lon0360,"nLw410, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Monthly, Lon0360",Ocean Color
+nesdisVHNSQnLw410Weekly_Lon0360,"nLw410, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Weekly, Lon0360",Ocean Color
+nesdisVHNSQnLw443Daily,"nLw443, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Daily",Ocean Color
+nesdisVHNSQnLw443Monthly,"nLw443, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Monthly",Ocean Color
+nesdisVHNSQnLw443Weekly,"nLw443, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Weekly",Ocean Color
+nesdisVHNSQnLw443Daily_Lon0360,"nLw443, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Daily, Lon0360",Ocean Color
+nesdisVHNSQnLw443Monthly_Lon0360,"nLw443, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Monthly, Lon0360",Ocean Color
+nesdisVHNSQnLw443Weekly_Lon0360,"nLw443, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Weekly, Lon0360",Ocean Color
+nesdisVHNSQnLw486Daily,"nLw486, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Daily",Ocean Color
+nesdisVHNSQnLw486Monthly,"nLw486, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Monthly",Ocean Color
+nesdisVHNSQnLw486Weekly,"nLw486, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Weekly",Ocean Color
+nesdisVHNSQnLw486Daily_Lon0360,"nLw486, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Daily, Lon0360",Ocean Color
+nesdisVHNSQnLw486Monthly_Lon0360,"nLw486, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Monthly, Lon0360",Ocean Color
+nesdisVHNSQnLw486Weekly_Lon0360,"nLw486, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Weekly, Lon0360",Ocean Color
+nesdisVHNSQnLw551Daily,"nLw551, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Daily",Ocean Color
+nesdisVHNSQnLw551Monthly,"nLw551, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Monthly",Ocean Color
+nesdisVHNSQnLw551Weekly,"nLw551, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Weekly",Ocean Color
+nesdisVHNSQnLw551Daily_Lon0360,"nLw551, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Daily, Lon0360",Ocean Color
+nesdisVHNSQnLw551Monthly_Lon0360,"nLw551, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Monthly, Lon0360",Ocean Color
+nesdisVHNSQnLw551Weekly_Lon0360,"nLw551, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Weekly, Lon0360",Ocean Color
+nesdisVHNSQnLw671Daily,"nLw671, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Daily",Ocean Color
+nesdisVHNSQnLw671Monthly,"nLw671, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Monthly",Ocean Color
+nesdisVHNSQnLw671Weekly,"nLw671, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Weekly",Ocean Color
+nesdisVHNSQnLw671Daily_Lon0360,"nLw671, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Daily, Lon0360",Ocean Color
+nesdisVHNSQnLw671Monthly_Lon0360,"nLw671, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Monthly, Lon0360",Ocean Color
+nesdisVHNSQnLw671Weekly_Lon0360,"nLw671, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012-present, Weekly, Lon0360",Ocean Color
+nesdisVHNnLw410Daily,"nLw410, NOAA S-NPP, VIIRS, Near Real-Time, Global 4km, 2017-present, Daily",Ocean Color
+nesdisVHNnLw410Weekly,"nLw410, NOAA S-NPP, VIIRS, Near Real-Time, Global 4km, 2017-present, Weekly",Ocean Color
+nesdisVHNnLw410Daily_Lon0360,"nLw410, NOAA S-NPP, VIIRS, Near Real-Time, Global 4km, 2017-present, Daily, Lon0360",Ocean Color
+nesdisVHNnLw410Weekly_Lon0360,"nLw410, NOAA S-NPP, VIIRS, Near Real-Time, Global 4km, 2017-present, Weekly, Lon0360",Ocean Color
+nesdisVHNnLw443Daily,"nLw443, NOAA S-NPP, VIIRS, Near Real-Time, Global 4km, 2017-present, Daily",Ocean Color
+nesdisVHNnLw443Daily_Lon0360,"nLw443, NOAA S-NPP, VIIRS, Near Real-Time, Global 4km, 2017-present, Daily, Lon0360",Ocean Color
+nesdisVHNnLw486Daily,"nLw486, NOAA S-NPP, VIIRS, Near Real-Time, Global 4km, 2017-present, Daily",Ocean Color
+nesdisVHNnLw486Weekly,"nLw486, NOAA S-NPP, VIIRS, Near Real-Time, Global 4km, 2017-present, Weekly",Ocean Color
+nesdisVHNnLw486Daily_Lon0360,"nLw486, NOAA S-NPP, VIIRS, Near Real-Time, Global 4km, 2017-present, Daily, Lon0360",Ocean Color
+nesdisVHNnLw486Weekly_Lon0360,"nLw486, NOAA S-NPP, VIIRS, Near Real-Time, Global 4km, 2017-present, Weekly, Lon0360",Ocean Color
+nesdisVHNnLw551Daily,"nLw551, NOAA S-NPP, VIIRS, Near Real-Time, Global 4km, 2017-present, Daily",Ocean Color
+nesdisVHNnLw551Weekly,"nLw551, NOAA S-NPP, VIIRS, Near Real-Time, Global 4km, 2017-present, Weekly",Ocean Color
+nesdisVHNnLw551Daily_Lon0360,"nLw551, NOAA S-NPP, VIIRS, Near Real-Time, Global 4km, 2017-present, Daily, Lon0360",Ocean Color
+nesdisVHNnLw551Weekly_Lon0360,"nLw551, NOAA S-NPP, VIIRS, Near Real-Time, Global 4km, 2017-present, Weekly, Lon0360",Ocean Color
+nesdisVHNnLw671Daily,"nLw671, NOAA S-NPP, VIIRS, Near Real-Time, Global 4km, 2017-present, Daily",Ocean Color
+nesdisVHNnLw671Weekly,"nLw671, NOAA S-NPP, VIIRS, Near Real-Time, Global 4km, 2017-present, Weekly",Ocean Color
+nesdisVHNnLw671Daily_Lon0360,"nLw671, NOAA S-NPP, VIIRS, Near Real-Time, Global 4km, 2017-present, Daily, Lon0360",Ocean Color
+nesdisVHNnLw671Weekly_Lon0360,"nLw671, NOAA S-NPP, VIIRS, Near Real-Time, Global 4km, 2017-present, Weekly, Lon0360",Ocean Color
+erdVH2018poc1day),"VIIRSN, Suomi-NPP, Level-3 SMI, NASA, Global, 4km, POC, R2018, 2012-present, Daily",Ocean Color
+erdVH2018poc8day,"VIIRSN, Suomi-NPP, Level-3 SMI, NASA, Global, 4km, POC, R2018, 2012-present, 8-Day",Ocean Color
+erdVH2018pocmday,"VIIRSN, Suomi-NPP, Level-3 SMI, NASA, Global, 4km, POC, R2018, 2012-present, Monthly",Ocean Color
+erdVH2018pic1day,"VIIRSN, Suomi-NPP, Level-3 SMI, NASA, Global, 4km, PIC, R2018, 2012-present, Daily",Ocean Color
+erdVH2018pic8day,"VIIRSN, Suomi-NPP, Level-3 SMI, NASA, Global, 4km, PIC, R2018, 2012-present, 8-Day",Ocean Color
+erdVH2018picmday,"VIIRSN, Suomi-NPP, Level-3 SMI, NASA, Global, 4km, PIC, R2018, 2012-present, Monthly",Ocean Color
+erdMH1kd4901day,"Diffuse Attenuation K490, Aqua MODIS, NPP, L3SMI, Global, 4km, Science Quality, 2003-present (1 Day Composite)",Ocean Color
+erdMH1kd4908day,"Diffuse Attenuation K490, Aqua MODIS, NPP, L3SMI, Global, 4km, Science Quality, 2003-present (8 Day Composite)",Ocean Color
+erdMH1kd490mday,"Diffuse Attenuation K490, Aqua MODIS, NPP, L3SMI, Global, 4km, Science Quality, 2003-present (Monthly Composite)",Ocean Color
+erdMH1pp1day,"Primary Productivity, Aqua MODIS, NPP, Global, 2003-present, EXPERIMENTAL (1 Day Composite)",Ocean Color
+erdMH1ppmday,"Primary Productivity, Aqua MODIS, NPP, Global, 2003-present, EXPERIMENTAL (Monthly Composite)",Ocean Color
+erdMH1ppmday,"Primary Productivity, Aqua MODIS, NPP, Global, 2003-present, EXPERIMENTAL (Monthly Composite)",Ocean Color
+erdMPIC1day,"MODIS Aqua, Level-3 SMI, Global, 4km, Particulate Inorganic Carbon, 2003-present (1 Day Composite)",Ocean Color
+erdMPOC8day,"MODIS Aqua, Level-3 SMI, Global, 4km, Particulate Organic Carbon, 2003-present (8 Day Composite)",Ocean Color
+erdMPOCmday,"MODIS Aqua, Level-3 SMI, Global, 4km, Particulate Organic Carbon, 2003-present (Monthly Composite)",Ocean Color
+erdMPIC1day,"MODIS Aqua, Level-3 SMI, Global, 4km, Particulate Inorganic Carbon, 2003-present (1 Day Composite)",Ocean Color
+erdMPIC8day,"MODIS Aqua, Level-3 SMI, Global, 4km, Particulate Inorganic Carbon, 2003-present (8 Day Composite)",Ocean Color
+erdMPICmday,"MODIS Aqua, Level-3 SMI, Global, 4km, Particulate Inorganic Carbon, 2003-present (Monthly Composite)",Ocean Color
+erdMH1par01day,"Photosynthetically Available Radiation, Aqua MODIS, NPP, L3SMI, Global, 4km, Science Quality, 2003-present (1 Day Composite)",Ocean Color
+erdMH1par08day,"Photosynthetically Available Radiation, Aqua MODIS, NPP, L3SMI, Global, 4km, Science Quality, 2003-present (8 Day Composite)",Ocean Color
+erdMH1par0mday,"Photosynthetically Available Radiation, Aqua MODIS, NPP, L3SMI, Global, 4km, Science Quality, 2003-present (Monthly Composite)",Ocean Color
+erdQAwind1day,"Wind, Metop-A ASCAT, 0.25°, Global, Near Real Time, 2009-present (1 Day)",Wind
+erdQAwind14day,"Wind, Metop-A ASCAT, 0.25°, Global, Near Real Time, 2009-present (14 Day)",Wind
+erdQAwind3day,"Wind, Metop-A ASCAT, 0.25°, Global, Near Real Time, 2009-present (3 Day)",Wind
+erdQAwind8day,"Wind, Metop-A ASCAT, 0.25°, Global, Near Real Time, 2009-present (8 Day)",Wind
+erdQAwindmday,"Wind, Metop-A ASCAT, 0.25°, Global, Near Real Time, 2009-present (Monthly)",Wind
+erdQAwind1day_LonPM180,"Wind, Metop-A ASCAT, 0.25°, Global, Near Real Time, 2009-present (1 Day), Lon+/-180",Wind
+erdQAwind14day_LonPM180,"Wind, Metop-A ASCAT, 0.25°, Global, Near Real Time, 2009-present (14 Day), Lon+/-180",Wind
+erdQAwind3day_LonPM180,"Wind, Metop-A ASCAT, 0.25°, Global, Near Real Time, 2009-present (3 Day), Lon+/-180",Wind
+erdQAwind8day_LonPM180,"Wind, Metop-A ASCAT, 0.25°, Global, Near Real Time, 2009-present (8 Day), Lon+/-180",Wind
+erdQAwindmday_LonPM180,"Wind, Metop-A ASCAT, 0.25°, Global, Near Real Time, 2009-present (Monthly), Lon+/-180",Wind
+erdQBwind1day,"Wind, Metop-B ASCAT, 0.25°, Global, Near Real Time, 2013-present (1 Day)",Wind
+erdQBwind14day,"Wind, Metop-B ASCAT, 0.25°, Global, Near Real Time, 2013-present (14 Day)",Wind
+erdQBwind3day,"Wind, Metop-B ASCAT, 0.25°, Global, Near Real Time, 2013-present (3 Day)",Wind
+erdQBwind8day,"Wind, Metop-B ASCAT, 0.25°, Global, Near Real Time, 2013-present (8 Day)",Wind
+erdQBwindmday,"Wind, Metop-B ASCAT, 0.25°, Global, Near Real Time, 2013-present (Monthly)",Wind
+erdQBwind1day_LonPM180,"Wind, Metop-B ASCAT, 0.25°, Global, Near Real Time, 2013-present (1 Day), Lon+/-180",Wind
+erdQBwind14day_LonPM180,"Wind, Metop-B ASCAT, 0.25°, Global, Near Real Time, 2013-present (14 Day), Lon+/-180",Wind
+erdQBwind3day_LonPM180,"Wind, Metop-B ASCAT, 0.25°, Global, Near Real Time, 2013-present (3 Day), Lon+/-180",Wind
+erdQBwind8day_LonPM180,"Wind, Metop-B ASCAT, 0.25°, Global, Near Real Time, 2013-present (8 Day), Lon+/-180",Wind
+erdQBwindmday_LonPM180,"Wind, Metop-B ASCAT, 0.25°, Global, Near Real Time, 2013-present (Monthly), Lon+/-180",Wind
+erdQAstress1day,"Wind Stress, Metop-A ASCAT, 0.25°, Global, Near Real Time, 2009-present (1 Day)",Wind
+erdQAstress14day,"Wind Stress, Metop-A ASCAT, 0.25°, Global, Near Real Time, 2009-present (14 Day)",Wind
+erdQAstress3day,"Wind Stress, Metop-A ASCAT, 0.25°, Global, Near Real Time, 2009-present (3 Day)",Wind
+erdQAstress8day,"Wind Stress, Metop-A ASCAT, 0.25°, Global, Near Real Time, 2009-present (8 Day)",Wind
+erdQAstressmday,"Wind Stress, Metop-A ASCAT, 0.25°, Global, Near Real Time, 2009-present (Monthly)",Wind
+erdQAstress1day_LonPM180,"Wind Stress, Metop-A ASCAT, 0.25°, Global, Near Real Time, 2009-present (1 Day), Lon+/-180",Wind
+erdQAstress14day_LonPM180,"Wind Stress, Metop-A ASCAT, 0.25°, Global, Near Real Time, 2009-present (14 Day), Lon+/-180",Wind
+erdQAstress3day_LonPM180,"Wind Stress, Metop-A ASCAT, 0.25°, Global, Near Real Time, 2009-present (3 Day), Lon+/-180",Wind
+erdQAstress8day_LonPM180,"Wind Stress, Metop-A ASCAT, 0.25°, Global, Near Real Time, 2009-present (8 Day), Lon+/-180",Wind
+erdQAstressmday_LonPM180,"Wind Stress, Metop-A ASCAT, 0.25°, Global, Near Real Time, 2009-present (Monthly), Lon+/-180",Wind
+erdQBstress1day,"Wind Stress, Metop-B ASCAT, 0.25°, Global, Near Real Time, 2013-present (1 Day)",Wind
+erdQBstress14day,"Wind Stress, Metop-B ASCAT, 0.25°, Global, Near Real Time, 2013-present (14 Day)",Wind
+erdQBstress3day,"Wind Stress, Metop-B ASCAT, 0.25°, Global, Near Real Time, 2013-present (3 Day)",Wind
+erdQBstress8day,"Wind Stress, Metop-B ASCAT, 0.25°, Global, Near Real Time, 2013-present (8 Day)",Wind
+erdQBstressmday,"Wind Stress, Metop-B ASCAT, 0.25°, Global, Near Real Time, 2013-present (Monthly)",Wind
+erdQBstress1day_LonPM180,"Wind Stress, Metop-B ASCAT, 0.25°, Global, Near Real Time, 2013-present (1 Day), Lon+/-180",Wind
+erdQBstress14day_LonPM180,"Wind Stress, Metop-B ASCAT, 0.25°, Global, Near Real Time, 2013-present (14 Day), Lon+/-180",Wind
+erdQBstress3day_LonPM180,"Wind Stress, Metop-B ASCAT, 0.25°, Global, Near Real Time, 2013-present (3 Day), Lon+/-180",Wind
+erdQBstress8day_LonPM180,"Wind Stress, Metop-B ASCAT, 0.25°, Global, Near Real Time, 2013-present (8 Day), Lon+/-180",Wind
+erdQBstressmday_LonPM180,"Wind Stress, Metop-B ASCAT, 0.25°, Global, Near Real Time, 2013-present (Monthly), Lon+/-180",Wind
+erdQAekm1day,"Wind Diffusivity Current, Metop-A ASCAT, 0.25°, Global, Near Real Time, 2009-present (1 Day)",Wind
+erdQAekm14day,"Wind Diffusivity Current, Metop-A ASCAT, 0.25°, Global, Near Real Time, 2009-present (14 Day)",Wind
+erdQAekm3day,"Wind Diffusivity Current, Metop-A ASCAT, 0.25°, Global, Near Real Time, 2009-present (3 Day)",Wind
+erdQAekm8day,"Wind Diffusivity Current, Metop-A ASCAT, 0.25°, Global, Near Real Time, 2009-present (8 Day)",Wind
+erdQAekmmday,"Wind Diffusivity Current, Metop-A ASCAT, 0.25°, Global, Near Real Time, 2009-present (Monthly)",Wind
+erdQAekm1day_LonPM180,"Wind Diffusivity Current, Metop-A ASCAT, 0.25°, Global, Near Real Time, 2009-present (1 Day), Lon+/-180",Wind
+erdQAekm14day_LonPM180,"Wind Diffusivity Current, Metop-A ASCAT, 0.25°, Global, Near Real Time, 2009-present (14 Day), Lon+/-180",Wind
+erdQAekm3day_LonPM180,"Wind Diffusivity Current, Metop-A ASCAT, 0.25°, Global, Near Real Time, 2009-present (3 Day), Lon+/-180",Wind
+erdQAekm8day_LonPM180,"Wind Diffusivity Current, Metop-A ASCAT, 0.25°, Global, Near Real Time, 2009-present (8 Day), Lon+/-180",Wind
+erdQAekmmday_LonPM180,"Wind Diffusivity Current, Metop-A ASCAT, 0.25°, Global, Near Real Time, 2009-present (Monthly), Lon+/-180",Wind
+erdQBekm1day,"Wind Diffusivity Current, Metop-B ASCAT, 0.25°, Global, Near Real Time, 2013-present (1 Day)",Wind
+erdQBekm14day,"Wind Diffusivity Current, Metop-B ASCAT, 0.25°, Global, Near Real Time, 2013-present (14 Day)",Wind
+erdQBekm3day,"Wind Diffusivity Current, Metop-B ASCAT, 0.25°, Global, Near Real Time, 2013-present (3 Day)",Wind
+erdQBekm8day,"Wind Diffusivity Current, Metop-B ASCAT, 0.25°, Global, Near Real Time, 2013-present (8 Day)",Wind
+erdQBekmmday,"Wind Diffusivity Current, Metop-B ASCAT, 0.25°, Global, Near Real Time, 2013-present (Monthly)",Wind
+erdQBekm1day_LonPM180,"Wind Diffusivity Current, Metop-B ASCAT, 0.25°, Global, Near Real Time, 2013-present (1 Day), Lon+/-180",Wind
+erdQBekm14day_LonPM180,"Wind Diffusivity Current, Metop-B ASCAT, 0.25°, Global, Near Real Time, 2013-present (14 Day), Lon+/-180",Wind
+erdQBekm3day_LonPM180,"Wind Diffusivity Current, Metop-B ASCAT, 0.25°, Global, Near Real Time, 2013-present (3 Day), Lon+/-180",Wind
+erdQBekm8day_LonPM180,"Wind Diffusivity Current, Metop-B ASCAT, 0.25°, Global, Near Real Time, 2013-present (8 Day), Lon+/-180",Wind
+erdQBekmmday_LonPM180,"Wind Diffusivity Current, Metop-B ASCAT, 0.25°, Global, Near Real Time, 2013-present (Monthly), Lon+/-180",Wind
+erdQCwindproducts4hrAscending,"Merge Windspeed, Stress, Curl, Divergence, and Ekman Upwelling, Metop-C ASCAT,0.25 degree, Global, Near Real Time, 2020-present, 4 hour",Wind
+erdQCwindproducts4hrDecending,"Merge Windspeed, Stress, Curl, Divergence, and Ekman Upwelling, Metop-C ASCAT, 0.25 degree, Global, Near Real Time, 2020-present, 4 hour",Wind
+erdQCwindproducts1day,"Merge Windspeed, Stress, Curl, Divergence, and Ekman Upwelling, Metop-C ASCAT, 0.25 degree, Global, Near Real Time, 2020-present, 1-Day Composite",Wind
+erdQCwindproducts3day,"Merge Windspeed, Stress, Curl, Divergence, and Ekman Upwelling, Metop-C ASCAT, 0.25 degree, Global, Near Real Time, 2020-present, 3-Day Composite",Wind
+erdQCwindproducts7day,"Merge Windspeed, Stress, Curl, Divergence, and Ekman Upwelling, Metop-C ASCAT, 0.25 degree, Global, Near Real Time, 2020-present, 7-Day Composite",Wind
+erdQCwindproductsMonthly,"Merge Windspeed, Stress, Curl, Divergence, and Ekman Upwelling, Metop-C ASCAT, 0.25 degree, Global, Near Real Time, 2020-present, Monthly Composite",Wind
+erdQSwind1day,"Wind, QuikSCAT SeaWinds, 0.125°, Global, Science Quality, 1999-2009 (1 Day)",Wind
+erdQSwind3day,"Wind, QuikSCAT SeaWinds, 0.125°, Global, Science Quality, 1999-2009 (3 Day)",Wind
+erdQSwind8day,"Wind, QuikSCAT SeaWinds, 0.125°, Global, Science Quality, 1999-2009 (8 Day)",Wind
+erdQSwindmday,"Wind, QuikSCAT SeaWinds, 0.125°, Global, Science Quality, 1999-2009 (Monthly)",Wind
+erdQSwind4day,"Wind, QuikSCAT SeaWinds, 0.125°, Global, Science Quality, 2007-2007 (4 Day)",Wind
+erdQSwind1day_LonPM180,"Wind, QuikSCAT SeaWinds, 0.125°, Global, Science Quality, 1999-2009 (1 Day), Lon+/-180",Wind
+erdQSwind3day_LonPM180,"Wind, QuikSCAT SeaWinds, 0.125°, Global, Science Quality, 1999-2009 (3 Day), Lon+/-180",Wind
+erdQSwind8day_LonPM180,"Wind, QuikSCAT SeaWinds, 0.125°, Global, Science Quality, 1999-2009 (8 Day), Lon+/-180",Wind
+erdQSwind4day_LonPM180,"Wind, QuikSCAT SeaWinds, 0.125°, Global, Science Quality, 2007-2007 (4 Day), Lon+/-180",Wind
+erdQSwindmday_LonPM180,"Wind, QuikSCAT SeaWinds, 0.125°, Global, Science Quality, 1999-2009 (Monthly), Lon+/-180",Wind
+erdQSstress1day,"Wind Stress, QuikSCAT SeaWinds, 0.125°, Global, Science Quality, 1999-2009 (1 Day)",Wind
+erdQSstress14day,"Wind Stress, QuikSCAT SeaWinds, 0.125°, Global, Science Quality, 1999-2009 (14 Day)",Wind
+erdQSstress3day,"Wind Stress, QuikSCAT SeaWinds, 0.125°, Global, Science Quality, 1999-2009 (3 Day)",Wind
+erdQSstress8day,"Wind Stress, QuikSCAT SeaWinds, 0.125°, Global, Science Quality, 1999-2009 (8 Day)",Wind
+erdQSstressmday,"Wind Stress, QuikSCAT SeaWinds, 0.125°, Global, Science Quality, 1999-2009 (Monthly)",Wind
+erdQSstress1day_LonPM180,"Wind Stress, QuikSCAT SeaWinds, 0.125°, Global, Science Quality, 1999-2009 (1 Day), Lon+/-180",Wind
+erdQSstress14day_LonPM180,"Wind Stress, QuikSCAT SeaWinds, 0.125°, Global, Science Quality, 1999-2009 (14 Day), Lon+/-180",Wind
+erdQSstress3day_LonPM180,"Wind Stress, QuikSCAT SeaWinds, 0.125°, Global, Science Quality, 1999-2009 (3 Day), Lon+/-180",Wind
+erdQSstress8day_LonPM180,"Wind Stress, QuikSCAT SeaWinds, 0.125°, Global, Science Quality, 1999-2009 (8 Day), Lon+/-180",Wind
+erdQSstressmday_LonPM180,"Wind Stress, QuikSCAT SeaWinds, 0.125°, Global, Science Quality, 1999-2009 (Monthly), Lon+/-180",Wind
+erdQSekm1day,"Wind Diffusivity Current, QuikSCAT SeaWinds, 0.125°, Global, Science Quality, 1999-2009 (1 Day)",Wind
+erdQSekm14day,"Wind Diffusivity Current, QuikSCAT SeaWinds, 0.125°, Global, Science Quality, 1999-2009 (14 Day)",Wind
+erdQSekm3day,"Wind Diffusivity Current, QuikSCAT SeaWinds, 0.125°, Global, Science Quality, 1999-2009 (3 Day)",Wind
+erdQSekm8day,"Wind Diffusivity Current, QuikSCAT SeaWinds, 0.125°, Global, Science Quality, 1999-2009 (8 Day)",Wind
+erdQSekmmday,"Wind Diffusivity Current, QuikSCAT SeaWinds, 0.125°, Global, Science Quality, 1999-2009 (Monthly)",Wind
+erdQSekm1day_LonPM180,"Wind Diffusivity Current, QuikSCAT SeaWinds, 0.125°, Global, Science Quality, 1999-2009 (1 Day), Lon+/-180",Wind
+erdQSekm14day_LonPM180,"Wind Diffusivity Current, QuikSCAT SeaWinds, 0.125°, Global, Science Quality, 1999-2009 (14 Day), Lon+/-180",Wind
+erdQSekm3day_LonPM180,"Wind Diffusivity Current, QuikSCAT SeaWinds, 0.125°, Global, Science Quality, 1999-2009 (3 Day), Lon+/-180",Wind
+erdQSekm8day_LonPM180,"Wind Diffusivity Current, QuikSCAT SeaWinds, 0.125°, Global, Science Quality, 1999-2009 (8 Day), Lon+/-180",Wind
+erdQSekmmday_LonPM180,"Wind Diffusivity Current, QuikSCAT SeaWinds, 0.125°, Global, Science Quality, 1999-2009 (Monthly), Lon+/-180",Wind
+coastwatchSMOSv662SSS1day,"Sea Surface Salinity, Miras SMOS, Near Real-Time, Global 0.25°, 2010-present, Daily",Salinity
+coastwatchSMOSv662SSS3day,"Sea Surface Salinity, Miras SMOS, Near Real-Time, Global 0.25°, 2010-present, 3 Day Composite",Salinity
+noaacwSMAPsssDaily,"Sea Surface Salinity, SMAP, Near Real-Time, Global 0.25°, 2015-present, Daily",Salinity
+iprcAquariusOISSS7day,"IPRC, Aquarius, Optimally Interpolated Salinity, 0.5°;, Global, 7-Day, 2011-2015, v4.0",Salinity
+nesdisSSH1day,"NOAA CoastWatch, Sea Surface Height Anomalies and Geostrophic Currents from Altimetry, Global, 2017-present, EXPERIMENTAL",Sea Level and Geostrophic Currents
+erdTAssh1day,"Sea Surface Height, Absolute, Aviso, 0.25 degrees, Global, 1992-2012, Science Quality (1 Day Composite)",Sea Level and Geostrophic Currents
+erdTAsshmday,"Sea Surface Height, Absolute, Aviso, 0.25 degrees, Global, 1992-2010, Science Quality (Monthly Composite)",Sea Level and Geostrophic Currents
+erdTAgeo1day,"Currents, Geostrophic, Aviso, 0.25 degrees, Global, 1992-2012 (1 Day Composite)",Sea Level and Geostrophic Currents
+erdTAgeomday,"Currents, Geostrophic, Aviso, 0.25 degrees, Global, 1992-2009 (Monthly Composite)",Sea Level and Geostrophic Currents

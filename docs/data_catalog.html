@@ -109,6 +109,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Data Catalog</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./dataset_monitor.html">
+ <span class="dropdown-text">Dataset Monitor</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./data_server.html">
  <span class="dropdown-text">Data Server</span></a>
   </li>  
@@ -145,6 +149,10 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="./coastwatch.html">
  <span class="dropdown-text">CoastWatch</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./people.html">
+ <span class="dropdown-text">People</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./contact_us.html">
@@ -197,6 +205,7 @@ ul.task-list li input[type="checkbox"] {
 <p>The West Coast Node ERDDAP data server hosts over 1,700 datasets.</p>
 <p>On this catalog page, we’ve highlighted the most commonly used datasets by our users. To help you quickly find the dataset you need, use the interactive filter tool below — just answer a few short questions about the product type, sensor, region, and more.</p>
 <p>To explore the full list of all available datasets, visit the <a href="https://coastwatch.pfeg.noaa.gov/erddap/info/index.html?page=1&amp;itemsPerPage=1000"><strong>ERDDAP Server</strong></a>.</p>
+<p>To explore the status of these datasets, visit the <a href="./dataset_monitor.html">Dataset Monitoring Dashboard</a></p>
 <section id="find-the-dataset-youre-looking-for" class="level3 filter-panel" data-appearance="card" style="padding: 2rem; border-radius: 1rem; background-color: #f8f9fa;">
 <h3 data-anchor-id="find-the-dataset-youre-looking-for">Find the dataset you’re looking for</h3>
 <p>Use the step-by-step filters below to narrow down to your ideal dataset.</p>
@@ -236,7 +245,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="mb-3 mt-4">
 <p><button id="resetFilters" class="btn btn-outline-secondary"> Reset Filters</button></p>
 </div>
-<div id="cb530761" class="cell" data-execution_count="1">
+<div id="1cc4ce63" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 
     </div></div><table id="catalogTable" class="table table-striped">
@@ -1009,18 +1018,19 @@ document.addEventListener("DOMContentLoaded", function () {
   font-size: 1.125rem;
 ">
   <div style="
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
+    padding: 0 1rem;
   ">
-
-    <!-- Top link bar -->
+    
+  <!-- Top link bar -->
+  <div style="text-align: center; margin-bottom: 1.5rem;">
     <div style="
-      display: flex;
-      justify-content: space-evenly;
+      display: inline-flex;
+      justify-content: center;
       align-items: center;
-      gap: 1.5rem;
-      margin-bottom: 1.5rem;
-      white-space: nowrap;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
     ">
       <a href="https://www.fisheries.noaa.gov/" style="color: #336699; text-decoration: none;">Fisheries</a>
       <a href="https://www.star.nesdis.noaa.gov/star/index.php" style="color: #336699; text-decoration: none;">STAR</a>
@@ -1028,6 +1038,8 @@ document.addEventListener("DOMContentLoaded", function () {
       <a href="https://www.fisheries.noaa.gov/about/southwest-fisheries-science-center" style="color: #336699; text-decoration: none;">Southwest Fisheries</a>
       <a href="https://www.fisheries.noaa.gov/about/climate-and-ecosystems-program-southwest-fisheries-science-center" style="color: #336699; text-decoration: none;">Environmental Research Division</a>
     </div>
+  </div>
+
 
     <!-- Logo + tagline -->
     <div style="

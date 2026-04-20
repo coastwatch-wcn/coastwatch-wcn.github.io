@@ -1,0 +1,484 @@
+---
+title: "Data Dashboard"
+prev: turtlewatch-closure-status.html
+prev_label: Conservation Area Status
+next: turtlewatch.html
+next_label: TurtleWatch Home Page
+format: 
+  html:
+    theme: lux
+    page-layout: full
+    toc: false
+    css: ../../styles.css
+anchor-sections: false
+---
+
+::: {.turtlewatch-page}
+
+:::{.year-select-wrapper}
+**Select Year:**
+<select id="year-select-input">
+  <option value="2025" selected>2025</option>
+  <option value="2024">2024</option>
+  <option value="2023">2023</option>
+  <option value="2022">2022</option>
+  <option value="2021">2021</option>
+  <option value="2020">2020</option>
+  <option value="2019">2019</option>
+  <option value="2018">2018</option>
+  <option value="2017">2017</option>
+  <option value="2016">2016</option>
+  <option value="2015">2015</option>
+  <option value="2014">2014</option>
+  <option value="2013">2013</option>
+  <option value="2012">2012</option>
+  <option value="2011">2011</option>
+  <option value="2010">2010</option>
+  <option value="2009">2009</option>
+  <option value="2008">2008</option>
+  <option value="2007">2007</option>
+  <option value="2006">2006</option>
+  <option value="2005">2005</option>
+  <option value="2004">2004</option>
+  <option value="2003">2003</option>
+</select>
+
+:::
+
+:::{.dashboard-card}
+### Historical Closure and Environmental Information
+
+View the closure status of the Pacific Loggerhead Conservation Area and the seasonal (March-August) or annual (January-December) prevailing oceanic environmental conditions from the years 2003 to the present.
+
+:::
+
+
+::: {.dashboard-card}
+### Closure History
+
+::: {.dashboard-grid}
+
+::: {.dashboard-subcard}
+#### Pacific Loggerhead Conservation Area Closures - <span id="closure-year">2025</span> Season {.dashboard-title}
+
+<p id="closure-text">Loading closure history...</p>
+
+<small>
+*[Closure status provided by NOAA Fisheries West Coast Regional Office](https://www.westcoast.fisheries.noaa.gov/)
+</small>
+:::
+
+:::
+:::
+
+
+::: {.dashboard-card}
+### Environmental Conditions
+
+::: {.dashboard-grid}
+
+::: {.dashboard-subcard}
+#### El Niño Conditions and Coastal Water Temperatures - <span id="elnino-year">2025</span> Season {.dashboard-title}
+
+<div class="unit-toggle">
+<label><input type="radio" name="unit" value="C" checked> °C</label>
+<label><input type="radio" name="unit" value="F"> °F</label>
+</div>
+
+<table id="elnino-table">
+  <thead>
+    <tr>
+      <th>Month</th>
+      <th>El Niño Status</th>
+      <th>El Niño Forecast</th>
+      <th id="temp-header">SST (°C)</th>
+      <th id="anom-header">Anomaly (°C)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- rows will be filled by JS -->
+  </tbody>
+</table>
+:::
+
+:::
+:::
+
+
+::: {.dashboard-card}
+### TOTAL Bycatch Avoidance Tool
+
+::: {.dashboard-grid}
+
+::: {.dashboard-subcard}
+#### TOTAL Time Series – <span id="bycatch-year">2025</span> {.dashboard-title}
+
+<p id="bycatch-range">January – December 2025</p>
+
+**Temperature Observations To Avoid Loggerhead (TOTAL)** values for the Loggerhead Conservation Area.  
+An alert is indicated when indicator values (the time series) exceed a threshold of **0.77 (red horizontal line)**.
+
+![](data/images/indicator_placeholder.png){#bycatch-img fig-align="center"}
+
+:::
+
+:::
+:::
+
+
+::: {.dashboard-card}
+### Monthly Sea Surface Maps
+
+::: {.dashboard-grid}
+
+::: {.dashboard-subcard}
+#### Sea Surface Temperature <span id="sst-year">2025</span> {.dashboard-title}
+
+:::{.sst-dash-slider}
+[‹ Previous]{.prev}
+[Next ›]{.next}
+
+![](data/images/sst_placeholder.png){#sst-dash-image}
+:::
+
+Monthly mean sea surface temperature off Southern California. The Pacific Loggerhead Conservation Area is located within the black lines and the coast. Use arrows to view the last six months of measurements.
+
+:::
+
+::: {.dashboard-subcard}
+#### Sea Surface Temperature Anomaly <span id="anom-year">2025</span> {.dashboard-title}
+
+:::{.anom-dash-slider}
+[‹ Previous]{.prev}
+[Next ›]{.next}
+
+![](data/images/anom_placeholder.png){#anom-dash-image}
+:::
+Monthly mean surface temperature anomaly (deviation from the average temperature) off Southern California. The loggerhead conservation area is located within the black lines and the coast. Use arrows to view the last six months of measurements.
+
+:::
+:::
+
+:::
+
+
+::: {.turtlewatch-disclaimer}
+The information on this page may be used and redistributed freely, but is not intended for legal use. Neither the data contributors, CoastWatch, NOAA SWFSC, nor any of their employees or contractors, makes any warranty, express or implied, including warranties of merchantability and fitness for a particular purpose, or assumes any legal liability for the accuracy, completeness, or usefulness of this information. For official information about El Niño/La Niña contact [NOAA's Climate Prediction Center](https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml). For official information about regulation of the drift gillnet (DGN) fishery contact [NOAA Fisheries West Coast Regional Office](https://www.westcoast.fisheries.noaa.gov/).
+:::
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<script>
+let turtlewatchRows = [];
+let closureData = [];
+let currentUnit = "C";
+function isFilled(value) {
+  return value !== undefined &&
+         value !== null &&
+         String(value).trim() !== "" &&
+         String(value).trim().toLowerCase() !== "nan";
+}
+function parseRowsFromJsonp(data) {
+  const columnNames = data?.table?.columnNames || [];
+  const rows = data?.table?.rows || [];
+  return rows.map(rowArray => {
+    const row = {};
+    columnNames.forEach((col, i) => {
+      row[col] = rowArray[i];
+    });
+    return row;
+  });
+}
+function getYearFromRow(row) {
+  const dateValue = row.time || row.map_date_iso || row.month_date;
+  if (!isFilled(dateValue)) return null;
+  const d = new Date(dateValue);
+  if (isNaN(d)) return null;
+  return d.getFullYear();
+}
+function getMonthOrder(row) {
+  if (isFilled(row.map_date_ym)) {
+    return String(row.map_date_ym);
+  }
+  const dateValue = row.map_date_iso || row.time || row.month_date;
+  if (!isFilled(dateValue)) return "";
+  const d = new Date(dateValue);
+  if (isNaN(d)) return "";
+  const year = d.getFullYear();
+  const month = String(d.getMonth() + 1).padStart(2, "0");
+  return `${year}${month}`;
+}
+function updateClosure(year) {
+  const closureText = document.getElementById("closure-text");
+  const closureYear = document.getElementById("closure-year");
+  if (closureYear) closureYear.textContent = year;
+  const record = closureData.find(row => String(row.year) === String(year));
+  if (record && record.start && record.end) {
+    const start = new Date(record.start).toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric"
+    });
+    const end = new Date(record.end).toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric"
+    });
+    const link = record.cl_link
+      ? `https://www.federalregister.gov/${record.cl_link}`
+      : null;
+    let msg = `
+      NMFS prohibited fishing with large-mesh drift gillnet gear in the Pacific Loggerhead Conservation Area
+      from <strong>${start}</strong> to <strong>${end}</strong>.
+    `;
+    if (link) {
+      msg += `<br><a href="${link}" target="_blank">View Federal Register Notice</a>`;
+    }
+    closureText.innerHTML = msg;
+  } else {
+    closureText.innerHTML = `
+      NMFS did not prohibit fishing with large-mesh drift gillnet gear in the Loggerhead Conservation Area this season.
+    `;
+  }
+}
+function renderTable(year, unit) {
+  const tableBody = document.querySelector("#elnino-table tbody");
+  const tempHeader = document.getElementById("temp-header");
+  const anomHeader = document.getElementById("anom-header");
+  const elninoYear = document.getElementById("elnino-year");
+  if (!tableBody) return;
+  tableBody.innerHTML = "";
+  tempHeader.textContent = unit === "C" ? "SST (°C)" : "SST (°F)";
+  anomHeader.textContent = unit === "C" ? "Anomaly (°C)" : "Anomaly (°F)";
+  if (elninoYear) elninoYear.textContent = year;
+  let rowsForYear = turtlewatchRows
+    .filter(row => getYearFromRow(row) === Number(year))
+    .filter(row =>
+      isFilled(row.map_month) &&
+      isFilled(row.enso_status) &&
+      isFilled(row.enso_synopsis) &&
+      isFilled(row.map_sst) &&
+      isFilled(row.map_anom)
+    )
+    .sort((a, b) => getMonthOrder(a).localeCompare(getMonthOrder(b)));
+  console.log("Selected year:", year);
+  console.log("Rows for year:", rowsForYear);
+  rowsForYear.forEach(row => {
+    const tempC = parseFloat(row.map_sst);
+    const anomC = parseFloat(row.map_anom);
+    const temp = unit === "F" ? (tempC * 9 / 5) + 32 : tempC;
+    const anom = unit === "F" ? anomC * 9 / 5 : anomC;
+    const tr = document.createElement("tr");
+    [
+      row.map_month,
+      row.enso_status,
+      row.enso_synopsis,
+      temp.toFixed(1)
+    ].forEach(val => {
+      const td = document.createElement("td");
+      td.textContent = val;
+      tr.appendChild(td);
+    });
+    const tdAnom = document.createElement("td");
+    tdAnom.textContent = anom.toFixed(1);
+    if (anom > 0) {
+      tdAnom.style.color = "red";
+      tdAnom.style.fontWeight = "bold";
+    } else if (anom < 0) {
+      tdAnom.style.color = "blue";
+      tdAnom.style.fontWeight = "bold";
+    }
+    tr.appendChild(tdAnom);
+    tableBody.appendChild(tr);
+  });
+  if (rowsForYear.length === 0) {
+    const tr = document.createElement("tr");
+    const td = document.createElement("td");
+    td.colSpan = 5;
+    td.textContent = `No ERDDAP records available for ${year}.`;
+    tr.appendChild(td);
+    tableBody.appendChild(tr);
+  }
+}
+function updateBycatch(year) {
+  const bycatchYear = document.getElementById("bycatch-year");
+  const bycatchRange = document.getElementById("bycatch-range");
+  const bycatchImg = document.getElementById("bycatch-img");
+  if (bycatchYear) bycatchYear.textContent = year;
+  if (bycatchRange) bycatchRange.textContent = `January – December ${year}`;
+  if (!bycatchImg) return;
+  const yearlyPath = `data/images/indicator_${year}.png`;
+  const latestPath = `data/images/indicator_latest.png`;
+  fetch(yearlyPath, { method: "HEAD" })
+    .then(res => {
+      bycatchImg.src = res.ok ? yearlyPath : latestPath;
+    })
+    .catch(() => {
+      bycatchImg.src = latestPath;
+    });
+}
+function getSSTImages(year) {
+  const months = ["03", "04", "05", "06", "07", "08"];
+  const monthsMap = {
+    "03": "March",
+    "04": "April",
+    "05": "May",
+    "06": "June",
+    "07": "July",
+    "08": "August"
+  };
+  return months.map(m => ({
+    url: `data/images/sst_${year}${m}16.png`,
+    month: monthsMap[m]
+  }));
+}
+function getAnomImages(year) {
+  const months = ["03", "04", "05", "06", "07", "08"];
+  const monthsMap = {
+    "03": "March",
+    "04": "April",
+    "05": "May",
+    "06": "June",
+    "07": "July",
+    "08": "August"
+  };
+  return months.map(m => ({
+    url: `data/images/anom_${year}${m}16.png`,
+    month: monthsMap[m]
+  }));
+}
+function handleDashboardData(data) {
+  console.log("Dashboard JSONP data:", data);
+  turtlewatchRows = parseRowsFromJsonp(data);
+  console.log("Parsed ERDDAP rows:", turtlewatchRows.length);
+  const yearSelect = document.getElementById("year-select-input");
+  renderTable(yearSelect.value, currentUnit);
+}
+document.addEventListener("DOMContentLoaded", function() {
+  const yearSelect = document.getElementById("year-select-input");
+  const unitRadios = document.querySelectorAll("input[name='unit']");
+
+  const sstImgEl = document.getElementById("sst-dash-image");
+  const sstPrevBtn = document.querySelector(".sst-dash-slider .prev");
+  const sstNextBtn = document.querySelector(".sst-dash-slider .next");
+  const anomImgEl = document.getElementById("anom-dash-image");
+  const anomPrevBtn = document.querySelector(".anom-dash-slider .prev");
+  const anomNextBtn = document.querySelector(".anom-dash-slider .next");
+  const sstYearTitle = document.getElementById("sst-year");
+  const anomYearTitle = document.getElementById("anom-year");
+  let sstImages = [];
+  let anomImages = [];
+  let sstIndex = 0;
+  let anomIndex = 0;
+  function updateSST() {
+    if (!sstImgEl || sstImages.length === 0) return;
+    const imgObj = sstImages[sstIndex];
+    sstImgEl.src = imgObj.url;
+    if (sstYearTitle) sstYearTitle.textContent = yearSelect.value;
+    if (sstPrevBtn) sstPrevBtn.style.opacity = sstIndex === 0 ? 0.5 : 1;
+    if (sstNextBtn) sstNextBtn.style.opacity = sstIndex === sstImages.length - 1 ? 0.5 : 1;
+  }
+  function updateAnom() {
+    if (!anomImgEl || anomImages.length === 0) return;
+    const imgObj = anomImages[anomIndex];
+    anomImgEl.src = imgObj.url;
+    if (anomYearTitle) anomYearTitle.textContent = yearSelect.value;
+    if (anomPrevBtn) anomPrevBtn.style.opacity = anomIndex === 0 ? 0.5 : 1;
+    if (anomNextBtn) anomNextBtn.style.opacity = anomIndex === anomImages.length - 1 ? 0.5 : 1;
+  }
+  if (sstPrevBtn && sstNextBtn) {
+    sstPrevBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (sstIndex > 0) {
+        sstIndex--;
+        updateSST();
+      }
+    });
+    sstNextBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (sstIndex < sstImages.length - 1) {
+        sstIndex++;
+        updateSST();
+      }
+    });
+  }
+  if (anomPrevBtn && anomNextBtn) {
+    anomPrevBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (anomIndex > 0) {
+        anomIndex--;
+        updateAnom();
+      }
+    });
+    anomNextBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (anomIndex < anomImages.length - 1) {
+        anomIndex++;
+        updateAnom();
+      }
+    });
+  }
+  yearSelect.addEventListener("change", function() {
+    const year = yearSelect.value;
+    renderTable(year, currentUnit);
+    updateClosure(year);
+    updateBycatch(year);
+    sstImages = getSSTImages(year);
+    anomImages = getAnomImages(year);
+    sstIndex = 0;
+    anomIndex = 0;
+    updateSST();
+    updateAnom();
+  });
+  unitRadios.forEach(radio => {
+    radio.addEventListener("change", function() {
+      if (this.checked) {
+        currentUnit = this.value;
+        renderTable(yearSelect.value, currentUnit);
+      }
+    });
+  });
+  Papa.parse("data/resources/ltca_closure.csv", {
+    download: true,
+    header: true,
+    complete: function(results) {
+      closureData = results.data || [];
+      updateClosure(yearSelect.value);
+    }
+  });
+  const old = document.getElementById("dashboard-jsonp-script");
+  if (old) old.remove();
+  const s = document.createElement("script");
+  s.id = "dashboard-jsonp-script";
+  s.src =
+    "http://localhost:8080/erddap/tabledap/turtlewatch_master_table.json?" +
+    [
+      "time",
+      "month_date",
+      "map_date_ym",
+      "map_date_iso",
+      "map_month",
+      "map_sst",
+      "map_anom",
+      "enso_status",
+      "enso_synopsis"
+    ].join(",") +
+    "&.jsonp=handleDashboardData";
+  document.body.appendChild(s);
+  const initialYear = yearSelect.value;
+  updateClosure(initialYear);
+  updateBycatch(initialYear);
+  sstImages = getSSTImages(initialYear);
+  anomImages = getAnomImages(initialYear);
+  sstIndex = 0;
+  anomIndex = 0;
+  updateSST();
+  updateAnom();
+});
+</script>
+
+:::
+
+{{< include ../../_includes/page-nav.html >}}

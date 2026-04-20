@@ -14,6 +14,8 @@ On this catalog page, we’ve highlighted the most commonly used datasets by our
 
 To explore the full list of all available datasets, visit the [**ERDDAP Server**](https://coastwatch.pfeg.noaa.gov/erddap/info/index.html?page=1&itemsPerPage=1000).
 
+To explore the status of these datasets, visit the [Dataset Monitoring Dashboard](dataset_monitor.qmd)
+
 ::: {.filter-panel appearance="card" style="padding: 2rem; border-radius: 1rem; background-color: #f8f9fa;"}
 
 ### Find the dataset you're looking for  

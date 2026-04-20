@@ -1756,7 +1756,7 @@ button.btn-primary:hover {
 
 .whalewatch-page .whale-hero {
   text-align: center;
-  background: #0f5c5b;  /* optional subtle background */
+  background: #0e494e;  /* optional subtle background */
 }
 
 
@@ -1781,6 +1781,15 @@ button.btn-primary:hover {
     black 80%,
     transparent 100%
   );
+}
+
+.whalewatch-page .hero-caption{
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: right;
+  font-size: 0.75rem;
+  color: #555;
+  font-style: italic;
 }
 
 

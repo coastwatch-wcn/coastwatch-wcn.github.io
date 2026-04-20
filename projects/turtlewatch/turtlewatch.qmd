@@ -23,7 +23,7 @@ format:
 :::
 
 ::: {.turtlewatch-hero}
-![](images/loggerhead.png){.hero-img}
+![](images/loggerhead_hero.png){.hero-img}
 
 <span class="image-caption">Photo copyright: Ralph Pace • [Contact](https://www.ralphpace.com/) for use outside NOAA</span>
 :::
@@ -44,14 +44,14 @@ The TOTAL program brings together agencies, universities, and the fishing indust
 The Pacific Loggerhead Conservation Area off Southern California closes to drift gillnet fishing when warm ocean conditions bring loggerheads into fishing grounds, with closure rules and real-time status available online.
 
 [Closure Rules](turtlewatch-closure-rules.qmd){.btn-noaa}
-[Closure Status](turtlewatch-closure-status.qmd){.btn-noaa}
+[Closure Status](turtlewatch-closure-status2.qmd){.btn-noaa}
 :::
 
 ::: {.turtlewatch-card}
 ### Historical Data Dashboard
 Historical data since 2003 provide sea surface temperature, anomalies, El Niño status, and closure history for the Pacific Loggerhead Conservation Area off Southern California.
 
-[View Data](turtlewatch-data-dashboard.qmd){.btn-noaa}
+[View Data](turtlewatch-data-dashboard2.qmd){.btn-noaa}
 :::
 
 :::

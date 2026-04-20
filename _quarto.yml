@@ -23,6 +23,8 @@ website:
         menu:
           - text: Data Catalog
             href: data_catalog.qmd
+          - text: Dataset Monitor
+            href: dataset_monitor.qmd
           - text: Data Server
             href: data_server.qmd
 

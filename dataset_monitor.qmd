@@ -1,0 +1,651 @@
+---
+title: "ERDDAP Dataset Monitor"
+format: html
+page-layout: full
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+::: {.monitor-page}
+
+<style>
+/* ---------------------------------- */
+/* ERDDAP MONITOR PAGE                */
+/* ---------------------------------- */
+
+.monitor-page .monitor-page-subtitle {
+  margin-bottom: 1.25rem;
+  color: #555;
+  font-size: 1.05rem;
+}
+
+.monitor-page .monitor-filterbar-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
+}
+
+.monitor-page .monitor-help-inline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.monitor-page .monitor-help-inline strong {
+  color: #003366;
+  margin-right: 0.2rem;
+}
+
+.monitor-page .monitor-help-inline .help-ok {
+  color: #2e8540;
+  font-weight: 700;
+}
+
+.monitor-page .monitor-help-inline .help-warning {
+  color: #b8860b;
+  font-weight: 700;
+}
+
+.monitor-page .monitor-help-inline .help-stale {
+  color: #d9534f;
+  font-weight: 700;
+}
+
+.monitor-page .monitor-help-inline .help-sep {
+  color: #999;
+}
+
+.monitor-page .monitor-help-note {
+  margin-top: 0.35rem;
+  color: #666;
+  font-size: 0.88rem;
+}
+
+.monitor-page .monitor-filter-shell {
+  background: #f8f9fa;
+  border-radius: 1rem;
+  padding: 1.5rem 1.75rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.75rem;
+  border: 1px solid #dee2e6;
+}
+
+.monitor-page .monitor-filterbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  align-items: end;
+  justify-content: space-between;
+}
+
+.monitor-page .monitor-filterbar-left {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  align-items: end;
+}
+
+.monitor-page .monitor-filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.monitor-page .monitor-filter-group label {
+  font-size: 1.05rem;
+  margin-bottom: 0.15rem;
+  display: block;
+  font-weight: 600;
+  color: #003366;
+}
+
+.monitor-page .monitor-filter-group select {
+  font-size: 1rem;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ced4da;
+  min-width: 210px;
+  background-color: white;
+}
+
+.monitor-page .monitor-summary {
+  color: #555;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.monitor-page .monitor-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+}
+
+.monitor-page .monitor-chip {
+  border-radius: 999px;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border: 1px solid transparent;
+}
+
+.monitor-page .monitor-chip-ok {
+  background: #e8f4ec;
+  color: #256a3c;
+  border-color: #bfdcc7;
+}
+
+.monitor-page .monitor-chip-warning {
+  background: #fff1e6;
+  color: #b85a16;
+  border-color: #f2c7a6;
+}
+
+.monitor-page .monitor-chip-stale {
+  background: #fdecec;
+  color: #b42318;
+  border-color: #efb7b4;
+}
+
+.monitor-page .monitor-chip-neutral {
+  background: #edf2f7;
+  color: #516271;
+  border-color: #d6dee5;
+}
+
+.monitor-page .dataset-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.monitor-page .dataset-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1rem 1.25rem;
+  border-radius: 0.85rem;
+  border: 1px solid #dee2e6;
+  background: #f8f9fa;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  border-left: 6px solid #b8c7d3;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.monitor-page .dataset-row:hover {
+  background: #eef5fa;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+}
+
+.monitor-page .dataset-row.ok {
+  border-left-color: #2e8540;
+}
+
+.monitor-page .dataset-row.warning {
+  border-left-color: #f0ad4e;
+}
+
+.monitor-page .dataset-row.stale {
+  border-left-color: #d9534f;
+  background: #fff8f8;
+}
+
+.monitor-page .dataset-row.not-flagged {
+  border-left-color: #6c757d;
+}
+
+.monitor-page .dataset-left {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.monitor-page .dataset-title {
+  font-weight: 700;
+  color: #003366;
+  font-size: 1.08rem;
+  margin-bottom: 0.2rem;
+}
+
+.monitor-page .dataset-title a {
+  color: #003366;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.monitor-page .dataset-title a:hover {
+  color: #2b6da8;
+  text-decoration: underline;
+}
+
+.monitor-page .dataset-id {
+  font-size: 0.92rem;
+  color: #444;
+  margin-bottom: 0.45rem;
+}
+
+.monitor-page .dataset-id strong,
+.monitor-page .dataset-meta strong {
+  color: #003366;
+}
+
+.monitor-page .dataset-id span {
+  color: #555;
+}
+
+.monitor-page .dataset-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.75rem;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.monitor-page .dataset-right {
+  flex: 0 0 260px;
+  width: 260px;
+  display: grid;
+  grid-template-columns: 1fr 110px;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.monitor-page .dataset-category {
+  background: #eaf4fb;
+  color: #2b6da8;
+  border: 1px solid #cfe4f3;
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.monitor-page .dataset-section {
+  margin-top: 2rem;
+}
+
+.monitor-page .status-badge {
+  width: 110px;
+  justify-self: end;
+  text-align: center;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  color: white;
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.monitor-page .monitor-status-block {
+  margin-bottom: 0.5rem;
+}
+
+.monitor-page .monitor-status-label {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #003366;
+  margin-bottom: 0.5rem;
+}
+
+
+.monitor-page .status-ok {
+  background: #2e8540;
+}
+
+.monitor-page .status-warning {
+  background: #f0ad4e;
+}
+
+.monitor-page .status-stale {
+  background: #d9534f;
+}
+
+.monitor-page .status-not-flagged {
+  background: #6c757d;
+}
+
+.monitor-page .empty-state {
+  margin-top: 1rem;
+  padding: 1rem 1.2rem;
+  border-radius: 0.75rem;
+  border: 1px dashed #ced4da;
+  background: #f8f9fa;
+  color: #555;
+}
+
+@media (max-width: 900px) {
+  .monitor-page .dataset-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .monitor-page .dataset-right {
+    width: 100%;
+    flex: 0 0 auto;
+    grid-template-columns: 1fr 110px;
+    justify-content: start;
+  }
+}
+
+@media (max-width: 900px) {
+  .monitor-page .monitor-filterbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .monitor-page .monitor-filterbar-right {
+    align-items: flex-start;
+    margin-top: 0.5rem;
+  }
+}
+</style>
+
+<div class="monitor-page-subtitle">
+Monitor the availability of selected ERDDAP datasets by category and status.
+</div>
+
+```{python}
+import html
+import pandas as pd
+from IPython.display import HTML, display
+
+# -----------------------------
+# Load watchlist CSV
+# -----------------------------
+watch = pd.read_csv("spreadsheets/erddap-dataset-monitoring.csv")
+watch.columns = watch.columns.str.strip()
+
+if "dataset_ID" in watch.columns:
+    watch = watch.rename(columns={"dataset_ID": "datasetID"})
+
+for col in ["datasetID", "label", "category"]:
+    if col not in watch.columns:
+        watch[col] = ""
+
+watch["datasetID"] = watch["datasetID"].fillna("").astype(str).str.strip()
+watch["label"] = watch["label"].fillna("").astype(str).str.strip()
+watch["category"] = watch["category"].fillna("").astype(str).str.strip()
+
+watch.loc[watch["label"] == "", "label"] = watch["datasetID"]
+watch.loc[watch["category"] == "", "category"] = "Other"
+
+# -----------------------------
+# Load ERDDAP out-of-date table
+# -----------------------------
+url = "https://coastwatch.pfeg.noaa.gov/erddap/outOfDateDatasets.csv"
+status = pd.read_csv(url)
+status.columns = status.columns.str.strip()
+status["datasetID"] = status["datasetID"].fillna("").astype(str).str.strip()
+
+# -----------------------------
+# Merge watchlist with ERDDAP status
+# -----------------------------
+df = watch.merge(status, on="datasetID", how="left")
+
+# -----------------------------
+# Status classification
+# -----------------------------
+def classify_status(value):
+    try:
+        value = float(value)
+    except Exception:
+        return "Not Flagged"
+
+    if value < 1:
+        return "OK"
+    elif value < 2:
+        return "Delayed"
+    else:
+        return "Outdated"
+
+
+def row_css_class(status_value):
+    return {
+        "OK": "ok",
+        "Delayed": "warning",
+        "Outdated": "stale",
+        "Not Flagged": "not-flagged",
+    }.get(status_value, "not-flagged")
+
+
+def badge_css_class(status_value):
+    return {
+        "OK": "status-ok",
+        "Delayed": "status-warning",
+        "Outdated": "status-stale",
+        "Not Flagged": "status-not-flagged",
+    }.get(status_value, "status-not-flagged")
+
+
+status_order = {
+    "Outdated": 1,
+    "Delayed": 2,
+    "OK": 3,
+    "Not Flagged": 4,
+}
+
+df["status"] = df["outOfDate"].apply(classify_status)
+df["status_sort"] = df["status"].map(status_order).fillna(99).astype(int)
+df["row_class"] = df["status"].apply(row_css_class)
+df["badge_class"] = df["status"].apply(badge_css_class)
+
+df["outOfDate_display"] = df["outOfDate"].apply(
+    lambda x: "Not listed" if pd.isna(x) else f"{float(x):.2f}"
+)
+df["maxTime_display"] = df["maxTime"].fillna("Not listed")
+
+df = df.sort_values(
+    ["status_sort", "category", "label"],
+    ascending=[True, True, True]
+).reset_index(drop=True)
+
+# -----------------------------
+# Counts for summary chips
+# -----------------------------
+ok_count = int((df["status"] == "OK").sum())
+warning_count = int((df["status"] == "Delayed").sum())
+stale_count = int((df["status"] == "Outdated").sum())
+neutral_count = int((df["status"] == "Not Flagged").sum())
+
+# -----------------------------
+# Build row HTML
+# -----------------------------
+rows = []
+
+for _, row in df.iterrows():
+    label = html.escape(str(row["label"]))
+    dataset_id = html.escape(str(row["datasetID"]))
+    category = html.escape(str(row["category"]))
+    status_txt = html.escape(str(row["status"]))
+    out_of_date = html.escape(str(row["outOfDate_display"]))
+    max_time = html.escape(str(row["maxTime_display"]))
+    row_class = html.escape(str(row["row_class"]))
+    badge_class = html.escape(str(row["badge_class"]))
+    status_sort_value = int(row["status_sort"])
+
+    erddap_info_url = f"https://coastwatch.pfeg.noaa.gov/erddap/info/{dataset_id}/index.html"
+
+    rows.append(f"""
+    <div class="dataset-row {row_class}"
+         data-category="{category}"
+         data-status="{status_txt}"
+         data-status-sort="{status_sort_value}">
+      <div class="dataset-left">
+        <div class="dataset-title">
+          <a href="{erddap_info_url}" target="_blank" rel="noopener noreferrer">{label}</a>
+        </div>
+        <div class="dataset-id">
+          <strong>Dataset ID:</strong> <span>{dataset_id}</span>
+        </div>
+
+        <div class="dataset-meta">
+          <span><strong>Out-of-date score:</strong> {out_of_date}</span>
+          <span><strong>Latest available data:</strong> {max_time}</span>
+        </div>
+      </div>
+
+      <div class="dataset-right">
+        <div class="dataset-category">{category}</div>
+        <div class="status-badge {badge_class}">{status_txt}</div>
+      </div>
+    </div>
+    """)
+
+html_out = f"""
+<div class="monitor-filter-shell">
+
+  <div class="monitor-status-label">Dataset Update Status:</div>
+
+  <div class="monitor-chip-row">
+    <div class="monitor-chip monitor-chip-stale">Outdated: {stale_count}</div>
+    <div class="monitor-chip monitor-chip-warning">Delayed: {warning_count}</div>
+    <div class="monitor-chip monitor-chip-ok">OK: {ok_count}</div>
+    <div class="monitor-chip monitor-chip-neutral">Not Flagged: {neutral_count}</div>
+  </div>
+
+  <div class="monitor-filterbar">
+    <div class="monitor-filterbar-left">
+      <div class="monitor-filter-group">
+        <label for="categoryFilter">Satellite Data Product</label>
+        <select id="categoryFilter">
+          <option value="all">All</option>
+        </select>
+      </div>
+
+      <div class="monitor-filter-group">
+        <label for="statusFilter">Status</label>
+        <select id="statusFilter">
+          <option value="all">All</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="monitor-filterbar-right">
+      <div class="monitor-summary" id="monitorSummary">Loading datasets...</div>
+
+      <div class="monitor-help-inline">
+        <strong>Out-of-date score:</strong>
+        <span class="help-ok">&lt;1 OK</span>
+        <span class="help-sep">·</span>
+        <span class="help-warning">1–2 Delayed</span>
+        <span class="help-sep">·</span>
+        <span class="help-stale">≥2 Outdated</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dataset-section">
+  <div id="datasetGrid" class="dataset-table">
+    {''.join(rows)}
+  </div>
+</div>
+
+<div id="emptyState" class="empty-state" style="display:none;">
+  No datasets match the current filters.
+</div>
+
+<script>
+(function() {{
+  const grid = document.getElementById("datasetGrid");
+  const rows = Array.from(document.querySelectorAll(".dataset-row"));
+  const categoryFilter = document.getElementById("categoryFilter");
+  const statusFilter = document.getElementById("statusFilter");
+  const summary = document.getElementById("monitorSummary");
+  const emptyState = document.getElementById("emptyState");
+
+  const categories = [...new Set(rows.map(row => row.dataset.category))].sort();
+  const statuses = ["Outdated", "Delayed", "OK", "Not Flagged"];
+
+  for (const cat of categories) {{
+    const option = document.createElement("option");
+    option.value = cat;
+    option.textContent = cat;
+    categoryFilter.appendChild(option);
+  }}
+
+  for (const stat of statuses) {{
+    if (rows.some(row => row.dataset.status === stat)) {{
+      const option = document.createElement("option");
+      option.value = stat;
+      option.textContent = stat;
+      statusFilter.appendChild(option);
+    }}
+  }}
+
+  function sortVisibleRows() {{
+    const visibleRows = rows.filter(row => row.style.display !== "none");
+
+    visibleRows.sort((a, b) => {{
+      const aStatus = Number(a.dataset.statusSort);
+      const bStatus = Number(b.dataset.statusSort);
+
+      if (aStatus !== bStatus) return aStatus - bStatus;
+
+      const aCategory = a.dataset.category.localeCompare(b.dataset.category);
+      if (aCategory !== 0) return aCategory;
+
+      const aTitle = a.querySelector(".dataset-title").textContent;
+      const bTitle = b.querySelector(".dataset-title").textContent;
+      return aTitle.localeCompare(bTitle);
+    }});
+
+    visibleRows.forEach(row => grid.appendChild(row));
+  }}
+
+  function updateView() {{
+    const selectedCategory = categoryFilter.value;
+    const selectedStatus = statusFilter.value;
+    let visible = 0;
+
+    rows.forEach(row => {{
+      const categoryMatch =
+        selectedCategory === "all" || row.dataset.category === selectedCategory;
+      const statusMatch =
+        selectedStatus === "all" || row.dataset.status === selectedStatus;
+
+      const show = categoryMatch && statusMatch;
+      row.style.display = show ? "" : "none";
+
+      if (show) visible += 1;
+    }});
+
+    sortVisibleRows();
+
+    summary.textContent = `${{visible}} dataset${{visible === 1 ? "" : "s"}} shown`;
+    emptyState.style.display = visible === 0 ? "" : "none";
+  }}
+
+  categoryFilter.addEventListener("change", updateView);
+  statusFilter.addEventListener("change", updateView);
+
+  updateView();
+}})();
+</script>
+"""
+
+display(HTML(html_out))
+```
+
+<div class="update-footer">
+  This page was generated at <span id="buildTime"></span>.<br>
+  This page refreshes automatically every hour.
+</div>
+
+<script>
+  const now = new Date();
+  document.getElementById("buildTime").textContent = now.toISOString();
+</script>
