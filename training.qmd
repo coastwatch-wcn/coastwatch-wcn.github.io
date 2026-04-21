@@ -18,7 +18,7 @@ page-layout: full
 <div class="info-block info-gray">
   <h3>Tutorials and Code Examples</h3>
   <p>These tutorials demonstrate how to access and work with satellite data using various software systems such as R and Python. The materials provide practical examples of how to retrieve data from ERDDAP and work with it in the specified software.</p>
-  <a href="https://coastwatch-training.github.io/tutorials/" class="btn btn-primary">CoastWatch Tutorials on Github</a>
+  <a href="https://coastwatch-training.github.io/tutorials/" class="btn btn-primary">CoastWatch Tutorials</a>
 </div>
 
 <div class="info-block info-blue">

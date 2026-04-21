@@ -10,7 +10,7 @@ jupyter: python3
 
 <p>Examples demonstrating accessing and working with ocean satellite data from ERDDAP servers.</p>
 
-<p>To view all tutorials, visit our <a href="https://coastwatch-training.github.io/tutorials/" target="_blank">Github</a>.</p>
+<p>To view all tutorials, visit our <a href="https://coastwatch-training.github.io/tutorials/" target="_blank">Satellite Data Training Code Gallery</a>.</p>
 
 ```{python}
 import pandas as pd

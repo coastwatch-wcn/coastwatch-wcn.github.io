@@ -12,7 +12,7 @@ page-layout: full
 
 ## Overview
 
-[Information and Course Dates](https://coastwatch.noaa.gov/cwn/training-courses.html){.btn-noaa}
+[Information and Course Dates](https://coastwatch-training.github.io/){.btn-noaa}
 
 Are you interested in using oceanographic satellite data in your work but don't know where to start? The NOAA CoastWatch program offers in-person and online courses where participants learn about environmental satellite data and how to easily obtain it. Participants also gain hands on experience working with the data of interest to them. A major goal of the course is to provide scientists who are not regular users of satellite data with the knowledge and tools they need to incorporate satellite data into their research and management projects.
 
@@ -21,9 +21,9 @@ Are you interested in using oceanographic satellite data in your work but don't 
 <details class="sat-faq">
     <summary><strong>Documents</strong></summary>
 
-- [Course Information and Registration](https://coastwatch.noaa.gov/cwn/training-courses.html)
-- [Satellite Training Materials](https://umd.instructure.com/courses/1336575)
-- [ERDDAP, R and Python Tutorials](https://github.com/coastwatch-training/)
+- [Course Information and Registration](https://coastwatch-training.github.io/trainings/)
+- [Satellite Training Materials](https://coastwatch-training.github.io/lectures/)
+- [ERDDAP, R and Python Tutorials](https://coastwatch-training.github.io/tutorials/)
 
 </details>
 
@@ -89,7 +89,7 @@ Dates and locations of past courses
 <summary><strong>When and where is the next course?</strong></summary>
 
 For the dates and locations of upcoming courses, please review the course offerings at the following link: 
-https://coastwatch.noaa.gov/cwn/training-courses.html
+https://coastwatch-training.github.io/trainings/
 
 To be notified about future courses, contact [Cara Wilson](contact_us.qmd) or sign-up for course updates using the form on this page.
 
