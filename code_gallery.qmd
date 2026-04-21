@@ -10,8 +10,9 @@ jupyter: python3
 
 <p>Examples demonstrating accessing and working with ocean satellite data from ERDDAP servers.</p>
 
-<p>To view all tutorials, visit our <a href="https://github.com/coastwatch-training/CoastWatch-Tutorials/tree/main" target="_blank">Github</a>.</p>
+<p>To view all tutorials, visit our <a href="https://coastwatch-training.github.io/tutorials/" target="_blank">Github</a>.</p>
 
+```{python}
 ```{python}
 import pandas as pd
 from IPython.display import display, HTML
@@ -23,13 +24,30 @@ df = pd.read_csv("spreadsheets/tutorials.csv", encoding="latin1")
 html = '<div class="tutorial-grid">'
 
 for _, row in df.iterrows():
+    python_url = str(row.get("python_url", "")).strip()
+    r_url = str(row.get("r_url", "")).strip()
+    matlab_url = str(row.get("matlab_url", "")).strip()
+
+    links = []
+
+    if python_url and python_url.lower() != "nan":
+        links.append(f'<a href="{python_url}" target="_blank">View Python Tutorial</a>')
+
+    if r_url and r_url.lower() != "nan":
+        links.append(f'<a href="{r_url}" target="_blank">View R Tutorial</a>')
+
+    if matlab_url and matlab_url.lower() != "nan":
+        links.append(f'<a href="{matlab_url}" target="_blank">View MATLAB Tutorial</a>')
+
+    links_html = "<br>".join(links) if links else "<span>Coming soon</span>"
+
     html += f'''
     <div class="tutorial-card">
         <img src="{row['image']}" alt="{row['alt']}" style="cursor: zoom-in;" onclick="openLightbox(this.src)">
         <div class="tags">{row['tags']}</div>
         <h3>{row['title']}</h3>
         <p>{row['description']}</p>
-        <p><a href="{row['link']}" target="_blank">View in Github</a></p>
+        <p>{links_html}</p>
     </div>
     '''
 
