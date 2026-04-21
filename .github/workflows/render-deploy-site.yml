@@ -4,6 +4,8 @@ name: Render & Deploy Quarto Site
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: "0 * * * *"  # every hour
   workflow_dispatch:
 
 permissions:
@@ -17,7 +19,7 @@ concurrency:
 
 jobs:
   build:
-    # Prevent loops if a bot account pushes (optional but safe)
+    # Prevent loops if a bot account pushes
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
 
