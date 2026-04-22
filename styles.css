@@ -2926,10 +2926,10 @@ button.btn-primary:hover {
   border-bottom: 2px solid rgba(0,0,0,.08);
 }
 
+/* ACTIVE PAGE */
 .turtlewatch-page .project-tab.active {
-  background-color: white;
-  color: #003767;
-  border-bottom: 3px solid #003767;
+  color: #1a1a1a;           /* dark text */
+  font-weight: 700;         /* bold */
 }
 
 /* Brand stays left and is vertically centered */
