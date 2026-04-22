@@ -2,9 +2,6 @@
 title: "TurtleWatch Background"
 format: 
   html:
-    include-in-header:
-      - text: |
-          <script src="js/turtlewatch-nav.js"></script>
     theme: lux
     page-layout: full
     toc: false
@@ -18,7 +15,7 @@ anchor-sections: false
 
   <nav class="project-tabs" aria-label="TurtleWatch navigation">
     <a class="project-tab is-brand" href="turtlewatch.qmd">TurtleWatch</a>
-    <a class="project-tab" href="turtlewatch-background.qmd">Background</a>
+    <a class="project-tab active" href="turtlewatch-background.qmd">Background</a>
     <a class="project-tab" href="turtlewatch-closure-rules.qmd">Closure Rules</a>
     <a class="project-tab" href="turtlewatch-closure-status.qmd">Conservation Area Status</a>
     <a class="project-tab" href="turtlewatch-data-dashboard.qmd">Data Dashboard</a>
