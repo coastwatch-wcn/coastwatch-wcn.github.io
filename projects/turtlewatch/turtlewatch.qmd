@@ -13,7 +13,7 @@ format:
 ::: {.project-topbar}
 
   <nav class="project-tabs" aria-label="TurtleWatch navigation">
-    <a class="project-tab is-brand active" href="turtlewatch.qmd">TurtleWatch</a>
+    <a class="project-tab is-brand active" href="turtlewatch.qmd">TOTAL</a>
     <a class="project-tab" href="turtlewatch-background.qmd">Background</a>
     <a class="project-tab" href="turtlewatch-closure-rules.qmd">Closure Rules</a>
     <a class="project-tab" href="turtlewatch-closure-status.qmd">Conservation Area Status</a>
