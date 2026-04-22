@@ -2926,6 +2926,17 @@ button.btn-primary:hover {
   border-bottom: 2px solid rgba(0,0,0,.08);
 }
 
+.turtlewatch-page .project-tab {
+  color: #6c757d;           /* lighter gray for inactive */
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+/* Hover */
+.turtlewatch-page .project-tab:hover {
+  color: #2b6da8;           /* NOAA-ish blue on hover */
+}
+
 /* ACTIVE PAGE */
 .turtlewatch-page .project-tab.active {
   color: #1a1a1a;           /* dark text */
