@@ -23,7 +23,7 @@ anchor-sections: false
 </div>
 
 <p id="closure-description">
-  NMFS has reopened the Pacific Loggerhead Conservation Area (LCA) to fishing with drift gillnets (DGN). The LCA had been close to DGN since June 1, 2024. (Posted 8/1/2024) 
+  NMFS did not prohibit fishing with large-mesh drift gillnet gear in the Loggerhead Conservation Area this season.
 </p>
 
 <small>

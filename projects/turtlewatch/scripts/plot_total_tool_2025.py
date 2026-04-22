@@ -99,7 +99,7 @@ def plot_index(
         + p9.scale_color_manual(name="Status",
                                 values=["black", "red"],
                                 labels=["No Alert", "Alert"])
-        + p9.ylim(-0.5, 1.5)
+        + p9.ylim(-0.5, 2.5)
     )
 
     p9.ggsave(
