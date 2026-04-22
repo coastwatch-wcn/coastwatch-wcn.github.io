@@ -1,12 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
   const links = document.querySelectorAll(".project-tab");
-  const current = window.location.pathname.split("/").pop();
+
+  // Get current page filename
+  let current = window.location.pathname.split("/").pop();
+
+  // Handle empty path (homepage)
+  if (!current) {
+    current = "turtlewatch.html";
+  }
 
   links.forEach(link => {
     let href = link.getAttribute("href");
+
+    // Convert .qmd → .html
     href = href.replace(".qmd", ".html");
 
-    if (href === current || (current === "" && href === "turtlewatch.html")) {
+    // Match current page
+    if (current === href) {
       link.classList.add("active");
     }
   });
