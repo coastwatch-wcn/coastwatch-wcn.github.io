@@ -2,11 +2,13 @@
 title: "TurtleWatch Background"
 format: 
   html:
+    include-in-header:
+      - text: |
+          <script src="js/turtlewatch-nav.js"></script>
     theme: lux
     page-layout: full
     toc: false
     css: ../../styles.css
-    include-after-body: js/turtlewatch-nav.js
 anchor-sections: false
 ---
 

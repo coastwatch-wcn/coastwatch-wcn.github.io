@@ -2,11 +2,13 @@
 anchor-sections: false
 format:
   html:
+    include-in-header:
+      - text: |
+          <script src="js/turtlewatch-nav.js"></script>
     theme: lux
     toc: false
     page-layout: full
     css: ../../styles.css
-    include-after-body: js/turtlewatch-nav.js
 ---
 
 :::{.turtlewatch-page}
