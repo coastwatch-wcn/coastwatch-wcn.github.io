@@ -12,12 +12,13 @@ format:
 
 ::: {.project-topbar}
 
-:::{project-brand}
-[![](images/ecocast_logo_003366.png){.project-brand-logo}](ecocast.qmd)
-:::
+<div class="project-brand">
+  <a href="ecocast.qmd" class="project-brand-link">
+    <img src="images/ecocast_logo_003366.png" alt="EcoCast logo" class="project-brand-logo">
+</div>
 
 <nav class="project-tabs" aria-label="EcoCast navigation">
-  <a class="project-tab" href="about_ecocast.qmd">About EcoCast</a>
+  <a class="project-tab active" href="about_ecocast.qmd">About EcoCast</a>
   <a class="project-tab" href="ecocast_map.qmd">EcoCast Map</a>
   <a class="project-tab" href="ecocast_explorer.qmd">EcoCast Explorer</a>
 </nav>
