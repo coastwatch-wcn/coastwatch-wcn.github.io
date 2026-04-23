@@ -2973,12 +2973,12 @@ button.btn-primary:hover {
   left: auto;
 
   display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
 
   width: 100%;
-  max-width: none;
+  gap: 1.5rem;
   margin: 0;            /* center within bar */
 }
 
@@ -2986,6 +2986,7 @@ button.btn-primary:hover {
 .turtlewatch-page .project-tab{
   font-size: 1.15rem;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 /* Prevent sst table from running off the page */
