@@ -15,13 +15,10 @@ format:
 <div class="project-brand">
   <a href="ecocast.qmd" class="project-brand-link">
     <img src="images/ecocast_logo_003366.png" alt="EcoCast logo" class="project-brand-logo">
+  </a>
 </div>
 
 <nav class="project-tabs" aria-label="EcoCast navigation">
-  <div class="project-brand">
-    <a href="ecocast.qmd" class="project-brand-link">
-      <img src="images/ecocast_logo_003366.png" alt="EcoCast logo" class="project-brand-logo">
-  </div>
   <a class="project-tab" href="about_ecocast.qmd">About EcoCast</a>
   <a class="project-tab" href="ecocast_map.qmd">EcoCast Map</a>
   <a class="project-tab" href="ecocast_explorer.qmd">EcoCast Explorer</a>
