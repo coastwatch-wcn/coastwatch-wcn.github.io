@@ -3009,15 +3009,14 @@ button.btn-primary:hover {
   }
 
   .turtlewatch-page .project-topbar .project-tabs{
-    position: static;
-    transform: none;
-    left: auto;
 
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: .75rem;
-    width: 100%;
+
+    width: fit-content;
+    margin: 0 auto;
   }
 
   .turtlewatch-page .project-tab {
