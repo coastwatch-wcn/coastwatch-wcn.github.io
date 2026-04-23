@@ -18,7 +18,7 @@ format:
 </div>
 
 <nav class="project-tabs" aria-label="EcoCast navigation">
-  <a class="project-tab is-active" href="about_ecocast.qmd">About EcoCast</a>
+  <a class="project-tab" href="about_ecocast.qmd">About EcoCast</a>
   <a class="project-tab" href="ecocast_map.qmd">EcoCast Map</a>
   <a class="project-tab" href="ecocast_explorer.qmd">EcoCast Explorer</a>
 </nav>
@@ -26,7 +26,7 @@ format:
 :::
 
 ::: {.ecocast-hero}
-![](images/blue_shark.png){.hero-img}
+![](images/blue_shark.png){.hero-img width="90%"}
 
 <span class="image-caption">Mark Conlin – NOAA Fisheries / Mark Conlin</span>
 :::

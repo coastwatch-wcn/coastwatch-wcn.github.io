@@ -1736,17 +1736,116 @@ button.btn-primary:hover {
   min-width: 0;
 }
 
-/* Mobile: stack */
-@media (max-width: 991px){
-  .ecocast-page .ecocast-sbs{
-    grid-template-columns: 1fr;
-  }
-}
-
 /*Zoom out ONLY the EcoCast Map page */
 .ecocast-map-page .ecocast-map-zoom{
   transform: scale(0.95);
   transform-origin: top center;
+}
+
+.ecocast-page .project-topbar{
+  position: relative;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  padding: .65rem 1.1rem;
+  margin: 0 0 1.25rem 0;
+
+  background: #f2f4f6;
+  border-bottom: 2px solid rgba(0,0,0,.08);
+}
+
+.ecocast-page .project-tab {
+  color: #6c757d;           /* lighter gray for inactive */
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+/* Hover */
+.ecocast-page .project-tab:hover {
+  color: #2b6da8;           /* NOAA-ish blue on hover */
+}
+
+/* ACTIVE PAGE */
+.ecocast-page .project-tabs a.project-tab.active {
+  color: #2b6da8;       /* NOAA blue */
+  font-weight: 700;
+  border-bottom: 2px solid #2b6da8;
+}
+
+/* Brand stays left and is vertically centered */
+.ecocast-page .project-topbar .project-brand{
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  white-space: nowrap;
+}
+
+.ecocast-page .project-topbar .project-brand-title{
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* Nudge only if your PNG has transparent padding */
+.ecocast-page .project-topbar .project-brand-logo{
+  height: 80px;
+  width: auto;
+  display: block;
+  transform: translateY(1px); /* try 0px, 1px, or 2px */
+}
+
+/* Tabs are centered across the bar */
+.ecocast-page .project-topbar .project-tabs{
+  position: static;          /* tabs now affect bar height */
+  transform: none;
+  left: auto;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  gap: 1rem;
+  margin: 0;            /* center within bar */
+}
+
+.ecocast-page .project-tab{
+  font-size: 1.15rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Mobile: stack instead of absolute centering */
+@media (max-width: 992px){
+
+  .ecocast-page .project-topbar{
+    flex-direction: column;
+    align-items: center;
+    gap: .75rem;
+  }
+
+  .ecocast-page .project-topbar .project-tabs{
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .75rem;
+
+    width: auto;
+  }
+
+  .ecocast-page .project-tab {
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+}
+
+/* Mobile: stack */
+@media (max-width: 992px){
+  .ecocast-page .ecocast-sbs{
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ---------------------- */
