@@ -1,9 +1,5 @@
 ---
-title: "Automated Access to Password-Protected ERDDAP Datasets"
-prev: course-slides-erddap.html
-prev_label: Secure ERDDAP Automation Home Page
-next: course-slides-workflow.html
-next_label: Secure Automated ERDDAP Workflow
+pagetitle: "Automated Access to Password-Protected ERDDAP Datasets"
 anchor-sections: false
 format:
   html:
@@ -14,6 +10,17 @@ format:
 ---
 
 ::: {.course-slides-page}
+
+::: {.project-topbar}
+
+  <nav class="project-tabs" aria-label="Secure ERDDAP Automation navigation">
+    <a class="project-tab is-brand" href="course-slides-erddap.qmd">Secure ERDDAP Automation</a>
+    <a class="project-tab active" href="course-slides-overview.qmd">Overview</a>
+    <a class="project-tab" href="course-slides-workflow.qmd">Technical Workflow</a>
+    <a class="project-tab" href="course-slides-resources.qmd">Resources</a>
+  </nav>
+
+:::
 
 ::: {.course-slides-columns}
 ::: {.course-slides-column}
@@ -179,5 +186,3 @@ The slide image dataset provides a linked archive of participant slide PNG files
 
 
 :::
-
-{{< include ../../_includes/page-nav.html >}}

@@ -2152,7 +2152,7 @@ button.btn-primary:hover {
   align-items: center;
 
   width: 100%;
-  gap: 2rem;
+  gap: 1rem;
   margin: 0;            /* center within bar */
 }
 
@@ -3156,6 +3156,7 @@ button.btn-primary:hover {
 
 .course-slides-page .project-topbar{
   position: relative;
+  flex-direction: column;
   display: flex;
   align-items: center;
   padding: .65rem 1.1rem;
@@ -3194,19 +3195,33 @@ button.btn-primary:hover {
   left: auto;
 
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 
   width: 100%;
-  max-width: none;
+  gap: 1rem;
   margin: 0;            /* center within bar */
 }
-
 
 .course-slides-page .project-tab{
   font-size: 1.15rem;
   font-weight: 600;
+  color: #6c757d;           /* lighter gray for inactive */
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+/* Hover */
+.course-slides-page .project-tab:hover {
+  color: #2b6da8;           /* NOAA-ish blue on hover */
+}
+
+/* ACTIVE PAGE */
+.course-slides-page .project-tabs a.project-tab.active {
+  color: #2b6da8;       /* NOAA blue */
+  font-weight: 700;
+  border-bottom: 2px solid #2b6da8;
 }
 
 /* Mobile: stack instead of absolute centering */
