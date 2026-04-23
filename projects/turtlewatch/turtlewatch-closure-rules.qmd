@@ -1,5 +1,5 @@
 ---
-title: "Closure Rules"
+pagetitle: "Closure Rules"
 format: 
   html:
     theme: lux

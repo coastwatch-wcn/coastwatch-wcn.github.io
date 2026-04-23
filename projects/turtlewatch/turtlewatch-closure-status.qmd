@@ -1,5 +1,5 @@
 ---
-title: "Conservation Area Status"
+pagetitle: "Conservation Area Status"
 format: 
   html:
     theme: lux
