@@ -1809,7 +1809,7 @@ button.btn-primary:hover {
   justify-content: space-evenly;
 
   width: auto;
-  gap: 2rem;
+  gap: 4rem;
   margin: 0;            /* center within bar */
 }
 
