@@ -126,7 +126,7 @@ View the closure status of the Pacific Loggerhead Conservation Area and the seas
 **Temperature Observations To Avoid Loggerhead (TOTAL)** values for the Loggerhead Conservation Area.  
 An alert is indicated when indicator values (the time series) exceed a threshold of **0.77 (red horizontal line)**.
 
-![](data/images/indicator_placeholder.png){#bycatch-img fig-align="center"}
+![](data/images/indicator_placeholder.png){#bycatch-img fig-align="center" width="70%"}
 
 :::
 
