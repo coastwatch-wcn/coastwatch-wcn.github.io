@@ -2975,11 +2975,11 @@ button.btn-primary:hover {
 
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 
   width: 100%;
-  gap: 1.5rem;
+  gap: 1rem;
   margin: 0;            /* center within bar */
 }
 
