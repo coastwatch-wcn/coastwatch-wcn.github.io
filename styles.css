@@ -3001,16 +3001,28 @@ button.btn-primary:hover {
 
 /* Mobile: stack instead of absolute centering */
 @media (max-width: 900px){
+
   .turtlewatch-page .project-topbar{
     flex-direction: column;
-    align-items: flex-start;
-    gap: .6rem;
+    align-items: center;
+    gap: .75rem;
   }
+
   .turtlewatch-page .project-topbar .project-tabs{
     position: static;
     transform: none;
     left: auto;
-    justify-content: flex-start;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .75rem;
+    width: 100%;
+  }
+
+  .turtlewatch-page .project-tab {
+    font-size: 1rem;
+    white-space: nowrap;
   }
 }
 
