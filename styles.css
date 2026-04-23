@@ -1747,7 +1747,8 @@ button.btn-primary:hover {
   flex-direction: row;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 3ren;
 
   padding: .65rem 1.1rem;
   margin: 0 0 1.25rem 0;
