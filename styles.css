@@ -2926,6 +2926,11 @@ button.btn-primary:hover {
   border-bottom: 2px solid rgba(0,0,0,.08);
 }
 
+/* Hide Quarto page title completely */
+.turtlewatch-page .quarto-title-block {
+  display: none;
+}
+
 .turtlewatch-page .project-tab {
   color: #6c757d;           /* lighter gray for inactive */
   text-decoration: none;

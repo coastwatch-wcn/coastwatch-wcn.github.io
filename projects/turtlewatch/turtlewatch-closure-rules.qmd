@@ -1,12 +1,13 @@
 ---
 title: "Closure Rules"
-title-block-style: none
 format: 
   html:
     theme: lux
     page-layout: full
     toc: false
     css: ../../styles.css
+    title-block-banner: false
+    title-block-style: none
 anchor-sections: false
 ---
 
