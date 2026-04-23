@@ -8,8 +8,7 @@ format:
     toc: false
     page-layout: full
     css: ../../styles.css
-    title-block-banner: false
-    title-block-style: none
+    title-block: false
 ---
 
 :::{.turtlewatch-page}
