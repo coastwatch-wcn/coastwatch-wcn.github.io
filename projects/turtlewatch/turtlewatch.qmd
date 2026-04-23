@@ -34,7 +34,7 @@ format:
 
 ::: {.turtlewatch-card}
 ### Turtle Bycatch Overview
-The TOTAL program brings together agencies, universities, and the fishing industry to reduce bycatch of endangered North Pacific loggerhead turtles, which migrate near California during warm seasons and risk unintended capture by commercial fisheries.
+The Temperature Observations To Avoid Loggerheads (TOTAL) program brings together agencies, universities, and the fishing industry to reduce bycatch of endangered North Pacific loggerhead turtles, which migrate near California during warm seasons and risk unintended capture by commercial fisheries.
 
 [Learn More](turtlewatch-background.qmd){.btn-noaa}
 :::

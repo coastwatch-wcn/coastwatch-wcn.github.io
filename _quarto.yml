@@ -10,7 +10,7 @@ project:
     - projects/**
 
 website:
-  title: "CoastWatch West Code Node"
+  title: "CoastWatch West Coast Node"
   favicon: images/coastwatch.png
   page-navigation: true
 
