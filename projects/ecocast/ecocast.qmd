@@ -15,7 +15,6 @@ format:
 <div class="project-brand">
   <a href="ecocast.qmd" class="project-brand-link">
     <img src="images/ecocast_logo_003366.png" alt="EcoCast logo" class="project-brand-logo">
-  </a>
 </div>
 
 <nav class="project-tabs" aria-label="EcoCast navigation">
