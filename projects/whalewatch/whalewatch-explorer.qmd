@@ -1,5 +1,5 @@
 ---
-title: "WhaleWatch 2.0 Explorer"
+pagetitle: "WhaleWatch 2.0 Explorer"
 anchor-sections: false
 format:
   html:
