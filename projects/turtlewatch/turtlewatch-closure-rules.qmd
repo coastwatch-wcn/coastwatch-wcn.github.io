@@ -6,7 +6,6 @@ format:
     page-layout: full
     toc: false
     css: ../../styles.css
-    title-block: false
 anchor-sections: false
 ---
 

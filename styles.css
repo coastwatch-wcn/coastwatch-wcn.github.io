@@ -2928,7 +2928,7 @@ button.btn-primary:hover {
 
 /* Hide Quarto page title completely */
 .turtlewatch-page .quarto-title-block {
-  display: none;
+  display: none !important; 
 }
 
 .turtlewatch-page .project-tab {

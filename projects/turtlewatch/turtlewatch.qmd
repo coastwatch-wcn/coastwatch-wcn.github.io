@@ -1,6 +1,5 @@
 ---
 title: "TOTAL Tool"
-title-block-style: none
 anchor-sections: false
 format:
   html:
@@ -8,7 +7,6 @@ format:
     toc: false
     page-layout: full
     css: ../../styles.css
-    title-block: false
 ---
 
 :::{.turtlewatch-page}
