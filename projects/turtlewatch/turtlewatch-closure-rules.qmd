@@ -1,5 +1,6 @@
 ---
 title: "Closure Rules"
+title-block-banner: false
 format: 
   html:
     theme: lux

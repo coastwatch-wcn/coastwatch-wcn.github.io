@@ -1,4 +1,6 @@
 ---
+title: "TOTAL Background"
+title-block-banner: false
 format: 
   html:
     theme: lux
@@ -21,8 +23,6 @@ anchor-sections: false
   </nav>
 
 :::
-
-# TOTAL Background
 
 ::: {.turtlewatch-columns}
 ::: {.turtlewatch-column}
