@@ -2939,8 +2939,8 @@ button.btn-primary:hover {
 
 /* ACTIVE PAGE */
 .turtlewatch-page .project-tab.active {
-  color: #1d4e78;           /* dark text */
-  font-weight: 900;         /* bold */
+  color: #348ad5;
+  font-weight: 700;         /* bold */
 }
 
 /* Brand stays left and is vertically centered */
