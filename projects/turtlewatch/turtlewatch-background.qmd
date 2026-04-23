@@ -10,8 +10,6 @@ anchor-sections: false
 
 :::{.turtlewatch-page}
 
-# TOTAL Background
-
 ::: {.project-topbar}
 
   <nav class="project-tabs" aria-label="TurtleWatch navigation">
@@ -23,6 +21,8 @@ anchor-sections: false
   </nav>
 
 :::
+
+# TOTAL Background
 
 ::: {.turtlewatch-columns}
 ::: {.turtlewatch-column}

@@ -2938,9 +2938,10 @@ button.btn-primary:hover {
 }
 
 /* ACTIVE PAGE */
-.turtlewatch-page .project-tab.active {
-  color: #348ad5;
-  font-weight: 700;         /* bold */
+.turtlewatch-page .project-tabs a.project-tab.active {
+  color: #2b6da8;       /* NOAA blue */
+  font-weight: 700;
+  border-bottom: 2px solid #2b6da8;
 }
 
 /* Brand stays left and is vertically centered */
