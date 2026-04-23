@@ -1,6 +1,6 @@
 ---
 title: "TOTAL Tool"
-title-block-banner: none
+title-block-style: none
 anchor-sections: false
 format:
   html:
