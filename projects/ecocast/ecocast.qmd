@@ -1,4 +1,5 @@
 ---
+pagetitle: "EcoCast"
 anchor-sections: false
 format:
   html:

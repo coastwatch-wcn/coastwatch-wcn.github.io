@@ -2147,8 +2147,8 @@ button.btn-primary:hover {
   left: auto;
 
   display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
 
   width: 100%;
