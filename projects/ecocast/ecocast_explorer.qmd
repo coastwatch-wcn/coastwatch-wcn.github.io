@@ -1,9 +1,5 @@
 ---
 title: "EcoCast Explorer"
-prev: ecocast_map.html
-prev_label: EcoCast Map
-next: ecocast.html
-next_label: EcoCast Home Page
 anchor-sections: false
 format:
   html:
@@ -14,6 +10,21 @@ format:
 ---
 
 :::{.ecocast-page}
+
+::: {.project-topbar}
+
+<div class="project-brand">
+  <a href="ecocast.qmd" class="project-brand-link">
+    <img src="images/ecocast_logo_003366.png" alt="EcoCast logo" class="project-brand-logo">
+</div>
+
+<nav class="project-tabs" aria-label="EcoCast navigation">
+  <a class="project-tab" href="about_ecocast.qmd">About EcoCast</a>
+  <a class="project-tab" href="ecocast_map.qmd">EcoCast Map</a>
+  <a class="project-tab active" href="ecocast_explorer.qmd">EcoCast Explorer</a>
+</nav>
+
+:::
 
 :::{.ecocast-map-zoom}
 
@@ -57,5 +68,3 @@ The information on this page may be used and redistributed freely, but is not in
 :::
 
 :::
-
-{{< include ../../_includes/page-nav.html >}}

@@ -1,5 +1,5 @@
 ---
-title: "About EcoCast"
+pagetitle: "About EcoCast"
 anchor-sections: false
 format:
   html:
