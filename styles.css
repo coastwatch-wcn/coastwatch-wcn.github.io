@@ -2988,6 +2988,16 @@ button.btn-primary:hover {
   font-weight: 600;
 }
 
+/* Prevent sst table from running off the page */
+.turtlewatch-page .table-scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.turtlewatch-page .table-scroll table {
+  min-width: 500px;
+}
+
 /* Mobile: stack instead of absolute centering */
 @media (max-width: 900px){
   .turtlewatch-page .project-topbar{

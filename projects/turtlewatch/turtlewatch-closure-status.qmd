@@ -79,8 +79,10 @@ anchor-sections: false
 <label><input type="radio" name="temp-unit" value="F"> °F</label>
 </div>
 
-<div id="sst-table-container">
-  <p>Loading temperature data...</p>
+<div class="table-scroll">
+  <div id="sst-table-container">
+    <p>Loading temperature data...</p>
+  </div>
 </div>
 
 <small>
