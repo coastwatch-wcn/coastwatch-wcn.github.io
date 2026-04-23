@@ -1,6 +1,6 @@
 ---
 title: "Data Dashboard"
-title-block-banner: false
+title-block-banner: none
 format: 
   html:
     theme: lux
