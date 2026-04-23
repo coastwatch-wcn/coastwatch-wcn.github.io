@@ -2917,6 +2917,7 @@ button.btn-primary:hover {
 
 .turtlewatch-page .project-topbar{
   position: relative;
+  flex-direction: column;
   display: flex;
   align-items: center;
   padding: .65rem 1.1rem;
@@ -3015,8 +3016,7 @@ button.btn-primary:hover {
     justify-content: center;
     gap: .75rem;
 
-    width: fit-content;
-    margin: 0 auto;
+    width: auto;
   }
 
   .turtlewatch-page .project-tab {
