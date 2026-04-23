@@ -3081,7 +3081,7 @@ button.btn-primary:hover {
   align-items: center;
 
   width: 100%;
-  gap: 3rem;
+  gap: 2rem;
   margin: 0;            /* center within bar */
 }
 
