@@ -27,9 +27,9 @@ format:
   <img src="images/blue_whale2.png" alt="Blue whale">
 </div>
 
-<span class="image-caption">Photo courtesy of Elliot Hazen, NOAA Fisheries</span>
-
 :::
+
+<span class="image-caption">Photo courtesy of Elliot Hazen, NOAA Fisheries</span>
 
 ### <span style="color:#2b6da8;">**An Eco-Informatic Tool for Conserving Protected Species**</span>
 
