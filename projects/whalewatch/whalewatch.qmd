@@ -29,7 +29,7 @@ format:
 
 :::
 
-<span class="image-caption">Photo courtesy of Elliot Hazen, NOAA Fisheries</span>
+<span class="image-caption" fig-align="right" >Photo courtesy of Elliot Hazen, NOAA Fisheries</span>
 
 ### <span style="color:#2b6da8;">**An Eco-Informatic Tool for Conserving Protected Species**</span>
 

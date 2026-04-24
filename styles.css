@@ -2142,18 +2142,14 @@ button.btn-primary:hover {
 
 /* Tabs are centered across the bar */
 .whalewatch-page .project-topbar .project-tabs{
-  position: static;          /* tabs now affect bar height */
-  transform: none;
-  left: auto;
-
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   align-items: center;
 
   width: 100%;
-  gap: 0.75rem 5rem;
-  margin: 0;            /* center within bar */
+  max-width: none;
+  gap: 0;
+  margin: 0;
 }
 
 .whalewatch-page .project-tab {
@@ -2196,6 +2192,7 @@ button.btn-primary:hover {
   .whalewatch-page .project-tab {
     font-size: 1rem;
     white-space: nowrap;
+    text-align: center;
   }
 }
 

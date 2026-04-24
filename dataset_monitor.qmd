@@ -645,7 +645,7 @@ display(HTML(html_out))
   This page refreshes automatically every hour.
 </div>
 
-If the dataset you are interested isn't here, find the full list [here](https://coastwatch.pfeg.noaa.gov/erddap/outOfDateDatasets.html).
+If the dataset you are interested in isn't here, find the full list [here](https://coastwatch.pfeg.noaa.gov/erddap/outOfDateDatasets.html).
 
 <script>
   const now = new Date();
