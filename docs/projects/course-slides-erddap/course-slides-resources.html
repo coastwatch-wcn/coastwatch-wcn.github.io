@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Resources – CoastWatch West Code Node</title>
+<title>Resources – CoastWatch West Coast Node</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -83,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
     <img src="../../images/coastwatch_logo.png" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">CoastWatch West Code Node</span>
+    <span class="navbar-title">CoastWatch West Coast Node</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -104,6 +104,10 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../../data_catalog.html">
  <span class="dropdown-text">Data Catalog</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../dataset_monitor.html">
+ <span class="dropdown-text">Dataset Monitor</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../data_server.html">
@@ -144,6 +148,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">CoastWatch</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../../people.html">
+ <span class="dropdown-text">People</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../contact_us.html">
  <span class="dropdown-text">Contact Us</span></a>
   </li>  
@@ -170,28 +178,17 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Resources</h1>
-</div>
+<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
-
-<div class="quarto-title-meta column-page">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
 
 
 <div class="course-slides-page">
+<div class="project-topbar">
+<nav class="project-tabs" aria-label="Secure ERDDAP Automation navigation">
+<a class="project-tab is-brand" href="../../projects/course-slides-erddap/course-slides-erddap.html">Secure ERDDAP Automation</a> <a class="project-tab" href="../../projects/course-slides-erddap/course-slides-overview.html">Overview</a> <a class="project-tab" href="../../projects/course-slides-erddap/course-slides-workflow.html">Technical Workflow</a> <a class="project-tab active" href="../../projects/course-slides-erddap/course-slides-resources.html">Resources</a>
+</nav>
+</div>
 <p>This page provides tutorials and supporting materials for implementing secure, automated workflows with protected ERDDAP datasets. The Python and R examples demonstrate how to authenticate using identity-managed login, query restricted metadata, retrieve linked files programmatically, and generate presentation-ready outputs.</p>
 <p>The CoastWatch slide archive is a real-world example of this pattern, but the workflow can be adapted to any protected ERDDAP instance.</p>
 <div class="course-slides-card-grid">
@@ -216,30 +213,6 @@ ul.task-list li input[type="checkbox"] {
 <p>The project was a team effort by the CoastWatch West Coast Node. Madison Richardson acted as the lead developer, Cara Wilson handeled the information extractio from participant slides, Sunny Hospital developed the Selenium solution, and Dale Robinson set up the ERDDAP datasets and wrote the first draft of the Python script for building the PowerPoint files from the participant slides. Roy Mendelssohn helped fix the access issues in ERDDAP after the servers were updated. CoastWatch Central isrecognized for their efforts in the training courses and slide collection, as well as all instructors, participants, and hosts of the satellite course trainings. Thank you to the JPSS PGRR Program for funding this project.</p>
 </section>
 </div>
-<div id="page-nav" class="d-flex justify-content-between mt-4 mb-4">
-
-</div>
-<script>
-(function () {
-  const prev = "course-slides-workflow.html";
-  const prevLabel = "Secure Automated ERDDAP Workflow";
-  const next = "course-slides-erddap.html";
-  const nextLabel = "Secure ERDDAP Automation Home Page";
-
-  const el = document.getElementById("page-nav");
-  if (!el) return;
-
-  const prevBtn = prev && prev !== "NA"
-    ? `<a href="${prev}" class="btn btn-noaa">← ${prevLabel || "Previous"}</a>`
-    : `<span></span>`;
-
-  const nextBtn = next && next !== "NA"
-    ? `<a href="${next}" class="btn btn-noaa">${nextLabel || "Next"} →</a>`
-    : `<span></span>`;
-
-  el.innerHTML = prevBtn + nextBtn;
-})();
-</script>
 
 
 

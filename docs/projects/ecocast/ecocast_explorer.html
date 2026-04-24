@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>EcoCast Explorer – CoastWatch West Code Node</title>
+<title>EcoCast Explorer – CoastWatch West Coast Node</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -83,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
     <img src="../../images/coastwatch_logo.png" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">CoastWatch West Code Node</span>
+    <span class="navbar-title">CoastWatch West Coast Node</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -104,6 +104,10 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../../data_catalog.html">
  <span class="dropdown-text">Data Catalog</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../dataset_monitor.html">
+ <span class="dropdown-text">Dataset Monitor</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../data_server.html">
@@ -144,6 +148,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">CoastWatch</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../../people.html">
+ <span class="dropdown-text">People</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../contact_us.html">
  <span class="dropdown-text">Contact Us</span></a>
   </li>  
@@ -170,28 +178,20 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">EcoCast Explorer</h1>
-</div>
+<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
-
-<div class="quarto-title-meta column-page">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
 
 
 <div class="ecocast-page">
+<div class="project-topbar">
+<div class="project-brand">
+<p><a href="../../projects/ecocast/ecocast.html" class="project-brand-link"> <img src="images/ecocast_logo_003366.png" alt="EcoCast logo" class="project-brand-logo"></a></p><a href="../../projects/ecocast/ecocast.html" class="project-brand-link">
+</a></div><a href="../../projects/ecocast/ecocast.html" class="project-brand-link">
+</a><nav class="project-tabs" aria-label="EcoCast navigation"><a href="../../projects/ecocast/ecocast.html" class="project-brand-link">
+</a><a class="project-tab" href="../../projects/ecocast/about_ecocast.html">About EcoCast</a> <a class="project-tab" href="../../projects/ecocast/ecocast_map.html">EcoCast Map</a> <a class="project-tab active" href="../../projects/ecocast/ecocast_explorer.html">EcoCast Explorer</a>
+</nav>
+</div>
 <div class="ecocast-map-zoom">
 <div class="ecocast-card">
 <details class="ecocast-buttons">
@@ -224,30 +224,6 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<div id="page-nav" class="d-flex justify-content-between mt-4 mb-4">
-
-</div>
-<script>
-(function () {
-  const prev = "ecocast_map.html";
-  const prevLabel = "EcoCast Map";
-  const next = "ecocast.html";
-  const nextLabel = "EcoCast Home Page";
-
-  const el = document.getElementById("page-nav");
-  if (!el) return;
-
-  const prevBtn = prev && prev !== "NA"
-    ? `<a href="${prev}" class="btn btn-noaa">← ${prevLabel || "Previous"}</a>`
-    : `<span></span>`;
-
-  const nextBtn = next && next !== "NA"
-    ? `<a href="${next}" class="btn btn-noaa">${nextLabel || "Next"} →</a>`
-    : `<span></span>`;
-
-  el.innerHTML = prevBtn + nextBtn;
-})();
-</script>
 
 
 
@@ -261,18 +237,19 @@ ul.task-list li input[type="checkbox"] {
   font-size: 1.125rem;
 ">
   <div style="
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
+    padding: 0 1rem;
   ">
-
-    <!-- Top link bar -->
+    
+  <!-- Top link bar -->
+  <div style="text-align: center; margin-bottom: 1.5rem;">
     <div style="
-      display: flex;
-      justify-content: space-evenly;
+      display: inline-flex;
+      justify-content: center;
       align-items: center;
-      gap: 1.5rem;
-      margin-bottom: 1.5rem;
-      white-space: nowrap;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
     ">
       <a href="https://www.fisheries.noaa.gov/" style="color: #336699; text-decoration: none;">Fisheries</a>
       <a href="https://www.star.nesdis.noaa.gov/star/index.php" style="color: #336699; text-decoration: none;">STAR</a>
@@ -280,6 +257,8 @@ ul.task-list li input[type="checkbox"] {
       <a href="https://www.fisheries.noaa.gov/about/southwest-fisheries-science-center" style="color: #336699; text-decoration: none;">Southwest Fisheries</a>
       <a href="https://www.fisheries.noaa.gov/about/climate-and-ecosystems-program-southwest-fisheries-science-center" style="color: #336699; text-decoration: none;">Environmental Research Division</a>
     </div>
+  </div>
+
 
     <!-- Logo + tagline -->
     <div style="

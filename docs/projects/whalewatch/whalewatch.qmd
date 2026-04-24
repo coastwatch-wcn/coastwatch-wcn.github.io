@@ -1,4 +1,5 @@
 ---
+pagetitle: "WhaleWatch"
 anchor-sections: false
 format:
   html:
@@ -13,8 +14,8 @@ format:
 ::: {.project-topbar}
 
 <nav class="project-tabs" aria-label="WhaleWatch navigation">
-  <a class="project-tab is-brand is-active" href="whalewatch.qmd">WhaleWatch 2.0</a>
-  <a class="project-tab is-active" href="about-whalewatch.qmd">About WhaleWatch 2.0</a>
+  <a class="project-tab is-brand active" href="whalewatch.qmd">WhaleWatch 2.0</a>
+  <a class="project-tab" href="about-whalewatch.qmd">About WhaleWatch 2.0</a>
   <a class="project-tab" href="whalewatch-products.qmd">WhaleWatch 2.0 Products</a>
   <a class="project-tab" href="whalewatch-explorer.qmd">WhaleWatch 2.0 Explorer</a>
 </nav>
@@ -24,14 +25,11 @@ format:
 ::: {.whale-hero}
 <div class="whale-hero">
   <img src="images/blue_whale2.png" alt="Blue whale">
-
 </div>
 
 :::
 
-<div class="hero-caption">
-    Photo courtesy of Elliot Hazen, NOAA Fisheries
-</div>
+<span class="image-caption">Photo courtesy of Elliot Hazen, NOAA Fisheries</span>
 
 ### <span style="color:#2b6da8;">**An Eco-Informatic Tool for Conserving Protected Species**</span>
 

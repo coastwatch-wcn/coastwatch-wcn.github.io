@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Data Dashboard – CoastWatch West Code Node</title>
+<title>Data Dashboard – CoastWatch West Coast Node</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -83,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
     <img src="../../images/coastwatch_logo.png" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">CoastWatch West Code Node</span>
+    <span class="navbar-title">CoastWatch West Coast Node</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -104,6 +104,10 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../../data_catalog.html">
  <span class="dropdown-text">Data Catalog</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../dataset_monitor.html">
+ <span class="dropdown-text">Dataset Monitor</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../data_server.html">
@@ -174,28 +178,17 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Data Dashboard</h1>
-</div>
+<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
-
-<div class="quarto-title-meta column-page">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
 
 
 <div class="turtlewatch-page">
+<div class="project-topbar">
+<nav class="project-tabs" aria-label="TurtleWatch navigation">
+<a class="project-tab is-brand" href="../../projects/turtlewatch/turtlewatch.html">TOTAL</a> <a class="project-tab" href="../../projects/turtlewatch/turtlewatch-background.html">Background</a> <a class="project-tab" href="../../projects/turtlewatch/turtlewatch-closure-rules.html">Closure Rules</a> <a class="project-tab" href="../../projects/turtlewatch/turtlewatch-closure-status.html">Conservation Area Status</a> <a class="project-tab active" href="../../projects/turtlewatch/turtlewatch-data-dashboard.html">Data Dashboard</a>
+</nav>
+</div>
 <div class="year-select-wrapper">
 <p><strong>Select Year:</strong> <select id="year-select-input"> <option value="2025" selected="">2025</option> <option value="2024">2024</option> <option value="2023">2023</option> <option value="2022">2022</option> <option value="2021">2021</option> <option value="2020">2020</option> <option value="2019">2019</option> <option value="2018">2018</option> <option value="2017">2017</option> <option value="2016">2016</option> <option value="2015">2015</option> <option value="2014">2014</option> <option value="2013">2013</option> <option value="2012">2012</option> <option value="2011">2011</option> <option value="2010">2010</option> <option value="2009">2009</option> <option value="2008">2008</option> <option value="2007">2007</option> <option value="2006">2006</option> <option value="2005">2005</option> <option value="2004">2004</option> <option value="2003">2003</option> </select></p>
 </div>
@@ -262,7 +255,7 @@ January – December 2025
 An alert is indicated when indicator values (the time series) exceed a threshold of <strong>0.77 (red horizontal line)</strong>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="data/images/indicator_placeholder.png" id="bycatch-img" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="data/images/indicator_placeholder.png" id="bycatch-img" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
 </figure>
 </div>
 </section>
@@ -586,30 +579,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 </div>
-<div id="page-nav" class="d-flex justify-content-between mt-4 mb-4">
-
-</div>
-<script>
-(function () {
-  const prev = "turtlewatch-closure-status.html";
-  const prevLabel = "Conservation Area Status";
-  const next = "turtlewatch.html";
-  const nextLabel = "TurtleWatch Home Page";
-
-  const el = document.getElementById("page-nav");
-  if (!el) return;
-
-  const prevBtn = prev && prev !== "NA"
-    ? `<a href="${prev}" class="btn btn-noaa">← ${prevLabel || "Previous"}</a>`
-    : `<span></span>`;
-
-  const nextBtn = next && next !== "NA"
-    ? `<a href="${next}" class="btn btn-noaa">${nextLabel || "Next"} →</a>`
-    : `<span></span>`;
-
-  el.innerHTML = prevBtn + nextBtn;
-})();
-</script>
 
 
 

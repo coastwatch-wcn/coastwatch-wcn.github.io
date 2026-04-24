@@ -1508,7 +1508,7 @@ button.btn-primary:hover {
 
 .ecocast-page .hero-img {
   width: 100%;
-  max-height: 400px;
+  max-height: 500px;
   display: block;
   object-fit: cover;
   border-radius: 0;
@@ -1736,17 +1736,119 @@ button.btn-primary:hover {
   min-width: 0;
 }
 
-/* Mobile: stack */
-@media (max-width: 991px){
-  .ecocast-page .ecocast-sbs{
-    grid-template-columns: 1fr;
-  }
-}
-
 /*Zoom out ONLY the EcoCast Map page */
 .ecocast-map-page .ecocast-map-zoom{
   transform: scale(0.95);
   transform-origin: top center;
+}
+
+.ecocast-page .project-topbar{
+  position: relative;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3ren;
+
+  padding: .65rem 1.1rem;
+  margin: 0 0 1.25rem 0;
+
+  background: #f2f4f6;
+  border-bottom: 2px solid rgba(0,0,0,.08);
+}
+
+.ecocast-page .project-tab {
+  color: #6c757d;           /* lighter gray for inactive */
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+/* Hover */
+.ecocast-page .project-tab:hover {
+  color: #2b6da8;           /* NOAA-ish blue on hover */
+}
+
+/* ACTIVE PAGE */
+.ecocast-page .project-tabs a.project-tab.active {
+  color: #2b6da8;       /* NOAA blue */
+  font-weight: 700;
+  border-bottom: 2px solid #2b6da8;
+}
+
+/* Brand stays left and is vertically centered */
+.ecocast-page .project-topbar .project-brand{
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  white-space: nowrap;
+}
+
+.ecocast-page .project-topbar .project-brand-title{
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* Nudge only if your PNG has transparent padding */
+.ecocast-page .project-topbar .project-brand-logo{
+  height: 80px;
+  width: auto;
+  display: block;
+  transform: translateY(1px); /* try 0px, 1px, or 2px */
+}
+
+/* Tabs are centered across the bar */
+.ecocast-page .project-topbar .project-tabs{
+  position: static;          /* tabs now affect bar height */
+  transform: none;
+  left: auto;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+
+  width: auto;
+  gap: 4rem;
+  margin: 0;            /* center within bar */
+}
+
+.ecocast-page .project-tab{
+  font-size: 1.15rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Mobile: stack instead of absolute centering */
+@media (max-width: 992px){
+
+  .ecocast-page .project-topbar{
+    flex-direction: column;
+    align-items: center;
+    gap: .75rem;
+  }
+
+  .ecocast-page .project-topbar .project-tabs{
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .75rem;
+
+    width: auto;
+  }
+
+  .ecocast-page .project-tab {
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+}
+
+/* Mobile: stack */
+@media (max-width: 992px){
+  .ecocast-page .ecocast-sbs{
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ---------------------- */
@@ -2006,8 +2108,14 @@ button.btn-primary:hover {
 
 .whalewatch-page .project-topbar{
   position: relative;
+  flex-direction: row;
+
   display: flex;
   align-items: center;
+  justify-content: space-between;
+
+  height: 105px;
+
   padding: .65rem 1.1rem;
   margin: 0 0 1.25rem 0;
 
@@ -2039,38 +2147,62 @@ button.btn-primary:hover {
 
 /* Tabs are centered across the bar */
 .whalewatch-page .project-topbar .project-tabs{
-  position: static;          /* tabs now affect bar height */
-  transform: none;
-  left: auto;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
 
   display: flex;
   flex-wrap: nowrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 
-  width: 100%;
-  max-width: none;
-  margin: 0;            /* center within bar */
+  gap: 2rem;
+  margin: 0;
 }
 
-
-.whalewatch-page .project-tab{
+.whalewatch-page .project-tab {
+  
+  color: #6c757d;           /* lighter gray for inactive */
+  text-decoration: none;
+  transition: color 0.2s ease;
   font-size: 1.15rem;
   font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Hover */
+.whalewatch-page .project-tab:hover {
+  color: #2b6da8;           /* NOAA-ish blue on hover */
+}
+
+/* ACTIVE PAGE */
+.whalewatch-page .project-tabs a.project-tab.active {
+  color: #2b6da8;       /* NOAA blue */
+  font-weight: 700;
+  border-bottom: 2px solid #2b6da8;
 }
 
 /* Mobile: stack instead of absolute centering */
 @media (max-width: 900px){
   .whalewatch-page .project-topbar{
     flex-direction: column;
-    align-items: flex-start;
-    gap: .6rem;
+    align-items: center;
+    gap: .75rem;
   }
   .whalewatch-page .project-topbar .project-tabs{
-    position: static;
-    transform: none;
-    left: auto;
-    justify-content: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .75rem;
+
+    width: auto;
+  }
+
+  .whalewatch-page .project-tab {
+    font-size: 1rem;
+    white-space: nowrap;
+    text-align: center;
   }
 }
 
@@ -2917,6 +3049,7 @@ button.btn-primary:hover {
 
 .turtlewatch-page .project-topbar{
   position: relative;
+  flex-direction: column;
   display: flex;
   align-items: center;
   padding: .65rem 1.1rem;
@@ -2924,6 +3057,24 @@ button.btn-primary:hover {
 
   background: #f2f4f6;
   border-bottom: 2px solid rgba(0,0,0,.08);
+}
+
+.turtlewatch-page .project-tab {
+  color: #6c757d;           /* lighter gray for inactive */
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+/* Hover */
+.turtlewatch-page .project-tab:hover {
+  color: #2b6da8;           /* NOAA-ish blue on hover */
+}
+
+/* ACTIVE PAGE */
+.turtlewatch-page .project-tabs a.project-tab.active {
+  color: #2b6da8;       /* NOAA blue */
+  font-weight: 700;
+  border-bottom: 2px solid #2b6da8;
 }
 
 /* Brand stays left and is vertically centered */
@@ -2955,12 +3106,12 @@ button.btn-primary:hover {
   left: auto;
 
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 
   width: 100%;
-  max-width: none;
+  gap: 1.25rem;
   margin: 0;            /* center within bar */
 }
 
@@ -2968,20 +3119,41 @@ button.btn-primary:hover {
 .turtlewatch-page .project-tab{
   font-size: 1.15rem;
   font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Prevent sst table from running off the page */
+.turtlewatch-page .table-scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.turtlewatch-page .table-scroll table {
+  min-width: 500px;
 }
 
 /* Mobile: stack instead of absolute centering */
 @media (max-width: 900px){
+
   .turtlewatch-page .project-topbar{
     flex-direction: column;
-    align-items: flex-start;
-    gap: .6rem;
+    align-items: center;
+    gap: .75rem;
   }
+
   .turtlewatch-page .project-topbar .project-tabs{
-    position: static;
-    transform: none;
-    left: auto;
-    justify-content: flex-start;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .75rem;
+
+    width: auto;
+  }
+
+  .turtlewatch-page .project-tab {
+    font-size: 1rem;
+    white-space: nowrap;
   }
 }
 
@@ -2991,6 +3163,7 @@ button.btn-primary:hover {
 
 .course-slides-page .project-topbar{
   position: relative;
+  flex-direction: column;
   display: flex;
   align-items: center;
   padding: .65rem 1.1rem;
@@ -3029,19 +3202,33 @@ button.btn-primary:hover {
   left: auto;
 
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 
   width: 100%;
-  max-width: none;
+  gap: 1rem;
   margin: 0;            /* center within bar */
 }
-
 
 .course-slides-page .project-tab{
   font-size: 1.15rem;
   font-weight: 600;
+  color: #6c757d;           /* lighter gray for inactive */
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+/* Hover */
+.course-slides-page .project-tab:hover {
+  color: #2b6da8;           /* NOAA-ish blue on hover */
+}
+
+/* ACTIVE PAGE */
+.course-slides-page .project-tabs a.project-tab.active {
+  color: #2b6da8;       /* NOAA blue */
+  font-weight: 700;
+  border-bottom: 2px solid #2b6da8;
 }
 
 /* Mobile: stack instead of absolute centering */

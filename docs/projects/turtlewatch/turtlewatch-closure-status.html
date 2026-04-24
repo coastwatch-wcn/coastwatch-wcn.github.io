@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Conservation Area Status – CoastWatch West Code Node</title>
+<title>Conservation Area Status – CoastWatch West Coast Node</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -86,7 +86,7 @@ ul.task-list li input[type="checkbox"] {
     <img src="../../images/coastwatch_logo.png" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">CoastWatch West Code Node</span>
+    <span class="navbar-title">CoastWatch West Coast Node</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -107,6 +107,10 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../../data_catalog.html">
  <span class="dropdown-text">Data Catalog</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../dataset_monitor.html">
+ <span class="dropdown-text">Dataset Monitor</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../data_server.html">
@@ -177,28 +181,17 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Conservation Area Status</h1>
-</div>
+<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
-
-<div class="quarto-title-meta column-page">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
 
 
 <div class="turtlewatch-page">
+<div class="project-topbar">
+<nav class="project-tabs" aria-label="TurtleWatch navigation">
+<a class="project-tab is-brand" href="../../projects/turtlewatch/turtlewatch.html">TOTAL</a> <a class="project-tab" href="../../projects/turtlewatch/turtlewatch-background.html">Background</a> <a class="project-tab" href="../../projects/turtlewatch/turtlewatch-closure-rules.html">Closure Rules</a> <a class="project-tab active" href="../../projects/turtlewatch/turtlewatch-closure-status.html">Conservation Area Status</a> <a class="project-tab" href="../../projects/turtlewatch/turtlewatch-data-dashboard.html">Data Dashboard</a>
+</nav>
+</div>
 <div class="status-card">
 <div class="status-banner success">
 <span id="closure-status" class="status-text">Loading closure status…</span>
@@ -207,7 +200,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <p id="closure-description">
-NMFS has reopened the Pacific Loggerhead Conservation Area (LCA) to fishing with drift gillnets (DGN). The LCA had been close to DGN since June 1, 2024. (Posted 8/1/2024)
+NMFS did not prohibit fishing with large-mesh drift gillnet gear in the Loggerhead Conservation Area this season.
 </p>
 <p><small> <em><a href="https://www.westcoast.fisheries.noaa.gov/">Closure status provided by NOAA Fisheries West Coast Regional Office</a></em> </small></p>
 </div>
@@ -240,10 +233,10 @@ NMFS has reopened the Pacific Loggerhead Conservation Area (LCA) to fishing with
 <div class="unit-toggle">
 <p><label><input type="radio" name="temp-unit" value="C" checked=""> °C</label> <label><input type="radio" name="temp-unit" value="F"> °F</label></p>
 </div>
+<div class="table-scroll">
 <div id="sst-table-container">
-<p>
-Loading temperature data…
-</p>
+<pre><code>&lt;p&gt;Loading temperature data...&lt;/p&gt;</code></pre>
+</div>
 </div>
 <p><small> Recent and historical monthly sea surface temperatures within the Loggerhead sea turtle conservation area.<br>
 Dataset: <a href="https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&amp;itemsPerPage=1000&amp;searchFor=mur+sst">GHRSST MUR</a> </small></p>
@@ -272,7 +265,7 @@ Dataset: <a href="https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page
 <p>This year’s <strong>Temperature Observations To Avoid Loggerhead (TOTAL)</strong> values for the Loggerhead Conservation Area. An alert is indicated when indicator values (the timeseries) exceed a threshold of <strong>0.77 (red horizontal line)</strong>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="data/images/indicator_latest.png" id="indicator-plot" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="data/images/indicator_latest.png" id="indicator-plot" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
 </figure>
 </div>
 </section>
@@ -621,30 +614,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 </div>
-<div id="page-nav" class="d-flex justify-content-between mt-4 mb-4">
-
-</div>
-<script>
-(function () {
-  const prev = "turtlewatch-closure-rules.html";
-  const prevLabel = "Closure Rules";
-  const next = "turtlewatch-data-dashboard.html";
-  const nextLabel = "Data Dashboard";
-
-  const el = document.getElementById("page-nav");
-  if (!el) return;
-
-  const prevBtn = prev && prev !== "NA"
-    ? `<a href="${prev}" class="btn btn-noaa">← ${prevLabel || "Previous"}</a>`
-    : `<span></span>`;
-
-  const nextBtn = next && next !== "NA"
-    ? `<a href="${next}" class="btn btn-noaa">${nextLabel || "Next"} →</a>`
-    : `<span></span>`;
-
-  el.innerHTML = prevBtn + nextBtn;
-})();
-</script>
 
 
 

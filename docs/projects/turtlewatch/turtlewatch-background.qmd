@@ -1,9 +1,5 @@
 ---
-title: "TurtleWatch Background"
-prev: turtlewatch.html
-prev_label: TurtleWatch Home Page
-next: turtlewatch-closure-rules.html
-next_label: Closure Rules
+pagetitle: "TOTAL Background"
 format: 
   html:
     theme: lux
@@ -15,10 +11,22 @@ anchor-sections: false
 
 :::{.turtlewatch-page}
 
+::: {.project-topbar}
+
+  <nav class="project-tabs" aria-label="TurtleWatch navigation">
+    <a class="project-tab is-brand" href="turtlewatch.qmd">TOTAL</a>
+    <a class="project-tab active" href="turtlewatch-background.qmd">Background</a>
+    <a class="project-tab" href="turtlewatch-closure-rules.qmd">Closure Rules</a>
+    <a class="project-tab" href="turtlewatch-closure-status.qmd">Conservation Area Status</a>
+    <a class="project-tab" href="turtlewatch-data-dashboard.qmd">Data Dashboard</a>
+  </nav>
+
+:::
+
 ::: {.turtlewatch-columns}
 ::: {.turtlewatch-column}
 ### Loggerhead Sea Turtles
-![Photo copyright: NOAA Fisheries](images/noaa_loggerhead_turtle.png){fig-align="left" width="50%"}
+![Photo copyright: NOAA Fisheries](images/noaa_loggerhead_turtle.png){fig-align="center" width="50%"}
 :::
 
 ::: {.turtlewatch-column}
@@ -85,5 +93,3 @@ The number of active vessels in the DGN fishery has remained under 50 vessels si
 :::
 
 :::
-
-{{< include ../../_includes/page-nav.html >}}

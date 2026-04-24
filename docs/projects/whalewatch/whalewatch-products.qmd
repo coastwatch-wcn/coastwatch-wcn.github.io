@@ -1,9 +1,5 @@
 ---
-title: "WhaleWatch 2.0 Products"
-prev: about-whalewatch.html
-prev_label: About WhaleWatch 2.0
-next: whalewatch-explorer.html
-next_label: WhaleWatch 2.0 Explorer
+pagetitle: "WhaleWatch 2.0 Products"
 anchor-sections: false
 format:
   html:
@@ -14,6 +10,17 @@ format:
 ---
 
 ::: {.whalewatch-page}
+
+::: {.project-topbar}
+
+<nav class="project-tabs" aria-label="WhaleWatch navigation">
+  <a class="project-tab is-brand" href="whalewatch.qmd">WhaleWatch 2.0</a>
+  <a class="project-tab" href="about-whalewatch.qmd">About WhaleWatch 2.0</a>
+  <a class="project-tab active" href="whalewatch-products.qmd">WhaleWatch 2.0 Products</a>
+  <a class="project-tab" href="whalewatch-explorer.qmd">WhaleWatch 2.0 Explorer</a>
+</nav>
+
+:::
 
 ::: {.whale-columns}
 ::: {.whale-column .whale-card}
@@ -106,5 +113,3 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 :::
-
-{{< include ../../_includes/page-nav.html >}}

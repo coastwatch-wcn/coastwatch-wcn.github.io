@@ -1,4 +1,5 @@
 ---
+pagetitle: "EcoCast"
 anchor-sections: false
 format:
   html:
@@ -18,7 +19,7 @@ format:
 </div>
 
 <nav class="project-tabs" aria-label="EcoCast navigation">
-  <a class="project-tab is-active" href="about_ecocast.qmd">About EcoCast</a>
+  <a class="project-tab" href="about_ecocast.qmd">About EcoCast</a>
   <a class="project-tab" href="ecocast_map.qmd">EcoCast Map</a>
   <a class="project-tab" href="ecocast_explorer.qmd">EcoCast Explorer</a>
 </nav>

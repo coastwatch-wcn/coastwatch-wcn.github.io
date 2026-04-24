@@ -1,9 +1,5 @@
 ---
-title: "Secure Automated ERDDAP Workflow"
-prev: course-slides-overview.html
-prev_label: Secure ERDDAP Automation Overview
-next: course-slides-resources.html
-next_label: Secure Automated ERDDAP Resources
+pagetitle: "Secure Automated ERDDAP Workflow"
 anchor-sections: false
 format:
   html:
@@ -14,6 +10,17 @@ format:
 ---
 
 :::{.course-slides-page}
+
+::: {.project-topbar}
+
+  <nav class="project-tabs" aria-label="Secure ERDDAP Automation navigation">
+    <a class="project-tab is-brand" href="course-slides-erddap.qmd">Secure ERDDAP Automation</a>
+    <a class="project-tab" href="course-slides-overview.qmd">Overview</a>
+    <a class="project-tab active" href="course-slides-workflow.qmd">Technical Workflow</a>
+    <a class="project-tab" href="course-slides-resources.qmd">Resources</a>
+  </nav>
+
+:::
 
 ::: {.course-slides-columns}
 ::: {.course-slides-column}
@@ -150,5 +157,3 @@ However, there are important limitations to consider. Because the datasets conta
 
 
 :::
-
-{{< include ../../_includes/page-nav.html >}}
