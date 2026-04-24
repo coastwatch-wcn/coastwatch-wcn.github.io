@@ -2143,16 +2143,23 @@ button.btn-primary:hover {
 /* Tabs are centered across the bar */
 .whalewatch-page .project-topbar .project-tabs{
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: center;
 
   width: 100%;
-  max-width: none;
   gap: 0;
+  padding: 0.4rem 0;
   margin: 0;
 }
 
 .whalewatch-page .project-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 2.5rem;
+  text-align: center;
+
   color: #6c757d;           /* lighter gray for inactive */
   text-decoration: none;
   transition: color 0.2s ease;
