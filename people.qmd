@@ -9,21 +9,28 @@ page-layout: full
 
 The CoastWatch West Coast Node supports the development and distribution of satellite-derived oceanographic data products, tools, and applications for the satellite data community. The website and resources hosted here are maintained by the people below.
 
-::: {.contact-card style="background-color: #f8f9fa; padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);"}
+::: {.contact-grid}
 
-::: {style="display: flex; flex-wrap: wrap; gap: 2rem;"}
-
-::: {style="flex: 1 1 250px;"}
+::: {.contact-person}
 ### Cara Wilson
-**Manager, CoastWatch West Coast**
+<span class="contact-role">Manager, CoastWatch West Coast</span>
 :::
 
-::: {style="flex: 1 1 250px;"}
+::: {.contact-person}
 ### Dale Robinson
-**Development Lead, CoastWatch West Coast**
+<span class="contact-role">Development Lead, CoastWatch West Coast</span>
 :::
 
+::: {.contact-person}
+### Madison Richardson
+<span class="contact-role">Environmental Data Analyst, CoastWatch West Coast</span>
 :::
+
+::: {.contact-person}
+### Jonathan Sherman
+<span class="contact-role">Research Development Specialist, CoastWatch West Coast</span>
+:::
+
 :::
 
 ---
