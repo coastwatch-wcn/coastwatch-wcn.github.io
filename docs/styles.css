@@ -1932,6 +1932,7 @@ button.btn-primary:hover {
   margin-top: 0.25rem;
   padding-right: 0.5rem;
   display: block;
+  text-align: right;
 }
 
 .whalewatch-page .whale-card-grid {
