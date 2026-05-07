@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CalCOFI Satellite Dashboard</title>
+  <style>
+    body { font-family: sans-serif; background: #f0f4f8; margin: 0; padding: 20px; }
+    h1 { text-align: center; color: #2c3e50; margin-bottom: 10px; }
+
+    /* PAGE TOGGLE STYLING */
+    .page-toggle { display: flex; justify-content: center; max-width: 1200px; margin: 0 auto 20px auto; }
+    .toggle-btn { flex: 1; max-width: 300px; padding: 12px; text-align: center; text-decoration: none; font-weight: bold; font-size: 0.9rem; border: 2px solid #2c3e50; transition: all 0.3s ease; }
+    .toggle-btn.inactive { background-color: white; color: #2c3e50; }
+    .toggle-btn.active { background-color: #2c3e50; color: white; cursor: default; }
+    .toggle-btn:hover.inactive { background-color: #eef2f7; }
+    .toggle-btn:first-child { border-radius: 8px 0 0 8px; }
+    .toggle-btn:last-child { border-radius: 0 8px 8px 0; border-left: none; }
+
+    /* DASHBOARD STYLING */
+    #erddap-widget, .card { background: #fff; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    #erddap-widget { padding: 15px; border: 1px solid #2c3e50; max-width: 1200px; margin: 0 auto 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+    .widget-flex, .btn-row, .cb-widget { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+    .widget-flex { gap: 10px; align-items: flex-end; }
+    .input-group { flex: 1; min-width: 120px; }
+    .input-group label { display: block; font-size: 12px; font-weight: bold; margin-bottom: 4px; color: #34495e; }
+    .input-group input, .cb-widget input { border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+    .input-group input { width: 100%; padding: 8px; }
+    .cb-widget input { width: 55px; padding: 4px; text-align: center; }
+    .button-group { display: flex; flex-direction: column; gap: 5px; min-width: 220px; }
+    .update-btn, .reset-btn, .set-btn { border: none; color: white; cursor: pointer; border-radius: 4px; font-weight: bold; }
+    .update-btn, .reset-btn { padding: 10px 14px; flex: 1; }
+    .update-btn, .set-btn { background: #2c3e50; }
+    .reset-btn { background: #95a5a6; }
+    .set-btn { padding: 5px 8px; }
+    #station-note { display: none; margin-top: 5px; text-align: center; font-size: 12px; font-weight: bold; color: #d35400; }
+
+    .data-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
+    .card { padding: 12px; text-align: center; }
+    
+    /* Request: Hidden class for regional maps */
+    .card.hidden { display: none; }
+
+    .card h3 { margin: 10px 0; color: #34495e; font-size: 1.1em; }
+    .card a { display: inline-block; margin-top: 8px; color: #3498db; text-decoration: none; font-weight: bold; font-size: 0.9em; }
+    .map-wrap { position: relative; width: 100%; }
+    .map-wrap img { width: 100%; min-height: 200px; display: block; border: 1px solid #eee; background: #fafafa; }
+    .station-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+    .cb-widget { justify-content: center; width: 100%; margin-top: 10px; padding: 6px; background: #eee; border-radius: 4px; box-sizing: border-box; font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+
+  <div class="page-toggle">
+      <a href="#" class="toggle-btn active">CalCOFI MONITORING</a>
+      <a href="ShipWatch.qmd" class="toggle-btn inactive">VESSEL TRACKER</a>
+  </div>
+
+  <h1>CalCOFI Satellite Monitoring</h1>
+
+  <div id="erddap-widget">
+    <div class="widget-flex">
+      <div class="input-group"><label>South Lat</label><input id="latMin" type="number" value="29" step="0.1"></div>
+      <div class="input-group"><label>North Lat</label><input id="latMax" type="number" value="39" step="0.1"></div>
+      <div class="input-group"><label>West Lon</label><input id="lonMin" type="number" value="-127" step="0.1"></div>
+      <div class="input-group"><label>East Lon</label><input id="lonMax" type="number" value="-116" step="0.1"></div>
+
+      <div class="button-group">
+        <div class="btn-row">
+          <button class="update-btn" onclick="updateAllMaps()">Update</button>
+          <button class="reset-btn" onclick="resetDefaults()">Reset</button>
+        </div>
+        <div id="station-note">Note: Stations are only drawn on default map boundaries.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="data-grid">
+    <div class="card" id="card-chla-d"><h3>Daily Chlorophyll</h3><div class="map-wrap"><img id="img-chla-d"><canvas id="cvs-chla-d" class="station-canvas"></canvas></div><div class="cb-widget">Min: <input id="min-chla-d" value="0.03"> Max: <input id="max-chla-d" value="5"> <button class="set-btn" onclick="updateAllMaps()">Set</button></div><a id="lnk-chla-d" target="_blank">ERDDAP</a></div>
+    <div class="card" id="card-chla-w"><h3>Weekly Chlorophyll</h3><div class="map-wrap"><img id="img-chla-w"><canvas id="cvs-chla-w" class="station-canvas"></canvas></div><div class="cb-widget">Min: <input id="min-chla-w" value="0.03"> Max: <input id="max-chla-w" value="5"> <button class="set-btn" onclick="updateAllMaps()">Set</button></div><a id="lnk-chla-w" target="_blank">ERDDAP</a></div>
+    <div class="card" id="card-sst"><h3>SST</h3><div class="map-wrap"><img id="img-sst"><canvas id="cvs-sst" class="station-canvas"></canvas></div><div class="cb-widget">Min: <input id="min-sst" value="10"> Max: <input id="max-sst" value="22"> <button class="set-btn" onclick="updateAllMaps()">Set</button></div><a id="lnk-sst" target="_blank">ERDDAP</a></div>
+    <div class="card" id="card-sst-anom"><h3>SST Anomaly</h3><div class="map-wrap"><img id="img-sst-anom"><canvas id="cvs-sst-anom" class="station-canvas"></canvas></div><div class="cb-widget">Min: <input id="min-sst-anom" value="-2"> Max: <input id="max-sst-anom" value="2"> <button class="set-btn" onclick="updateAllMaps()">Set</button></div><a id="lnk-sst-anom" target="_blank">ERDDAP</a></div>
+    
+    <div class="card" id="card-sardine"><h3>Sardine Habitat</h3><div class="map-wrap"><img id="img-sardine"><canvas id="cvs-sardine" class="station-canvas"></canvas></div><div class="cb-widget">Min: <input id="min-sardine" value="0"> Max: <input id="max-sardine" value="8"> <button class="set-btn" onclick="updateAllMaps()">Set</button></div><a id="lnk-sardine" target="_blank">ERDDAP</a></div>
+    <div class="card" id="card-charms-pn"><h3>C-HARMS (PN)</h3><div class="map-wrap"><img id="img-charms-pn"><canvas id="cvs-charms-pn" class="station-canvas"></canvas></div><div class="cb-widget">Min: <input id="min-charms-pn" value="0"> Max: <input id="max-charms-pn" value="1"> <button class="set-btn" onclick="updateAllMaps()">Set</button></div><a id="lnk-charms-pn" target="_blank">ERDDAP</a></div>
+    <div class="card" id="card-charms-salt"><h3>Salinity (WCOFS)</h3><div class="map-wrap"><img id="img-charms-salt"><canvas id="cvs-charms-salt" class="station-canvas"></canvas></div><div class="cb-widget">Min: <input id="min-charms-salt" value="31"> Max: <input id="max-charms-salt" value="35"> <button class="set-btn" onclick="updateAllMaps()">Set</button></div><a id="lnk-charms-salt" target="_blank">ERDDAP</a></div>
+    
+    <div class="card" id="card-wind"><h3>Wind Speed</h3><div class="map-wrap"><img id="img-wind"><canvas id="cvs-wind" class="station-canvas"></canvas></div><div class="cb-widget">Min: <input id="min-wind" value="0"> Max: <input id="max-wind" value="15"> <button class="set-btn" onclick="updateAllMaps()">Set</button></div><a id="lnk-wind" target="_blank">ERDDAP</a></div>
+    <div class="card" id="card-ssh"><h3>SSH</h3><div class="map-wrap"><img id="img-ssh"><canvas id="cvs-ssh" class="station-canvas"></canvas></div><div class="cb-widget">Min: <input id="min-ssh" value="-0.5"> Max: <input id="max-ssh" value="0.5"> <button class="set-btn" onclick="updateAllMaps()">Set</button></div><a id="lnk-ssh" target="_blank">ERDDAP</a></div>
+    <div class="card" id="card-sss"><h3>Salinity (SMOS)</h3><div class="map-wrap"><img id="img-sss"><canvas id="cvs-sss" class="station-canvas"></canvas></div><div class="cb-widget">Min: <input id="min-sss" value="31"> Max: <input id="max-sss" value="35"> <button class="set-btn" onclick="updateAllMaps()">Set</button></div><a id="lnk-sss" target="_blank">ERDDAP</a></div>
+  </div>
+
+  <script>
+    const STATIONS = [
+      { lon: -117.295, lat: 32.958332 }, { lon: -117.29, lat: 32.93833 }, { lon: -117.486664, lat: 33.233334 },
+      { lon: -117.388336, lat: 32.916664 }, { lon: -117.525, lat: 32.843334 }, { lon: -117.87, lat: 32.68 },
+      { lon: -118.21333, lat: 32.515 }, { lon: -118.555, lat: 32.345 }, { lon: -118.88333, lat: 32.178333 },
+      { lon: -119.23167, lat: 32.00833 }, { lon: -119.57166, lat: 31.846666 }, { lon: -120.245, lat: 31.511665 },
+      { lon: -120.63167, lat: 32.081665 }, { lon: -119.956665, lat: 32.413334 }, { lon: -119.48, lat: 32.651665 },
+      { lon: -118.935, lat: 32.91833 }, { lon: -118.386665, lat: 33.183334 }, { lon: -118.25, lat: 33.251667 },
+      { lon: -117.75166, lat: 33.49 }, { lon: -117.77, lat: 33.483334 }, { lon: -117.905, lat: 33.41833 },
+      { lon: -118.096664, lat: 33.625 }, { lon: -118.456665, lat: 33.885 }, { lon: -118.49167, lat: 33.891666 },
+      { lon: -118.628334, lat: 33.82 }, { lon: -118.971664, lat: 33.658333 }, { lon: -119.31834, lat: 33.485 },
+      { lon: -119.66333, lat: 33.32 }, { lon: -120.00667, lat: 33.156666 }, { lon: -120.348335, lat: 32.99 },
+      { lon: -121.03167, lat: 32.656666 }
+    ];
+
+    function resetDefaults() {
+      document.getElementById("latMin").value = 29;
+      document.getElementById("latMax").value = 39;
+      document.getElementById("lonMin").value = -127;
+      document.getElementById("lonMax").value = -116;
+      updateAllMaps();
+    }
+
+    function getMinMax(id) {
+      const minEl = document.getElementById(`min-${id}`);
+      const maxEl = document.getElementById(`max-${id}`);
+      return { min: minEl ? minEl.value : 0, max: maxEl ? maxEl.value : 0 };
+    }
+
+    function updateAllMaps() {
+      const sLat = Number(document.getElementById("latMin").value);
+      const nLat = Number(document.getElementById("latMax").value);
+      const wLon = Number(document.getElementById("lonMin").value);
+      const eLon = Number(document.getElementById("lonMax").value);
+
+      const coords = `[(${sLat}):(${nLat})][(${wLon}):(${eLon})]`;
+      const cCoords = `[(${Math.max(31.3, sLat)}):(${Math.min(43, nLat)})][(${Math.max(-127.5, wLon)}):(${Math.min(-117, eLon)})]`;
+
+      function setContent(id, baseUrl, q, isRegional = false) {
+        const card = document.getElementById("card-" + id);
+        const img = document.getElementById("img-" + id);
+        
+        // CHECK BOUNDS: If regional, check if selected coordinates overlap with product range
+        if (isRegional) {
+            // Sardine & C-HARMS range approx: Lat 31 to 43, Lon -127 to -117
+            const inLat = (nLat >= 31.3 && sLat <= 43);
+            const inLon = (eLon >= -127.5 && wLon <= -117);
+            
+            if (!inLat || !inLon) {
+                card.classList.add('hidden');
+                return;
+            } else {
+                card.classList.remove('hidden');
+            }
+        }
+
+        const mm = getMinMax(id);
+        const fullQ = q.replace("SCALE", `${mm.min}|${mm.max}`);
+        
+        img.onload = () => drawStations("cvs-" + id, "img-" + id, sLat, nLat, wLon, eLon);
+        img.src = baseUrl + ".png" + fullQ;
+        document.getElementById("lnk-" + id).href = baseUrl + ".graph" + fullQ;
+      }
+
+      // DATASETS
+      setContent("chla-d", "https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNnoaa20chlaDaily", `?chlor_a[(last)][(0.0)]${coords}&.vars=longitude|latitude|chlor_a&.colorBar=Rainbow2|||SCALE|`);
+      setContent("chla-w", "https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNnoaa20chlaWeekly", `?chlor_a[(last)][(0.0)]${coords}&.vars=longitude|latitude|chlor_a&.colorBar=Rainbow2|||SCALE|`);
+      setContent("sst", "https://coastwatch.pfeg.noaa.gov/erddap/griddap/NOAA_DHW", `?CRW_SST[(last)]${coords}&.vars=longitude|latitude|CRW_SST&.colorBar=|||SCALE|`);
+      setContent("sst-anom", "https://coastwatch.pfeg.noaa.gov/erddap/griddap/NOAA_DHW", `?CRW_SSTANOMALY[(last)]${coords}&.vars=longitude|latitude|CRW_SSTANOMALY&.colorBar=BlueWhiteRed|||SCALE|`);
+      
+      // REGIONAL DATASETS (Last argument is true)
+      setContent("sardine", "https://coastwatch.pfeg.noaa.gov/erddap/griddap/sardine_habitat_viirs_v2", `?potential_habitat_classification[(last)]${coords}&.colorBar=|||SCALE|`, true);
+      setContent("charms-pn", "https://coastwatch.pfeg.noaa.gov/erddap/griddap/wvcharmV3_3day_LonPM180", `?pseudo_nitzschia[(last)]${cCoords}&.colorBar=|||SCALE|`, true);
+      setContent("charms-salt", "https://coastwatch.pfeg.noaa.gov/erddap/griddap/wvcharmV3_3day_LonPM180", `?salinity[(last)]${cCoords}&.colorBar=|||SCALE|`, true);
+      
+      setContent("wind", "https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdQCwindproducts1day", `?wind_speed[(last)][(10.0)]${coords}&.colorBar=|||SCALE|`);
+      setContent("ssh", "https://coastwatch.noaa.gov/erddap/griddap/noaacweddymesiplusdaily", `?ssh[(last)]${coords}&.vars=longitude|latitude|ssh&.colorBar=|||SCALE|`);
+      setContent("sss", "https://coastwatch.pfeg.noaa.gov/erddap/griddap/coastwatchSMOSv662SSS3day", `?sss[(last)][(0.0)]${coords}&.colorBar=|||SCALE|`);
+    }
+
+    // DRAW STATIONS LOGIC
+    function getPlotBox(canvas, id) {
+      const W = canvas.width, H = canvas.height;
+      let L = 0.15, R = 0.05, T = 0.13, B = 0.38;
+      if (["chla-d", "chla-w", "sst", "sst-anom", "sardine"].includes(id)) { L = -0.02; B = 0.38; }
+      else if (id === "charms-pn") { L = -0.08; B = 0.44; }
+      else if (id === "charms-salt") { L = 0.0; B = 0.44; }
+      else if (id === "wind") { L = -0.02; B = 0.41; }
+      else if (id === "ssh") { L = -0.02; B = 0.39; }
+      else if (id === "sss") { L = -0.10; B = 0.37; }
+      return { left: Math.round(W * L), top: Math.round(H * T), width: Math.max(10, Math.round(W * (1 - L - R))), height: Math.max(10, Math.round(H * (1 - T - B))) };
+    }
+
+    function getGeoBounds(id, sLat, nLat, wLon, eLon) {
+      if (id === "chla-d" || id === "chla-w") return { sLat: 29.00625, nLat: 38.98125, wLon: -126.99375, eLon: -116.00625 };
+      if (id === "sst" || id === "sst-anom") return { sLat: 29.025, nLat: 39.025, wLon: -126.975, eLon: -115.975 };
+      if (id === "sardine") return { sLat: 29.02083, nLat: 39.02083, wLon: -126.9792, eLon: -115.9792 };
+      if (id === "charms-pn" || id === "charms-salt") return { sLat: 31.3, nLat: 39.01, wLon: -126.990005, eLon: -117.0 };
+      if (id === "wind") return { sLat: 28.833394, nLat: 38.833384, wLon: -126.833386, eLon: -115.833397 };
+      if (id === "ssh") return { sLat: 29.125, nLat: 39.125, wLon: -126.875, eLon: -115.875 };
+      if (id === "sss") return { sLat: 29.125, nLat: 38.875, wLon: -126.875, eLon: -116.125 };
+      return { sLat, nLat, wLon, eLon };
+    }
+
+    function drawStations(canvasId, imgId, sLat, nLat, wLon, eLon) {
+      const canvas = document.getElementById(canvasId), img = document.getElementById(imgId);
+      if (!canvas || !img || img.clientWidth === 0) return;
+      canvas.width = img.clientWidth; canvas.height = img.clientHeight;
+      const ctx = canvas.getContext("2d");
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const isDefault = (sLat === 29 && nLat === 39 && wLon === -127 && eLon === -116);
+      document.getElementById("station-note").style.display = isDefault ? "none" : "block";
+      if (!isDefault) return;
+      const id = canvasId.replace("cvs-", ""), box = getPlotBox(canvas, id), geo = getGeoBounds(id, sLat, nLat, wLon, eLon);
+      ctx.save(); ctx.beginPath(); ctx.rect(box.left, box.top, box.width, box.height); ctx.clip();
+      for (const p of STATIONS) {
+        if (p.lat < geo.sLat || p.lat > geo.nLat || p.lon < geo.wLon || p.lon > geo.eLon) continue;
+        const x = box.left + ((p.lon - geo.wLon) / (geo.eLon - geo.wLon)) * box.width;
+        const y = box.top + ((geo.nLat - p.lat) / (geo.nLat - geo.sLat)) * box.height;
+        ctx.beginPath(); ctx.arc(x, y, 4, 0, Math.PI * 2); ctx.fillStyle = "rgba(0,0,0,0.9)"; ctx.fill();
+        ctx.lineWidth = 1.5; ctx.strokeStyle = "rgba(255,255,255,0.9)"; ctx.stroke();
+      }
+      ctx.restore();
+    }
+
+    window.onload = updateAllMaps;
+    window.onresize = () => updateAllMaps();
+  </script>
+</body>
+</html>
