@@ -1,446 +1,1129 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>NOAA Fleet Ocean Conditions Dashboard</title>
-    <style>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-    /* ---------------------------------- */
-    /* BASE PAGE                          */
-    /* ---------------------------------- */
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
 
-    body {
-        font-family: sans-serif;
-        background: #f0f4f8;
-        margin: 0;
-        padding: 20px;
-    }
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-    /* ---------------------------------- */
-    /* PAGE TOGGLE                        */
-    /* ---------------------------------- */
 
-    .page-toggle {
-        display: flex;
-        justify-content: center;
-        max-width: 1400px;
-        margin: 0 auto 2rem auto;
-    }
+<title>NOAA Vessel Ocean Conditions Dashboard – CoastWatch West Coast Node</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
 
-    .toggle-btn {
-        flex: 1;
-        max-width: 300px;
-        padding: 12px;
-        text-align: center;
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 0.9rem;
-        border: 2px solid #2c3e50;
-        transition: all 0.3s ease;
-    }
 
-    .toggle-btn.inactive {
-        background-color: white;
-        color: #2c3e50;
-    }
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/coastwatch.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-5db250258425642d6fa6ee827e81bb3f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
 
-    .toggle-btn.active {
-        background-color: #2c3e50;
-        color: white;
-        cursor: default;
-    }
 
-    .toggle-btn:hover.inactive {
-        background: #e9f3fb;
-    }
+<link rel="stylesheet" href="../../styles.css">
+</head>
 
-    .toggle-btn:first-child {
-        border-radius: 10px 0 0 10px;
-    }
+<body class="nav-fixed quarto-light">
 
-    .toggle-btn:last-child {
-        border-radius: 0 10px 10px 0;
-        border-left: none;
-    }
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../images/coastwatch_logo.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">CoastWatch West Coast Node</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text"> </span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-access" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Data Access</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-data-access">    
+        <li>
+    <a class="dropdown-item" href="../../data_catalog.html">
+ <span class="dropdown-text">Data Catalog</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../dataset_monitor.html">
+ <span class="dropdown-text">Dataset Monitor</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../data_server.html">
+ <span class="dropdown-text">Data Server</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tools-and-training" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Tools and Training</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-tools-and-training">    
+        <li>
+    <a class="dropdown-item" href="../../tools.html">
+ <span class="dropdown-text">Tools</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../training.html">
+ <span class="dropdown-text">Training</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../code_gallery.html">
+ <span class="dropdown-text">Code Gallery</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../applications.html"> 
+<span class="menu-text">Applications</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-about" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">About</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-about">    
+        <li>
+    <a class="dropdown-item" href="../../coastwatch.html">
+ <span class="dropdown-text">CoastWatch</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../people.html">
+ <span class="dropdown-text">People</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../contact_us.html">
+ <span class="dropdown-text">Contact Us</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../customer_survey.html">
+ <span class="dropdown-text">Customer Survey</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../news_archive.html">
+ <span class="dropdown-text">News Archive</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
-    /* ---------------------------------- */
-    /* MAIN CONTAINER                     */
-    /* ---------------------------------- */
 
-    .container {
-        max-width: 1200px;
-        margin: 0 auto 20px;
-        background: #fff;
-        padding: 15px;
-        border-radius: 8px;
-        border: 1px solid #2c3e50;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
 
-    /* ---------------------------------- */
-    /* ALERT                              */
-    /* ---------------------------------- */
 
-    #status-alert {
-        display: none;
-        background: #d9534f;
-        color: white;
-        padding: 0.9rem 1rem;
-        border-radius: 8px;
-        text-align: center;
-        font-weight: 600;
-        margin-bottom: 1.5rem;
-    }
+<style>
 
-    /* ---------------------------------- */
-    /* DROPDOWN                           */
-    /* ---------------------------------- */
+body {
+    font-family: sans-serif;
+    padding: 20px;
+    background-color: #f4f4f9;
+    margin: 0;
+}
 
-    select {
-        width: 100%;
-        padding: 0.9rem 1rem;
-        font-size: 1rem;
-        border-radius: 10px;
-        border: 1px solid #cbd5e1;
-        background: white;
-        color: #1f2937;
-        margin-bottom: 2rem;
-        cursor: pointer;
-        transition: border-color 0.15s ease,
-                    box-shadow 0.15s ease;
-    }
+/* PAGE TOGGLE */
 
-    select:focus {
-        outline: none;
-        border-color: #2b6da8;
-        box-shadow: 0 0 0 3px rgba(43,109,168,0.15);
-    }
+.page-toggle {
+    display: flex;
+    justify-content: center;
+    max-width: 1400px;
+    margin: 0 auto 20px auto;
+}
 
-    /* ---------------------------------- */
-    /* GRID                               */
-    /* ---------------------------------- */
+.toggle-btn {
+    flex: 1;
+    max-width: 300px;
+    padding: 12px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    border: 2px solid #003366;
+    transition: all 0.3s ease;
+}
+
+.toggle-btn.inactive {
+    background-color: white;
+    color: #003366;
+}
+
+.toggle-btn.active {
+    background-color: #003366;
+    color: white;
+    cursor: default;
+}
+
+.toggle-btn:hover.inactive {
+    background-color: #eef2f7;
+}
+
+.toggle-btn:first-child {
+    border-radius: 8px 0 0 8px;
+}
+
+.toggle-btn:last-child {
+    border-radius: 0 8px 8px 0;
+    border-left: none;
+}
+
+/* DASHBOARD */
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    border: 2px solid #003366;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.card {
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 420px;
+}
+
+.card h3 {
+    margin: 5px 0;
+    font-size: 0.85rem;
+    color: #003366;
+    text-transform: uppercase;
+}
+
+.img-container {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    display: none;
+    margin-bottom: 10px;
+}
+
+.placeholder {
+    color: #888;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+#status-alert {
+    display: none;
+    background: #e74c3c;
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.cb-widget {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    background: #eee;
+    width: 100%;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    margin-top: 10px;
+}
+
+.cb-widget input {
+    width: 45px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.set-btn {
+    background: #003366;
+    color: white;
+    border: none;
+    padding: 3px 7px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.info {
+    margin-top: 20px;
+    text-align: center;
+    line-height: 1.6;
+    font-size: 1rem;
+    border-top: 2px solid #eee;
+    padding-top: 15px;
+}
+
+@media (max-width: 1100px) {
 
     .dashboard-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
     }
+}
 
-    /* ---------------------------------- */
-    /* CARDS                              */
-    /* ---------------------------------- */
+@media (max-width: 700px) {
 
-    .card {
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        padding: 12px;
-        text-align: center;
+    .dashboard-grid {
+        grid-template-columns: 1fr;
     }
+}
 
-    .card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    }
-
-    .card h3 {
-        margin: 10px 0;
-        color: #34495e;
-        font-size: 0.95rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        text-align: center;
-    }
-
-    /* ---------------------------------- */
-    /* IMAGE CONTAINER                    */
-    /* ---------------------------------- */
-
-    .img-container {
-        width: 100%;
-        flex-grow: 1;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        overflow: hidden;
-    }
-
-    /* ---------------------------------- */
-    /* MAP IMAGES                         */
-    /* ---------------------------------- */
-
-    img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        display: none;
-        border: 1px solid #dbe2ea;
-    }
-
-    /* ---------------------------------- */
-    /* PLACEHOLDERS                       */
-    /* ---------------------------------- */
-
-    .placeholder {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        min-height: 200px;
-        text-align: center;
-        color: #7f8c8d;
-        background: #fafafa;
-        border: 1px solid #eee;
-    }
-
-    /* ---------------------------------- */
-    /* COLORBAR CONTROLS                  */
-    /* ---------------------------------- */
-
-    .cb-widget {
-        justify-content: center;
-        width: 100%;
-        margin-top: 10px;
-        padding: 6px;
-        background: #eee;
-        border-radius: 4px;
-        box-sizing: border-box;
-        font-size: 0.8rem;
-    }
-
-    .cb-widget input {
-        width: 60px;
-        text-align: center;
-
-        border: 1px solid #cbd5e1;
-        border-radius: 6px;
-
-        padding: 0.3rem;
-    }
-
-    /* ---------------------------------- */
-    /* NOAA BUTTONS                       */
-    /* ---------------------------------- */
-
-    .set-btn {
-        background: #2c3e50;
-        border: none;
-        color: white;
-        cursor: pointer;
-        border-radius: 4px;
-        font-weight: bold;
-        padding: 5px 8px;
-    }
-
-    .set-btn:hover {
-        background-color: #244f7a;
-    }
-
-    /* ---------------------------------- */
-    /* INFO PANEL                         */
-    /* ---------------------------------- */
-
-    .info {
-        margin-top: 2rem;
-        padding-top: 1.5rem;
-
-        border-top: 2px solid #e5e7eb;
-
-        text-align: center;
-
-        font-size: 1rem;
-        line-height: 1.7;
-    }
-
-    /* ---------------------------------- */
-    /* RESPONSIVE                          */
-    /* ---------------------------------- */
-
-    @media (max-width: 1100px) {
-
-        .dashboard-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    @media (max-width: 700px) {
-
-        body {
-            padding: 1rem;
-        }
-
-        .container {
-            padding: 1rem;
-        }
-
-        .dashboard-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .page-toggle {
-            flex-direction: column;
-        }
-
-        .toggle-btn:first-child {
-            border-radius: 10px 10px 0 0;
-        }
-
-        .toggle-btn:last-child {
-            border-radius: 0 0 10px 10px;
-            border-left: 2px solid #2b6da8;
-            border-top: none;
-        }
-    }
-
-    </style>
-</head>
-<body>
-
+</style>
 <div class="page-toggle">
-    <a href="calcofi.qmd" class="toggle-btn inactive">CalCOFI OCEAN CONDITIONS</a>
-    <a href="#" class="toggle-btn active">NOAA VESSEL TRACKER</a>
+<p><a href="../../projects/watch-my-ocean/calcofi.html" class="toggle-btn inactive"> CalCOFI OCEAN CONDITIONS </a> <a href="#" class="toggle-btn active"> NOAA VESSEL TRACKER </a></p>
 </div>
-
 <div class="container">
-    <div id="status-alert">⚠️ WARNING: This vessel has not reported in over 48 hours.</div>
-
-    
-    <select id="vessel-selector" onchange="loadShipData()">
-
-        <option value="" selected disabled>
-            Select NOAA Vessel
-        </option>
-
-        <option value="fsuNoaaShipWTEDnrt">
-            Bell M. Shimada (West Coast)
-        </option>
-
-        <option value="fsuNoaaShipWTEEnrt">
-            Elton Sette (Hawaii)
-        </option>
-
-        <option value="fsuNoaaShipWTEBnrt">
-            Fairweather (Alaska)
-        </option>
-
-        <option value="fsuNoaaShipWTEOnrt">
-            Gordon Gunter (East Coast)
-        </option>
-
-        <option value="fsuNoaaShipWTDFnrt">
-            Henry Bigelow (East Coast)
-        </option>
-
-        <option value="fsuNoaaShipWTERnrt">
-            Nancy Foster (East Coast)
-        </option>
-
-        <option value="fsuNoaaShipWTDOnrt">
-            Oregon II (East Coast)
-        </option>
-
-        <option value="fsuNoaaShipWTEPnrt">
-            Oscar Dyson (Alaska)
-        </option>
-
-        <option value="fsuNoaaShipWTDLnrt">
-            Pisces (East Coast)
-        </option>
-
-        <option value="fsuNoaaShipWTEFnrt">
-            Rainier (West Coast)
-        </option>
-
-        <option value="fsuNoaaShipWTEGnrt">
-            Reuben Lasker (West Coast)
-        </option>
-
-    </select>
-
-    <div class="dashboard-grid">
-        <div class="card"><h3>Last 10 Days Activity</h3><div class="img-container"><div class="placeholder">Select a NOAA vessel to load ocean conditions</div><img id="track-map"></div></div>
-        <div class="card"><h3>Chl (Daily)</h3><div class="img-container"><div class="placeholder">Select a NOAA vessel to load ocean conditions</div><img id="chla-d"></div>
-            <div class="cb-widget">Min: <input id="min-chla-d" value="0.03"> Max: <input id="max-chla-d" value="5"><button class="set-btn" onclick="updateMap('chla-d')">Set</button></div>
-        </div>
-        <div class="card"><h3>Chl (Weekly)</h3><div class="img-container"><div class="placeholder">Select a NOAA vessel to load ocean conditions</div><img id="chla-w"></div>
-            <div class="cb-widget">Min: <input id="min-chla-w" value="0.03"> Max: <input id="max-chla-w" value="5"><button class="set-btn" onclick="updateMap('chla-w')">Set</button></div>
-        </div>
-        <div class="card"><h3>SST (°C)</h3><div class="img-container"><div class="placeholder">Select a NOAA vessel to load ocean conditions</div><img id="sst"></div>
-            <div class="cb-widget">Min: <input id="min-sst" value="10"> Max: <input id="max-sst" value="22"><button class="set-btn" onclick="updateMap('sst')">Set</button></div>
-        </div>
-        <div class="card"><h3>SST Anomaly</h3><div class="img-container"><div class="placeholder">Select a NOAA vessel to load ocean conditions</div><img id="sst-anom"></div>
-            <div class="cb-widget">Min: <input id="min-sst-anom" value="-2"> Max: <input id="max-sst-anom" value="2"><button class="set-btn" onclick="updateMap('sst-anom')">Set</button></div>
-        </div>
-        <div class="card"><h3>Winds (m/s)</h3><div class="img-container"><div class="placeholder">Select a NOAA vessel to load ocean conditions</div><img id="wind"></div>
-            <div class="cb-widget">Min: <input id="min-wind" value="0"> Max: <input id="max-wind" value="15"><button class="set-btn" onclick="updateMap('wind')">Set</button></div>
-        </div>
-        <div class="card"><h3>SSH (m)</h3><div class="img-container"><div class="placeholder">Select a NOAA vessel to load ocean conditions</div><img id="ssh"></div>
-            <div class="cb-widget">Min: <input id="min-ssh" value="-0.5"> Max: <input id="max-ssh" value="0.5"><button class="set-btn" onclick="updateMap('ssh')">Set</button></div>
-        </div>
-    </div>
-    <div id="ship-info" class="info"></div>
+<div id="status-alert">
+<p>⚠️ WARNING: This vessel has not reported in over 48 hours.</p>
 </div>
+<p><select id="vessel-selector" onchange="loadShipData()"> <option value="" selected="" disabled=""> Select NOAA Vessel </option> <option value="fsuNoaaShipWTEDnrt"> Bell M. Shimada (West Coast) </option> <option value="fsuNoaaShipWTEEnrt"> Elton Sette (Hawaii) </option> <option value="fsuNoaaShipWTEBnrt"> Fairweather (Alaska) </option> <option value="fsuNoaaShipWTEOnrt"> Gordon Gunter (East Coast) </option> <option value="fsuNoaaShipWTDFnrt"> Henry Bigelow (East Coast) </option> <option value="fsuNoaaShipWTERnrt"> Nancy Foster (East Coast) </option> <option value="fsuNoaaShipWTDOnrt"> Oregon II (East Coast) </option> <option value="fsuNoaaShipWTEPnrt"> Oscar Dyson (Alaska) </option> <option value="fsuNoaaShipWTDLnrt"> Pisces (East Coast) </option> <option value="fsuNoaaShipWTEFnrt"> Rainier (West Coast) </option> <option value="fsuNoaaShipWTEGnrt"> Reuben Lasker (West Coast) </option>
+</select></p>
+<div class="dashboard-grid">
+<div class="card">
+<h3 class="anchored">
+Last 10 Days Activity
+</h3>
+<div class="img-container">
+<div class="placeholder">
+<p>Select a NOAA vessel to load ocean conditions</p>
+</div>
+<p><img id="track-map"></p>
+</div>
+</div>
+<div class="card">
+<h3 class="anchored">
+Chl (Daily)
+</h3>
+<div class="img-container">
+<div class="placeholder">
+<p>Select a NOAA vessel to load ocean conditions</p>
+</div>
+<p><img id="chla-d"></p>
+</div>
+<div class="cb-widget">
+<p>Min: <input id="min-chla-d" value="0.03"> Max: <input id="max-chla-d" value="5"> <button class="set-btn" onclick="updateMap('chla-d')"> Set </button></p>
+</div>
+</div>
+<div class="card">
+<h3 class="anchored">
+Chl (Weekly)
+</h3>
+<div class="img-container">
+<div class="placeholder">
+<p>Select a NOAA vessel to load ocean conditions</p>
+</div>
+<p><img id="chla-w"></p>
+</div>
+<div class="cb-widget">
+<p>Min: <input id="min-chla-w" value="0.03"> Max: <input id="max-chla-w" value="5"> <button class="set-btn" onclick="updateMap('chla-w')"> Set </button></p>
+</div>
+</div>
+<div class="card">
+<h3 class="anchored">
+SST (°C)
+</h3>
+<div class="img-container">
+<div class="placeholder">
+<p>Select a NOAA vessel to load ocean conditions</p>
+</div>
+<p><img id="sst"></p>
+</div>
+<div class="cb-widget">
+<p>Min: <input id="min-sst" value="10"> Max: <input id="max-sst" value="22"> <button class="set-btn" onclick="updateMap('sst')"> Set </button></p>
+</div>
+</div>
+<div class="card">
+<h3 class="anchored">
+SST Anomaly
+</h3>
+<div class="img-container">
+<div class="placeholder">
+<p>Select a NOAA vessel to load ocean conditions</p>
+</div>
+<p><img id="sst-anom"></p>
+</div>
+<div class="cb-widget">
+<p>Min: <input id="min-sst-anom" value="-2"> Max: <input id="max-sst-anom" value="2"> <button class="set-btn" onclick="updateMap('sst-anom')"> Set </button></p>
+</div>
+</div>
+<div class="card">
+<h3 class="anchored">
+Winds (m/s)
+</h3>
+<div class="img-container">
+<div class="placeholder">
+<p>Select a NOAA vessel to load ocean conditions</p>
+</div>
+<p><img id="wind"></p>
+</div>
+<div class="cb-widget">
+<p>Min: <input id="min-wind" value="0"> Max: <input id="max-wind" value="15"> <button class="set-btn" onclick="updateMap('wind')"> Set </button></p>
+</div>
+</div>
+<div class="card">
+<h3 class="anchored">
+SSH (m)
+</h3>
+<div class="img-container">
+<div class="placeholder">
+<p>Select a NOAA vessel to load ocean conditions</p>
+</div>
+<p><img id="ssh"></p>
+</div>
+<div class="cb-widget">
+<p>Min: <input id="min-ssh" value="-0.5"> Max: <input id="max-ssh" value="0.5"> <button class="set-btn" onclick="updateMap('ssh')"> Set </button></p>
+</div>
+</div>
+</div>
+<div id="ship-info" class="info">
 
+</div>
+</div>
 <script>
-    let currentShipName = "";
-    let globalCoords = "";
 
-    function handlePosition(data) {
-        const info = document.getElementById("ship-info");
-        const alertBox = document.getElementById("status-alert");
-        const shipId = document.getElementById("vessel-selector").value;
+let currentShipName = "";
 
-        try {
-            const row = data.table.rows[0];
-            const maxTimeStr = row[0];
-            const lat = Number(row[1]), lon = Number(row[2]);
-            const lonCorr = lon > 180 ? lon - 360 : lon;
+let globalCoords = "";
 
-            const maxDate = new Date(maxTimeStr);
-            const startDate = new Date(maxDate);
-            startDate.setDate(startDate.getDate() - 10);
-            const startStr = startDate.toISOString().split("T")[0];
+function handlePosition(data) {
 
-            alertBox.style.display = ((new Date() - maxDate) / 36e5) > 48 ? "block" : "none";
+    const info =
+        document.getElementById("ship-info");
 
-            globalCoords = `[(${(lat+2.5).toFixed(2)}):(${(lat-2.5).toFixed(2)})][(${(lonCorr-2.5).toFixed(2)}):(${(lonCorr+2.5).toFixed(2)})]`;
-            info.innerHTML = `Vessel: <b>${currentShipName}</b> | Last Report: ${maxDate.toLocaleString()} | Window: ${startStr} to ${maxTimeStr.split('T')[0]}`;
+    const alertBox =
+        document.getElementById("status-alert");
 
-            updateMap('track-map', `https://coastwatch.pfeg.noaa.gov/erddap/tabledap/${shipId}.png?longitude,latitude,time&time>=${startStr}&.draw=markers&.marker=10|5&.color=0x000000&.bgColor=0xffccccff`, true);
-            ['chla-d', 'chla-w', 'sst', 'sst-anom', 'wind', 'ssh'].forEach(id => updateMap(id));
-        } catch (e) { console.error(e); }
+    const shipId =
+        document.getElementById("vessel-selector").value;
+
+    try {
+
+        const row = data.table.rows[0];
+
+        const maxTimeStr = row[0];
+
+        const lat = Number(row[1]);
+
+        const lon = Number(row[2]);
+
+        const lonCorr =
+            lon > 180 ? lon - 360 : lon;
+
+        const maxDate = new Date(maxTimeStr);
+
+        const startDate = new Date(maxDate);
+
+        startDate.setDate(
+            startDate.getDate() - 10
+        );
+
+        const startStr =
+            startDate.toISOString().split("T")[0];
+
+        alertBox.style.display =
+            ((new Date() - maxDate) / 36e5) > 48
+            ? "block"
+            : "none";
+
+        globalCoords =
+            `[(${(lat+2.5).toFixed(2)}):(${(lat-2.5).toFixed(2)})]` +
+            `[(${(lonCorr-2.5).toFixed(2)}):(${(lonCorr+2.5).toFixed(2)})]`;
+
+        info.innerHTML =
+            `Vessel: <b>${currentShipName}</b> | ` +
+            `Last Report: ${maxDate.toLocaleString()} | ` +
+            `Window: ${startStr} to ${maxTimeStr.split('T')[0]}`;
+
+        updateMap(
+            'track-map',
+            `https://coastwatch.pfeg.noaa.gov/erddap/tabledap/${shipId}.png?longitude,latitude,time&time>=${startStr}&.draw=markers&.marker=10|5&.color=0x000000&.bgColor=0xffccccff`,
+            true
+        );
+
+        [
+            'chla-d',
+            'chla-w',
+            'sst',
+            'sst-anom',
+            'wind',
+            'ssh'
+        ].forEach(id => updateMap(id));
+
+    } catch (e) {
+
+        console.error(e);
+    }
+}
+
+window.handlePosition = handlePosition;
+
+function updateMap(id, customUrl = null, isTrack = false) {
+
+    const img =
+        document.getElementById(id);
+
+    const placeholder =
+        img.parentElement.querySelector('.placeholder');
+
+    img.style.display = 'none';
+
+    placeholder.style.display = 'block';
+
+    if (isTrack) {
+
+        img.src = customUrl;
+
+    } else {
+
+        const min =
+            document.getElementById(`min-${id}`).value;
+
+        const max =
+            document.getElementById(`max-${id}`).value;
+
+        const urls = {
+
+            'chla-d':
+                `https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNnoaa20chlaDaily.png?chlor_a[(last)][(0.0)]${globalCoords}&.vars=longitude|latitude|chlor_a&.colorBar=Rainbow2|||${min}|${max}|`,
+
+            'chla-w':
+                `https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNnoaa20chlaWeekly.png?chlor_a[(last)][(0.0)]${globalCoords}&.vars=longitude|latitude|chlor_a&.colorBar=Rainbow2|||${min}|${max}|`,
+
+            'sst':
+                `https://coastwatch.pfeg.noaa.gov/erddap/griddap/NOAA_DHW.png?CRW_SST[(last)]${globalCoords}&.vars=longitude|latitude|CRW_SST&.colorBar=|||${min}|${max}|`,
+
+            'sst-anom':
+                `https://coastwatch.pfeg.noaa.gov/erddap/griddap/NOAA_DHW.png?CRW_SSTANOMALY[(last)]${globalCoords}&.vars=longitude|latitude|CRW_SSTANOMALY&.colorBar=BlueWhiteRed|||${min}|${max}|`,
+
+            'wind':
+                `https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdQCwindproducts1day.png?wind_speed[(last)][(10.0)]${globalCoords}&.colorBar=|||${min}|${max}|`,
+
+            'ssh':
+                `https://coastwatch.noaa.gov/erddap/griddap/noaacweddymesiplusdaily.png?ssh[(last)]${globalCoords}&.vars=longitude|latitude|ssh&.colorBar=|||${min}|${max}|`
+        };
+
+        img.src = urls[id];
     }
 
-    function updateMap(id, customUrl = null, isTrack = false) {
-        const img = document.getElementById(id), placeholder = img.parentElement.querySelector('.placeholder');
-        img.style.display = 'none'; placeholder.style.display = 'block';
-        if (isTrack) { img.src = customUrl; } else {
-            const min = document.getElementById(`min-${id}`).value, max = document.getElementById(`max-${id}`).value;
-            const urls = {
-                'chla-d': `https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNnoaa20chlaDaily.png?chlor_a[(last)][(0.0)]${globalCoords}&.vars=longitude|latitude|chlor_a&.colorBar=Rainbow2|||${min}|${max}|`,
-                'chla-w': `https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNnoaa20chlaWeekly.png?chlor_a[(last)][(0.0)]${globalCoords}&.vars=longitude|latitude|chlor_a&.colorBar=Rainbow2|||${min}|${max}|`,
-                'sst': `https://coastwatch.pfeg.noaa.gov/erddap/griddap/NOAA_DHW.png?CRW_SST[(last)]${globalCoords}&.vars=longitude|latitude|CRW_SST&.colorBar=|||${min}|${max}|`,
-                'sst-anom': `https://coastwatch.pfeg.noaa.gov/erddap/griddap/NOAA_DHW.png?CRW_SSTANOMALY[(last)]${globalCoords}&.vars=longitude|latitude|CRW_SSTANOMALY&.colorBar=BlueWhiteRed|||${min}|${max}|`,
-                'wind': `https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdQCwindproducts1day.png?wind_speed[(last)][(10.0)]${globalCoords}&.colorBar=|||${min}|${max}|`,
-                'ssh': `https://coastwatch.noaa.gov/erddap/griddap/noaacweddymesiplusdaily.png?ssh[(last)]${globalCoords}&.vars=longitude|latitude|ssh&.colorBar=|||${min}|${max}|`
-            };
-            img.src = urls[id];
-        }
-        img.onload = () => { img.style.display = 'block'; placeholder.style.display = 'none'; };
+    img.onload = () => {
+
+        img.style.display = 'block';
+
+        placeholder.style.display = 'none';
+    };
+}
+
+function loadShipData() {
+
+    const selector =
+        document.getElementById("vessel-selector");
+
+    /*
+    DO NOTHING IF PLACEHOLDER SELECTED
+    */
+
+    if (!selector.value) {
+        return;
     }
 
-    function loadShipData() {
-        const selector = document.getElementById("vessel-selector");
-        currentShipName = selector.options[selector.selectedIndex].text.replace(/\s*\(.*?\)\s*/g, "").trim();
-        const old = document.getElementById("jsonp-script"); if (old) old.remove();
-        const s = document.createElement("script"); s.id = "jsonp-script";
-        s.src = `https://coastwatch.pfeg.noaa.gov/erddap/tabledap/${selector.value}.json?time,latitude,longitude&orderByMax("time")&.jsonp=handlePosition`;
-        document.body.appendChild(s);
-    }
-    window.onload = () => {};
+    currentShipName =
+        selector.options[selector.selectedIndex].text
+        .replace(/\s*\(.*?\)\s*/g, "")
+        .trim();
+
+    const old =
+        document.getElementById("jsonp-script");
+
+    if (old) old.remove();
+
+    const s =
+        document.createElement("script");
+
+    s.id = "jsonp-script";
+
+    s.src =
+        `https://coastwatch.pfeg.noaa.gov/erddap/tabledap/${selector.value}.json?time,latitude,longitude&orderByMax("time")&.jsonp=handlePosition`;
+
+    document.body.appendChild(s);
+}
+
 </script>
-</body>
-</html>
+
+
+
+</main> <!-- /main -->
+<footer style="
+  width: 100%;
+  padding: 2rem 1rem;
+  border-top: 1px solid #ddd;
+  background: none;
+  color: #333;
+  font-size: 1.125rem;
+">
+  <div style="
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  ">
+    
+  <!-- Top link bar -->
+  <div style="text-align: center; margin-bottom: 1.5rem;">
+    <div style="
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+    ">
+      <a href="https://www.fisheries.noaa.gov/" style="color: #336699; text-decoration: none;">Fisheries</a>
+      <a href="https://www.star.nesdis.noaa.gov/star/index.php" style="color: #336699; text-decoration: none;">STAR</a>
+      <a href="https://coastwatch.noaa.gov/cwn/index.html" style="color: #336699; text-decoration: none;">CoastWatch</a>
+      <a href="https://www.fisheries.noaa.gov/about/southwest-fisheries-science-center" style="color: #336699; text-decoration: none;">Southwest Fisheries</a>
+      <a href="https://www.fisheries.noaa.gov/about/climate-and-ecosystems-program-southwest-fisheries-science-center" style="color: #336699; text-decoration: none;">Environmental Research Division</a>
+    </div>
+  </div>
+
+
+    <!-- Logo + tagline -->
+    <div style="
+      text-align: center;
+      margin: 2rem 0;
+    ">
+      <img src="../../images/noaa_logo.png" alt="NOAA logo" style="height: 56px; display: block; margin: 0 auto 0.5rem;">
+      <div style="font-style: italic; color: #333;">Science. Service. Stewardship.</div>
+    </div>
+
+    <!-- Bottom legal links -->
+    <div style="
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem 1.5rem;
+    ">
+      <a href="https://www.noaa.gov/protecting-your-privacy" style="color: #336699; text-decoration: none;">Protecting Your Privacy</a>
+      <a href="https://www.noaa.gov/information-technology/foia" style="color: #336699; text-decoration: none;">FOIA</a>
+      <a href="https://www.noaa.gov/information-technology" style="color: #336699; text-decoration: none;">Information Quality</a>
+      <a href="https://www.noaa.gov/disclaimer" style="color: #336699; text-decoration: none;">Disclaimer</a>
+      <a href="https://www.commerce.gov/" style="color: #336699; text-decoration: none;">Commerce.gov</a>
+    </div>
+
+    <!-- Final credit line -->
+    <div style="
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+    ">
+      © 2025 NOAA CoastWatch West Coast | Built with <a href="https://quarto.org" style="color: #336699; text-decoration: none;">Quarto</a>
+    </div>
+
+  </div>
+</footer>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
