@@ -4,6 +4,9 @@
 <head>
 <meta charset="UTF-8">
 
+<link href="../../_site/site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../styles.css" rel="stylesheet">
+
 <title>
 CalCOFI Ocean Conditions Dashboard
 </title>
@@ -14,7 +17,7 @@ body {
   font-family: sans-serif;
   background: #f0f4f8;
   margin: 0;
-  padding: 20px;
+  padding: 95px;
 }
 
 h1 {
@@ -254,6 +257,154 @@ h1 {
 </head>
 
 <body>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container-fluid">
+
+    <a class="navbar-brand" href="../../index.qmd">
+      <img src="../../../images/coastwatch_logo.png" alt="CoastWatch Logo">
+      <span style="margin-left: 12px;">
+        COASTWATCH WEST COAST NODE
+      </span>
+    </a>
+
+    <button class="navbar-toggler" type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav">
+
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+      <ul class="navbar-nav ms-auto">
+
+        <!-- DATA ACCESS -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle"
+             href="#"
+             role="button"
+             data-bs-toggle="dropdown">
+
+            DATA ACCESS
+          </a>
+
+          <ul class="dropdown-menu">
+
+            <li>
+              <a class="dropdown-item" href="../../data_catalog.qmd">
+                Data Catalog
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="../../dataset_monitor.qmd">
+                Dataset Monitor
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="../../data_server.qmd">
+                Data Server
+              </a>
+            </li>
+
+          </ul>
+        </li>
+
+        <!-- TOOLS -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle"
+             href="#"
+             role="button"
+             data-bs-toggle="dropdown">
+
+            TOOLS AND TRAINING
+          </a>
+
+          <ul class="dropdown-menu">
+
+            <li>
+              <a class="dropdown-item" href="../../tools.qmd">
+                Tools
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="../../training.qmd">
+                Training
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="../../code_gallery.qmd">
+                Code Gallery
+              </a>
+            </li>
+
+          </ul>
+        </li>
+
+        <!-- APPLICATIONS -->
+        <li class="nav-item">
+          <a class="nav-link" href="../../applications.qmd">
+            APPLICATIONS
+          </a>
+        </li>
+
+        <!-- ABOUT -->
+        <li class="nav-item dropdown">
+
+          <a class="nav-link dropdown-toggle"
+             href="#"
+             role="button"
+             data-bs-toggle="dropdown">
+
+            ABOUT
+          </a>
+
+          <ul class="dropdown-menu">
+
+            <li>
+              <a class="dropdown-item" href="../../coastwatch.qmd">
+                CoastWatch
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="../../people.qmd">
+                People
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="../../contact_us.qmd">
+                Contact Us
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="../../customer_survey.qmd">
+                Customer Survey
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="../../news_archive.qmd">
+                News Archive
+              </a>
+            </li>
+
+          </ul>
+
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+</nav>
 
 <div class="page-toggle">
   <a href="#" class="toggle-btn active">CalCOFI OCEAN CONDITIONS</a>
@@ -904,5 +1055,8 @@ window.onload = updateAllMaps;
 window.onresize = () => updateAllMaps();
 
 </script>
+
+<script src="../../_site/site_libs/bootstrap/bootstrap.min.js"></script>
+
 </body>
 </html>
