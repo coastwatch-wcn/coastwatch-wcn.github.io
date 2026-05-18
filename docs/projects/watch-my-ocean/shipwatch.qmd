@@ -1,0 +1,551 @@
+---
+pagetitle: "NOAA Vessel Ocean Conditions Dashboard"
+format:
+  html:
+    toc: false
+page-layout: full
+---
+
+<style>
+
+body {
+    font-family: sans-serif;
+    padding: 20px;
+    background-color: #f4f4f9;
+    margin: 0;
+}
+
+/* PAGE TOGGLE */
+
+.page-toggle {
+    display: flex;
+    justify-content: center;
+    max-width: 1400px;
+    margin: 0 auto 20px auto;
+}
+
+.toggle-btn {
+    flex: 1;
+    max-width: 300px;
+    padding: 12px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    border: 2px solid #003366;
+    transition: all 0.3s ease;
+}
+
+.toggle-btn.inactive {
+    background-color: white;
+    color: #003366;
+}
+
+.toggle-btn.active {
+    background-color: #003366;
+    color: white;
+    cursor: default;
+}
+
+.toggle-btn:hover.inactive {
+    background-color: #eef2f7;
+}
+
+.toggle-btn:first-child {
+    border-radius: 8px 0 0 8px;
+}
+
+.toggle-btn:last-child {
+    border-radius: 0 8px 8px 0;
+    border-left: none;
+}
+
+/* DASHBOARD */
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    border: 2px solid #003366;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.card {
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 420px;
+}
+
+.card h3 {
+    margin: 5px 0;
+    font-size: 0.85rem;
+    color: #003366;
+    text-transform: uppercase;
+}
+
+.img-container {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    display: none;
+    margin-bottom: 10px;
+}
+
+.placeholder {
+    color: #888;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+#status-alert {
+    display: none;
+    background: #e74c3c;
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.cb-widget {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    background: #eee;
+    width: 100%;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    margin-top: 10px;
+}
+
+.cb-widget input {
+    width: 45px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.set-btn {
+    background: #003366;
+    color: white;
+    border: none;
+    padding: 3px 7px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.info {
+    margin-top: 20px;
+    text-align: center;
+    line-height: 1.6;
+    font-size: 1rem;
+    border-top: 2px solid #eee;
+    padding-top: 15px;
+}
+
+@media (max-width: 1100px) {
+
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+</style>
+
+<div class="page-toggle">
+<a href="calcofi.qmd" class="toggle-btn inactive">
+CalCOFI OCEAN CONDITIONS
+</a>
+<a href="#" class="toggle-btn active">
+NOAA VESSEL TRACKER
+</a>
+</div>
+
+<div class="container">
+
+<div id="status-alert">
+⚠️ WARNING: This vessel has not reported in over 48 hours.
+</div>
+
+<select id="vessel-selector" onchange="loadShipData()">
+    <option value="" selected disabled>
+        Select NOAA Vessel
+    </option>
+    <option value="fsuNoaaShipWTEDnrt">
+        Bell M. Shimada (West Coast)
+    </option>
+    <option value="fsuNoaaShipWTEEnrt">
+        Elton Sette (Hawaii)
+    </option>
+    <option value="fsuNoaaShipWTEBnrt">
+        Fairweather (Alaska)
+    </option>
+    <option value="fsuNoaaShipWTEOnrt">
+        Gordon Gunter (East Coast)
+    </option>
+    <option value="fsuNoaaShipWTDFnrt">
+        Henry Bigelow (East Coast)
+    </option>
+    <option value="fsuNoaaShipWTERnrt">
+        Nancy Foster (East Coast)
+    </option>
+    <option value="fsuNoaaShipWTDOnrt">
+        Oregon II (East Coast)
+    </option>
+    <option value="fsuNoaaShipWTEPnrt">
+        Oscar Dyson (Alaska)
+    </option>
+    <option value="fsuNoaaShipWTDLnrt">
+        Pisces (East Coast)
+    </option>
+    <option value="fsuNoaaShipWTEFnrt">
+        Rainier (West Coast)
+    </option>
+    <option value="fsuNoaaShipWTEGnrt">
+        Reuben Lasker (West Coast)
+    </option>
+
+</select>
+
+<div class="dashboard-grid">
+
+<div class="card">
+<h3>Last 10 Days Activity</h3>
+<div class="img-container">
+<div class="placeholder">
+Select a NOAA vessel to load ocean conditions
+</div>
+<img id="track-map">
+</div>
+</div>
+
+<div class="card">
+<h3>Chl (Daily)</h3>
+<div class="img-container">
+<div class="placeholder">
+Select a NOAA vessel to load ocean conditions
+</div>
+<img id="chla-d">
+</div>
+<div class="cb-widget">
+Min:
+<input id="min-chla-d" value="0.03">
+Max:
+<input id="max-chla-d" value="5">
+<button class="set-btn" onclick="updateMap('chla-d')">
+Set
+</button>
+</div>
+</div>
+
+<div class="card">
+<h3>Chl (Weekly)</h3>
+<div class="img-container">
+<div class="placeholder">
+Select a NOAA vessel to load ocean conditions
+</div>
+<img id="chla-w">
+</div>
+<div class="cb-widget">
+Min:
+<input id="min-chla-w" value="0.03">
+Max:
+<input id="max-chla-w" value="5">
+<button class="set-btn" onclick="updateMap('chla-w')">
+Set
+</button>
+</div>
+</div>
+
+<div class="card">
+<h3>SST (°C)</h3>
+<div class="img-container">
+<div class="placeholder">
+Select a NOAA vessel to load ocean conditions
+</div>
+<img id="sst">
+</div>
+<div class="cb-widget">
+Min:
+<input id="min-sst" value="10">
+Max:
+<input id="max-sst" value="22">
+<button class="set-btn" onclick="updateMap('sst')">
+Set
+</button>
+</div>
+</div>
+
+<div class="card">
+<h3>SST Anomaly</h3>
+<div class="img-container">
+<div class="placeholder">
+Select a NOAA vessel to load ocean conditions
+</div>
+<img id="sst-anom">
+</div>
+<div class="cb-widget">
+Min:
+<input id="min-sst-anom" value="-2">
+Max:
+<input id="max-sst-anom" value="2">
+<button class="set-btn" onclick="updateMap('sst-anom')">
+Set
+</button>
+</div>
+</div>
+
+<div class="card">
+<h3>Winds (m/s)</h3>
+<div class="img-container">
+<div class="placeholder">
+Select a NOAA vessel to load ocean conditions
+</div>
+<img id="wind">
+</div>
+<div class="cb-widget">
+Min:
+<input id="min-wind" value="0">
+Max:
+<input id="max-wind" value="15">
+<button class="set-btn" onclick="updateMap('wind')">
+Set
+</button>
+</div>
+</div>
+
+<div class="card">
+<h3>SSH (m)</h3>
+<div class="img-container">
+<div class="placeholder">
+Select a NOAA vessel to load ocean conditions
+</div>
+<img id="ssh">
+</div>
+<div class="cb-widget">
+Min:
+<input id="min-ssh" value="-0.5">
+Max:
+<input id="max-ssh" value="0.5">
+<button class="set-btn" onclick="updateMap('ssh')">
+Set
+</button>
+</div>
+</div>
+
+</div>
+
+<div id="ship-info" class="info"></div>
+
+</div>
+
+<script>
+
+let currentShipName = "";
+
+let globalCoords = "";
+
+function handlePosition(data) {
+
+    const info =
+        document.getElementById("ship-info");
+
+    const alertBox =
+        document.getElementById("status-alert");
+
+    const shipId =
+        document.getElementById("vessel-selector").value;
+
+    try {
+
+        const row = data.table.rows[0];
+
+        const maxTimeStr = row[0];
+
+        const lat = Number(row[1]);
+
+        const lon = Number(row[2]);
+
+        const lonCorr =
+            lon > 180 ? lon - 360 : lon;
+
+        const maxDate = new Date(maxTimeStr);
+
+        const startDate = new Date(maxDate);
+
+        startDate.setDate(
+            startDate.getDate() - 10
+        );
+
+        const startStr =
+            startDate.toISOString().split("T")[0];
+
+        alertBox.style.display =
+            ((new Date() - maxDate) / 36e5) > 48
+            ? "block"
+            : "none";
+
+        globalCoords =
+            `[(${(lat+2.5).toFixed(2)}):(${(lat-2.5).toFixed(2)})]` +
+            `[(${(lonCorr-2.5).toFixed(2)}):(${(lonCorr+2.5).toFixed(2)})]`;
+
+        info.innerHTML =
+            `Vessel: <b>${currentShipName}</b> | ` +
+            `Last Report: ${maxDate.toLocaleString()} | ` +
+            `Window: ${startStr} to ${maxTimeStr.split('T')[0]}`;
+
+        updateMap(
+            'track-map',
+            `https://coastwatch.pfeg.noaa.gov/erddap/tabledap/${shipId}.png?longitude,latitude,time&time>=${startStr}&.draw=markers&.marker=10|5&.color=0x000000&.bgColor=0xffccccff`,
+            true
+        );
+
+        [
+            'chla-d',
+            'chla-w',
+            'sst',
+            'sst-anom',
+            'wind',
+            'ssh'
+        ].forEach(id => updateMap(id));
+
+    } catch (e) {
+
+        console.error(e);
+    }
+}
+
+window.handlePosition = handlePosition;
+
+function updateMap(id, customUrl = null, isTrack = false) {
+
+    const img =
+        document.getElementById(id);
+
+    const placeholder =
+        img.parentElement.querySelector('.placeholder');
+
+    img.style.display = 'none';
+
+    placeholder.style.display = 'block';
+
+    if (isTrack) {
+
+        img.src = customUrl;
+
+    } else {
+
+        const min =
+            document.getElementById(`min-${id}`).value;
+
+        const max =
+            document.getElementById(`max-${id}`).value;
+
+        const urls = {
+
+            'chla-d':
+                `https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNnoaa20chlaDaily.png?chlor_a[(last)][(0.0)]${globalCoords}&.vars=longitude|latitude|chlor_a&.colorBar=Rainbow2|||${min}|${max}|`,
+
+            'chla-w':
+                `https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNnoaa20chlaWeekly.png?chlor_a[(last)][(0.0)]${globalCoords}&.vars=longitude|latitude|chlor_a&.colorBar=Rainbow2|||${min}|${max}|`,
+
+            'sst':
+                `https://coastwatch.pfeg.noaa.gov/erddap/griddap/NOAA_DHW.png?CRW_SST[(last)]${globalCoords}&.vars=longitude|latitude|CRW_SST&.colorBar=|||${min}|${max}|`,
+
+            'sst-anom':
+                `https://coastwatch.pfeg.noaa.gov/erddap/griddap/NOAA_DHW.png?CRW_SSTANOMALY[(last)]${globalCoords}&.vars=longitude|latitude|CRW_SSTANOMALY&.colorBar=BlueWhiteRed|||${min}|${max}|`,
+
+            'wind':
+                `https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdQCwindproducts1day.png?wind_speed[(last)][(10.0)]${globalCoords}&.colorBar=|||${min}|${max}|`,
+
+            'ssh':
+                `https://coastwatch.noaa.gov/erddap/griddap/noaacweddymesiplusdaily.png?ssh[(last)]${globalCoords}&.vars=longitude|latitude|ssh&.colorBar=|||${min}|${max}|`
+        };
+
+        img.src = urls[id];
+    }
+
+    img.onload = () => {
+
+        img.style.display = 'block';
+
+        placeholder.style.display = 'none';
+    };
+}
+
+function loadShipData() {
+
+    const selector =
+        document.getElementById("vessel-selector");
+
+    /*
+    DO NOTHING IF PLACEHOLDER SELECTED
+    */
+
+    if (!selector.value) {
+        return;
+    }
+
+    currentShipName =
+        selector.options[selector.selectedIndex].text
+        .replace(/\s*\(.*?\)\s*/g, "")
+        .trim();
+
+    const old =
+        document.getElementById("jsonp-script");
+
+    if (old) old.remove();
+
+    const s =
+        document.createElement("script");
+
+    s.id = "jsonp-script";
+
+    s.src =
+        `https://coastwatch.pfeg.noaa.gov/erddap/tabledap/${selector.value}.json?time,latitude,longitude&orderByMax("time")&.jsonp=handlePosition`;
+
+    document.body.appendChild(s);
+}
+
+</script>

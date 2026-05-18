@@ -642,7 +642,7 @@ display(HTML(html_out))
 
 <div class="update-footer">
   This page was generated at <span id="buildTime"></span>.<br>
-  This page refreshes automatically every hour.
+  This page refreshes automatically every 4 hours.
 </div>
 
 If the dataset you are interested in isn't here, find the full list [here](https://coastwatch.pfeg.noaa.gov/erddap/outOfDateDatasets.html).
