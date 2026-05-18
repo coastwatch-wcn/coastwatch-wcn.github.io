@@ -28,9 +28,8 @@ h1 {
 .page-toggle {
     display: flex;
     justify-content: center;
-    max-width: 1200px;
-    margin: 0 auto 20px auto;
-    font-size: 0;
+    max-width: 1400px;
+    margin: 0 auto 2rem auto;
 }
 
 .toggle-btn {
@@ -43,7 +42,6 @@ h1 {
     font-size: 0.9rem;
     border: 2px solid #2c3e50;
     transition: all 0.3s ease;
-    margin: 0;
 }
 
 .toggle-btn.inactive {
@@ -70,21 +68,22 @@ h1 {
     border-left: none;
 }
 
-/* DASHBOARD STYLING */
+/* MAIN CONTAINER */
 
-#erddap-widget,
-.card {
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+.container {
+    max-width: 1200px;
+    margin: 0 auto 20px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #2c3e50;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
+/* DASHBOARD STYLING */
+
 #erddap-widget {
-  padding: 15px;
-  border: 1px solid #2c3e50;
-  max-width: 1200px;
-  margin: 0 auto 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
 }
 
 .widget-flex,
@@ -177,17 +176,22 @@ h1 {
   color: #d35400;
 }
 
+/* GRID */
+
 .data-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
 }
 
+/* CARDS */
+
 .card {
-  padding: 12px;
-  text-align: center;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 12px;
+    text-align: center;
 }
 
 .card.hidden {
@@ -195,9 +199,13 @@ h1 {
 }
 
 .card h3 {
-  margin: 10px 0;
-  color: #34495e;
-  font-size: 1.1em;
+    margin: 10px 0;
+    color: #34495e;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: center;
 }
 
 .card a {
@@ -215,11 +223,12 @@ h1 {
 }
 
 .map-wrap img {
-  width: 100%;
-  min-height: 200px;
-  display: block;
-  border: 1px solid #eee;
-  background: #fafafa;
+    width: 100%;
+    min-height: 200px;
+    display: block;
+    border-radius: 8px;
+    border: 1px solid #dbe2ea;
+    background: #fafafa;
 }
 
 .station-canvas {
@@ -252,6 +261,8 @@ h1 {
 </div>
 
 <h1>CalCOFI Ocean Conditions Dashboard</h1>
+
+<div class="container">
 
 <div id="erddap-widget">
 
@@ -292,8 +303,6 @@ Note: Stations are only drawn on default map boundaries.
 
 </div>
 </div>
-
-<div class="data-grid">
 
 <div class="card" id="card-chla-d">
 <h3>Daily Chlorophyll</h3>
@@ -366,7 +375,7 @@ Max: <input id="max-sardine" value="8">
 </div>
 
 <div class="card" id="card-charms-pn">
-<h3>C-HARMS (PN)</h3>
+<h3>C-HARM (PN)</h3>
 <div class="map-wrap">
 <img id="img-charms-pn">
 <canvas id="cvs-charms-pn" class="station-canvas"></canvas>
