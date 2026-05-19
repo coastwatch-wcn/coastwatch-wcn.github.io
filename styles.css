@@ -3425,3 +3425,117 @@ button.btn-primary:hover {
 .course-slides-page .noaa-dark-blue {
   color: #003366;
 }
+
+/* --------------- */
+/* NETPP PROJECT   */
+/* --------------- */
+
+.netpp-page .project-topbar{
+  position: relative;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  padding: .65rem 1.1rem;
+  margin: 0 0 1.25rem 0;
+
+  background: #f2f4f6;
+  border-bottom: 2px solid rgba(0,0,0,.08);
+}
+
+.netpp-page .project-tab {
+  color: #6c757d;           /* lighter gray for inactive */
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+/* Hover */
+.netpp-page .project-tab:hover {
+  color: #2b6da8;           /* NOAA-ish blue on hover */
+}
+
+/* ACTIVE PAGE */
+.netpp-page .project-tabs a.project-tab.active {
+  color: #2b6da8;       /* NOAA blue */
+  font-weight: 700;
+  border-bottom: 2px solid #2b6da8;
+}
+
+/* Brand stays left and is vertically centered */
+.netpp-page .project-topbar .project-brand{
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  white-space: nowrap;
+}
+
+.netpp-page .project-topbar .project-brand-title{
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* Nudge only if your PNG has transparent padding */
+.netpp-page .project-topbar .project-brand-logo{
+  height: 80px;
+  width: auto;
+  display: block;
+  transform: translateY(1px); /* try 0px, 1px, or 2px */
+}
+
+/* Tabs are centered across the bar */
+.netpp-page .project-topbar .project-tabs{
+  position: static;          /* tabs now affect bar height */
+  transform: none;
+  left: auto;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  gap: 1.25rem;
+  margin: 0;            /* center within bar */
+}
+
+
+.netpp-page .project-tab{
+  font-size: 1.15rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Prevent sst table from running off the page */
+.netpp-page .table-scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.netpp-page .table-scroll table {
+  min-width: 500px;
+}
+
+/* Mobile: stack instead of absolute centering */
+@media (max-width: 900px){
+
+  .netpp-page .project-topbar{
+    flex-direction: column;
+    align-items: center;
+    gap: .75rem;
+  }
+
+  .netpp-page .project-topbar .project-tabs{
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .75rem;
+
+    width: auto;
+  }
+
+  .netpp-page .project-tab {
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+}
