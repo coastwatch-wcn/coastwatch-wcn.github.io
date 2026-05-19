@@ -2,6 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="../../_site/site_libs/bootstrap/bootstrap-4704b748fb003d54839335b06e199555.min.css" rel="stylesheet">
+    <link href="../../_site/site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+    <link href="../../styles.css" rel="stylesheet">
+
     <title>NOAA Fleet Ocean Conditions Dashboard</title>
     <style>
 
@@ -13,7 +19,6 @@
         font-family: sans-serif;
         background: #f0f4f8;
         margin: 0;
-        padding: 20px;
     }
 
     h1 {
@@ -30,7 +35,7 @@
         display: flex;
         justify-content: center;
         max-width: 1400px;
-        margin: 0 auto 2rem auto;
+        margin: 60px auto 2rem auto;
     }
 
     .toggle-btn {
@@ -178,7 +183,7 @@
     /* MAP IMAGES                         */
     /* ---------------------------------- */
 
-    img {
+    .img-container img {
         max-width: 100%;
         height: auto;
         border-radius: 8px;
@@ -304,6 +309,154 @@
     </style>
 </head>
 <body>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container-fluid">
+
+    <a class="navbar-brand" href="../../index.qmd">
+      <img src="../../images/coastwatch_logo.png" alt="CoastWatch Logo">
+      <span style="margin-left: 12px;">
+        COASTWATCH WEST COAST NODE
+      </span>
+    </a>
+
+    <button class="navbar-toggler" type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav">
+
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+      <ul class="navbar-nav ms-auto">
+
+        <!-- DATA ACCESS -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle"
+             href="#"
+             role="button"
+             data-bs-toggle="dropdown">
+
+            DATA ACCESS
+          </a>
+
+          <ul class="dropdown-menu">
+
+            <li>
+              <a class="dropdown-item" href="../../data_catalog.qmd">
+                Data Catalog
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="../../dataset_monitor.qmd">
+                Dataset Monitor
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="../../data_server.qmd">
+                Data Server
+              </a>
+            </li>
+
+          </ul>
+        </li>
+
+        <!-- TOOLS -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle"
+             href="#"
+             role="button"
+             data-bs-toggle="dropdown">
+
+            TOOLS AND TRAINING
+          </a>
+
+          <ul class="dropdown-menu">
+
+            <li>
+              <a class="dropdown-item" href="../../tools.qmd">
+                Tools
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="../../training.qmd">
+                Training
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="../../code_gallery.qmd">
+                Code Gallery
+              </a>
+            </li>
+
+          </ul>
+        </li>
+
+        <!-- APPLICATIONS -->
+        <li class="nav-item">
+          <a class="nav-link" href="../../applications.qmd">
+            APPLICATIONS
+          </a>
+        </li>
+
+        <!-- ABOUT -->
+        <li class="nav-item dropdown">
+
+          <a class="nav-link dropdown-toggle"
+             href="#"
+             role="button"
+             data-bs-toggle="dropdown">
+
+            ABOUT
+          </a>
+
+          <ul class="dropdown-menu">
+
+            <li>
+              <a class="dropdown-item" href="../../coastwatch.qmd">
+                CoastWatch
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="../../people.qmd">
+                People
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="../../contact_us.qmd">
+                Contact Us
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="../../customer_survey.qmd">
+                Customer Survey
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="../../news_archive.qmd">
+                News Archive
+              </a>
+            </li>
+
+          </ul>
+
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+</nav>
 
 <div class="page-toggle">
     <a href="calcofi.html" class="toggle-btn inactive">CalCOFI OCEAN CONDITIONS</a>
@@ -450,5 +603,8 @@
     }
     window.onload = () => {};
 </script>
+
+<script src="../../_site/site_libs/bootstrap/bootstrap.min.js"></script>
+
 </body>
 </html>
