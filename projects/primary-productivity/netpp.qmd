@@ -22,13 +22,11 @@ format:
 
 :::
 
-# VIIRS-based Primary Productivity Products
-## Replacing the Legacy MODIS-based Products
-
-:::{.figure}
-![](images/productivity.png){fig-align="center"}
-<span style="text-align: center; display: block;"></span>
+::: {.netpp-hero}
+![](images/productivity.png){.hero-img}
 :::
+
+### <span style="color:#2b6da8;">**VIIRS-based Primary Productivity Products: Replacing the Legacy MODIS-based Products**</span>
 
 ## Project Overview
 
