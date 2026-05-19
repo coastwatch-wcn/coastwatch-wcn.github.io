@@ -4,12 +4,9 @@ anchor-sections: false
 format:
   html:
     theme: lux
+    toc: false
+    page-layout: full
     css: ../../styles.css
-    toc: true
-    toc-depth: 2
-    toc-location: right
-sidebar:
-  style: "floating"
 ---
 
 ::: {.netpp-page}
@@ -85,6 +82,6 @@ The two interim product lines are routinely produced and are available online as
 
 
 ## References
-Behrenfeld and Falkowski. (1997) <a href="https://doi.org/10.4319/lo.1997.42.1.0001">Photosynthetic rates derived from satellite-based chlorophyll concentration.</a> Limnol. Oceanogr. 42:1-20. </li>
+Behrenfeld and Falkowski. (1997) <a href="https://doi.org/10.4319/lo.1997.42.1.0001">Photosynthetic rates derived from satellite-based chlorophyll concentration.</a> Limnol. Oceanogr. 42:1-20.
 
 :::

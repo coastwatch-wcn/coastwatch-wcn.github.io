@@ -4,12 +4,9 @@ anchor-sections: false
 format:
   html:
     theme: lux
+    toc: false
+    page-layout: full
     css: ../../styles.css
-    toc: true
-    toc-depth: 3
-    toc-location: right
-sidebar:
-  style: "floating"
 ---
 
 ::: {.netpp-page}
@@ -172,5 +169,7 @@ $CHL_{eu} = 40.2 \cdot CHL^{0.5070} \quad \text{when } CHL > 1.0$
 <p>
 
 Find the algorithm input data in [User Resources](user-resources.qmd#download-algorithm-input-data).
+
+:::
 
 :::

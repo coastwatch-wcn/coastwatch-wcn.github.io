@@ -4,12 +4,9 @@ anchor-sections: false
 format:
   html:
     theme: lux
+    toc: false
+    page-layout: full
     css: ../../styles.css
-    toc: true
-    toc-depth: 4
-    toc-location: right
-sidebar:
-  style: "floating"
 ---
 
 ::: {.netpp-page}
