@@ -22,15 +22,12 @@ format:
 
 :::
 
-
-<header>
-    <h1 style="margin-bottom: -12px">VIIRS-based Primary Productivity Products</h1>
-    <p style="font-size: 1.5em; margin-top: -12px"> Replacing the Legacy MODIS-based Products</p>
-</header>
+# VIIRS-based Primary Productivity Products
+## Replacing the Legacy MODIS-based Products
 
 :::{.figure}
 ![](images/productivity.png){fig-align="center"}
-<span style="text-align: right; display: block;"></span>
+<span style="text-align: center; display: block;"></span>
 :::
 
 ## Project Overview

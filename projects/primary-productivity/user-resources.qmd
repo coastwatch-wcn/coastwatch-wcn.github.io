@@ -22,8 +22,6 @@ format:
 
 :::
 
-<h1> User Resources </h1>
-
 ## Code Gallery
 
 Explore tutorials designed to help users analyze and compare legacy and interim primary productivity products using Python or R.

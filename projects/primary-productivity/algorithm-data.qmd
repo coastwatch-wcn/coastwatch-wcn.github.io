@@ -22,8 +22,6 @@ format:
 
 :::
 
-<h1>Algorithm and Data</h1>
-
 ## Primary Productivity (netPP) Algorithm
 
 <p>The Behrenfeld and Falkowski (1997) algorithm estimates primary productivity using satellite measurements and derived parameters. The algorithm formulation is listed below:</p>
