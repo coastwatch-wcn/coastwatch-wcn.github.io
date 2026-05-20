@@ -165,7 +165,7 @@ Generate trends for satellite-derived hourly means of legacy or interim primary 
 
 <div class="download-links">
 
-<a href="https://coastwatch.pfeg.noaa.gov/erddap/griddap/productivity_viirs_snpp_daily_nrt.graph" target="_blank" class="download-link">
+<a href="https://coastwatch.pfeg.noaa.gov/erddap/griddap/productivity_viirs_snpp_nrt_daily.graph" target="_blank" class="download-link">
 Daily Composites, Near Real-time
 </a>
 
@@ -236,7 +236,7 @@ Monthly Composite
 <div class="download-links">
 
 <a href="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1chlamday_R2022SQ.graph" target="_blank" class="download-link">
-MODIS Chlorophyll a
+MODIS Chlorophyll-a
 </a>
 
 <a href="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1par0mday_R2022SQ.graph" target="_blank" class="download-link">
@@ -258,7 +258,7 @@ MODIS SST
 <div class="download-links">
 
 <a href="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVH2018chlamday.graph" target="_blank" class="download-link">
-VIIRS SNPP Chlorophyll a
+VIIRS SNPP Chlorophyll-a
 </a>
 
 <a href="https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdVH2018parmday.graph" target="_blank" class="download-link">
@@ -280,7 +280,7 @@ VIIRS SNPP SST
 <div class="download-links">
 
 <a href="https://www.earthdata.nasa.gov/" target="_blank" class="download-link">
-VIIRS NOAA20 Chlorophyll a
+VIIRS NOAA20 Chlorophyll-a
 </a>
 
 <a href="https://www.earthdata.nasa.gov/" target="_blank" class="download-link">
