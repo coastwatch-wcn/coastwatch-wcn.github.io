@@ -3555,3 +3555,221 @@ button.btn-primary:hover {
   border-radius: 0;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
+
+.netpp-page h3 {
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+
+  font-weight: 700;
+}
+
+.netpp-page .tutorial-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(320px, 1fr));
+
+  gap: 2rem;
+
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+
+.netpp-page .tutorial-card {
+  background: #ffffff;
+
+  border-radius: 1rem;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(0,0,0,0.08);
+
+  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+}
+
+.netpp-page .tutorial-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 10px 28px rgba(0,0,0,0.10);
+}
+
+.netpp-page .tutorial-card img {
+  width: 100%;
+
+  height: 220px;
+
+  object-fit: cover;
+
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.netpp-page .tutorial-card h3 {
+  font-size: 1.25rem;
+
+  font-weight: 700;
+
+  line-height: 1.35;
+
+  margin: 1.5rem 1.5rem 0.75rem 1.5rem;
+}
+
+.netpp-page .tutorial-card p {
+  margin: 0;
+
+  padding: 0 1.5rem;
+
+  color: #555;
+
+  line-height: 1.7;
+
+  flex-grow: 1;
+}
+
+.netpp-page .tutorial-links {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 0.75rem;
+
+  padding: 1.5rem;
+}
+
+.netpp-page .tutorial-btn {
+  display: inline-block;
+
+  padding: 0.65rem 1.1rem;
+
+  border-radius: 999px;
+
+  background: #2b6da8;
+
+  color: white !important;
+
+  text-decoration: none;
+
+  font-weight: 600;
+
+  font-size: 0.95rem;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.netpp-page .tutorial-btn:hover {
+  background: #205481;
+
+  transform: translateY(-1px);
+
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+
+  .netpp-page .tutorial-grid {
+    gap: 1.5rem;
+  }
+
+  .netpp-page .tutorial-card h3 {
+    font-size: 1.15rem;
+  }
+
+}
+
+.netpp-page .download-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(320px, 1fr));
+
+  gap: 2rem;
+
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+
+.netpp-page .download-card {
+  background: #ffffff;
+
+  border-radius: 1rem;
+
+  padding: 1.5rem;
+
+  border: 1px solid rgba(0,0,0,0.08);
+
+  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.netpp-page .download-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+
+.netpp-page .download-card h3 {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+
+  font-size: 1.2rem;
+
+  font-weight: 700;
+
+  line-height: 1.4;
+}
+
+.netpp-page .download-links {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0.75rem;
+}
+
+.netpp-page .download-link {
+  display: block;
+
+  padding: 0.85rem 1rem;
+
+  border-radius: 0.75rem;
+
+  background: #f8f9fa;
+
+  border: 1px solid rgba(0,0,0,0.06);
+
+  text-decoration: none;
+
+  color: #222;
+
+  font-weight: 500;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.netpp-page .download-link:hover {
+  background: #eef4ff;
+
+  border-color: #0d6efd;
+
+  color: #0d6efd;
+
+  transform: translateX(2px);
+
+  text-decoration: none;
+}

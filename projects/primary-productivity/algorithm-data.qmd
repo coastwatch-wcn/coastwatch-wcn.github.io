@@ -169,5 +169,3 @@ $CHL_{eu} = 40.2 \cdot CHL^{0.5070} \quad \text{when } CHL > 1.0$
 Find the algorithm input data in [User Resources](user-resources.qmd#download-algorithm-input-data).
 
 :::
-
-:::
