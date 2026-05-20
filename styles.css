@@ -3797,13 +3797,13 @@ button.btn-primary:hover {
 .netpp-page .tutorial-image {
   width: 100%;
 
-  height: 220px;
+  height: 320px;
 
   object-fit: contain;
 
   background: #ffffff;
 
-  padding: 0.75rem;
+  padding: 1rem;
 
   border-bottom: 1px solid rgba(0,0,0,0.06);
 
@@ -3813,7 +3813,7 @@ button.btn-primary:hover {
 }
 
 .netpp-page .tutorial-image:hover {
-  transform: scale(1.02);
+  transform: scale(1.01);
 }
 
 .lightbox {
@@ -3823,13 +3823,9 @@ button.btn-primary:hover {
 
   z-index: 9999;
 
-  left: 0;
-  top: 0;
+  inset: 0;
 
-  width: 100%;
-  height: 100%;
-
-  background: rgba(0,0,0,0.85);
+  background: rgba(0,0,0,0.88);
 
   justify-content: center;
   align-items: center;
@@ -3840,12 +3836,18 @@ button.btn-primary:hover {
 }
 
 .lightbox-content {
-  max-width: 95%;
-  max-height: 95%;
+  max-width: min(95vw, 1600px);
+
+  max-height: 92vh;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
 
   border-radius: 0.5rem;
 
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-
   background: white;
+
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
 }
