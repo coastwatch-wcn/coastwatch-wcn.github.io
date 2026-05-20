@@ -3602,34 +3602,54 @@ button.btn-primary:hover {
   box-shadow: 0 10px 28px rgba(0,0,0,0.10);
 }
 
+
 .netpp-page .tutorial-card img {
   width: 100%;
 
   height: 220px;
 
-  object-fit: cover;
+  object-fit: contain;
+
+  background: #ffffff;
+
+  padding: 0.75rem;
 
   border-bottom: 1px solid rgba(0,0,0,0.06);
+
+  cursor: zoom-in;
+
+  transition: transform 0.2s ease;
 }
 
+.netpp-page .tutorial-card img:hover {
+  transform: scale(1.02);
+}
+
+
 .netpp-page .tutorial-card h3 {
-  font-size: 1.25rem;
+  font-size: 1.05rem;
 
   font-weight: 700;
 
-  line-height: 1.35;
+  line-height: 1.45;
 
-  margin: 1.5rem 1.5rem 0.75rem 1.5rem;
+  letter-spacing: normal;
+
+  text-transform: none;
+
+  margin: 1.25rem 1.25rem 0.75rem 1.25rem;
 }
 
 .netpp-page .tutorial-card p {
   margin: 0;
 
-  padding: 0 1.5rem;
+  padding: 0 1.25rem;
 
   color: #555;
 
   line-height: 1.7;
+
+  font-size: 0.98rem;
 
   flex-grow: 1;
 }
@@ -3772,4 +3792,60 @@ button.btn-primary:hover {
   transform: translateX(2px);
 
   text-decoration: none;
+}
+
+.netpp-page .tutorial-image {
+  width: 100%;
+
+  height: 220px;
+
+  object-fit: contain;
+
+  background: #ffffff;
+
+  padding: 0.75rem;
+
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+
+  cursor: zoom-in;
+
+  transition: transform 0.2s ease;
+}
+
+.netpp-page .tutorial-image:hover {
+  transform: scale(1.02);
+}
+
+.lightbox {
+  display: none;
+
+  position: fixed;
+
+  z-index: 9999;
+
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0,0,0,0.85);
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 2rem;
+
+  cursor: zoom-out;
+}
+
+.lightbox-content {
+  max-width: 95%;
+  max-height: 95%;
+
+  border-radius: 0.5rem;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+
+  background: white;
 }

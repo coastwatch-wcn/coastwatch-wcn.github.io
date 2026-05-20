@@ -22,7 +22,7 @@ format:
 
 :::
 
-<h1> Statistical Analysis </h1>
+## Statistical Analysis 
 
 To evaluate how the interim primary productivity products (**VIIRS-SNPP** and **VIIRS-NOAA-20**) differ from the legacy product (**MODIS-Aqua**), we conducted a comprehensive statistical analysis that includes the following methods:
 

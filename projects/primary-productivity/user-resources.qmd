@@ -32,7 +32,11 @@ Explore tutorials designed to help users analyze and compare legacy and interim 
 
 ::: {.tutorial-card}
 
-![](images/ccal_psi_netpp.png)
+<img 
+  src="images/ccal_psi_netpp.png"
+  class="tutorial-image"
+  onclick="openLightbox(this.src)"
+>
 
 ### Unbiased Relative Difference Analysis of the Legacy and Interim Products
 
@@ -50,7 +54,11 @@ Calculate the mean unbiased relative difference ($\psi$) between the legacy and 
 
 ::: {.tutorial-card}
 
-![](images/carb_delta_netpp.png)
+<img 
+  src="images/carb_delta_netpp.png"
+  class="tutorial-image"
+  onclick="openLightbox(this.src)"
+>
 
 ### Absolute Relative Difference Analysis of the Legacy and Interim Products
 
@@ -68,7 +76,11 @@ Calculate the absolute relative difference ($\Delta$) between the legacy and int
 
 ::: {.tutorial-card}
 
-![](images/CCAL_3x3_contingency.png)
+<img 
+  src="images/CCAL_3x3_contingency.png"
+  class="tutorial-image"
+  onclick="openLightbox(this.src)"
+>
 
 ### Contingency Tables: Assessing the Similarity Between Two Primary Productivity Products
 
@@ -142,31 +154,6 @@ Generate trends for satellite-derived hourly means of legacy or interim primary 
 
 :::
 
-
-
-## Satellite Courses
-
-<p>
-    CoastWatch hosts satellite training opportunities in-person and online, providing users with the knowledge and skills to utilize satellite data in their research.
-</p>
-
-<a href="https://coastwatch-training.github.io/trainings/" target="_blank" style="text-decoration: none;">
-    <button style="padding: 10px 20px; font-size: 18px; color:white; background-color:  #0072ce; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
-        Satellite Courses<span style="margin-left: 10px;">&rarr;</span>
-    </button>
-</a>
-
-## ERDDAP Server
-
-<p>
-    Search satellite data on the CoastWatch West Coast Node ERDDAP data server.
-</p>
-
-<a href="https://coastwatch.pfeg.noaa.gov/erddap/index.html" target="_blank" style="text-decoration: none;">
-    <button style="padding: 10px 20px; font-size: 18px; color:white; background-color:  #0072ce; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
-        ERDDAP<span style="margin-left: 10px;">&rarr;</span>
-    </button>
-</a>
 
 ## Download Interim Product Data
 
@@ -371,5 +358,22 @@ MODIS-Aqua & VIIRS-NOAA-20
 :::
 
 :::
+
+<!-- Lightbox Modal -->
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" class="lightbox-content">
+</div>
+
+<script>
+function openLightbox(src) {
+  document.getElementById("lightbox").style.display = "flex";
+  document.getElementById("lightbox-img").src = src;
+}
+
+function closeLightbox() {
+  document.getElementById("lightbox").style.display = "none";
+}
+</script>
 
 :::
