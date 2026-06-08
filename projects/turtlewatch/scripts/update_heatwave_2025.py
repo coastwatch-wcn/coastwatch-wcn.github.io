@@ -132,28 +132,64 @@ def get_latest_heatwave_data(session: requests.Session, url: str) -> Dict[str, A
     heatwave_date = d_el.get_text(strip=True) if d_el else ""
     heatwave_period = p_el.get_text(strip=True) if p_el else ""
 
+    # LEGACY CODE
+
     # Raw text blocks containing each label
-    raw_tp = grab_region_paragraph(soup, r'^Tropical\s+Pacific')
-    raw_np = grab_region_paragraph(soup, r'^North\s+Pacific')
+    #raw_tp = grab_region_paragraph(soup, r'^Tropical\s+Pacific')
+    #raw_np = grab_region_paragraph(soup, r'^North\s+Pacific')
 
     # Slice only the desired regions (no sentence limits)
-    tropical_pacific = slice_region_block(raw_tp, "Tropical Pacific") or slice_region_block(raw_np, "Tropical Pacific")
-    north_pacific = slice_region_block(raw_np, "North Pacific") or slice_region_block(raw_tp, "North Pacific")
+    #tropical_pacific = slice_region_block(raw_tp, "Tropical Pacific") or slice_region_block(raw_np, "Tropical Pacific")
+    #north_pacific = slice_region_block(raw_np, "North Pacific") or slice_region_block(raw_tp, "North Pacific")
 
     # Combined (only these two)
+    #parts = []
+    #if north_pacific:
+    #    parts.append(f"North Pacific - {north_pacific}")
+    #if tropical_pacific:
+    #    parts.append(f"Tropical Pacific - {tropical_pacific}")
+    #heat_status = " | ".join(parts) if parts else "No regional summaries found."
+
+    # Find all Pacific region forecasts dynamically
     parts = []
-    if north_pacific:
-        parts.append(f"North Pacific - {north_pacific}")
-    if tropical_pacific:
-        parts.append(f"Tropical Pacific - {tropical_pacific}")
-    heat_status = " | ".join(parts) if parts else "No regional summaries found."
+
+    for strong in soup.find_all("strong"):
+
+        region_name = strong.get_text(" ", strip=True)
+
+        # Skip non-Pacific regions
+        if "Pacific" not in region_name:
+            continue
+
+        p = strong.find_parent("p")
+        if not p:
+            continue
+
+        text = p.get_text(" ", strip=True)
+
+        # Extract only the text after the region header
+        match = re.search(
+            rf"{re.escape(region_name)}\s*[-–:]\s*(.*)",
+            text,
+            re.I | re.S
+        )
+
+        if match:
+            summary = match.group(1).strip()
+            parts.append(f"{region_name} - {summary}")
+
+    heat_status = (
+        " | ".join(parts)
+        if parts
+        else "No Pacific regional summaries found."
+    )
 
     return {
         "heat_status": heat_status,
         "heat_date": heatwave_date,
         "heat_period": heatwave_period,
-        "north_pacific": north_pacific,
-        "tropical_pacific": tropical_pacific,
+        #"north_pacific": north_pacific,
+        #"tropical_pacific": tropical_pacific,
         "source_url": url
     }
 
