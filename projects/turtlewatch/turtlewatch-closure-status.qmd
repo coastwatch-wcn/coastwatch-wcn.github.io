@@ -96,7 +96,7 @@ Recent and historical monthly sea surface temperatures within the Loggerhead sea
 Dataset: [GHRSST MUR](https://coastwatch.pfeg.noaa.gov/erddap/search/index.html?page=1&itemsPerPage=1000&searchFor=mur+sst)
 </small>
 
-![Map of the Pacific Loggerhead Conservation Area (Loggerhead Closure). Map copyright: NOAA Fisheries](images/loggerhead_conservation.png){.lightbox width="60%"}
+![Map of the Pacific Loggerhead Conservation Area (Loggerhead Closure). Map copyright: NOAA Fisheries](images/loggerhead_conservation.png){width="60%"}
 
 :::
 
