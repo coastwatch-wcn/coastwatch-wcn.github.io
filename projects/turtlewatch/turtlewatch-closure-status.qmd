@@ -30,9 +30,17 @@ anchor-sections: false
   <div class="status-date" id="closure-date"></div>
 </div>
 
+
+<p id="closure-description">
+  Drift Gillnet Loggerhead Conservation Area Closure June 1 - August 31, 2026.
+</p>
+
+
+<!--
 <p id="closure-description">
   NMFS did not prohibit fishing with large-mesh drift gillnet gear in the Loggerhead Conservation Area this season.
 </p>
+-->
 
 <small>
 *[Closure status provided by NOAA Fisheries West Coast Regional Office](https://www.westcoast.fisheries.noaa.gov/)*
@@ -177,6 +185,9 @@ The information on this page may be used and redistributed freely, but is not in
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
+  // === True for Closure, False for open ===
+  const CLOSURE_ACTIVE = true;
+
   // === Load Closure Status from ltca_closure.csv ===
   fetch("data/resources/ltca_closure.csv")  
     .then(response => response.text())
@@ -213,7 +224,29 @@ document.addEventListener("DOMContentLoaded", () => {
       const textEl = document.querySelector(".status-text");
       const dateEl = document.querySelector(".status-date");
       const descEl = document.getElementById("closure-description");
+      
+      // Manual banner switch
+      banner.classList.remove("success", "alert-active", "alert-upcoming");
 
+      if (CLOSURE_ACTIVE) {
+
+        banner.classList.add("alert-active");
+        textEl.textContent = "Closure is in effect";
+
+      } else {
+
+        banner.classList.add("success");
+        textEl.textContent = "No closure in effect";
+
+      }
+
+      // Update date
+      if (dateEl) {
+        const opts = { year: "numeric", month: "long", day: "numeric" };
+        dateEl.textContent = "Updated " + now.toLocaleDateString(undefined, opts);
+      }
+
+      /*
       // Default state
       banner.classList.remove("alert-active", "alert-upcoming");
       banner.classList.add("success");
@@ -230,14 +263,8 @@ document.addEventListener("DOMContentLoaded", () => {
         textEl.textContent = "Closure is in effect";
       }
 
-      // Update date
-      if (dateEl) {
-        const opts = { year: "numeric", month: "long", day: "numeric" };
-        dateEl.textContent = "Updated " + now.toLocaleDateString(undefined, opts);
-      }
-
       // Descriptive paragraph
-      /*
+
       if (descEl) {
         const startStr = recent.start.toLocaleDateString("en-US", {
           month: "long",
