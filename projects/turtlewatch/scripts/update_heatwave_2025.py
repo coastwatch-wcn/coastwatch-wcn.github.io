@@ -5,7 +5,7 @@ compares it to the current data, and updates the necessary JSON files if new
 information is available.
 """
 
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, NavigableString, Tag
 import requests
 import os
 import subprocess
@@ -116,6 +116,30 @@ def slice_region_block(raw_text: str, region_label: str) -> str:
     return sub.strip()
 
 
+def extract_region_summary(strong):
+    """
+    Extract text following a region header until the next region header.
+    """
+
+    pieces = []
+
+    for sib in strong.next_siblings:
+
+        if isinstance(sib, Tag) and sib.name == "strong":
+            break
+
+        text = str(sib).strip()
+
+        if text:
+            pieces.append(text)
+
+    summary = " ".join(pieces)
+
+    summary = re.sub(r'^\s*[-–:]\s*', '', summary)
+
+    return " ".join(summary.split())
+
+
 def get_latest_heatwave_data(session: requests.Session, url: str) -> Dict[str, Any]:
     """Scrapes heatwave date/period and extracts ONLY the North/Tropical Pacific region text."""
     try:
@@ -151,43 +175,30 @@ def get_latest_heatwave_data(session: requests.Session, url: str) -> Dict[str, A
     #heat_status = " | ".join(parts) if parts else "No regional summaries found."
 
     # Find all Pacific region forecasts dynamically
-    parts = []
+    pacific_regions = {}
 
     for strong in soup.find_all("strong"):
 
         region_name = strong.get_text(" ", strip=True)
 
-        # Skip non-Pacific regions
         if "Pacific" not in region_name:
             continue
 
-        p = strong.find_parent("p")
-        if not p:
-            continue
+        summary = extract_region_summary(strong)
 
-        text = p.get_text(" ", strip=True)
+        if summary:
+            pacific_regions[region_name] = summary
 
-        # Extract only the text after the region header
-        match = re.search(
-            rf"{re.escape(region_name)}\s*[-–:]\s*(.*)",
-            text,
-            re.I | re.S
-        )
-
-        if match:
-            summary = match.group(1).strip()
-            parts.append(f"{region_name} - {summary}")
-
-    heat_status = (
-        " | ".join(parts)
-        if parts
-        else "No Pacific regional summaries found."
+    heat_status = " | ".join(
+        f"{region} - {summary}"
+        for region, summary in pacific_regions.items()
     )
 
     return {
         "heat_status": heat_status,
         "heat_date": heatwave_date,
         "heat_period": heatwave_period,
+        "pacific_regions": pacific_regions,
         #"north_pacific": north_pacific,
         #"tropical_pacific": tropical_pacific,
         "source_url": url
