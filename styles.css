@@ -2308,6 +2308,10 @@ button.btn-primary:hover {
 /*  TURTLEWATCH PROJECT    */
 /* ----------------------- */
 
+.turtlewatch-page .alert-active {
+  background-color: red;
+}
+
 .turtlewatch-page .turtlewatch-hero {
   text-align: right;
   margin-bottom: 2rem;
