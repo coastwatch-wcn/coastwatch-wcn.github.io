@@ -382,6 +382,12 @@ watch["category"] = watch["category"].fillna("").astype(str).str.strip()
 watch.loc[watch["label"] == "", "label"] = watch["datasetID"]
 watch.loc[watch["category"] == "", "category"] = "Other"
 
+# Keep only one watchlist row per dataset
+watch = watch.drop_duplicates(
+    subset="datasetID",
+    keep="first"
+)
+
 # -----------------------------
 # Load ERDDAP out-of-date table
 # -----------------------------
@@ -389,6 +395,12 @@ url = "https://coastwatch.pfeg.noaa.gov/erddap/outOfDateDatasets.csv"
 status = pd.read_csv(url)
 status.columns = status.columns.str.strip()
 status["datasetID"] = status["datasetID"].fillna("").astype(str).str.strip()
+
+# Keep only one status row per dataset
+status = status.drop_duplicates(
+    subset="datasetID",
+    keep="first"
+)
 
 # -----------------------------
 # Merge watchlist with ERDDAP status
