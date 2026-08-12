@@ -411,9 +411,12 @@ df = watch.merge(status, on="datasetID", how="left")
 # Status classification
 # -----------------------------
 def classify_status(value):
+    if pd.isna(value):
+        return "Not Flagged"
+
     try:
         value = float(value)
-    except Exception:
+    except (TypeError, ValueError):
         return "Not Flagged"
 
     if value < 1:
