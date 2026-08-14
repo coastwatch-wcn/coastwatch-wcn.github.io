@@ -50,11 +50,13 @@ In plain language, Unbiased Relative Difference (&psi;) is the difference betwee
 For our analysis, we calculated &psi; for each pixel in our global grid for each month over a multi-year timespan. The resulting monthly maps of global &psi; allowed us to generate a time series of mean global monthly &psi; and a map of the multi-year mean &psi; for each pixel in our global grid.
 
 ::: {style="text-align: center;"}
-![](images/psi_diagram.png){.lightbox width=100%}
+
+![](images/psi_diagram.png){width="100%"}
 
 <span style="font-size: 0.95em; color: #444; display: block; margin-top: 0.5em;">
 **Figure 1.** Conceptual workflow for calculating unbiased relative difference (&psi;) between interim and legacy satellite-derived net primary productivity (netPP) products. The yellow layers represent monthly netPP data from the Interim and Legacy datasets. Matching pixels are connected by the red lines. Monthly &psi; maps are calculated for each time step, forming the blue layers. A time series of &psi; is extracted from the blue stack, and a multi-year average is computed (green layer).
 </span>
+
 :::
 
 ### Temporal Variability 
@@ -63,12 +65,16 @@ For the VIIRS SNPP interim product relative to the legacy product, monthly mean 
 For the VIIRS NOAA-20 interim product, monthly mean global &psi; values were also positive over most of the 5-year time series and within a range of 0 to 0.07 (0-7% difference from the legacy product). These values were slightly lower than those observed for SNPP over its respective time period, but similarly indicate that the interim netPP estimates were generally higher than those from the legacy product.
 
 ::: {style="text-align: center;"}
+
 <span style="font-size: 1.5em; font-weight: bold;">Time Series: Monthly Means of Unbiased Relative Difference</span>
 
 <span style="font-size: 0.95em; color: #444; display: block; margin-top: 0.5em;">
-![](images/greyscale_psi_timeseries.png){.lightbox  width=100% style="max-width: 1600px;" }
+
+![](images/greyscale_psi_timeseries.png){width=100% style="max-width: 1600px;" }
+
 **Figure 2.** The time series of mean global &psi; values for each month from January 2013 to December 2022 (a ten-year period).
 </span>
+
 :::
 
 ### Spatial Variability
@@ -77,13 +83,15 @@ The 10-year average map (**Figure 3a**) reveals the spatial variability in &psi;
 The 5-year average map (**Figure 3b**) shows similar spatial patterns in &psi; that are consistent with those observed for SNPP. Most open ocean regions show <5% difference between NOAA-20 and legacy netPP products. Moderate differences (5-10%) are apparent in the subtropical gyres and larger differences (>20%) are observed at higher latitudes in both hemispheres and along coastal upwelling regions. Compared to SNPP, the NOAA-20 map contains slightly larger areas of difference. 
 
 ::: {style="text-align: center;"}
+
 <span style="font-size: 1.5em; font-weight: bold;">Unbiased Relative Difference</span>
 
-![](images/fig3_psi_with_centered_colorbar.png){.lightbox width=70%}
+![](images/fig3_psi_with_centered_colorbar.png){width=70%}
 
 <span style="font-size: 0.95em; color: #444; display: block; margin-top: 0.5em;">
 **Figure 3.** Global maps of the multi-year mean unbiased relative difference (&psi;) comparing VIIRS-SNPP(**a**) and VIIRS-NOAA(**b**) with MODIS-Aqua. Positive (blue) values indicate that the interim product netPP values are larger than those of the legacy product and negative (red) values indicate that the interim product netPP values are less than those of the legacy product.
 </span>
+
 :::
 
 ## Trends Analysis
@@ -91,11 +99,13 @@ The 5-year average map (**Figure 3b**) shows similar spatial patterns in &psi; t
 Temporal trends were calculated globally for the interim and legacy primary productivity products using linear regression methods. For our analysis, we determined the slopes of netPP versus time for each pixel in our global grid over a multi-year timespan using monthly netPP data. Results for the interim and legacy products were compared to identify how well the two products agree on the presence or absence of long-term trends. The purpose of this analysis was to identify how well the interim and legacy primary productivity timeseries agree using an arbitrarily chosen trend analysis method, not to accurately identify environmentally relevant trends in the ocean. We also applied statistical methods: [Contingency Matrices and Cohen’s Kappa](#contingency-matrices-and-cohens-kappa) to evaluate the strength of agreement. For a detailed explanation of the calculations, see the [Appendix](#trends_appendix).
 
 ::: {style="text-align: center;"}
-![](images/slope_npp.png){.lightbox width=80%}
+
+![](images/slope_npp.png){width=80%}
 
 <span style="font-size: 0.95em; color: #444; display: block; margin-top: 0.5em;">
 **Figure 4.** Conceptual workflow illustrating how trends in netPP are calculated using linear regression. Monthly netPP maps from January 2013 to December 2022 (yellow layers) are used to estimate the slope (&beta;) at each pixel across time. The slope values are compiled into a spatial map (blue layer) representing trend in productivity over the timeseries.
 </span>
+
 :::
 
 Visually, the global maps of slopes show very similar trend patterns, indicating that the interim and legacy products yield similar trends (**Figure 5**). The SNPP (**a**) and legacy (**b**) maps both show negative trends (red) in subtropical gyres and major current systems, and positive trends (blue) are shown in higher latitudes and coastal upwelling zones. Relative to the legacy product, the SNPP map displays more positive trends in coastal regions.
@@ -103,13 +113,15 @@ Visually, the global maps of slopes show very similar trend patterns, indicating
 The NOAA-20 (**c**) and legacy (**d**) maps also show similar large-scale patterns, with negative trends across much of the subtropical gyres and open ocean, and positive trends concentrated in polar and coastal upwelling regions. Compared to the legacy product, the NOAA-20 map exhibits slightly stronger trend magnitudes, particularly in the coastal and high-latitude zones. 
 
 ::: {style="text-align: center;"}
+
 <span style="font-size: 1.5em; font-weight: bold;">Multi-Year Trend Maps</span>
 
-![](images/fig5_trends_with_centered_colorbar.png){.lightbox width=100%}
+![](images/fig5_trends_with_centered_colorbar.png){width=100%}
 
 <span style="font-size: 0.95em; color: #444; display: block; margin-top: 0.5em;">
 **Figure 5.** Linear trends in monthly primary productivity from (**a**) interim VIIRS SNPP and (**b**) legacy products for the years 2013-2022. Linear trends in monthly primary productivity from (**c**) interim VIIRS NOAA-20 and (**d**) legacy products for the years 2018-2022. Positive values (blue) indicate increasing trends in netPP, while negative values (red) indicate decreasing trends.
 </span>
+
 :::
 
 ### Contingency Matrices and Cohen's Kappa
@@ -117,20 +129,24 @@ The NOAA-20 (**c**) and legacy (**d**) maps also show similar large-scale patter
 To obtain more quantitative results from the trends analysis, we built contingency matrices using the slope data. Contingency analysis is an approach used to test whether or not there is an association between categorical variables. We treated the slopes from the trend analysis as categorical variables by recording whether the slope had a statistically significant positive value (β > 0), a statistically negative value (β < 0), or if the slope was not significantly different from zero (n.s.). This categorization was done for each pixel in the global maps of slopes for both the interim and legacy products. Therefore, for each pixel location there were nine possible slope combinations (**Figure 6**). The cells on the downward-sloping diagonal (from left to right) are the combinations where the interim and legacy products agree.
 
 ::: {style="text-align: center;"}
-![](images/Contingency_figure.png){.lightbox width=500}
+
+![](images/Contingency_figure.png){width=500}
 
 <span style="font-size: 0.95em; color: #444; display: block; margin-top: 0.5em;">
 **Figure 6.** Contingency matrix of all possible combinations of pixel location trends and significance outcomes between the interim and legacy netPP products. Each cell describes one of nine possible category pairings based on whether a pixel exhibited no significant trends (n.s.), a significant positive trend (&beta; > 0), or a significant negative trend (&beta; < 0) in each dataset. Columns represent trend categories from the legacy product; rows represent trend categories from the interim product.
 </span>
+
 :::
 
 For our analysis comparing the interim product to the legacy product, the percent of the total pixels that fell into each of the nine combinations was tallied and placed in the corresponding cell in the matrix. Tallying the values on the downward-sloping diagonal yielded the percentage of pixels where the slope trends were in agreement. In addition, we used Cohen's Kappa as a statistical measure to quantify reliability of the agreement between the two products, accounting for the possibility that they could agree by chance. Cohen's Kappa values range from < 0 (no agreement) to 1 (perfect agreement); Cohen's Kappa was interpreted using a standard scale [Viera and Garrett 2005](#references). Qualitative categories for Cohen's Kappa values are listed in **Table 1**.
 
 ::: {style="text-align: center;"}
+
 <span style="font-size: 0.95em; color: #444; display: block; margin-top: 0.5em;">
 **Table 1.** Scale for Cohen's Kappa coefficient values, indicating the level of agreement between two categorical classifications. The scale ranges from < 0 (no agreement) to 1.00 (perfect agreement), with descriptive categories assigned to each interval.
 </span>
-![](images/cohens_kappa.png){.lightbox width=500}
+
+![](images/cohens_kappa.png){width=500}
 
 :::
 
@@ -138,12 +154,15 @@ Tallying the values on the downward-sloping diagonal contingency matrix yields 8
 
 
 ::: {style="text-align: center;"}
+
 <span style="font-size: 1.5em; font-weight: bold;">Contingency Matrices for Interim and Legacy Products</span>
-![](images/contingency_tables.png){.lightbox width=100%}
+
+![](images/contingency_tables.png){width=100%}
 
 <span style="font-size: 0.95em; color: #444; display: block; margin-top: 0.5em;">
 **Figure 7.** Contingency table and Cohen’s Kappa statistic comparing (**a**) the VIIRS SNPP and the legacy products and (**b**) the VIIRS NOAA-20 and the legacy products.
 </span>
+
 :::
 
 ## References
