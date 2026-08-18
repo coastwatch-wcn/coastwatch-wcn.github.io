@@ -1,38 +1,66 @@
 {
     "t0": {
+<<<<<<< Updated upstream
+=======
+        "date": "202608",
+        "month": "Aug",
+        "sst": "18.11",
+        "anom": "0.6"
+    },
+    "t1": {
+>>>>>>> Stashed changes
         "date": "202607",
         "month": "Jul",
         "sst": "18.11",
         "anom": "0.6"
     },
+<<<<<<< Updated upstream
     "t1": {
+=======
+    "t2": {
+>>>>>>> Stashed changes
         "date": "202606",
         "month": "Jun",
         "sst": "17.18",
         "anom": "0.9"
     },
+<<<<<<< Updated upstream
     "t2": {
+=======
+    "t3": {
+>>>>>>> Stashed changes
         "date": "202605",
         "month": "May",
         "sst": "16.4",
         "anom": "1.0"
     },
+<<<<<<< Updated upstream
     "t3": {
+=======
+    "t4": {
+>>>>>>> Stashed changes
         "date": "202604",
         "month": "Apr",
         "sst": "16.41",
         "anom": "1.84"
     },
+<<<<<<< Updated upstream
     "t4": {
+=======
+    "t5": {
+>>>>>>> Stashed changes
         "date": "202603",
         "month": "Mar",
         "sst": "16.02",
         "anom": "1.74"
+<<<<<<< Updated upstream
     },
     "t5": {
         "date": "202602",
         "month": "Feb",
         "sst": "15.72",
         "anom": "1.37"
+=======
+>>>>>>> Stashed changes
     }
 }
