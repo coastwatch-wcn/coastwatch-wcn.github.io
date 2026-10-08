@@ -3192,46 +3192,72 @@ button.btn-primary:hover {
     white-space: nowrap;
   }
 }
+/* Historical TOTAL data button */
+.total-history-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #2b6da8;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-decoration: none;
+}
 
-/* Historical TOTAL data popup */
+.total-history-button:hover {
+  background-color: #205580;
+  color: white;
+}
 
-.turtlewatch-page .historical-data-actions {
+/* Historical data popup */
+#totalHistoryModal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background-color: rgba(0, 0, 0, 0.65);
+  overflow-y: auto;
+}
+
+#totalHistoryModal.show {
   display: flex;
+  align-items: center;
   justify-content: center;
-  margin: 1.5rem 0;
 }
 
-.turtlewatch-page #totalHistoryModal .modal-dialog {
+#totalHistoryModal .modal-content {
+  position: relative;
+  background: white;
+  width: 90%;
   max-width: 1100px;
-}
-
-.turtlewatch-page #totalHistoryModal .modal-content {
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 30px;
   border-radius: 10px;
 }
 
-.turtlewatch-page #totalHistoryModal .historical-table-container {
+#totalHistoryModal .close-btn {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+#totalHistoryModal .historical-table-container {
   max-height: 55vh;
   overflow: auto;
 }
 
-.turtlewatch-page #totalHistoryModal #total-history-table {
+#totalHistoryModal #total-history-table {
   width: 100%;
-  font-size: 0.9rem;
-  white-space: nowrap;
-  margin-bottom: 0;
+  border-collapse: collapse;
 }
 
-.turtlewatch-page #totalHistoryModal #total-history-table thead th {
-  position: sticky;
-  top: 0;
-  background: #f5f7fa;
-  z-index: 1;
-}
-
-.turtlewatch-page #totalHistoryModal #total-history-table td,
-.turtlewatch-page #totalHistoryModal #total-history-table th {
-  padding: 0.6rem 0.8rem;
-  text-align: center;
+#totalHistoryModal .historical-modal-actions {
+  margin-top: 20px;
+  text-align: right;
 }
 
 

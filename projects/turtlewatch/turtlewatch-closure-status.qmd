@@ -133,51 +133,30 @@ This year’s **Temperature Observations To Avoid Loggerhead (TOTAL)** values fo
 ![](data/images/indicator_latest.png){#indicator-plot fig-align="center" width="70%"}
 
 <div class="historical-data-actions">
-  <button
-    type="button"
-    class="btn btn-outline-primary"
-    data-bs-toggle="modal"
-    data-bs-target="#totalHistoryModal">
+  <button type="button" id="open-total-history" class="total-history-button">
     View Historical TOTAL Data
   </button>
 </div>
 
-<div class="modal fade" id="totalHistoryModal" tabindex="-1"
-     aria-labelledby="totalHistoryModalLabel" aria-hidden="true">
+<div id="totalHistoryModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" id="close-total-history">&times;</span>
 
-  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content">
+    <h2>Historical TOTAL Indicator Data</h2>
 
-      <div class="modal-header">
-        <h5 class="modal-title" id="totalHistoryModalLabel">
-          Historical TOTAL Indicator Data
-        </h5>
-        <button type="button" class="btn-close"
-                data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
+    <div class="historical-table-container">
+      <table id="total-history-table" class="table table-striped">
+        <thead></thead>
+        <tbody></tbody>
+      </table>
+    </div>
 
-      <div class="modal-body">
-        <div class="historical-table-container">
-          <table class="table table-striped table-hover table-sm"
-                 id="total-history-table">
-            <thead></thead>
-            <tbody></tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="modal-footer">
-        <a href="data/resources/loggerhead_indx.csv"
-           download="loggerhead_indx.csv"
-           class="btn btn-primary">
-          Download CSV
-        </a>
-        <button type="button" class="btn btn-secondary"
-                data-bs-dismiss="modal">
-          Close
-        </button>
-      </div>
-
+    <div class="historical-modal-actions">
+      <a href="data/resources/loggerhead_indx.csv"
+         download="loggerhead_indx.csv"
+         class="total-history-button">
+        Download CSV
+      </a>
     </div>
   </div>
 </div>
@@ -369,117 +348,127 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch(err => console.error("Error loading El Niño JSON:", err));
 
-  // === Historical TOTAL Indicator Table ===
+  // === Historical TOTAL Indicator Table (custom popup) ===
   const historyModal = document.getElementById("totalHistoryModal");
   const historyTable = document.getElementById("total-history-table");
+  const openHistory = document.getElementById("open-total-history");
+  const closeHistory = document.getElementById("close-total-history");
 
-  if (historyModal && historyTable) {
+  if (historyModal && historyTable && openHistory) {
     let historyLoaded = false;
+    let historyLoading = false;
 
-    historyModal.addEventListener("show.bs.modal", async () => {
-      if (historyLoaded) return;
+    // Parse CSV fields, including quoted commas, escaped quotes and line breaks.
+    function parseCSV(text) {
+      const rows = [];
+      let row = [];
+      let field = "";
+      let inQuotes = false;
+
+      for (let i = 0; i < text.length; i++) {
+        const char = text[i];
+        if (char === '"') {
+          if (inQuotes && text[i + 1] === '"') {
+            field += '"';
+            i++;
+          } else {
+            inQuotes = !inQuotes;
+          }
+        } else if (char === "," && !inQuotes) {
+          row.push(field);
+          field = "";
+        } else if ((char === "\n" || char === "\r") && !inQuotes) {
+          if (char === "\r" && text[i + 1] === "\n") i++;
+          row.push(field);
+          rows.push(row);
+          row = [];
+          field = "";
+        } else {
+          field += char;
+        }
+      }
+      if (field !== "" || row.length > 0) {
+        row.push(field);
+        rows.push(row);
+      }
+      return rows.filter(r => r.some(cell => cell.trim() !== ""));
+    }
+
+    async function loadHistory() {
+      if (historyLoaded || historyLoading) return;
+      historyLoading = true;
+      const thead = historyTable.querySelector("thead");
+      const tbody = historyTable.querySelector("tbody");
+      if (!thead || !tbody) {
+        historyLoading = false;
+        return;
+      }
+      tbody.replaceChildren();
+      const statusRow = document.createElement("tr");
+      const statusCell = document.createElement("td");
+      statusCell.textContent = "Loading historical data...";
+      statusRow.appendChild(statusCell);
+      tbody.appendChild(statusRow);
 
       try {
         const response = await fetch("data/resources/loggerhead_indx.csv");
-
-        if (!response.ok) {
-          throw new Error(`HTTP ${response.status}`);
-        }
-
-        const csvText = await response.text();
-
-        // Parse CSV rows, including quoted fields.
-        function parseCSV(text) {
-          const rows = [];
-          let row = [];
-          let field = "";
-          let inQuotes = false;
-
-          for (let i = 0; i < text.length; i++) {
-            const char = text[i];
-
-            if (char === '"') {
-              if (inQuotes && text[i + 1] === '"') {
-                field += '"';
-                i++;
-              } else {
-                inQuotes = !inQuotes;
-              }
-            } else if (char === "," && !inQuotes) {
-              row.push(field);
-              field = "";
-            } else if ((char === "\n" || char === "\r") && !inQuotes) {
-              if (char === "\r" && text[i + 1] === "\n") i++;
-              row.push(field);
-              rows.push(row);
-              row = [];
-              field = "";
-            } else {
-              field += char;
-            }
-          }
-
-          if (field !== "" || row.length > 0) {
-            row.push(field);
-            rows.push(row);
-          }
-
-          return rows;
-        }
-
-        const rows = parseCSV(csvText).filter(
-          row => row.some(cell => cell.trim() !== "")
-        );
-
-        if (!rows.length) return;
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const rows = parseCSV(await response.text());
+        if (!rows.length) throw new Error("CSV is empty");
 
         const headers = rows[0];
-        const dataRows = rows.slice(1);
-
-        const thead = historyTable.querySelector("thead");
-        const tbody = historyTable.querySelector("tbody");
-
-        thead.innerHTML = "";
-        tbody.innerHTML = "";
-
-        const headerRow = document.createElement("tr");
-
+        const headRow = document.createElement("tr");
         headers.forEach(header => {
           const th = document.createElement("th");
           th.textContent = header.trim();
-          headerRow.appendChild(th);
+          headRow.appendChild(th);
         });
+        thead.replaceChildren(headRow);
 
-        thead.appendChild(headerRow);
-
-        dataRows.forEach(row => {
+        const fragment = document.createDocumentFragment();
+        rows.slice(1).forEach(values => {
           const tr = document.createElement("tr");
-
           headers.forEach((_, i) => {
             const td = document.createElement("td");
-            td.textContent = row[i] || "";
+            td.textContent = values[i] ?? "";
             tr.appendChild(td);
           });
-
-          tbody.appendChild(tr);
+          fragment.appendChild(tr);
         });
-
+        tbody.replaceChildren(fragment);
         historyLoaded = true;
-
       } catch (error) {
         console.error("Error loading historical TOTAL data:", error);
+        statusCell.textContent = "Unable to load historical data.";
+        statusCell.colSpan = thead.querySelectorAll("th").length || 1;
+        tbody.replaceChildren(statusRow);
+      } finally {
+        historyLoading = false;
+      }
+    }
 
-        const tbody = historyTable.querySelector("tbody");
-        tbody.innerHTML = "";
+    openHistory.addEventListener("click", () => {
+      historyModal.classList.add("show");
+      historyModal.setAttribute("aria-hidden", "false");
+      loadHistory();
+    });
 
-        const tr = document.createElement("tr");
-        const td = document.createElement("td");
+    function hideHistory() {
+      historyModal.classList.remove("show");
+      historyModal.setAttribute("aria-hidden", "true");
+      openHistory.focus();
+    }
 
-        td.textContent = "Unable to load historical data.";
-        td.colSpan = 100;
-
-        tr.appendChild(td);
-        tbody.appendChild(tr);
+    if (closeHistory) closeHistory.addEventListener("click", hideHistory);
+    historyModal.querySelectorAll('[data-bs-dismiss="modal"]').forEach(button => {
+      button.addEventListener("click", hideHistory);
+    });
+    historyModal.addEventListener("click", event => {
+      if (event.target === historyModal) hideHistory();
+    });
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape" && historyModal.classList.contains("show")) {
+        hideHistory();
       }
     });
   }
