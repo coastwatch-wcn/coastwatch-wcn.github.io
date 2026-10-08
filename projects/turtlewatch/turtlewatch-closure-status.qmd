@@ -182,6 +182,7 @@ The information on this page may be used and redistributed freely, but is not in
 
 
 
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -189,7 +190,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const CLOSURE_ACTIVE = true;
 
   // === Load Closure Status from ltca_closure.csv ===
-  fetch("data/resources/ltca_closure.csv")  
+  fetch("data/resources/ltca_closure.csv")
     .then(response => response.text())
     .then(text => {
       const rows = text.trim().split("\n").map(r => r.split(","));
@@ -209,9 +210,10 @@ document.addEventListener("DOMContentLoaded", () => {
           end: new Date(r[endIdx]),
         }))
         .filter(d => !isNaN(d.start) && !isNaN(d.end))
-        .sort((a, b) => b.end - a.end); // keep most recent END date
+        .sort((a, b) => b.end - a.end);
 
       const recent = parsed[0];
+
       if (!recent) {
         console.warn("No valid closure records found.");
         return;
@@ -222,28 +224,25 @@ document.addEventListener("DOMContentLoaded", () => {
       const now = new Date();
       const banner = document.querySelector(".status-banner");
       const textEl = document.querySelector(".status-text");
-      const dateEl = document.querySelector(".status-date");
+      const dateEl = document.getElementById("closure-date");
       const descEl = document.getElementById("closure-description");
-      
+
       // Manual banner switch
       banner.classList.remove("success", "alert-active", "alert-upcoming");
 
       if (CLOSURE_ACTIVE) {
-
         banner.classList.add("alert-active");
         textEl.textContent = "Closure is in effect";
-
       } else {
-
         banner.classList.add("success");
         textEl.textContent = "No closure in effect";
-
       }
 
       // Update date
       if (dateEl) {
         const opts = { year: "numeric", month: "long", day: "numeric" };
-        dateEl.textContent = "Updated " + now.toLocaleDateString(undefined, opts);
+        dateEl.textContent =
+          "Updated " + now.toLocaleDateString(undefined, opts);
       }
 
       /*
@@ -264,7 +263,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       // Descriptive paragraph
-
       if (descEl) {
         const startStr = recent.start.toLocaleDateString("en-US", {
           month: "long",
@@ -276,19 +274,27 @@ document.addEventListener("DOMContentLoaded", () => {
           day: "numeric",
           year: "numeric",
         });
-        const postStr = recent.end.toLocaleDateString("en-US", { month: "numeric", day: "numeric", year: "numeric" });
+        const postStr = recent.end.toLocaleDateString("en-US", {
+          month: "numeric",
+          day: "numeric",
+          year: "numeric"
+        });
 
         if (now < recent.start) {
-          descEl.textContent = `NMFS will prohibit fishing with drift gillnets (DGN) in the Pacific Loggerhead Conservation Area from ${startStr} to ${endStr}. *(Posted ${postStr})*`;
+          descEl.textContent =
+            `NMFS will prohibit fishing with drift gillnets (DGN) in the Pacific Loggerhead Conservation Area from ${startStr} to ${endStr}. *(Posted ${postStr})*`;
         } else if (now >= recent.start && now <= recent.end) {
-          descEl.textContent = `NMFS is prohibiting fishing with drift gillnets (DGN) in the Pacific Loggerhead Conservation Area. The closure began on ${startStr} and remains in effect until ${endStr}. *(Posted ${postStr})*`;
+          descEl.textContent =
+            `NMFS is prohibiting fishing with drift gillnets (DGN) in the Pacific Loggerhead Conservation Area. The closure began on ${startStr} and remains in effect until ${endStr}. *(Posted ${postStr})*`;
         } else {
-          descEl.textContent = `NMFS has reopened the Pacific Loggerhead Conservation Area (LCA) to fishing with drift gillnets (DGN). The LCA had been closed from ${startStr} to ${endStr}. *(Posted ${postStr})*`;
+          descEl.textContent =
+            `NMFS has reopened the Pacific Loggerhead Conservation Area (LCA) to fishing with drift gillnets (DGN). The LCA had been closed from ${startStr} to ${endStr}. *(Posted ${postStr})*`;
         }
       }
       */
     })
     .catch(err => console.error("Error loading closure CSV:", err));
+
 
   // === Load El Niño JSON ===
   fetch("data/json/elnino_last.json")
@@ -297,35 +303,52 @@ document.addEventListener("DOMContentLoaded", () => {
       const ninoStatus = document.getElementById("nino-status");
       const ninoDate = document.getElementById("nino-date");
       const ninoSynopsis = document.getElementById("nino-synopsis");
-      if (ninoStatus) ninoStatus.textContent = data.status || "Not available";
-      if (ninoDate) ninoDate.textContent = data.date_print || "Not available";
-      if (ninoSynopsis) ninoSynopsis.textContent = data.synopsis?.trim() || "Not available";
+
+      if (ninoStatus) {
+        ninoStatus.textContent = data.status || "Not available";
+      }
+
+      if (ninoDate) {
+        ninoDate.textContent = data.date_print || "Not available";
+      }
+
+      if (ninoSynopsis) {
+        ninoSynopsis.textContent =
+          data.synopsis?.trim() || "Not available";
+      }
     })
     .catch(err => console.error("Error loading El Niño JSON:", err));
+
 
   // === Load Marine Heatwave JSON ===
   fetch("data/json/heatwave.json")
     .then(resp => resp.json())
     .then(data => {
-
       const hwPeriod = document.getElementById("heat-period");
-      const hwDate   = document.getElementById("heat-date");
-      const hwLink   = document.getElementById("heat-link");
-      const regions  = document.getElementById("heat-regions");
+      const hwDate = document.getElementById("heat-date");
+      const hwLink = document.getElementById("heat-link");
+      const regions = document.getElementById("heat-regions");
 
-      if (hwPeriod) hwPeriod.textContent = data.heat_period || "Not available";
-      if (hwDate)   hwDate.textContent   = data.heat_date || "Not available";
-      if (hwLink && data.source_url) hwLink.href = data.source_url;
+      if (hwPeriod) {
+        hwPeriod.textContent = data.heat_period || "Not available";
+      }
+
+      if (hwDate) {
+        hwDate.textContent = data.heat_date || "Not available";
+      }
+
+      if (hwLink && data.source_url) {
+        hwLink.href = data.source_url;
+      }
 
       if (regions) {
-
-        if (data.pacific_regions &&
-            Object.keys(data.pacific_regions).length > 0) {
-
+        if (
+          data.pacific_regions &&
+          Object.keys(data.pacific_regions).length > 0
+        ) {
           regions.innerHTML = "";
 
           Object.entries(data.pacific_regions).forEach(([region, forecast]) => {
-
             const p = document.createElement("p");
 
             p.innerHTML = `
@@ -334,30 +357,47 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
 
             regions.appendChild(p);
-
           });
-
         } else {
-
-          regions.innerHTML = "<p>No Pacific forecasts available.</p>";
-
+          regions.innerHTML =
+            "<p>No Pacific forecasts available.</p>";
         }
-
       }
-
     })
     .catch(err => console.error("Error loading Heatwave JSON:", err));
 
+
   // === Load and render SST Table ===
   const container = document.getElementById("sst-table-container");
+
   if (container) {
     fetch("data/json/latest.json")
       .then(resp => resp.json())
       .then(data => {
-        const keys = Object.keys(data).sort((a, b) => Number(b.slice(1)) - Number(a.slice(1)));
+        const keys = Object.keys(data).sort(
+          (a, b) => Number(b.slice(1)) - Number(a.slice(1))
+        );
+
         const months = keys.map(k => data[k].month || "");
         const sstVals = keys.map(k => parseFloat(data[k].sst));
         const anomVals = keys.map(k => parseFloat(data[k].anom));
+
+        // Format values safely when a month is missing.
+        function formatValue(value, unit, isAnomaly = false) {
+          if (!Number.isFinite(value)) {
+            return "N/A";
+          }
+
+          if (unit === "F") {
+            const converted = isAnomaly
+              ? value * 9 / 5
+              : value * 9 / 5 + 32;
+
+            return converted.toFixed(1);
+          }
+
+          return value.toFixed(1);
+        }
 
         const table = document.createElement("table");
         table.className = "table table-condensed table-striped";
@@ -365,12 +405,15 @@ document.addEventListener("DOMContentLoaded", () => {
         // Header
         const thead = document.createElement("thead");
         const headerRow = document.createElement("tr");
+
         headerRow.appendChild(document.createElement("th"));
+
         months.forEach(m => {
           const th = document.createElement("th");
           th.textContent = m;
           headerRow.appendChild(th);
         });
+
         thead.appendChild(headerRow);
         table.appendChild(thead);
 
@@ -381,24 +424,33 @@ document.addEventListener("DOMContentLoaded", () => {
         const tempLabel = document.createElement("td");
         tempLabel.textContent = "Temperature";
         tempRow.appendChild(tempLabel);
+
         sstVals.forEach(v => {
           const td = document.createElement("td");
-          td.textContent = v.toFixed(1);
+          td.textContent = formatValue(v, "C");
           tempRow.appendChild(td);
         });
+
         tbody.appendChild(tempRow);
 
         const anomRow = document.createElement("tr");
         const anomLabel = document.createElement("td");
         anomLabel.textContent = "Anomaly";
         anomRow.appendChild(anomLabel);
+
         anomVals.forEach(v => {
           const td = document.createElement("td");
-          td.textContent = v.toFixed(1);
+          td.textContent = formatValue(v, "C", true);
           td.style.fontWeight = "bold";
-          td.style.color = v > 0 ? "red" : v < 0 ? "blue" : "black";
+
+          if (Number.isFinite(v)) {
+            td.style.color =
+              v > 0 ? "red" : v < 0 ? "blue" : "black";
+          }
+
           anomRow.appendChild(td);
         });
+
         tbody.appendChild(anomRow);
 
         table.appendChild(tbody);
@@ -406,28 +458,42 @@ document.addEventListener("DOMContentLoaded", () => {
         container.appendChild(table);
 
         // °C/°F toggle logic
-        const radios = document.querySelectorAll("input[name='temp-unit']");
+        const radios = document.querySelectorAll(
+          "input[name='temp-unit']"
+        );
+
         radios.forEach(radio => {
           radio.addEventListener("change", () => {
-            const temps = table.querySelectorAll("tbody tr:first-child td:not(:first-child)");
-            const anoms = table.querySelectorAll("tbody tr:last-child td:not(:first-child)");
+            const temps = table.querySelectorAll(
+              "tbody tr:first-child td:not(:first-child)"
+            );
+
+            const anoms = table.querySelectorAll(
+              "tbody tr:last-child td:not(:first-child)"
+            );
 
             temps.forEach((td, i) => {
-              const c = sstVals[i];
-              td.textContent = radio.value === "C" ? c.toFixed(1) : (c * 9/5 + 32).toFixed(1);
+              td.textContent = formatValue(sstVals[i], radio.value);
             });
+
             anoms.forEach((td, i) => {
-              const c = anomVals[i];
-              td.textContent = radio.value === "C" ? c.toFixed(1) : (c * 9/5).toFixed(1);
+              td.textContent = formatValue(
+                anomVals[i],
+                radio.value,
+                true
+              );
             });
           });
         });
       })
       .catch(err => {
         console.error("Error loading SST table JSON:", err);
-        container.innerHTML = "<p style='color:red;'>Error loading temperature data.</p>";
+
+        container.innerHTML =
+          "<p style='color:red;'>Error loading temperature data.</p>";
       });
   }
+
 
   // === Load TOTAL Loggerhead Index JSON ===
   fetch("data/json/web_data.json")
@@ -438,110 +504,220 @@ document.addEventListener("DOMContentLoaded", () => {
       const idxEl = document.getElementById("total-index");
       const updEl = document.getElementById("total-updated");
 
-      if (fcEl) fcEl.textContent = data.fc_date || "Not available";
-      if (stEl) stEl.textContent = data.alert || "Not available";
-      if (idxEl) idxEl.textContent = data.new_index || "Not available";
-      if (updEl) updEl.textContent = data.update_date || "Not available";
+      if (fcEl) {
+        fcEl.textContent = data.fc_date || "Not available";
+      }
+
+      if (stEl) {
+        stEl.textContent = data.alert || "Not available";
+      }
+
+      if (idxEl) {
+        idxEl.textContent = data.new_index || "Not available";
+      }
+
+      if (updEl) {
+        updEl.textContent = data.update_date || "Not available";
+      }
     })
     .catch(err => console.error("Error loading TOTAL index JSON:", err));
 
-  
-  // === SST & ANOMALY SLIDERS (last 6 full months, EXCLUDING current month) ===
-  const sstImgEl      = document.getElementById("sst-dash-image");
-  const sstPrevBtn    = document.querySelector(".sst-slider .prev");
-  const sstNextBtn    = document.querySelector(".sst-slider .next");
-  const sstYearLabels = document.querySelectorAll("#sst-year"); // you have this id twice
 
-  const anomImgEl   = document.getElementById("anom-image");
+  // === SST & ANOMALY SLIDERS ===
+  // Display available maps from the last 6 completed calendar months.
+  // Missing monthly images are excluded from slider navigation.
+
+  const sstImgEl = document.getElementById("sst-dash-image");
+  const sstPrevBtn = document.querySelector(".sst-slider .prev");
+  const sstNextBtn = document.querySelector(".sst-slider .next");
+
+  const anomImgEl = document.getElementById("anom-image");
   const anomPrevBtn = document.querySelector(".anom-slider .prev");
   const anomNextBtn = document.querySelector(".anom-slider .next");
 
-  // Build list of last 6 FULL months *before* the current month, using the 16th of each month
-  const today       = new Date();
-  const numMonths   = 6;
-  const sstImages   = [];
-  const anomImages  = [];
-  const monthLabels = [];  // e.g. ["Jun 2025", "Jul 2025", ...]
+  const sstYearLabels = document.querySelectorAll("#sst-year");
+
+  const today = new Date();
+  const numMonths = 6;
+
+  // Build calendar-month candidates, oldest to newest.
+  const candidateMonths = [];
 
   for (let i = numMonths; i >= 1; i--) {
-    const d    = new Date(today.getFullYear(), today.getMonth() - i, 16);
+    const d = new Date(
+      today.getFullYear(),
+      today.getMonth() - i,
+      16
+    );
+
     const yyyy = d.getFullYear();
-    const mm   = String(d.getMonth() + 1).padStart(2, "0");
+    const mm = String(d.getMonth() + 1).padStart(2, "0");
+    const stamp = `${yyyy}${mm}16`;
 
-    sstImages.push(`data/images/sst_${yyyy}${mm}16.png`);
-    anomImages.push(`data/images/anom_${yyyy}${mm}16.png`);
-    monthLabels.push(d.toLocaleString(undefined, { month: "short", year: "numeric" }));
-  }
-
-  // Update the "2025" label(s) to reflect the range of the images
-  if (sstYearLabels.length > 0 && monthLabels.length > 0) {
-    const firstYear = monthLabels[0].split(" ").pop();
-    const lastYear  = monthLabels[monthLabels.length - 1].split(" ").pop();
-    const labelText = (firstYear === lastYear) ? firstYear : `${firstYear}–${lastYear}`;
-    sstYearLabels.forEach(el => { el.textContent = labelText; });
-  }
-
-  // --- SST slider state & handlers ---
-  let sstIndex = sstImages.length - 1;  // start on most recent
-
-  function updateSST() {
-    if (!sstImgEl || sstImages.length === 0) return;
-    sstImgEl.src = sstImages[sstIndex];
-    if (sstPrevBtn) sstPrevBtn.style.opacity = (sstIndex === 0) ? 0.5 : 1;
-    if (sstNextBtn) sstNextBtn.style.opacity = (sstIndex === sstImages.length - 1) ? 0.5 : 1;
-  }
-
-  if (sstPrevBtn && sstNextBtn) {
-    sstPrevBtn.addEventListener("click", e => {
-      e.preventDefault();
-      if (sstIndex > 0) sstIndex--;
-      updateSST();
-    });
-
-    sstNextBtn.addEventListener("click", e => {
-      e.preventDefault();
-      if (sstIndex < sstImages.length - 1) sstIndex++;
-      updateSST();
+    candidateMonths.push({
+      label: d.toLocaleString(undefined, {
+        month: "short",
+        year: "numeric"
+      }),
+      year: yyyy,
+      sst: `data/images/sst_${stamp}.png`,
+      anom: `data/images/anom_${stamp}.png`
     });
   }
 
-  updateSST();
+  // Check whether an image exists and can be loaded.
+  function imageExists(src) {
+    return new Promise(resolve => {
+      const img = new Image();
 
-  // --- Anomaly slider state & handlers ---
-  let anomIndex = anomImages.length - 1;  // start on most recent
+      img.onload = () => resolve(true);
+      img.onerror = () => resolve(false);
 
-  function updateAnom() {
-    if (!anomImgEl || anomImages.length === 0) return;
-    anomImgEl.src = anomImages[anomIndex];
-    if (anomPrevBtn) anomPrevBtn.style.opacity = (anomIndex === 0) ? 0.5 : 1;
-    if (anomNextBtn) anomNextBtn.style.opacity = (anomIndex === anomImages.length - 1) ? 0.5 : 1;
-  }
-
-  if (anomPrevBtn && anomNextBtn) {
-    anomPrevBtn.addEventListener("click", e => {
-      e.preventDefault();
-      if (anomIndex > 0) anomIndex--;
-      updateAnom();
-    });
-
-    anomNextBtn.addEventListener("click", e => {
-      e.preventDefault();
-      if (anomIndex < anomImages.length - 1) anomIndex++;
-      updateAnom();
+      img.src = src;
     });
   }
 
-  updateAnom();
+  // Set up a slider using only the available images.
+  function initializeMapSlider(imgElement, prevBtn, nextBtn, images) {
+    if (!imgElement) return;
+
+    let currentIndex = images.length - 1;
+
+    function updateSlider() {
+      if (images.length === 0) {
+        imgElement.style.display = "none";
+
+        if (prevBtn) prevBtn.style.opacity = 0.5;
+        if (nextBtn) nextBtn.style.opacity = 0.5;
+
+        return;
+      }
+
+      imgElement.style.display = "";
+      imgElement.src = images[currentIndex];
+
+      if (prevBtn) {
+        prevBtn.style.opacity = currentIndex === 0 ? 0.5 : 1;
+      }
+
+      if (nextBtn) {
+        nextBtn.style.opacity =
+          currentIndex === images.length - 1 ? 0.5 : 1;
+      }
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", e => {
+        e.preventDefault();
+
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateSlider();
+        }
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", e => {
+        e.preventDefault();
+
+        if (currentIndex < images.length - 1) {
+          currentIndex++;
+          updateSlider();
+        }
+      });
+    }
+
+    updateSlider();
+  }
+
+  // Check both SST and anomaly maps for each month.
+  Promise.all(
+    candidateMonths.map(async month => {
+      const [sstAvailable, anomAvailable] = await Promise.all([
+        imageExists(month.sst),
+        imageExists(month.anom)
+      ]);
+
+      return {
+        ...month,
+        sstAvailable,
+        anomAvailable
+      };
+    })
+  )
+    .then(months => {
+      const sstMonths = months.filter(m => m.sstAvailable);
+      const anomMonths = months.filter(m => m.anomAvailable);
+
+      const sstImages = sstMonths.map(m => m.sst);
+      const anomImages = anomMonths.map(m => m.anom);
+
+      // Determine the year range from available maps.
+      const availableMonths = months.filter(
+        m => m.sstAvailable || m.anomAvailable
+      );
+
+      if (sstYearLabels.length > 0 && availableMonths.length > 0) {
+        const firstYear = availableMonths[0].year;
+        const lastYear = availableMonths[availableMonths.length - 1].year;
+
+        const labelText = firstYear === lastYear
+          ? String(firstYear)
+          : `${firstYear}–${lastYear}`;
+
+        sstYearLabels.forEach(el => {
+          el.textContent = labelText;
+        });
+      }
+
+      // Initialize sliders using only valid image paths.
+      initializeMapSlider(
+        sstImgEl,
+        sstPrevBtn,
+        sstNextBtn,
+        sstImages
+      );
+
+      initializeMapSlider(
+        anomImgEl,
+        anomPrevBtn,
+        anomNextBtn,
+        anomImages
+      );
+
+      // Log missing months for debugging.
+      months.forEach(month => {
+        if (!month.sstAvailable) {
+          console.warn(`Missing SST map: ${month.sst}`);
+        }
+
+        if (!month.anomAvailable) {
+          console.warn(`Missing anomaly map: ${month.anom}`);
+        }
+      });
+    })
+    .catch(err => {
+      console.error("Error initializing map sliders:", err);
+    });
+
 
   // === Date update (top banner) ===
   const dateEl = document.querySelector(".status-date");
+
   if (dateEl) {
-    const today = new Date();
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    dateEl.textContent = today.toLocaleDateString(undefined, options);
+    const now = new Date();
+    const options = {
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    };
+
+    dateEl.textContent = now.toLocaleDateString(undefined, options);
   }
 
 });
 </script>
+
 
 :::

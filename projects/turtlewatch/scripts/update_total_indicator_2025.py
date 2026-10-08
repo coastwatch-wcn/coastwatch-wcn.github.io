@@ -214,6 +214,10 @@ def main():
         sys.exit(1)
         
     df = df.sort_values(by=['dateyrmo'], ignore_index=True)
+    
+    # Remember the forecast month before removing it
+    forecast_month = df.iloc[-1]["dateyrmo"]
+    
     df = df.drop(df.tail(1).index) # Drop the prediction row
 
     # Find available data from ERDDAP
@@ -230,6 +234,15 @@ def main():
         
         missing_dates = get_missing_dates(df, erddap_dates_str_set)
         print('missing_dates', missing_dates)
+        
+        # Do not advance the indicator if the next expected month
+        # is unavailable in ERDDAP
+        if forecast_month not in erddap_dates_str_set:
+            print(
+                f"Expected month {forecast_month} is missing from ERDDAP. "
+                "Skipping update to preserve the existing CSV."
+            )
+            sys.exit(2)
 
         if not missing_dates:
             print("No new data to process. Exiting.")

@@ -191,28 +191,46 @@ def plot_map(data_da: xr.DataArray, plot_config: Dict, title_date: str, work_dir
     return temp_map
 
 
-def get_data(da: xr.DataArray, var: str, lat_range: List[float], lon_range: List[float], time_stamp: datetime) -> xr.DataArray:
-    """Extracts a subset of data from an Xarray DataArray.
+def get_data(
+    da: xr.Dataset,
+    var: str,
+    lat_range: List[float],
+    lon_range: List[float],
+    time_stamp: datetime
+) -> xr.DataArray | None:
+    """Extract data for a requested month without selecting another month.
 
     Args:
-        da (xr.DataArray): The input DataArray.
-        var (str): The variable name to select.
-        lat_range (List[float]): The latitude range [min, max].
-        lon_range (List[float]): The longitude range [min, max].
-        time_stamp (datetime): The specific time to select.
+        da (xr.Dataset): Input xarray dataset.
+        var (str): Variable to extract.
+        lat_range (List[float]): Latitude bounds.
+        lon_range (List[float]): Longitude bounds.
+        time_stamp (datetime): Requested date.
 
     Returns:
-        xr.DataArray: The subsetted DataArray.
+        xr.DataArray | None: Selected data, or None if the month is unavailable.
     """
-    try:
-        data_subset = da[var].sel(time=time_stamp, method='nearest').sel(
-            latitude=slice(lat_range[0], lat_range[1]),
-            longitude=slice(lon_range[0], lon_range[1])
-        )
-        return data_subset
-    except Exception as e:
-        print(f"Error subsetting data: {e}", file=sys.stderr)
-        sys.exit(1)
+    requested_month = time_stamp.strftime("%Y-%m")
+
+    # Find available timestamps belonging to the requested month.
+    available_times = da.time.where(
+        da.time.dt.strftime("%Y-%m") == requested_month,
+        drop=True
+    )
+
+    if available_times.size == 0:
+        print(f"Skipping {var} for {requested_month}: month missing from ERDDAP.")
+        return None
+
+    # Select the nearest timestamp within the requested month only.
+    selected_time = available_times.sel(time=time_stamp, method="nearest")
+
+    data_subset = da[var].sel(time=selected_time).sel(
+        latitude=slice(lat_range[0], lat_range[1]),
+        longitude=slice(lon_range[0], lon_range[1])
+    )
+
+    return data_subset
 
 
 def make_cmap(colors: List[Tuple[float, float, float]], position: Union[List[float], None] = None, bit: bool = False) -> mpl.colors.LinearSegmentedColormap:
@@ -315,6 +333,8 @@ def main():
         table_dict[dict_id] = {}
         table_dict[dict_id]['date'] = selected_date.strftime('%Y%m')
         table_dict[dict_id]['month'] = calendar.month_name[selected_date.month][0:3]
+        table_dict[dict_id]['sst'] = "N/A"
+        table_dict[dict_id]['anom'] = "N/A"
         
         date_for_title = selected_date.strftime('%b-%Y')
         time_stamp = selected_date.strftime('%Y%m%d')
@@ -322,9 +342,28 @@ def main():
         for pc in plot_configs:
             da_to_plot = sst_da if pc['plot_var'] == 'sst' else anom_da
             
-            data_map = get_data(da_to_plot, pc['map_name_var'],
-                                CONFIG['LAT_RANGE'], CONFIG['LON_RANGE'], selected_date)
-            
+            data_map = get_data(
+                da_to_plot,
+                pc['map_name_var'],
+                CONFIG['LAT_RANGE'],
+                CONFIG['LON_RANGE'],
+                selected_date
+            )
+
+            if data_map is None:
+                print(
+                    f"Skipping {pc['plot_var']} map for "
+                    f"{selected_date.strftime('%Y-%m')}: data unavailable."
+                )
+
+                # Remove an outdated numbered map for this missing month.
+                if args.numbered:
+                    numbered_map = LAST_DIR / f"{pc['plot_var']}_{i}.png"
+                    if numbered_map.exists():
+                        numbered_map.unlink()
+
+                continue
+
             temp_map_name = plot_map(data_map, pc, date_for_title, WORK_DIR)
             
             map_name_numbered = f"{pc['plot_var']}_{i}.png"

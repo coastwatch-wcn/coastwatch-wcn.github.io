@@ -128,28 +128,31 @@ def _parse_yrmo_series(df: pd.DataFrame) -> pd.Series:
     return pd.to_datetime(df["dateyrmo"].astype(str).str.strip(), format="%Y-%m", errors="coerce")
 
 
-def split_observed_and_forecast(df: pd.DataFrame, latest_erddap_date: datetime) -> tuple[pd.DataFrame, pd.DataFrame]:
-    """
-    Split indicator DF into observed rows (<= ERDDAP latest month) and forecast rows (> ERDDAP latest month).
+def split_observed_and_forecast(
+    df: pd.DataFrame,
+    latest_erddap_date: datetime
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Separate observed indicator rows from the final forecast row.
+
+    The TOTAL indicator CSV stores its forecast as the final row.
+    This avoids incorrectly treating a forecast as observed when
+    ERDDAP contains gaps in its monthly time series.
+
+    Args:
+        df (pd.DataFrame): TOTAL indicator time series.
+        latest_erddap_date (datetime): Latest available ERDDAP date.
+            Retained for compatibility with existing callers.
+
+    Returns:
+        tuple[pd.DataFrame, pd.DataFrame]: Observed and forecast rows.
     """
     if df.empty or "dateyrmo" not in df.columns:
-        return df, df.iloc[0:0]
+        return df.copy(), df.iloc[0:0].copy()
 
-    yrmo_dt = _parse_yrmo_series(df)
+    df = df.sort_values("dateyrmo", ignore_index=True)
 
-    # ERDDAP latest month (normalize to first of month)
-    erddap_month = pd.Timestamp(latest_erddap_date.year, latest_erddap_date.month, 1)
-
-    # observed = valid dateyrmo and <= erddap month
-    observed_mask = yrmo_dt.notna() & (yrmo_dt <= erddap_month)
-    forecast_mask = yrmo_dt.notna() & (yrmo_dt > erddap_month)
-
-    observed = df.loc[observed_mask].copy()
-    forecast = df.loc[forecast_mask].copy()
-
-    # Keep sorted
-    observed = observed.sort_values("dateyrmo", ignore_index=True)
-    forecast = forecast.sort_values("dateyrmo", ignore_index=True)
+    observed = df.iloc[:-1].copy()
+    forecast = df.iloc[-1:].copy()
 
     return observed, forecast
 
@@ -275,31 +278,53 @@ def has_valid_forecast_row(csv_path: Path, latest_erddap_date: datetime) -> bool
 
 
 # Define a function to run a script with subprocess
-def run_script(python_path: Path, script_path: Path, args: list = []) -> bool:
-    """Runs a Python script and returns its success status.
+def run_script(python_path: Path, script_path: Path, args: list = None) -> int:
+    """Run a Python script and return its exit status.
 
     Args:
-        python_path (Path): The path to the Python interpreter.
-        script_path (Path): The path to the script to execute.
-        args (list, optional): A list of command-line arguments to pass to the script.
-                               Defaults to an empty list.
+        python_path (Path): Path to the Python interpreter.
+        script_path (Path): Path to the script to execute.
+        args (list, optional): Command-line arguments for the script.
 
     Returns:
-        bool: True if the script ran successfully, False otherwise.
+        int: Exit status:
+            0 = Successful execution.
+            1 = Execution failed.
+            2 = Update skipped because an expected month is missing.
     """
+    if args is None:
+        args = []
+
     cmd = [str(python_path), str(script_path)] + args
     print(f"Executing: {' '.join(cmd)}")
+
     try:
-        result = subprocess.run(cmd, check=True, capture_output=True, text=True)
+        result = subprocess.run(
+            cmd,
+            check=False,
+            capture_output=True,
+            text=True
+        )
+
         print("STDOUT:", result.stdout)
         print("STDERR:", result.stderr)
-        return True
-    except subprocess.CalledProcessError as e:
-        print(f"Script failed with exit code {e.returncode}.", file=sys.stderr)
-        print("Error details:", e.stderr, file=sys.stderr)
+
+        if result.returncode == 2:
+            print(f"Script skipped: {script_path.name}")
+        elif result.returncode != 0:
+            print(
+                f"Script failed with exit code {result.returncode}.",
+                file=sys.stderr
+            )
+
+        return result.returncode
+
     except FileNotFoundError:
-        print(f"Python interpreter or script not found: {cmd[0]}.", file=sys.stderr)
-    return False
+        print(
+            f"Python interpreter or script not found: {cmd[0]}",
+            file=sys.stderr
+        )
+        return 1
 
 def main():
     """Controls and coordinates monthly updates to the TOTAL data output.
@@ -348,9 +373,23 @@ def main():
         else:
             print("Rebuilding TOTAL forecast row (forecast missing)...")
 
-        if run_script(CONFIG['PYTHON_PATH'], BIN_DIR / CONFIG['SCRIPTS']['total_py']):
+        update_status = run_script(
+            CONFIG['PYTHON_PATH'],
+            BIN_DIR / CONFIG['SCRIPTS']['total_py']
+        )
+
+        if update_status == 0:
             print("TOTAL indicator updated successfully. Running plot script.")
             run_script(CONFIG['PYTHON_PATH'], BIN_DIR / CONFIG['SCRIPTS']['plot_py'])
+
+        elif update_status == 2:
+            print(
+                "TOTAL indicator update skipped because an expected month "
+                "is missing from ERDDAP. Existing CSV and indicator plot preserved."
+            )
+
+        else:
+            print("TOTAL indicator update failed.", file=sys.stderr)
     else:
         print("TOTAL indicator is up to date (including forecast).")
 
