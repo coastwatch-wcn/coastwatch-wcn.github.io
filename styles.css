@@ -1173,6 +1173,7 @@ button.btn-primary:hover {
   color: black;
 }
 
+
 /* -------------------------- */
 /* Coastal Conditions Page    */
 /* -------------------------- */
@@ -3191,6 +3192,48 @@ button.btn-primary:hover {
     white-space: nowrap;
   }
 }
+
+/* Historical TOTAL data popup */
+
+.turtlewatch-page .historical-data-actions {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.turtlewatch-page #totalHistoryModal .modal-dialog {
+  max-width: 1100px;
+}
+
+.turtlewatch-page #totalHistoryModal .modal-content {
+  border-radius: 10px;
+}
+
+.turtlewatch-page #totalHistoryModal .historical-table-container {
+  max-height: 55vh;
+  overflow: auto;
+}
+
+.turtlewatch-page #totalHistoryModal #total-history-table {
+  width: 100%;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  margin-bottom: 0;
+}
+
+.turtlewatch-page #totalHistoryModal #total-history-table thead th {
+  position: sticky;
+  top: 0;
+  background: #f5f7fa;
+  z-index: 1;
+}
+
+.turtlewatch-page #totalHistoryModal #total-history-table td,
+.turtlewatch-page #totalHistoryModal #total-history-table th {
+  padding: 0.6rem 0.8rem;
+  text-align: center;
+}
+
 
 /* ----------------------- */
 /* COURSE SLIDES PROJECT   */
