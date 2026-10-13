@@ -133,12 +133,14 @@ This year’s **Temperature Observations To Avoid Loggerhead (TOTAL)** values fo
 ![](data/images/indicator_latest.png){#indicator-plot fig-align="center" width="70%"}
 
 <div class="historical-data-actions">
-  <button type="button" id="open-total-history" class="total-history-button">
+  <button type="button"
+          id="open-total-history"
+          class="btn-noaa">
     View Historical TOTAL Data
   </button>
 </div>
 
-<div id="totalHistoryModal" class="total-history-modal" aria-hidden="true">
+<div id="totalHistoryModal" class="modal">
   <div class="modal-content">
     <span class="close-btn" id="close-total-history">&times;</span>
 
@@ -153,8 +155,8 @@ This year’s **Temperature Observations To Avoid Loggerhead (TOTAL)** values fo
 
     <div class="historical-modal-actions">
       <a href="data/resources/loggerhead_indx.csv"
-         download="loggerhead_indx.csv"
-         class="total-history-button">
+        download="loggerhead_indx.csv"
+        class="btn-noaa">
         Download CSV
       </a>
     </div>
