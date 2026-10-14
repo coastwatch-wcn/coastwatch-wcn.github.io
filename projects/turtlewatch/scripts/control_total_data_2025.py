@@ -366,6 +366,7 @@ def main():
 
     needs_observed_update = latest_total_date < latest_erddap_date
     missing_forecast = not has_valid_forecast_row(csv_path, latest_erddap_date)
+    missing_total_data = False
 
     if needs_observed_update or missing_forecast:
         if needs_observed_update:
@@ -383,13 +384,17 @@ def main():
             run_script(CONFIG['PYTHON_PATH'], BIN_DIR / CONFIG['SCRIPTS']['plot_py'])
 
         elif update_status == 2:
+            missing_total_data = True
+
             print(
                 "TOTAL indicator update skipped because an expected month "
                 "is missing from ERDDAP. Existing CSV and indicator plot preserved."
             )
 
         else:
-            print("TOTAL indicator update failed.", file=sys.stderr)
+            raise RuntimeError(
+                f"TOTAL indicator update failed with exit code {update_status}."
+            )
     else:
         print("TOTAL indicator is up to date (including forecast).")
 
@@ -451,6 +456,26 @@ def main():
 
     except Exception as e:
         print(f"Failed to create web_data.json: {e}")
+        
+    # Report missing data to GitHub Actions without failing the workflow.
+    if missing_total_data:
+        print(
+            "::warning title=TOTAL Missing Data::"
+            "An expected month is missing from ERDDAP. "
+            "TOTAL indicator calculations were skipped."
+        )
+
+        github_output = os.environ.get("GITHUB_OUTPUT")
+
+        if github_output:
+            with open(github_output, "a") as f:
+                f.write("missing_data=true\n")
+    else:
+        github_output = os.environ.get("GITHUB_OUTPUT")
+
+        if github_output:
+            with open(github_output, "a") as f:
+                f.write("missing_data=false\n")
 
 
 

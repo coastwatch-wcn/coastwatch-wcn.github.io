@@ -20,6 +20,9 @@ jobs:
   update:
     runs-on: ubuntu-latest
 
+    outputs:
+      missing_data: ${{ steps.total_controller.outputs.missing_data }}
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -39,6 +42,7 @@ jobs:
         uses: quarto-dev/quarto-actions/setup@v2
 
       - name: Run TOTAL update controller
+        id: total_controller
         run: python projects/turtlewatch/scripts/control_total_data_2025.py
 
       - name: Scrape ENSO status
@@ -79,3 +83,25 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
 
+    notify_missing_data:
+      needs: update
+      if: ${{ always() && needs.update.outputs.missing_data == 'true' }}
+      runs-on: ubuntu-latest
+
+      permissions:
+        issues: write
+
+      steps:
+        - name: Create missing-data notification
+          env:
+            GH_TOKEN: ${{ github.token }}
+            GH_REPO: ${{ github.repository }}
+            RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          run: |
+            gh issue create \
+              --title "TOTAL Dashboard: Missing Monthly Data" \
+              --body "The TOTAL processing script detected missing monthly data in ERDDAP.
+
+            The indicator update was skipped, and the existing CSV and indicator plot were preserved.
+
+            GitHub Actions run: ${RUN_URL}"
