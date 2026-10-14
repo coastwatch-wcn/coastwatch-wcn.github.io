@@ -32,7 +32,7 @@ anchor-sections: false
 
 
 <p id="closure-description">
-  Drift Gillnet Loggerhead Conservation Area Closure June 1 - August 31, 2026.
+  Loading closure information...
 </p>
 
 
@@ -303,6 +303,105 @@ document.addEventListener("DOMContentLoaded", () => {
       */
     })
     .catch(err => console.error("Error loading closure CSV:", err));
+
+  // Update closure description using the most recent indicator closure period
+  fetch("data/resources/loggerhead_indx.csv")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Failed to load loggerhead_indx.csv");
+      }
+      return response.text();
+    })
+    .then(csvText => {
+      const threshold = 0.77;
+      const currentYear = new Date().getFullYear();
+      const today = new Date();
+      today.setHours(23, 59, 59, 999);
+
+      const rows = csvText.trim().split(/\r?\n/);
+      const headers = rows[0].split(",").map(header => header.trim());
+
+      const dateIndex = headers.indexOf("date16");
+      const indicatorIndex = headers.indexOf("indicator");
+
+      if (dateIndex === -1 || indicatorIndex === -1) {
+        throw new Error("Missing date16 or indicator column");
+      }
+
+      const records = rows.slice(1)
+        .map(row => {
+          const columns = row.split(",");
+          const dateString = columns[dateIndex]?.trim();
+          const indicator = Number(columns[indicatorIndex]);
+
+          // Parse M/D/YY or M/D/YYYY dates
+          const parts = dateString?.split("/").map(Number);
+
+          if (!parts || parts.length !== 3) return null;
+
+          const [month, day, yearValue] = parts;
+          const year = yearValue < 100 ? 2000 + yearValue : yearValue;
+
+          return {
+            date: new Date(year, month - 1, day),
+            indicator
+          };
+        })
+        .filter(record =>
+          record &&
+          !isNaN(record.date.getTime()) &&
+          Number.isFinite(record.indicator) &&
+          record.date.getFullYear() === currentYear &&
+          record.date <= today
+        )
+        .sort((a, b) => a.date - b.date);
+
+      const description = document.getElementById("closure-description");
+
+      if (!description) return;
+
+      let closureStart = null;
+      let latestClosure = null;
+
+      for (const record of records) {
+        if (record.indicator > threshold) {
+          if (closureStart === null) {
+            closureStart = record.date;
+          }
+        } else if (record.indicator < threshold && closureStart !== null) {
+          latestClosure = {
+            start: closureStart,
+            end: record.date
+          };
+
+          closureStart = null;
+        }
+      }
+
+      // If the latest closure is still active
+      if (closureStart !== null) {
+        latestClosure = {
+          start: closureStart,
+          end: null
+        };
+      }
+
+      const formatDate = date =>
+        date.toLocaleDateString("en-US", {
+          month: "long",
+          day: "numeric",
+          year: "numeric"
+        });
+
+      if (latestClosure) {
+        const startDate = formatDate(latestClosure.start);
+        const endDate = latestClosure.end
+          ? formatDate(latestClosure.end)
+          : "Present";
+
+        description.textContent =
+          `Drift Gillnet Loggerhead Conservation Area Closure ` +
+          `${startDate} - ${endDate}.`;
 
 
   // === Load El Niño JSON ===
