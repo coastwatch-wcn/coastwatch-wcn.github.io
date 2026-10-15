@@ -188,123 +188,39 @@ Dataset: [GHRSST MUR](https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST4
 The information on this page may be used and redistributed freely, but is not intended for legal use. Neither the data contributors, CoastWatch, NOAA SWFSC, nor any of their employees or contractors, makes any warranty, express or implied, including warranties of merchantability and fitness for a particular purpose, or assumes any legal liability for the accuracy, completeness, or usefulness of this information. For official information about El Niño/La Niña contact [NOAA's Climate Prediction Center](https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml). For official information about regulation of the drift gillnet (DGN) fishery contact [NOAA Fisheries West Coast Regional Office](https://www.westcoast.fisheries.noaa.gov/).
 :::
 
-
-
-
-
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-  // === True for Closure, False for open ===
+  // === True for Closure, False for Open ===
   const CLOSURE_ACTIVE = true;
 
-  // === Load Closure Status from ltca_closure.csv ===
-  fetch("data/resources/ltca_closure.csv")
-    .then(response => response.text())
-    .then(text => {
-      const rows = text.trim().split("\n").map(r => r.split(","));
-      const headers = rows.shift().map(h => h.trim());
-      const startIdx = headers.findIndex(h => /start/i.test(h));
-      const endIdx = headers.findIndex(h => /end/i.test(h));
+  // === Update Closure Status Banner ===
+  const banner = document.querySelector(".status-banner");
+  const closureStatus = document.getElementById("closure-status");
+  const closureDate = document.getElementById("closure-date");
 
-      if (startIdx === -1 || endIdx === -1) {
-        console.error("Start or End column not found in closure CSV");
-        return;
-      }
+  if (banner && closureStatus) {
+    banner.classList.remove("success", "alert-active", "alert-upcoming");
 
-      // Parse rows into date objects
-      const parsed = rows
-        .map(r => ({
-          start: new Date(r[startIdx]),
-          end: new Date(r[endIdx]),
-        }))
-        .filter(d => !isNaN(d.start) && !isNaN(d.end))
-        .sort((a, b) => b.end - a.end);
-
-      const recent = parsed[0];
-
-      if (!recent) {
-        console.warn("No valid closure records found.");
-        return;
-      }
-
-      console.log("Latest closure record:", recent.start, "→", recent.end);
-
-      const now = new Date();
-      const banner = document.querySelector(".status-banner");
-      const textEl = document.querySelector(".status-text");
-      const dateEl = document.getElementById("closure-date");
-      const descEl = document.getElementById("closure-description");
-
-      // Manual banner switch
-      banner.classList.remove("success", "alert-active", "alert-upcoming");
-
-      if (CLOSURE_ACTIVE) {
-        banner.classList.add("alert-active");
-        textEl.textContent = "Closure is in effect";
-      } else {
-        banner.classList.add("success");
-        textEl.textContent = "No closure in effect";
-      }
-
-      // Update date
-      if (dateEl) {
-        const opts = { year: "numeric", month: "long", day: "numeric" };
-        dateEl.textContent =
-          "Updated " + now.toLocaleDateString(undefined, opts);
-      }
-
-      /*
-      // Default state
-      banner.classList.remove("alert-active", "alert-upcoming");
+    if (CLOSURE_ACTIVE) {
+      banner.classList.add("alert-active");
+      closureStatus.textContent = "Closure is in effect";
+    } else {
       banner.classList.add("success");
-      textEl.textContent = "No closure in effect";
+      closureStatus.textContent = "No closure in effect";
+    }
+  }
 
-      // Determine closure state
-      if (now < recent.start) {
-        banner.classList.remove("success");
-        banner.classList.add("alert-upcoming");
-        textEl.textContent = "Closure Alert: Will take effect soon";
-      } else if (now >= recent.start && now <= recent.end) {
-        banner.classList.remove("success");
-        banner.classList.add("alert-active");
-        textEl.textContent = "Closure is in effect";
-      }
+  if (closureDate) {
+    closureDate.textContent =
+      "Updated " + new Date().toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      });
+  }
 
-      // Descriptive paragraph
-      if (descEl) {
-        const startStr = recent.start.toLocaleDateString("en-US", {
-          month: "long",
-          day: "numeric",
-          year: "numeric",
-        });
-        const endStr = recent.end.toLocaleDateString("en-US", {
-          month: "long",
-          day: "numeric",
-          year: "numeric",
-        });
-        const postStr = recent.end.toLocaleDateString("en-US", {
-          month: "numeric",
-          day: "numeric",
-          year: "numeric"
-        });
-
-        if (now < recent.start) {
-          descEl.textContent =
-            `NMFS will prohibit fishing with drift gillnets (DGN) in the Pacific Loggerhead Conservation Area from ${startStr} to ${endStr}. *(Posted ${postStr})*`;
-        } else if (now >= recent.start && now <= recent.end) {
-          descEl.textContent =
-            `NMFS is prohibiting fishing with drift gillnets (DGN) in the Pacific Loggerhead Conservation Area. The closure began on ${startStr} and remains in effect until ${endStr}. *(Posted ${postStr})*`;
-        } else {
-          descEl.textContent =
-            `NMFS has reopened the Pacific Loggerhead Conservation Area (LCA) to fishing with drift gillnets (DGN). The LCA had been closed from ${startStr} to ${endStr}. *(Posted ${postStr})*`;
-        }
-      }
-      */
-    })
-    .catch(err => console.error("Error loading closure CSV:", err));
-
-  // Update closure description using the most recent indicator closure period
+  // === Update Closure Description from Loggerhead Indicator CSV ===
   fetch("data/resources/loggerhead_indx.csv")
     .then(response => {
       if (!response.ok) {
@@ -319,7 +235,7 @@ document.addEventListener("DOMContentLoaded", () => {
       today.setHours(23, 59, 59, 999);
 
       const rows = csvText.trim().split(/\r?\n/);
-      const headers = rows[0].split(",").map(header => header.trim());
+      const headers = rows[0].split(",").map(h => h.trim());
 
       const dateIndex = headers.indexOf("date16");
       const indicatorIndex = headers.indexOf("indicator");
@@ -334,10 +250,15 @@ document.addEventListener("DOMContentLoaded", () => {
           const dateString = columns[dateIndex]?.trim();
           const indicator = Number(columns[indicatorIndex]);
 
-          // Parse M/D/YY or M/D/YYYY dates
-          const parts = dateString?.split("/").map(Number);
+          if (!dateString || !dateString.includes("/")) {
+            return null;
+          }
 
-          if (!parts || parts.length !== 3) return null;
+          const parts = dateString.split("/").map(Number);
+
+          if (parts.length !== 3) {
+            return null;
+          }
 
           const [month, day, yearValue] = parts;
           const year = yearValue < 100 ? 2000 + yearValue : yearValue;
@@ -402,6 +323,20 @@ document.addEventListener("DOMContentLoaded", () => {
         description.textContent =
           `Drift Gillnet Loggerhead Conservation Area Closure ` +
           `${startDate} - ${endDate}.`;
+      } else {
+        description.textContent =
+          `No loggerhead indicator closure period recorded in ${currentYear}.`;
+      }
+    })
+    .catch(error => {
+      console.error("Error updating closure description:", error);
+
+      const description = document.getElementById("closure-description");
+
+      if (description) {
+        description.textContent = "Closure information unavailable.";
+      }
+    });
 
 
   // === Load El Niño JSON ===
@@ -426,6 +361,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     })
     .catch(err => console.error("Error loading El Niño JSON:", err));
+
 
   // === Load Marine Heatwave JSON ===
   fetch("data/json/heatwave.json")
@@ -474,7 +410,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch(err => console.error("Error loading Heatwave JSON:", err));
 
 
-  // === Load and render SST Table ===
+  // === Load and Render SST Table ===
   const container = document.getElementById("sst-table-container");
 
   if (container) {
@@ -489,7 +425,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const sstVals = keys.map(k => parseFloat(data[k].sst));
         const anomVals = keys.map(k => parseFloat(data[k].anom));
 
-        // Format values safely when a month is missing.
+        // Format values safely when a month is missing
         function formatValue(value, unit, isAnomaly = false) {
           if (!Number.isFinite(value)) {
             return "N/A";
@@ -808,23 +744,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Error initializing map sliders:", err);
     });
 
-
-  // === Date update (top banner) ===
-  const dateEl = document.querySelector(".status-date");
-
-  if (dateEl) {
-    const now = new Date();
-    const options = {
-      year: "numeric",
-      month: "long",
-      day: "numeric"
-    };
-
-    dateEl.textContent = now.toLocaleDateString(undefined, options);
-  }
-
 });
 </script>
-
 
 :::
